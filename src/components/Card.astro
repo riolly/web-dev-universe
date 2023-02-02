@@ -1,20 +1,29 @@
 ---
 export interface Props {
-	title: string;
-	body: string;
-	href: string;
+	title: string
+	body: string
+	href: string
 }
 
-const { href, title, body } = Astro.props;
+const {href, title, body} = Astro.props
 ---
 
-<li class="link-card rounded-lg flex p-0.5 bg-white bg-linear-accent group hover:bg-left [background-size:400%] [background-position:100%] focus-within:bg-left shadow md:shadow-md transition-all duration-500">
-	<a href={href} class="leading-6 py-3 px-4 md:py-4 md:px-6 rounded-lg bg-white opacity-80 outline-none">
-		<h2 class="group-hover:text-accent transition-colors group-focus-within:text-accent m-0 text-lg md:text-xl">
+<li
+	class='link-card group flex rounded-lg bg-white bg-linear-accent p-0.5 shadow transition-all duration-500 [background-size:400%] [background-position:100%] focus-within:bg-left hover:bg-left md:shadow-md'
+>
+	<a
+		href={href}
+		class='rounded-lg bg-white py-3 px-4 leading-6 opacity-80 outline-none md:py-4 md:px-6'
+	>
+		<h2
+			class='m-0 text-lg transition-colors group-focus-within:text-accent group-hover:text-accent md:text-xl'
+		>
 			{title}
 			<span>&rarr;</span>
 		</h2>
-		<p class="mt-2 mb-0 text-gray-600 group-hover:text-gray-800 group-focus-within:text-gray-800 leading-5 md:leading-6">
+		<p
+			class='mt-2 mb-0 leading-5 text-gray-600 group-focus-within:text-gray-800 group-hover:text-gray-800 md:leading-6'
+		>
 			{body}
 		</p>
 	</a>
