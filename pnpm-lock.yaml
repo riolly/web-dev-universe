@@ -2,6 +2,8 @@ lockfileVersion: 5.4
 
 specifiers:
   '@astrojs/tailwind': ^3.0.1
+  '@fontsource/karla': ^4.5.11
+  '@fontsource/oswald': ^4.5.12
   '@typescript-eslint/parser': ^5.50.0
   astro: ^2.0.5
   eslint: ^8.33.0
@@ -14,6 +16,8 @@ specifiers:
 
 dependencies:
   '@astrojs/tailwind': 3.0.1_b3gipgtytbm64jihtnqgut3wku
+  '@fontsource/karla': 4.5.11
+  '@fontsource/oswald': 4.5.12
   astro: 2.0.5
   tailwindcss: 3.2.4
 
@@ -596,6 +600,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@fontsource/karla/4.5.11:
+    resolution: {integrity: sha512-MpH+rW8V5v/mqEwoIrUTmGimY+GIyU5P23DmzYxWcTotosRLGWrg7XOjN4DtkpZuEv2LzHHZxOuFWbjRWL9JfQ==}
+    dev: false
+
+  /@fontsource/oswald/4.5.12:
+    resolution: {integrity: sha512-UAduJgOpCQzf+SnuatQ7ANWRIGPD2GXh3CfvJ4YTlbhGM0bQYCwHL/5u+YFjZzidBMXspzV/k33PPxwOrmuaew==}
+    dev: false
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}

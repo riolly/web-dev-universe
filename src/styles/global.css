@@ -5,8 +5,21 @@
 @layer base {
 	html {
 		font-family: system-ui, sans-serif;
-		@apply bg-gray-100;
+		@apply bg-gray-200;
 	}
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		@apply font-head;
+	}
+
+	p,
+	button {
+		@apply font-body leading-5;
+	}
+
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;

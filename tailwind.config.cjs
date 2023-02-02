@@ -9,6 +9,10 @@ module.exports = {
 			backgroundImage: {
 				'linear-accent': 'linear-gradient(45deg,theme(colors.accent),#da62c4 30%,white 60%)',
 			},
+			fontFamily: {
+				head: ['Oswald', 'san-serif'],
+				body: ['Karla', 'san-serif'],
+			},
 		},
 	},
 	plugins: [],
