@@ -1,45 +1,24 @@
 ---
 import Layout from 'layouts/Layout.astro'
-import Card from 'components/Card.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
-	<main class='container m-auto max-w-xl p-6'>
-		<h1 class='text-center text-4xl font-extrabold md:text-left md:text-5xl'>
-			Welcome to <span
-				class='text-gradient bg-linear-accent bg-clip-text [background-size:400%] [-webkit-text-fill-color:transparent]'
-				>Astro</span
-			>
-		</h1>
+	<main class='container m-auto min-h-screen max-w-screen-md p-4'>
+		<div class='absolute top-1/2 -translate-y-1/2'>
+			<h1 class='text-4xl font-bold'>
+				Web keep evolving.
+				<br /><span class='italic'>Really Fast!</span>
+			</h1>
 
-		<p class='instructions my-4 mx-0 rounded-lg border border-accent/25 bg-white p-4'>
-			To get started, open the directory <code
-				class='rounded bg-accent/10 py-1 px-2 text-sm font-bold text-accent'>src/pages</code
-			> in your project.<br />
-			<br class='md:hidden' /><strong class='text-accent'>Code Challenge:</strong> Tweak the "Welcome
-			to Astro" message above.
-		</p>
-		<ul role='list' class='mt-6 grid gap-2 p-0 md:mt-0 md:grid-cols-2 md:gap-4'>
-			<Card
-				href='https://docs.astro.build/'
-				title='Documentation'
-				body='Learn how Astro works and explore the official API docs.'
-			/>
-			<Card
-				href='https://astro.build/integrations/'
-				title='Integrations'
-				body='Supercharge your project with new frameworks and libraries.'
-			/>
-			<Card
-				href='https://astro.build/themes/'
-				title='Themes'
-				body='Explore a galaxy of community-built starter themes.'
-			/>
-			<Card
-				href='https://astro.build/chat/'
-				title='Community'
-				body='Come say hi to our amazing Discord community. ❤️'
-			/>
-		</ul>
+			<p class='mt-4'>
+				Nothing can stop the web.<br />All we can do is go alongside.<br />Unless we want to die
+				slowly.
+			</p>
+
+			<button class='mt-2 rounded border border-gray-50 bg-gray-100 py-1 px-2'>Let's go!</button>
+			<button class='mt-2 rounded border border-red-50 bg-red-100 py-1 px-2 text-red-900'
+				>I rather die here</button
+			>
+		</div>
 	</main>
 </Layout>
