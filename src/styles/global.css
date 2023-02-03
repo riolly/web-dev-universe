@@ -5,19 +5,18 @@
 @layer base {
 	html {
 		font-family: system-ui, sans-serif;
-		@apply bg-gray-200;
+		@apply bg-slate-900;
 	}
 
 	h1,
 	h2,
 	h3,
 	h4 {
-		@apply font-head;
+		@apply font-head text-slate-50;
 	}
 
-	p,
-	button {
-		@apply font-body leading-5;
+	p {
+		@apply font-body text-slate-100;
 	}
 
 	code {
