@@ -5,24 +5,148 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
-	<main class='container relative m-auto min-h-screen max-w-screen-md overflow-hidden p-4'>
-		<div class='absolute top-1/2 -translate-y-1/2'>
-			<h1 class='text-4xl font-bold'>
-				Web keep evolving.
-				<br /><span class='italic'>Really Fast!</span>
+	<div class='absolute h-full w-full overflow-clip'>
+		<div class='absolute h-full w-full bg-black bg-[url(/images/stars.svg)] bg-cover'></div>
+		<div
+			class='absolute h-full w-full bg-[url(/images/twinkling-mask.png)] [animation:move-twink_300s_linear_infinite]'
+		>
+		</div>
+		<div class='absolute h-full w-full bg-[url(/images/stars-shine.svg)] bg-cover'></div>
+		<div
+			class='absolute h-full w-full bg-[url(/images/cloud.png)] bg-repeat-x opacity-60 [animation:move-cloud_200s_linear_infinite] md:mt-20 md:[background-size:150%] lg:mt-0 xl:[background-size:125%] 2xl:[background-size:110%]'
+		>
+		</div>
+
+		<div
+			class='absolute bottom-0 right-0 h-1/3 w-full bg-gradient-to-br from-transparent via-transparent to-indigo-900/80 md:w-3/4 xl:h-1/2'
+		>
+		</div>
+		<EarthSvg
+			className='h-[28rem] md:h-[36rem] lg:h-[40rem] xl:h-[48rem] 2xl:h-[60rem] -rotate-90 absolute top-0 left-0 -translate-x-1/2 2xl:ml-20 -translate-y-1/2'
+		/>
+
+		<div
+			class='bg-red-500s absolute top-1/2 left-1/2 -ml-12 h-fit w-[175%] -translate-y-1/2 -translate-x-1/2 overflow-clip md:-ml-40 md:w-[120%] lg:-ml-32 lg:w-[96%] xl:-ml-24 xl:w-[88%] 2xl:-ml-20 2xl:w-[72%]'
+		>
+			<svg
+				class='-mt-16 -rotate-[15deg]'
+				xmlns='http://www.w3.org/2000/svg'
+				xmlns:xlink='http://www.w3.org/1999/xlink'
+				viewBox='0 0 800 800'
+			>
+				<defs>
+					<radialGradient id='radial-gradient'>
+						<stop offset='50%' stop-color='black' stop-opacity='.9'></stop>
+						<!-- 0f172a -->
+						<stop offset='70%' stop-color='black' stop-opacity='.7'></stop>
+						<stop offset='100%' stop-color='black' stop-opacity='0'></stop>
+					</radialGradient>
+				</defs>
+				<g id='background'>
+					<ellipse
+						rx='400'
+						ry='250'
+						cx='400'
+						cy='400'
+						fill='url(#radial-gradient)'
+						style='mix-blend-mode:color-dodge'></ellipse>
+				</g>
+			</svg>
+		</div>
+	</div>
+
+	<main
+		class='container relative m-auto min-h-screen max-w-screen-md overflow-y-clip p-4 md:px-8 lg:px-0'
+	>
+		<div class='absolute top-1/2 -mt-8 -translate-y-1/2'>
+			<h1
+				class='text-5xl font-bold leading-tight md:text-6xl md:leading-tight 2xl:text-7xl 2xl:leading-snug'
+			>
+				Web keep evolving..
+				<br /><span class='italic'
+					>..really <span
+						class='align-bottom text-[3.5rem] text-transparent [-webkit-text-stroke:2px_white] md:text-[4rem] 2xl:text-[5rem]'
+						>fast!</span
+					></span
+				>
 			</h1>
 
-			<p class='mt-4'>
-				Nothing can stop the web.<br />All we can do is go alongside.<br />Unless we want to die
-				slowly.
+			<p class='mt-4 text-lg leading-6 text-slate-300 md:mt-6 md:text-xl 2xl:text-2xl'>
+				Nothing can stop the web.<br />Be part of this unprecendented change.<br />Unless your
+				organization want to die slowly.
 			</p>
-
-			<button class='mt-2 rounded border border-gray-50 bg-gray-100 py-1 px-2'>Let's go!</button>
-			<button class='mt-2 rounded border border-red-50 bg-red-100 py-1 px-2 text-red-900'
-				>I rather die here</button
-			>
 		</div>
-		<RocketAstronaut className='h-64 absolute bottom-0 right-0' />
-		<EarthSvg className='h-[28rem] absolute top-0 left-0 translate-x-1/4 -translate-y-1/2' />
+
+		<div
+			class='absolute -bottom-8 right-0 [animation:wobbleX_3s_alternate_ease-in-out_infinite] md:mr-12 md:mb-8 lg:-mr-8 xl:-mr-36 2xl:-mr-[32rem]'
+		>
+			<div class='[animation:wobbleY_4s_alternate_ease-in-out_infinite]'>
+				<RocketAstronaut className='h-72 xl:h-80 2xl:h-96 w-full' />
+			</div>
+		</div>
 	</main>
 </Layout>
+
+<style>
+	@keyframes move-twink {
+		from {
+			background-position: 0 0;
+		}
+		to {
+			background-position: -10000px 5000px;
+		}
+	}
+
+	@keyframes move-cloud {
+		from {
+			background-position: 0 60px;
+		}
+		to {
+			background-position: 10000px 60px;
+		}
+	}
+
+	@keyframes wobbleY {
+		0% {
+			transform: translateY(0);
+		}
+		25% {
+			transform: translateY(-30px);
+		}
+		50% {
+			transform: translateY(-20px);
+		}
+		75% {
+			transform: translateY(-50px);
+		}
+		100% {
+			transform: translate3d(-30px);
+		}
+	}
+	@keyframes wobbleX {
+		0% {
+			transform: translateX(0);
+		}
+		14.5% {
+			transform: translateX(-5px);
+		}
+		28.57% {
+			transform: translateX(5px);
+		}
+		42.83% {
+			transform: translateX(-12px);
+		}
+		57.14% {
+			transform: translateX(12px);
+		}
+		71.42% {
+			transform: translateX(-8px);
+		}
+		85.72% {
+			transform: translateX(8px);
+		}
+		100% {
+			transform: translateX(0px);
+		}
+	}
+</style>
