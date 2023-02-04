@@ -185,7 +185,7 @@ const {className} = Astro.props
 		d='M1696 1375h-1a7 7 0 0 1-1 0l-2-1a48 48 0 0 1-4-2 73 73 0 0 1-9-5 95 95 0 0 1-17-13c-11-10-20-23-27-37l-5-11-4-11-7-23-6-23-2-12a86 86 0 0 1 0-11v-1a5 5 0 0 0-10-1 92 92 0 0 0-1 14 193 193 0 0 0 4 38l4 24 4 13 4 12c6 17 14 33 26 47a123 123 0 0 0 19 20 105 105 0 0 0 12 8l7 3 3 2 2 1 3 1a16 16 0 0 0 8-32M1411 853a1280 1280 0 0 1 151-33c17-2 34-4 50-4a18 18 0 0 0 1-37h-2a1106 1106 0 0 0-207 55 10 10 0 0 0 6 19Z'
 	></path>
 	<path fill='#d8d8d8' d='M1972 525c-5-13-11-19-11-19a145 145 0 0 0 11 19'></path>
-	<g id='hand-right' class='origin-bottom-left [animation:hello_4s_alternate_infinite]'>
+	<g id='hand-right' class='waving origin-bottom-left'>
 		<path
 			fill='#fff'
 			d='M1191 909s437-422 744-499c80-19 177-50 181 33 39 30 66 110 44 158-18 37-70 52-125 88s-435 275-612 543'
@@ -582,7 +582,10 @@ const {className} = Astro.props
 </svg>
 
 <style>
-	@keyframes hello {
+	.waving {
+		animation: waving 4s 10s alternate-reverse infinite backwards;
+	}
+	@keyframes waving {
 		0% {
 			transform: rotate(0) translate3d(5%, -2%, 0);
 		}
