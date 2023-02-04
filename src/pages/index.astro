@@ -6,26 +6,25 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 
 <Layout title='Welcome to Astro.'>
 	<div class='absolute h-full w-full overflow-clip'>
-		<div class='absolute h-full w-full bg-black bg-[url(/images/stars.svg)] bg-cover'></div>
+		<div class='stars absolute h-full w-full bg-black bg-cover'></div>
+		<div class='twink absolute h-full w-full'></div>
+		<div class='stars-shine absolute h-full w-full bg-cover'></div>
 		<div
-			class='absolute h-full w-full bg-[url(/images/twinkling-mask.png)] [animation:move-twink_300s_linear_infinite]'
-		>
-		</div>
-		<div class='absolute h-full w-full bg-[url(/images/stars-shine.svg)] bg-cover'></div>
-		<div
-			class='absolute h-full w-full bg-[url(/images/cloud.png)] bg-repeat-x opacity-60 [animation:move-cloud_200s_linear_infinite] md:mt-20 md:[background-size:150%] lg:mt-0 xl:[background-size:125%] 2xl:[background-size:110%]'
+			class='cloud absolute h-full w-full bg-repeat-x opacity-60 md:mt-20 md:[background-size:150%] lg:mt-0 xl:[background-size:125%] 2xl:[background-size:110%]'
 		>
 		</div>
 
-		<div
-			class='absolute bottom-0 right-0 h-1/3 w-full bg-gradient-to-br from-transparent via-transparent to-indigo-900/80 md:w-3/4 xl:h-1/2'
-		>
-		</div>
 		<EarthSvg
 			className='h-[28rem] md:h-[36rem] lg:h-[40rem] xl:h-[48rem] 2xl:h-[60rem] -rotate-90 absolute top-0 left-0 -translate-x-1/2 2xl:ml-20 -translate-y-1/2'
 		/>
+		<div
+			id='br-gradient'
+			class='absolute bottom-0 right-0 h-1/3 w-full bg-gradient-to-br from-transparent via-transparent to-indigo-900/80 md:w-3/4 xl:h-1/2'
+		>
+		</div>
 
 		<div
+			id='content-bg'
 			class='bg-red-500s absolute top-1/2 left-1/2 -ml-12 h-fit w-[175%] -translate-y-1/2 -translate-x-1/2 overflow-clip md:-ml-40 md:w-[120%] lg:-ml-32 lg:w-[96%] xl:-ml-24 xl:w-[88%] 2xl:-ml-20 2xl:w-[72%]'
 		>
 			<svg
@@ -79,9 +78,9 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 		</div>
 
 		<div
-			class='absolute -bottom-8 right-0 [animation:zoomInUp_2s,wobbleX_3s_2s_alternate_ease-in-out_infinite] md:mr-12 md:mb-8 lg:-mr-8 xl:-mr-36 2xl:-mr-[32rem]'
+			class='astronaut-container absolute -bottom-8 right-0 md:mr-12 md:mb-8 lg:-mr-8 xl:-mr-36 2xl:-mr-[32rem]'
 		>
-			<div class='[animation:wobbleY_4s_alternate_ease-in-out_infinite]'>
+			<div class='astronaut'>
 				<RocketAstronaut className='h-72 xl:h-80 2xl:h-96 w-full' />
 			</div>
 		</div>
@@ -89,6 +88,28 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 </Layout>
 
 <style>
+	.stars {
+		background-image: url(/images/stars.svg);
+	}
+	.twink {
+		animation: move-twink 300s linear infinite;
+		background-image: url(/images/twinkling-mask.png);
+	}
+	.cloud {
+		animation: move-cloud 200s linear infinite;
+		background-image: url(/images/cloud.png);
+	}
+	.stars-shine {
+		background-image: url(/images/stars-shine.svg);
+	}
+
+	.astronaut-container {
+		animation: zoomInUp 2s ease-out, wobbleX 3s 2s alternate ease-in-out infinite;
+	}
+	.astronaut {
+		animation: wobbleY 4s alternate ease-in-out infinite;
+	}
+
 	@keyframes move-twink {
 		from {
 			background-position: 0 0;
@@ -154,14 +175,34 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 	@keyframes zoomInUp {
 		from {
 			opacity: 0;
-			transform: scale3d(0.1, 0.1, 0.1) translate3d(800px, 1000px, 0);
+			transform: scale3d(0.1, 0.1, 0.1) translate3d(400px, 1000px, 0) rotate(90deg);
 			animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 		}
 
 		60% {
 			opacity: 1;
-			transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+			transform: scale3d(0.6, 0.6, 0.6) translate3d(100px, -100px, 0) rotate(30deg);
 			animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+		}
+	}
+
+	@keyframes lightSpeedInLeft {
+		from {
+			transform: translate3d(-100%, 0, 0) skewX(30deg);
+			opacity: 0;
+		}
+
+		60% {
+			transform: skewX(-20deg);
+			opacity: 1;
+		}
+
+		80% {
+			transform: skewX(5deg);
+		}
+
+		to {
+			transform: translate3d(0, 0, 0);
 		}
 	}
 </style>
