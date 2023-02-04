@@ -1,9 +1,6 @@
 {
 	"extends": "astro/tsconfigs/strict",
 	"compilerOptions": {
-		"baseUrl": "./src",
-		"paths": {
-			"images/*": ["../public/images/*"]
-		}
+		"baseUrl": "./src"
 	}
 }
