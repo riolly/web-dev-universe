@@ -79,7 +79,7 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 		</div>
 
 		<div
-			class='absolute -bottom-8 right-0 [animation:wobbleX_3s_alternate_ease-in-out_infinite] md:mr-12 md:mb-8 lg:-mr-8 xl:-mr-36 2xl:-mr-[32rem]'
+			class='absolute -bottom-8 right-0 [animation:zoomInUp_2s,wobbleX_3s_2s_alternate_ease-in-out_infinite] md:mr-12 md:mb-8 lg:-mr-8 xl:-mr-36 2xl:-mr-[32rem]'
 		>
 			<div class='[animation:wobbleY_4s_alternate_ease-in-out_infinite]'>
 				<RocketAstronaut className='h-72 xl:h-80 2xl:h-96 w-full' />
@@ -148,6 +148,20 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 		}
 		100% {
 			transform: translateX(0px);
+		}
+	}
+
+	@keyframes zoomInUp {
+		from {
+			opacity: 0;
+			transform: scale3d(0.1, 0.1, 0.1) translate3d(800px, 1000px, 0);
+			animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		}
+
+		60% {
+			opacity: 1;
+			transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+			animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
 		}
 	}
 </style>
