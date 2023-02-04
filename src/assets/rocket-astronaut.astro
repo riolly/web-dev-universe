@@ -583,11 +583,11 @@ const {className} = Astro.props
 
 <style>
 	.waving {
-		animation: waving 4s 10s alternate-reverse infinite backwards;
+		animation: waving 2s 10s ease-in-out alternate-reverse infinite backwards;
 	}
 	@keyframes waving {
 		0% {
-			transform: rotate(0) translate3d(5%, -2%, 0);
+			transform: rotate(0) translate3d(2%, -2%, 0);
 		}
 		20% {
 			transform: rotate(10deg) translate3d(-14%, -8%, 0);
