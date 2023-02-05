@@ -5,10 +5,22 @@
 @layer base {
 	html {
 		font-family: system-ui, sans-serif;
-		@apply bg-gray-100;
+		@apply bg-slate-900;
 	}
-	code {
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		@apply font-head text-slate-50;
+	}
+
+	p {
+		@apply font-body text-slate-100;
+	}
+
+	/* code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+	} */
 }

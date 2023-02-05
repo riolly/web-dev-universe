@@ -1,20 +1,19 @@
 ---
-import '../styles/global.css'
-export interface Props {
-	title: string
-}
+import 'styles/global.css'
+import '@fontsource/oswald'
+import '@fontsource/karla'
 
-const {title} = Astro.props
+import {SITE} from '../config'
+import HeadCommon from 'components/HeadCommon.astro'
+import HeadSeo from 'components/HeadSeo.astro'
 ---
 
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='en-us'>
 	<head>
-		<meta charset='UTF-8' />
-		<meta name='viewport' content='width=device-width' />
-		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-		<meta name='generator' content={Astro.generator} />
-		<title>{title}</title>
+		<HeadCommon />
+		<HeadSeo type='website' />
+		<title>{SITE.title}</title>
 	</head>
 	<body>
 		<slot />
