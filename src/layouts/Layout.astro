@@ -3,23 +3,17 @@ import 'styles/global.css'
 import '@fontsource/oswald'
 import '@fontsource/karla'
 
-export interface Props {
-	title: string
-	description: string
-}
-
-const {title, description} = Astro.props
+import {SITE} from '../config'
+import HeadCommon from 'components/HeadCommon.astro'
+import HeadSeo from 'components/HeadSeo.astro'
 ---
 
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='en-us'>
 	<head>
-		<meta charset='UTF-8' />
-		<meta name='viewport' content='width=device-width' />
-		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-		<meta name='generator' content={Astro.generator} />
-		<meta name='description' content={description} />
-		<title>{title}</title>
+		<HeadCommon />
+		<HeadSeo type='website' />
+		<title>{SITE.title}</title>
 	</head>
 	<body>
 		<slot />
