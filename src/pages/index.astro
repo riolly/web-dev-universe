@@ -8,7 +8,7 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 	title='Welcome to Riolly Universe'
 	description='Explore web development universe with Alberto Riolly and take your dev skill to the moon.'
 >
-	<div class='absolute h-full w-full overflow-clip'>
+	<div class='absolute h-[100lvh] w-full overflow-clip'>
 		<div class='stars absolute h-full w-full bg-black bg-cover'></div>
 		<div class='twink absolute h-full w-full'></div>
 		<div class='stars-shine absolute h-full w-full bg-cover'></div>
@@ -18,7 +18,7 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 		</div>
 
 		<EarthSvg
-			className='h-[28rem] md:h-[36rem] lg:h-[40rem] xl:h-[48rem] 2xl:h-[60rem] -rotate-90 absolute top-0 left-0 -translate-x-1/2 2xl:ml-20 -translate-y-1/2'
+			className='h-[28rem] md:h-[36rem] lg:h-[40rem] xl:h-[48rem] 2xl:h-[56rem] -rotate-90 absolute top-0 left-0 -translate-x-1/2 2xl:ml-20 -translate-y-1/2'
 		/>
 		<div
 			id='br-gradient'
@@ -56,7 +56,7 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 		</div>
 
 		<div
-			class='astronaut-container absolute -bottom-8 right-0 md:mr-12 md:mb-8 lg:mr-8 xl:mr-16 2xl:mr-60'
+			class='astronaut-container absolute -bottom-8 right-0 md:mr-12 md:mb-8 lg:mr-8 xl:mr-16 2xl:mr-20'
 		>
 			<div class='astronaut'>
 				<RocketAstronaut className='h-72 xl:h-80 2xl:h-96 w-full' />
@@ -83,13 +83,13 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 			</h1>
 
 			<p class='mt-4 text-lg leading-6 md:mt-6 md:text-xl 2xl:text-2xl'>
-				<span style='--n:150' class='type'>
+				<span style='--n:142' class='type'>
 					It will keep expanding like the <span class='font-semibold italic'>galaxy.</span>
 					<br />
 					Be part of change & become one of the <span class='font-semibold italic'>stars.</span>
 					<br />
-					Or stay with the obsolete tech & die slowly on our boring
-					<span class='font-semibold italic'> planet!</span>&nbsp;
+					Or you can stay with obsolete tech and <br class='md:hidden' /> die slowly
+					<span class='font-semibold italic'> there!</span>&nbsp;
 				</span>
 			</p>
 		</div>
@@ -107,16 +107,14 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 	$delay-2: $delay-1 + $duration-1 - 0.4s;
 	$duration-2: 0.5s;
 	// astronaut show
-	$delay-3: $delay-2 + $duration-2 - 0.7s;
-	$duration-3: 2s;
+	$delay-3: $delay-2 + $duration-2 + 3s;
+	$duration-3: 5s;
 	// astronout wobble
-	$delay-4: $delay-3 + $duration-3;
+	$delay-4: $delay-3 + $duration-3 - 0.2s;
 	$duration-4: 3s;
 	// typing paragraph
-	$delay-5: $delay-4;
-	$duration-5: 7.5s;
-	// hand waving
-	$delay-6: $delay-5 + $duration-5 - 0.5s;
+	$delay-5: $delay-2 + $duration-2 + 0.2s;
+	$duration-5: 7.1s;
 
 	.stars {
 		background-image: url(/images/stars.svg);
@@ -144,7 +142,7 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 	}
 
 	.astronaut-container {
-		animation: zoomInUp $duration-3 $delay-3 ease-out backwards,
+		animation: zoomInUp $duration-3 $delay-3 backwards,
 			wobbleX $duration-4 $delay-4 alternate ease-in-out infinite;
 	}
 
@@ -157,8 +155,8 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 		-webkit-background-clip: padding-box, text;
 		background-clip: padding-box, text;
 		background-repeat: no-repeat;
-		animation: b 0.5s $delay-5 infinite steps(1) backwards,
-			t calc(var(--n) * 0.05s) $delay-5 steps(var(--n)) both;
+		animation: blinking 0.5s $delay-5 infinite steps(1) backwards,
+			typing calc(var(--n) * 0.05s) $delay-5 steps(var(--n)) both;
 	}
 
 	.astronaut {
@@ -230,13 +228,19 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 	@keyframes zoomInUp {
 		from {
 			opacity: 0;
-			transform: scale3d(0.1, 0.1, 0.1) translate3d(400px, 1000px, 0) rotate(90deg);
+			transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 1000px, 0);
 			animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 		}
 
-		60% {
+		70% {
 			opacity: 1;
-			transform: scale3d(0.6, 0.6, 0.6) translate3d(100px, -100px, 0) rotate(30deg);
+			transform: scale3d(0.6, 0.6, 0.6) translate3d(300px, 300px, 0);
+			animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+		}
+
+		100% {
+			opacity: 1;
+			transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
 			animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
 		}
 	}
@@ -261,12 +265,12 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 		}
 	}
 
-	@keyframes t {
+	@keyframes typing {
 		from {
 			background-size: 0 200%;
 		}
 	}
-	@keyframes b {
+	@keyframes blinking {
 		50% {
 			background-position: 0 -100%, 0 0;
 		}
