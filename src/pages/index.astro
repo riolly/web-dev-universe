@@ -2,74 +2,88 @@
 import Layout from 'layouts/Layout.astro'
 import EarthSvg from 'assets/earth.astro'
 import RocketAstronaut from 'assets/rocket-astronaut.astro'
+import PlanetLandscape2 from 'assets/planet.astro'
+import PlanetLandscape from 'public/images/planet-landscape.svg'
 ---
 
 <Layout
 	title='Welcome to Riolly Universe'
 	description='Explore web development universe with Alberto Riolly and take your dev skill to the moon.'
 >
-	<div class='absolute h-[100lvh] w-full overflow-clip'>
-		<div class='stars absolute h-full w-full bg-black bg-cover'></div>
+	<div class='absolute h-fit w-full overflow-clip'>
+		<div class='stars absolute h-0.5 w-0.5 rounded-full'></div>
+		<div class='stars-big absolute h-1 w-1 rounded-full'></div>
 		<div class='twink absolute h-full w-full'></div>
-		<div class='stars-shine absolute h-full w-full bg-cover'></div>
-		<div
+
+		<!-- <div
 			class='cloud absolute h-full w-full bg-repeat-x opacity-60 md:mt-20 md:[background-size:150%] lg:mt-0 xl:[background-size:125%] 2xl:[background-size:110%]'
-		>
-		</div>
+		> 
+		</div> -->
+		<div class='relative h-[100lvh] w-full'>
+			<div class='stars-shine absolute h-full w-full bg-cover'></div>
 
-		<EarthSvg
-			className='h-[28rem] md:h-[36rem] lg:h-[40rem] xl:h-[48rem] 2xl:h-[56rem] -rotate-90 absolute top-0 left-0 -translate-x-1/2 2xl:ml-20 -translate-y-1/2'
-		/>
-		<div
-			id='br-gradient'
-			class='absolute bottom-0 right-0 h-1/3 w-full bg-gradient-to-br from-transparent via-transparent to-indigo-900/80 md:w-3/4 xl:h-1/2'
-		>
-		</div>
-
-		<div
-			id='content-bg'
-			class='bg-red-500s absolute top-1/2 left-1/2 -ml-12 h-fit w-[175%] -translate-y-1/2 -translate-x-1/2 overflow-clip md:-ml-40 md:w-[120%] lg:-ml-32 lg:w-[96%] xl:-ml-24 xl:w-[88%] 2xl:-ml-20 2xl:w-[72%]'
-		>
-			<svg
-				class='-mt-16 -rotate-[15deg]'
-				xmlns='http://www.w3.org/2000/svg'
-				xmlns:xlink='http://www.w3.org/1999/xlink'
-				viewBox='0 0 800 800'
+			<EarthSvg
+				className='h-[28rem] md:h-[36rem] lg:h-[40rem] xl:h-[48rem] 2xl:h-[52rem] -rotate-90 absolute top-0 left-0 -translate-x-1/2 2xl:ml-20 -translate-y-1/2'
+			/>
+			<div
+				id='gradient-br'
+				class='absolute bottom-0 right-0 h-1/3 w-full bg-gradient-to-br from-transparent via-transparent to-indigo-900/80 md:w-3/4 lg:w-1/2'
 			>
-				<defs>
-					<radialGradient id='radial-gradient'>
-						<stop offset='50%' stop-color='black' stop-opacity='.9'></stop>
-						<stop offset='70%' stop-color='black' stop-opacity='.7'></stop>
-						<stop offset='100%' stop-color='black' stop-opacity='0'></stop>
-					</radialGradient>
-				</defs>
-				<g id='background'>
-					<ellipse
-						rx='400'
-						ry='250'
-						cx='400'
-						cy='400'
-						fill='url(#radial-gradient)'
-						style='mix-blend-mode:color-dodge'></ellipse>
-				</g>
-			</svg>
-		</div>
-
-		<div
-			class='astronaut-container absolute -bottom-8 right-0 md:mr-12 md:mb-8 lg:mr-8 xl:mr-16 2xl:mr-20'
-		>
-			<div class='astronaut'>
-				<RocketAstronaut className='h-72 xl:h-80 2xl:h-96 w-full' />
 			</div>
+			<div
+				id='gradient-tr'
+				class='absolute bottom-0 right-0 h-1/3 w-full translate-y-full bg-gradient-to-tr from-transparent via-transparent to-indigo-900/90 md:w-3/4 lg:w-1/2 xl:h-1/4'
+			>
+			</div>
+
+			<div
+				id='content-bg'
+				class='absolute top-1/2 left-1/2 -ml-12 mt-4 h-fit w-[175%] -translate-y-1/2 -translate-x-1/2 overflow-clip md:-ml-40 md:w-[120%] lg:-ml-32 lg:w-[92%] xl:-ml-24 xl:w-[80%] 2xl:-ml-20 2xl:w-[60%]'
+			>
+				<svg
+					class='-mt-16 -rotate-[15deg]'
+					xmlns='http://www.w3.org/2000/svg'
+					xmlns:xlink='http://www.w3.org/1999/xlink'
+					viewBox='0 0 800 800'
+				>
+					<defs>
+						<radialGradient id='radial-gradient'>
+							<stop offset='50%' stop-color='#1e293b' stop-opacity='.8'></stop>
+							<stop offset='70%' stop-color='#334155' stop-opacity='.6'></stop>
+							<stop offset='100%' stop-color='#0f172a' stop-opacity='0'></stop>
+						</radialGradient>
+					</defs>
+					<g id='background'>
+						<ellipse
+							rx='400'
+							ry='250'
+							cx='400'
+							cy='400'
+							fill='url(#radial-gradient)'
+							style='mix-blend-mode:color-dodge'></ellipse>
+					</g>
+				</svg>
+			</div>
+
+			<div
+				class='astronaut-container absolute -bottom-8 right-0 md:mr-12 md:mb-8 lg:mr-8 xl:mr-16 2xl:mr-20'
+			>
+				<div class='astronaut'>
+					<RocketAstronaut className='h-64 lg:72 xl:h-80 2xl:h-84 w-full' />
+				</div>
+			</div>
+		</div>
+		<div class='relative h-[100lvh] w-full'>
+			<PlanetLandscape2 className='absolute w-full bottom-0' />
 		</div>
 	</div>
 
-	<main
-		class='container relative m-auto min-h-screen max-w-screen-md overflow-y-clip p-4 md:px-8 lg:px-0'
-	>
-		<div class='absolute top-1/2 -mt-8 -translate-y-1/2 pr-2 md:pr-0'>
+	<main class='relative w-full'>
+		<div
+			class='mx-auto flex h-screen max-w-screen-md flex-col justify-center p-4 pr-2 md:px-8 md:pr-0 lg:px-0'
+		>
 			<h1
-				class='text-5xl font-bold leading-tight md:text-6xl md:leading-tight 2xl:text-7xl 2xl:leading-snug'
+				class='-mt-8 text-5xl font-bold leading-tight md:text-6xl md:leading-tight xl:text-7xl xl:leading-tight'
 			>
 				<span class='lightSpeed0'>Web keep <span class='lightSpeed1'>evolving..</span></span>
 				<span class='lightSpeed2 block italic'>
@@ -93,6 +107,8 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 				</span>
 			</p>
 		</div>
+
+		<div class='h-screen w-full'></div>
 	</main>
 </Layout>
 
@@ -116,12 +132,27 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 	$delay-5: $delay-2 + $duration-2 + 0.2s;
 	$duration-5: 7.1s;
 
-	.stars {
-		background-image: url(/images/stars.svg);
+	@function multiple-box-shadow($n) {
+		$value: '#{random(3840)}px #{random(2160*2)}px #FFF';
+		@for $i from 2 through $n {
+			$value: '#{$value} , #{random(3840)}px #{random(2160*2)}px #FFF';
+		}
+		@return unquote($value);
 	}
+
+	$stars: multiple-box-shadow(1000);
+	$stars-big: multiple-box-shadow(750);
+
+	.stars {
+		box-shadow: $stars;
+	}
+	.stars-big {
+		box-shadow: $stars-big;
+	}
+
 	.twink {
 		animation: move-twink 300s linear infinite;
-		background-image: url(/images/twinkling-mask.png);
+		background-image: url(/images/twink.svg);
 	}
 	.cloud {
 		animation: move-cloud 200s linear infinite;
