@@ -64,8 +64,7 @@ import DialogBox from 'assets/dialog-box.astro'
 					</g>
 				</svg>
 			</div>
-			<!-- Right_here,_hope_on_!! -->
-			<div
+			<button
 				class='astronaut-container group absolute -bottom-8 right-0 z-10 transform pl-24 pt-16 transition-transform hover:cursor-pointer md:mr-12 md:mb-8 lg:mr-8 xl:mr-16 2xl:mr-20'
 			>
 				<div class='astronaut'>
@@ -80,7 +79,7 @@ import DialogBox from 'assets/dialog-box.astro'
 							<p class='text-bold font-head text-2xl leading-5'>
 								<span
 									style='--n:22'
-									class={`type-action text-black before:text-3xl group-hover:invisible before:visible before:text-black before:group-hover:content-["Let's_GO!_"]`}
+									class={`type-action text-black before:text-3xl group-hover:invisible before:visible before:text-black before:group-hover:content-["Ready??"] before:group-focus:content-["Let's_GO!_"]`}
 									>Right here, hope on!!</span
 								>
 							</p>
@@ -89,7 +88,7 @@ import DialogBox from 'assets/dialog-box.astro'
 
 					<RocketAstronaut className='h-64 lg:72 xl:h-80 2xl:h-84 w-full' />
 				</div>
-			</div>
+			</button>
 		</div>
 		<div class='relative h-[100lvh] w-full'>
 			<PlanetLandscape className='absolute w-full -bottom-8' />
@@ -126,7 +125,9 @@ import DialogBox from 'assets/dialog-box.astro'
 			</p>
 		</div>
 
-		<div class='h-screen w-full'></div>
+		<div class='h-screen w-full'>
+			<h2 id='contact'>Contact</h2>
+		</div>
 	</main>
 </Layout>
 
@@ -196,11 +197,6 @@ import DialogBox from 'assets/dialog-box.astro'
 		animation: lightSpeed $duration-2 $delay-2 ease-out backwards;
 	}
 
-	.astronaut-container {
-		animation: zoomInUp $duration-3 $delay-3 backwards,
-			wobbleX $duration-4 $delay-4 alternate ease-in-out infinite;
-	}
-
 	.type-desc {
 		/* font-family: monospace; */
 		color: #0000;
@@ -214,14 +210,6 @@ import DialogBox from 'assets/dialog-box.astro'
 			typing calc(var(--n) * 0.05s) $delay-5 steps(var(--n)) both;
 	}
 
-	.astronaut {
-		animation: wobbleY 4s alternate ease-in-out infinite;
-	}
-
-	.rotateInDownRight {
-		animation: rotateInDownRight $duration-6 $delay-6 backwards;
-	}
-
 	.type-action {
 		color: #0000;
 		background: linear-gradient(-90deg, #94a3b8 5px, #0000 0) 10px 0, linear-gradient(black 0 0) 0 0;
@@ -233,15 +221,54 @@ import DialogBox from 'assets/dialog-box.astro'
 			typing calc(var(--n) * 0.1s) $delay-7 steps(var(--n)) both;
 	}
 
+	// astronout-container
 	.group {
+		animation: zoomInUp $duration-3 $delay-3 backwards,
+			wobbleX $duration-4 $delay-4 alternate ease-in-out infinite;
+
+		.astronaut {
+			animation: wobbleY 4s alternate ease-in-out infinite;
+		}
+
+		.rotateInDownRight {
+			animation: rotateInDownRight $duration-6 $delay-6 backwards;
+		}
+
 		.fadeIn {
 			animation: fadeIn 1s calc($delay-7 + 0.5s) backwards;
 		}
+
 		&:not(:hover) .ping {
 			animation: ping-m 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 		}
+
 		&:hover .ping {
 			animation: ping-l 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+		}
+
+		&:focus {
+			animation: wobbleX 0.75s alternate ease-in-out infinite, scale 2s 1.5s ease-out forwards,
+				goingX 2s 1.5s cubic-bezier(0.36, 0.73, 0.8, 0.97) forwards;
+			.astronaut {
+				animation: wobbleY 1.5s alternate ease-in-out infinite,
+					goingY 2s 1.5s cubic-bezier(0.73, 0.02, 0, 0.99) forwards;
+			}
+		}
+	}
+
+	@keyframes goingX {
+		100% {
+			transform: translateX(-140vw);
+		}
+	}
+	@keyframes goingY {
+		100% {
+			transform: translateY(-120lvh);
+		}
+	}
+	@keyframes scale {
+		80% {
+			transform: scale(4);
 		}
 	}
 
