@@ -74,7 +74,7 @@ import DialogBox from 'assets/dialog-box.astro'
 						</div>
 						<DialogBox className='absolute h-full rotateInDownRight origin-bottom-right' />
 						<div
-							class='absolute top-1.5 left-[22px] w-24 -rotate-2 group-hover:left-5 group-hover:top-5'
+							class='absolute top-1.5 left-5 w-24 -rotate-2 group-hover:left-5 group-hover:top-5'
 						>
 							<p class='text-bold font-head text-2xl leading-5'>
 								<span
@@ -98,7 +98,8 @@ import DialogBox from 'assets/dialog-box.astro'
 	</div>
 
 	<main class='w-ful relative overflow-x-clip'>
-		<div
+		<section
+			id='intro'
 			class='mx-auto flex h-screen max-w-screen-md flex-col justify-center p-4 pr-2 md:px-8 md:pr-0 lg:px-0'
 		>
 			<h1
@@ -125,13 +126,26 @@ import DialogBox from 'assets/dialog-box.astro'
 					<span class='font-semibold italic'> there!</span>&nbsp;
 				</span>
 			</p>
-		</div>
+		</section>
 
-		<div class='h-screen w-full'>
-			<h2 id='contact'>Contact</h2>
-		</div>
+		<section class='h-screen w-full' id='contact'></section>
 	</main>
 </Layout>
+
+<script>
+	const sectionIntro = document.querySelector('section#intro') as HTMLElement
+	const sectionContact = document.querySelector('section#contact') as HTMLElement
+	const astronaut = document.querySelector('div.astronaut') as HTMLButtonElement
+	const astronautContainer = document.querySelector(
+		'button.astronaut-container'
+	) as HTMLButtonElement
+
+	astronautContainer.addEventListener('click', () => {
+		setTimeout(() => {
+			sectionContact.scrollIntoView()
+		}, 1700)
+	})
+</script>
 
 <style lang='scss'>
 	// Web keep..
@@ -225,13 +239,6 @@ import DialogBox from 'assets/dialog-box.astro'
 
 	// astronout-container
 	.group {
-		animation: zoomInUp $duration-3 $delay-3 backwards,
-			wobbleX $duration-4 $delay-4 alternate ease-in-out infinite;
-
-		.astronaut {
-			animation: wobbleY 4s alternate ease-in-out infinite;
-		}
-
 		.rotateInDownRight {
 			animation: rotateInDownRight $duration-6 $delay-6 backwards;
 		}
@@ -248,12 +255,21 @@ import DialogBox from 'assets/dialog-box.astro'
 			animation: ping-l 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 		}
 
-		&:focus {
-			animation: wobbleX 0.75s alternate ease-in-out infinite, scale 2s 1.5s ease-out forwards,
-				goingX 2s 1.5s cubic-bezier(0.36, 0.73, 0.8, 0.97) forwards;
+		&:not(:focus) {
+			animation: zoomInUp $duration-3 $delay-3 backwards,
+				wobbleX $duration-4 $delay-4 alternate ease-in-out infinite;
+
 			.astronaut {
-				animation: wobbleY 1.5s alternate ease-in-out infinite,
-					goingY 2s 1.5s cubic-bezier(0.73, 0.02, 0, 0.99) forwards;
+				animation: wobbleY 4s alternate ease-in-out infinite;
+			}
+		}
+
+		&:focus {
+			animation: wobbleX 0.75s alternate ease-in-out infinite, scale 2s 1s ease-out forwards,
+				goingX 2s 1s cubic-bezier(0.36, 0.73, 0.8, 0.97) forwards;
+			.astronaut {
+				animation: wobbleY 1s alternate ease-in-out infinite,
+					goingY 2s 1s cubic-bezier(0.73, 0.02, 0, 0.99) forwards;
 			}
 		}
 	}
