@@ -5,7 +5,7 @@
 @layer base {
 	html {
 		font-family: system-ui, sans-serif;
-		@apply bg-slate-900;
+		@apply scroll-smooth bg-slate-900;
 	}
 
 	h1,
