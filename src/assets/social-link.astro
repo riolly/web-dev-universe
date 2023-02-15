@@ -1,0 +1,221 @@
+---
+import type {HTMLAttributes} from 'astro/types'
+
+interface Props extends HTMLAttributes<'a'> {
+	class?: string
+	bgClass?: string
+	delay?: string
+}
+
+const {class: className, bgClass, delay = '0s', ...props} = Astro.props
+---
+
+<a
+	{...props}
+	class={`${className} social-link inline-block transition-transform duration-300 hover:scale-125 active:scale-95`}
+>
+	<div class='absolute h-full w-full'>
+		<svg
+			xmlns='http://www.w3.org/2000/svg'
+			xmlns:xlink='http://www.w3.org/1999/xlink'
+			viewBox='0 0 45.6 38.6'
+			class='ping'
+		>
+			<defs>
+				<linearGradient
+					xlink:href='#Áåçûìÿííûé_ãðàäèåíò_321'
+					id='Áåçûìÿííûé_ãðàäèåíò_321-2'
+					x1='21.5'
+					x2='21.5'
+					y1='55.3'
+					y2='22.6'></linearGradient>
+			</defs>
+			<g style='isolation:isolate'>
+				<path
+					id='bg'
+					fill='#39d7ff'
+					d='M0 31.3 1 7s2.9-5 7-6.9h27.7s5.6 2.1 8 6.8l1.9 23.1s-2.7 6-7.5 8.4l-29.5.3s-5.3-.3-8.6-7.3Z'
+				></path>
+			</g>
+		</svg>
+	</div>
+
+	<svg
+		xmlns='http://www.w3.org/2000/svg'
+		xmlns:xlink='http://www.w3.org/1999/xlink'
+		viewBox='0 0 45.6 38.6'
+		class={`${bgClass} relative`}
+	>
+		<defs>
+			<linearGradient
+				id='Áåçûìÿííûé_ãðàäèåíò_321'
+				x1='21.5'
+				x2='21.5'
+				y1='58.3'
+				y2='19.6'
+				data-name='Áåçûìÿííûé ãðàäèåíò 321'
+				gradientTransform='rotate(.2 6626.8 468.8)'
+				gradientUnits='userSpaceOnUse'
+			>
+				<stop offset='0' stop-color='#2e48a0'></stop>
+				<stop offset='1' stop-color='#6681ac'></stop>
+			</linearGradient>
+			<linearGradient
+				xlink:href='#Áåçûìÿííûé_ãðàäèåíò_321'
+				id='Áåçûìÿííûé_ãðàäèåíò_321-2'
+				x1='21.5'
+				x2='21.5'
+				y1='55.3'
+				y2='22.6'></linearGradient>
+			<linearGradient
+				id='Áåçûìÿííûé_ãðàäèåíò_297'
+				x1='23.8'
+				x2='18'
+				y1='26.6'
+				y2='14.3'
+				data-name='Áåçûìÿííûé ãðàäèåíò 297'
+				gradientTransform='rotate(.2 6626.8 468.8)'
+				gradientUnits='userSpaceOnUse'
+			>
+				<stop offset='0' stop-color='#5277da'></stop>
+				<stop offset='1' stop-color='#8cb5d8'></stop>
+			</linearGradient>
+			<linearGradient
+				id='Áåçûìÿííûé_ãðàäèåíò_87'
+				x1='7.4'
+				x2='36.9'
+				y1='56.6'
+				y2='56.6'
+				data-name='Áåçûìÿííûé ãðàäèåíò 87'
+				gradientTransform='rotate(.2 6626.8 468.8)'
+				gradientUnits='userSpaceOnUse'
+			>
+				<stop offset='0' stop-color='#a29fd4'></stop>
+				<stop offset='1' stop-color='#9389cc'></stop>
+			</linearGradient>
+			<linearGradient
+				id='Áåçûìÿííûé_ãðàäèåíò_144'
+				x1='25.4'
+				x2='25.4'
+				y1='55.3'
+				y2='22.6'
+				data-name='Áåçûìÿííûé ãðàäèåíò 144'
+				gradientTransform='rotate(.2 6626.8 468.8)'
+				gradientUnits='userSpaceOnUse'
+			>
+				<stop offset='0' stop-color='#000020'></stop>
+				<stop offset='1' stop-color='#545ea2'></stop>
+			</linearGradient>
+			<radialGradient
+				id='Áåçûìÿííûé_ãðàäèåíò_6'
+				cx='37.4'
+				cy='23.9'
+				r='4.7'
+				data-name='Áåçûìÿííûé ãðàäèåíò 6'
+				gradientTransform='rotate(.2 6626.8 468.8)'
+				gradientUnits='userSpaceOnUse'
+			>
+				<stop offset='0' stop-color='#00ffde'></stop>
+				<stop offset='1' stop-color='#39d7ff'></stop>
+			</radialGradient>
+			<radialGradient
+				xlink:href='#Áåçûìÿííûé_ãðàäèåíò_6'
+				id='Áåçûìÿííûé_ãðàäèåíò_6-2'
+				cx='39.4'
+				cy='52.9'
+				r='5'></radialGradient>
+			<radialGradient
+				xlink:href='#Áåçûìÿííûé_ãðàäèåíò_6'
+				id='Áåçûìÿííûé_ãðàäèåíò_6-3'
+				cx='4.2'
+				cy='53.7'
+				r='5'></radialGradient>
+			<radialGradient
+				xlink:href='#Áåçûìÿííûé_ãðàäèåíò_6'
+				id='Áåçûìÿííûé_ãðàäèåíò_6-4'
+				cx='4.3'
+				cy='24.1'
+				r='4.5'></radialGradient>
+		</defs>
+		<g style='isolation:isolate'>
+			<g id='stone'>
+				<path
+					id='bg'
+					fill='url(#Áåçûìÿííûé_ãðàäèåíò_321)'
+					d='M0 31.3 1 7s2.9-5 7-6.9h27.7s5.6 2.1 8 6.8l1.9 23.1s-2.7 6-7.5 8.4l-29.5.3s-5.3-.3-8.6-7.3Z'
+				></path>
+				<path
+					id='bg-blink'
+					fill='url(#Áåçûìÿííûé_ãðàäèåíò_321)'
+					d='M0 31.3 1 7s2.9-5 7-6.9h27.7s5.6 2.1 8 6.8l1.9 23.1s-2.7 6-7.5 8.4l-29.5.3s-5.3-.3-8.6-7.3Z'
+				></path>
+				<path
+					id='bg-front'
+					fill='url(#Áåçûìÿííûé_ãðàäèåíò_321-2)'
+					d='m3.5 29.5.9-20.7s2.4-4.2 6-5.8h23.3s4.8 1.8 6.8 5.7l1.6 19.6s-2.3 5-6.3 7.1l-25 .2s-4.5-.2-7.3-6.1Z'
+				></path>
+				<path id='bm' fill='url(#Áåçûìÿííûé_ãðàäèåíò_297)' d='m8.1 0 2.3 3 23.3.1 2-3L8.1 0z'
+				></path>
+				<path
+					id='tm'
+					fill='url(#Áåçûìÿííûé_ãðàäèåíò_87)'
+					d='m38.1 38.4-2.4-3-24.8.2-2.2 3 29.4-.2z'
+					opacity='.5'
+					style='mix-blend-mode:multiply'></path>
+				<path
+					id='shimmer'
+					fill='url(#Áåçûìÿííûé_ãðàäèåíò_144)'
+					d='M26.1 3 13 35.6h8.9L40.5 8.8S39 5 33.7 3.1Z'
+					opacity='.6'
+					style='mix-blend-mode:screen'></path>
+				<path
+					id='tr'
+					fill='url(#Áåçûìÿííûé_ãðàäèåíò_6)'
+					d='m33.7 3 2-3a15.1 15.1 0 0 1 8 6.8l-3.3 2A15.6 15.6 0 0 0 33.7 3Z'></path>
+				<path
+					id='br'
+					fill='url(#Áåçûìÿííûé_ãðàäèåíò_6-2)'
+					d='m42 28.3 3.6 1.6a18.8 18.8 0 0 1-2.9 4.5 14.5 14.5 0 0 1-4.6 4l-2.4-3a17 17 0 0 0 6.4-7.1Z'
+				></path>
+				<path
+					id='bl'
+					fill='url(#Áåçûìÿííûé_ãðàäèåíò_6-3)'
+					d='M3.5 29.5 0 31.3s2.4 6.4 8.7 7.3l2.2-3S5.3 34 3.5 29.5Z'></path>
+				<path
+					id='tl'
+					fill='url(#Áåçûìÿííûé_ãðàäèåíò_6-4)'
+					d='m1 6.9 3.4 2a14.4 14.4 0 0 1 6-5.9L8.1 0A16.2 16.2 0 0 0 1 6.9Z'></path>
+			</g>
+		</g>
+	</svg>
+
+	<div class='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
+		<slot />
+	</div>
+</a>
+
+<style lang='scss' define:vars={{delay}}>
+	.social-link {
+		.ping {
+			animation: ping-mm 1s var(--delay) cubic-bezier(0, 0, 0.2, 1) infinite;
+		}
+		&:hover .ping {
+			animation: ping-ll 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+		}
+	}
+
+	@keyframes ping-mm {
+		75%,
+		100% {
+			transform: scale(1.25);
+			opacity: 0;
+		}
+	}
+	@keyframes ping-ll {
+		75%,
+		100% {
+			transform: scale(1.4);
+			opacity: 0;
+		}
+	}
+</style>
