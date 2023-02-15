@@ -234,6 +234,9 @@ import SocialLink from 'assets/social-link.astro'
 	// const sectionIntro = document.querySelector('section#intro') as HTMLElement
 	const sectionContact = document.querySelector('section#contact') as HTMLElement
 	// const astronaut = document.querySelector('div.astronaut') as HTMLButtonElement
+	const githubLink = document.querySelector(
+		'a[href="https://github.com/riolly"]'
+	) as HTMLLinkElement
 	const astronautContainer = document.querySelector(
 		'button.astronaut-container'
 	) as HTMLButtonElement
@@ -242,6 +245,9 @@ import SocialLink from 'assets/social-link.astro'
 		setTimeout(() => {
 			sectionContact.scrollIntoView()
 		}, 1700)
+		setTimeout(() => {
+			githubLink.focus()
+		}, 2300)
 	})
 </script>
 
