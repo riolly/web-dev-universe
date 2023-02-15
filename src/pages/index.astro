@@ -65,17 +65,18 @@ import SocialLink from 'assets/social-link.astro'
 					</g>
 				</svg>
 			</div>
+
 			<button
-				class='astronaut-container group absolute -bottom-8 right-0 z-10 transform pl-24 pt-16 transition-transform hover:cursor-pointer md:mr-12 md:mb-8 lg:mr-8 xl:mr-16 2xl:mr-20'
+				class='astronaut-container group absolute -bottom-8 right-0 z-10 pl-24 pt-16 transition-transform hover:cursor-pointer md:mr-12 md:mb-8 lg:mr-8 xl:mr-16 2xl:mr-20'
 			>
 				<div class='astronaut'>
-					<div class='absolute -left-[5.5rem] -top-4 h-[6.5rem] -rotate-6'>
+					<div class='absolute -left-[5.5rem] -top-6 h-24 -rotate-6 md:-left-[6rem] md:h-[6.5rem]'>
 						<div class='fadeIn absolute h-full'>
 							<DialogBox className='ping h-full' />
 						</div>
 						<DialogBox className='absolute h-full rotateInDownRight origin-bottom-right' />
 						<div
-							class='absolute top-1.5 left-5 w-24 -rotate-2 group-hover:left-5 group-hover:top-5'
+							class='absolute top-1 left-4 w-24 -rotate-2 group-hover:left-5 group-hover:top-5 md:top-1.5 md:left-5'
 						>
 							<p class='text-bold font-head text-2xl leading-5'>
 								<span
@@ -87,7 +88,7 @@ import SocialLink from 'assets/social-link.astro'
 						</div>
 					</div>
 
-					<RocketAstronaut className='h-64 lg:72 xl:h-80 2xl:h-84 w-full' />
+					<RocketAstronaut className='h-60 md:h-64 lg:72 xl:h-80 2xl:h-84 w-full' />
 				</div>
 			</button>
 		</div>
@@ -121,7 +122,7 @@ import SocialLink from 'assets/social-link.astro'
 				<span style='--n:142' class='type-desc'>
 					It will keep expanding like the <span class='font-semibold italic'>galaxy.</span>
 					<br />
-					Be part of change & become one of the <span class='font-semibold italic'>stars.</span>
+					Be part of change, become one of the <span class='font-semibold italic'>stars.</span>
 					<br />
 					Or you can stay with obsolete tech and <br class='md:hidden' /> die slowly
 					<span class='font-semibold italic'> there!</span>&nbsp;
@@ -424,7 +425,7 @@ import SocialLink from 'assets/social-link.astro'
 	}
 
 	// @keyframes move-twnk {
-	// 	from {i
+	// 	from {
 	// 		background-position: 0 0;
 	// 	}
 	// 	to {
