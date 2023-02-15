@@ -370,11 +370,12 @@ import SocialLink from 'assets/social-link.astro'
 		}
 
 		&:focus {
-			animation: wobbleX 0.75s alternate ease-in-out infinite, scale 2s 1s ease-out forwards,
-				goingX 2s 1s cubic-bezier(0.36, 0.73, 0.8, 0.97) forwards;
+			// wobbleX 0.75s alternate ease-in-out infinite,
+			animation: scale 2s 0s ease-out forwards,
+				goingX 2s 0s cubic-bezier(0.36, 0.73, 0.8, 0.97) forwards;
 			.astronaut {
-				animation: wobbleY 1s alternate ease-in-out infinite,
-					goingY 2s 1s cubic-bezier(0.73, 0.02, 0, 0.99) forwards;
+				// wobbleY 1s alternate ease-in-out infinite,
+				animation: goingY 2s 0s cubic-bezier(0.73, 0.02, 0, 0.99) forwards;
 			}
 		}
 	}
