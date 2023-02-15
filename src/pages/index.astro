@@ -67,9 +67,9 @@ import SocialLink from 'assets/social-link.astro'
 			</div>
 
 			<button
-				class='astronaut-container group absolute -bottom-8 right-0 z-10 pl-24 pt-16 transition-transform hover:cursor-pointer md:mr-12 md:mb-8 lg:mr-8 xl:mr-16 2xl:mr-20'
+				class='astronaut-wrap astronaut-wrap__init group absolute -bottom-8 right-0 z-10 pl-24 pt-16 transition-transform hover:cursor-pointer md:mr-12 md:mb-8 lg:mr-8 xl:mr-16 2xl:mr-20'
 			>
-				<div class='astronaut'>
+				<div class='astronaut astronaut__init'>
 					<div class='absolute -left-[5.5rem] -top-6 h-24 -rotate-6 md:-left-[6rem] md:h-[6.5rem]'>
 						<div class='fadeIn absolute h-full'>
 							<DialogBox className='ping h-full' />
@@ -232,24 +232,45 @@ import SocialLink from 'assets/social-link.astro'
 </Layout>
 
 <script>
-	// const sectionIntro = document.querySelector('section#intro') as HTMLElement
+	const h1 = document.querySelector('h1') as HTMLHeadingElement
 	const sectionContact = document.querySelector('section#contact') as HTMLElement
-	// const astronaut = document.querySelector('div.astronaut') as HTMLButtonElement
+	const astronaut = document.querySelector('div.astronaut') as HTMLButtonElement
 	const githubLink = document.querySelector(
 		'a[href="https://github.com/riolly"]'
 	) as HTMLLinkElement
-	const astronautContainer = document.querySelector(
-		'button.astronaut-container'
-	) as HTMLButtonElement
+	const astronautWrap = document.querySelector('button.astronaut-wrap') as HTMLButtonElement
 
-	astronautContainer.addEventListener('click', () => {
+	astronautWrap.addEventListener('click', () => {
+		astronautWrap.classList.replace('astronaut-wrap__init', 'astronaut-wrap__ignite')
+		astronaut.classList.replace('astronaut__init', 'astronaut__ignite')
+		astronautWrap.classList.replace('astronaut-wrap__idle', 'astronaut-wrap__ignite')
+		astronaut.classList.replace('astronaut__idle', 'astronaut__ignite')
+
+		setTimeout(() => {
+			astronautWrap.classList.replace('astronaut-wrap__ignite', 'astronaut-wrap__launch')
+			astronaut.classList.replace('astronaut__ignite', 'astronaut__launch')
+		}, 1000)
 		setTimeout(() => {
 			sectionContact.scrollIntoView()
-		}, 1700)
+		}, 1750)
 		setTimeout(() => {
 			githubLink.focus()
 		}, 2500)
 	})
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					astronautWrap.classList.replace('astronaut-wrap__launch', 'astronaut-wrap__idle')
+					astronaut.classList.replace('astronaut__launch', 'astronaut__idle')
+				}
+			})
+		},
+		{rootMargin: '0px', threshold: 1}
+	)
+
+	observer.observe(h1)
 </script>
 
 <style lang='scss'>
@@ -342,7 +363,7 @@ import SocialLink from 'assets/social-link.astro'
 			typing calc(var(--n) * 0.1s) $delay-7 steps(var(--n)) both;
 	}
 
-	// astronout-container
+	// astronaut-wrap
 	.group {
 		.rotateInDownRight {
 			animation: rotateInDownRight $duration-6 $delay-6 backwards;
@@ -359,24 +380,40 @@ import SocialLink from 'assets/social-link.astro'
 		&:hover .ping {
 			animation: ping-l 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 		}
+	}
 
-		&:not(:focus) {
+	$duration-idle: 1.6s;
+	$delay-idle: $duration-idle - 0.1s;
+
+	.astronaut-wrap {
+		&__init {
 			animation: zoomInUp $duration-3 $delay-3 backwards,
 				wobbleX $duration-4 $delay-4 alternate ease-in-out infinite;
-
-			.astronaut {
-				animation: wobbleY 4s alternate ease-in-out infinite;
-			}
 		}
+		&__ignite {
+			animation: wobbleX 0.75s alternate ease-in-out infinite;
+		}
+		&__launch {
+			animation: scale 2s ease-out forwards, goingX 2s cubic-bezier(0.36, 0.73, 0.8, 0.97) forwards;
+		}
+		&__idle {
+			animation: zoomInUp $duration-idle both,
+				wobbleX $duration-4 $delay-idle alternate ease-in-out infinite;
+		}
+	}
 
-		&:focus {
-			// wobbleX 0.75s alternate ease-in-out infinite,
-			animation: scale 2s 0s ease-out forwards,
-				goingX 2s 0s cubic-bezier(0.36, 0.73, 0.8, 0.97) forwards;
-			.astronaut {
-				// wobbleY 1s alternate ease-in-out infinite,
-				animation: goingY 2s 0s cubic-bezier(0.73, 0.02, 0, 0.99) forwards;
-			}
+	.astronaut {
+		&__init {
+			animation: wobbleY 4s $delay-4 alternate ease-in-out infinite;
+		}
+		&__ignite {
+			animation: wobbleY 1s alternate ease-in-out infinite;
+		}
+		&__launch {
+			animation: goingY 2s cubic-bezier(0.73, 0.02, 0, 0.99) forwards;
+		}
+		&__idle {
+			animation: wobbleY 4s $delay-idle alternate ease-in-out infinite;
 		}
 	}
 
