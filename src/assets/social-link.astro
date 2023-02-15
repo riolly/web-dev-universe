@@ -193,7 +193,7 @@ const {class: className, bgClass, label, delay = '0s', ...props} = Astro.props
 	<div class='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
 		<slot />
 	</div>
-	<p class='absolute left-1/2 -translate-x-1/2 text-center'>{label}</p>
+	<p class='absolute left-1/2 -translate-x-1/2 md:text-lg xl:text-xl'>{label}</p>
 </a>
 
 <style lang='scss' define:vars={{delay}}>
