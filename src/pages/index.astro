@@ -2,74 +2,115 @@
 import Layout from 'layouts/Layout.astro'
 import EarthSvg from 'assets/earth.astro'
 import RocketAstronaut from 'assets/rocket-astronaut.astro'
+import PlanetLandscape from 'assets/landscape.astro'
+import DialogBox from 'assets/dialog-box.astro'
+import SocialLink from 'assets/social-link.astro'
+import StarsShine from 'assets/stars-shine.astro'
 ---
 
 <Layout
 	title='Welcome to Riolly Universe'
 	description='Explore web development universe with Alberto Riolly and take your dev skill to the moon.'
 >
-	<div class='absolute h-[100lvh] w-full overflow-clip'>
-		<div class='stars absolute h-full w-full bg-black bg-cover'></div>
-		<div class='twink absolute h-full w-full'></div>
-		<div class='stars-shine absolute h-full w-full bg-cover'></div>
-		<div
+	<div class='absolute h-fit w-full overflow-clip'>
+		<div class='stars absolute h-0.5 w-0.5 rounded-full'></div>
+		<div class='stars-big absolute h-1 w-1 rounded-full'></div>
+		<div class='twink absolute -left-1/4 -top-1/4 h-[125%] w-[125%]'></div>
+
+		<!-- <div
 			class='cloud absolute h-full w-full bg-repeat-x opacity-60 md:mt-20 md:[background-size:150%] lg:mt-0 xl:[background-size:125%] 2xl:[background-size:110%]'
-		>
-		</div>
+		> 
+		</div> -->
+		<div class='relative h-[100lvh] w-full'>
+			<StarsShine className='w-full' />
 
-		<EarthSvg
-			className='h-[28rem] md:h-[36rem] lg:h-[40rem] xl:h-[48rem] 2xl:h-[56rem] -rotate-90 absolute top-0 left-0 -translate-x-1/2 2xl:ml-20 -translate-y-1/2'
-		/>
-		<div
-			id='br-gradient'
-			class='absolute bottom-0 right-0 h-1/3 w-full bg-gradient-to-br from-transparent via-transparent to-indigo-900/80 md:w-3/4 xl:h-1/2'
-		>
-		</div>
-
-		<div
-			id='content-bg'
-			class='bg-red-500s absolute top-1/2 left-1/2 -ml-12 h-fit w-[175%] -translate-y-1/2 -translate-x-1/2 overflow-clip md:-ml-40 md:w-[120%] lg:-ml-32 lg:w-[96%] xl:-ml-24 xl:w-[88%] 2xl:-ml-20 2xl:w-[72%]'
-		>
-			<svg
-				class='-mt-16 -rotate-[15deg]'
-				xmlns='http://www.w3.org/2000/svg'
-				xmlns:xlink='http://www.w3.org/1999/xlink'
-				viewBox='0 0 800 800'
+			<EarthSvg
+				className='h-[28rem] md:h-[36rem] lg:h-[40rem] xl:h-[48rem] 2xl:h-[52rem] -rotate-90 absolute top-0 left-0 -translate-x-1/2 2xl:ml-20 -translate-y-1/2'
+			/>
+			<div
+				id='gradient-br'
+				class='absolute bottom-0 right-0 h-1/3 w-full bg-gradient-to-br from-transparent via-transparent to-indigo-900/80 md:w-3/4 lg:w-1/2'
 			>
-				<defs>
-					<radialGradient id='radial-gradient'>
-						<stop offset='50%' stop-color='black' stop-opacity='.9'></stop>
-						<stop offset='70%' stop-color='black' stop-opacity='.7'></stop>
-						<stop offset='100%' stop-color='black' stop-opacity='0'></stop>
-					</radialGradient>
-				</defs>
-				<g id='background'>
-					<ellipse
-						rx='400'
-						ry='250'
-						cx='400'
-						cy='400'
-						fill='url(#radial-gradient)'
-						style='mix-blend-mode:color-dodge'></ellipse>
-				</g>
-			</svg>
-		</div>
+			</div>
+			<div
+				id='gradient-tr'
+				class='absolute bottom-0 right-0 h-1/3 w-full translate-y-full bg-gradient-to-tr from-transparent via-transparent to-indigo-900/80 md:w-3/4 lg:w-1/2 xl:h-1/4'
+			>
+			</div>
 
-		<div
-			class='astronaut-container absolute -bottom-8 right-0 md:mr-12 md:mb-8 lg:mr-8 xl:mr-16 2xl:mr-20'
-		>
-			<div class='astronaut'>
-				<RocketAstronaut className='h-72 xl:h-80 2xl:h-96 w-full' />
+			<div
+				id='content-bg'
+				class='absolute top-1/2 left-1/2 -ml-12 mt-4 h-fit w-[175%] -translate-y-1/2 -translate-x-1/2 overflow-clip md:-ml-40 md:w-[120%] lg:-ml-32 lg:w-[92%] xl:-ml-24 xl:w-[80%] 2xl:-ml-20 2xl:w-[60%]'
+			>
+				<svg
+					class='-mt-16 -rotate-[15deg]'
+					xmlns='http://www.w3.org/2000/svg'
+					xmlns:xlink='http://www.w3.org/1999/xlink'
+					viewBox='0 0 800 800'
+				>
+					<defs>
+						<radialGradient id='radial-gradient'>
+							<stop offset='50%' stop-color='#1e293b' stop-opacity='.8'></stop>
+							<stop offset='70%' stop-color='#334155' stop-opacity='.6'></stop>
+							<stop offset='100%' stop-color='#0f172a' stop-opacity='0'></stop>
+						</radialGradient>
+					</defs>
+					<g id='background'>
+						<ellipse
+							rx='400'
+							ry='250'
+							cx='400'
+							cy='400'
+							fill='url(#radial-gradient)'
+							style='mix-blend-mode:color-dodge'></ellipse>
+					</g>
+				</svg>
+			</div>
+
+			<button
+				class='astronaut-wrap astronaut-wrap__init group absolute -bottom-8 right-0 z-10 pl-24 pt-16 transition-transform hover:cursor-pointer md:mr-12 md:mb-8 lg:mr-8 xl:mr-16 2xl:mr-20'
+			>
+				<div class='astronaut astronaut__init'>
+					<div class='absolute -left-[5.5rem] -top-6 h-24 -rotate-6 md:-left-[6rem] md:h-[6.5rem]'>
+						<div class='fadeIn absolute h-full'>
+							<DialogBox className='ping h-full' />
+						</div>
+						<DialogBox className='absolute h-full rotateInDownRight origin-bottom-right' />
+						<div
+							class='absolute top-1 left-4 w-24 -rotate-2 group-hover:top-4 md:top-1.5 md:left-5 md:group-hover:top-5'
+						>
+							<p class='text-bold font-head text-2xl leading-5'>
+								<span
+									style='--n:22'
+									class={`type-action text-black before:text-3xl group-hover:invisible before:visible before:text-black before:group-hover:content-["Ready??"] before:group-focus:content-["Let's_GO!_"]`}
+									>Right here, hope on!!</span
+								>
+							</p>
+						</div>
+					</div>
+
+					<RocketAstronaut className='h-60 md:h-64 lg:72 xl:h-80 2xl:h-84 w-full' />
+				</div>
+			</button>
+		</div>
+		<div class='relative h-[100lvh] w-full'>
+			<div class='absolute bottom-0 w-full'>
+				<div
+					class='absolute bottom-0 h-1/3 w-full bg-gradient-to-b from-transparent to-slate-900/75'
+				>
+				</div>
+				<PlanetLandscape className='w-[1000px] h-[450px] -ml-[95%] md:ml-0 md:w-full md:h-auto' />
 			</div>
 		</div>
 	</div>
 
-	<main
-		class='container relative m-auto min-h-screen max-w-screen-md overflow-y-clip p-4 md:px-8 lg:px-0'
-	>
-		<div class='absolute top-1/2 -mt-8 -translate-y-1/2 pr-2 md:pr-0'>
+	<main class='relative w-full overflow-x-clip'>
+		<section
+			id='intro'
+			class='mx-auto flex h-screen max-w-screen-md flex-col justify-center p-4 pr-2 md:px-8 md:pr-0 lg:px-0'
+		>
 			<h1
-				class='text-5xl font-bold leading-tight md:text-6xl md:leading-tight 2xl:text-7xl 2xl:leading-snug'
+				class='-mt-20 text-5xl font-bold leading-[1.1] md:text-6xl md:leading-tight xl:text-7xl xl:leading-tight'
 			>
 				<span class='lightSpeed0'>Web keep <span class='lightSpeed1'>evolving..</span></span>
 				<span class='lightSpeed2 block italic'>
@@ -82,19 +123,160 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 				</span>
 			</h1>
 
-			<p class='mt-4 text-lg leading-6 md:mt-6 md:text-xl 2xl:text-2xl'>
-				<span style='--n:142' class='type'>
+			<p class='mt-4 text-lg leading-5 md:mt-6 md:text-xl md:leading-6 2xl:text-2xl'>
+				<span style='--n:142' class='type-desc'>
 					It will keep expanding like the <span class='font-semibold italic'>galaxy.</span>
 					<br />
-					Be part of change & become one of the <span class='font-semibold italic'>stars.</span>
+					Be part of change, become one of the <span class='font-semibold italic'>stars.</span>
 					<br />
 					Or you can stay with obsolete tech and <br class='md:hidden' /> die slowly
 					<span class='font-semibold italic'> there!</span>&nbsp;
 				</span>
 			</p>
-		</div>
+		</section>
+
+		<section class='relative h-screen w-full' id='contact'>
+			<div class='link link--github absolute top-[16%] left-[20%]'>
+				<SocialLink
+					class='-rotate-3'
+					bgClass='w-24 md:w-32 lg:w-46'
+					delay='0s'
+					href='https://github.com/riolly'
+					label='Github'
+					target='_blank'
+				>
+					<svg xmlns='http://www.w3.org/2000/svg' class='w-full' viewBox='0 0 98 96'>
+						<path
+							fill='#fff'
+							fill-rule='evenodd'
+							d='M48.9 0a49.2 49.2 0 0 0-15.4 96c2.3.4 3.2-1.2 3.2-2.5v-9c-13.6 2.9-16.5-6-16.5-6-2.2-5.7-5.4-7.1-5.4-7.1-4.4-3 .3-3 .3-3 5 .3 7.5 5 7.5 5 4.4 7.5 11.5 5.4 14.3 4 .4-3 1.7-5.3 3-6.5-10.8-1.1-22.2-5.4-22.2-24.3 0-5.4 2-9.8 5-13.2-.5-1.2-2.2-6.3.5-13 0 0 4.1-1.3 13.4 5A47 47 0 0 1 49 23.8c4 0 8.3.6 12.2 1.6 9.3-6.3 13.4-5 13.4-5 2.7 6.7 1 11.8.5 13 3.1 3.4 5 7.8 5 13.2 0 19-11.4 23-22.3 24.3 1.7 1.5 3.3 4.5 3.3 9.1v13.5c0 1.3.8 2.9 3.2 2.4a49.2 49.2 0 0 0 33.4-46.7A49 49 0 0 0 49 0z'
+							clip-rule='evenodd'></path>
+					</svg>
+				</SocialLink>
+			</div>
+
+			<div class='link link-linkedin absolute top-[26%] right-[10%] xl:right-[14%]'>
+				<SocialLink
+					class='rotate-6'
+					bgClass='w-20 md:w-28 lg:w-32'
+					delay='0.1s'
+					href='https://linkedin.com/in/riolly'
+					label='LinkedIn'
+					target='_blank'
+				>
+					<svg xmlns='http://www.w3.org/2000/svg' class='w-full' viewBox='0 0 448 512'>
+						<path
+							fill='#fff'
+							d='M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z'
+						></path>
+					</svg>
+				</SocialLink>
+			</div>
+
+			<div
+				class='link link--twitter absolute top-[44%] right-[28%] md:top-[48%] lg:right-[36%] xl:right-[40%] xl:top-[40%]'
+			>
+				<SocialLink
+					class='-rotate-6'
+					bgClass='w-[4.5rem] md:w-24 lg:w-28'
+					delay='0.2s'
+					label='Twitter'
+					href='https://twitter.com/bertoriolly'
+					target='_blank'
+				>
+					<svg xmlns='http://www.w3.org/2000/svg' class='w-full' viewBox='0 0 512 512'>
+						<path
+							fill='#fff'
+							d='M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z'
+						></path>
+					</svg>
+				</SocialLink>
+			</div>
+
+			<div
+				class='link link--youtube absolute top-[56%] left-[20%] md:top-[64%] lg:left-[28%] xl:left-[36%]'
+			>
+				<SocialLink
+					class='rotate-2'
+					bgClass='w-16 md:w-20 lg:w-24'
+					delay='0.3s'
+					href='https://youtube.com/@riolly'
+					label='Youtube'
+					target='_blank'
+				>
+					<svg xmlns='http://www.w3.org/2000/svg' class='w-full' viewBox='0 0 576 512'>
+						<path
+							fill='#fff'
+							d='M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z'
+						></path>
+					</svg>
+				</SocialLink>
+			</div>
+
+			<div
+				class='link link--instagram absolute top-[70%] right-[14%] md:top-[74%] md:right-[18%] lg:top-[70%] xl:right-[28%]'
+			>
+				<SocialLink
+					class='-rotate-6'
+					bgClass='w-14 md:w-16 lg:w-20'
+					delay='0.4s'
+					href='https://instagram.com/bertoriolly'
+					label='Instagram'
+					target='_blank'
+				>
+					<svg xmlns='http://www.w3.org/2000/svg' class='w-full' viewBox='0 0 448 512'>
+						<path
+							fill='#fff'
+							d='M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z'
+						></path>
+					</svg>
+				</SocialLink>
+			</div>
+		</section>
 	</main>
 </Layout>
+
+<script>
+	const h1 = document.querySelector('h1') as HTMLHeadingElement
+	const sectionContact = document.querySelector('section#contact') as HTMLElement
+	const astronaut = document.querySelector('div.astronaut') as HTMLButtonElement
+	const githubLink = document.querySelector(
+		'a[href="https://github.com/riolly"]'
+	) as HTMLLinkElement
+	const astronautWrap = document.querySelector('button.astronaut-wrap') as HTMLButtonElement
+
+	astronautWrap.addEventListener('click', () => {
+		astronautWrap.classList.replace('astronaut-wrap__init', 'astronaut-wrap__ignite')
+		astronaut.classList.replace('astronaut__init', 'astronaut__ignite')
+		astronautWrap.classList.replace('astronaut-wrap__idle', 'astronaut-wrap__ignite')
+		astronaut.classList.replace('astronaut__idle', 'astronaut__ignite')
+
+		setTimeout(() => {
+			astronautWrap.classList.replace('astronaut-wrap__ignite', 'astronaut-wrap__launch')
+			astronaut.classList.replace('astronaut__ignite', 'astronaut__launch')
+		}, 1000)
+		setTimeout(() => {
+			sectionContact.scrollIntoView()
+		}, 1750)
+		setTimeout(() => {
+			githubLink.focus()
+		}, 2500)
+	})
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					astronautWrap.classList.replace('astronaut-wrap__launch', 'astronaut-wrap__idle')
+					astronaut.classList.replace('astronaut__launch', 'astronaut__idle')
+				}
+			})
+		},
+		{rootMargin: '0px', threshold: 1}
+	)
+
+	observer.observe(h1)
+</script>
 
 <style lang='scss'>
 	// Web keep..
@@ -115,21 +297,39 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 	// typing paragraph
 	$delay-5: $delay-2 + $duration-2 + 0.2s;
 	$duration-5: 7.1s;
+	// dialog box show
+	$delay-6: $delay-4 - 0.3s;
+	$duration-6: 0.7s;
+	// dialog box ping
+	$delay-7: $delay-6 + $duration-6 - 0.5s;
+	$duration-7: 1s;
+
+	@function multiple-box-shadow($n) {
+		$value: '#{random(3840)}px #{random(2160*2)}px #FFF';
+		@for $i from 2 through $n {
+			$value: '#{$value} , #{random(3840)}px #{random(2160*2)}px #FFF';
+		}
+		@return unquote($value);
+	}
+
+	$stars: multiple-box-shadow(1000);
+	$stars-big: multiple-box-shadow(750);
 
 	.stars {
-		background-image: url(/images/stars.svg);
+		box-shadow: $stars;
 	}
+	.stars-big {
+		box-shadow: $stars-big;
+	}
+
 	.twink {
-		animation: move-twink 300s linear infinite;
-		background-image: url(/images/twinkling-mask.png);
+		animation: move-twink 12s linear infinite alternate;
+		background-image: url(/images/twink.svg);
 	}
-	.cloud {
-		animation: move-cloud 200s linear infinite;
-		background-image: url(/images/cloud.png);
-	}
-	.stars-shine {
-		background-image: url(/images/stars-shine.svg);
-	}
+	// .cloud {
+	// 	animation: move-cloud 200s linear infinite;
+	// 	background-image: url(/images/cloud.png);
+	// }
 
 	.lightSpeed0 {
 		animation: lightSpeed $duration-0 $delay-0 ease-out backwards;
@@ -141,16 +341,11 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 		animation: lightSpeed $duration-2 $delay-2 ease-out backwards;
 	}
 
-	.astronaut-container {
-		animation: zoomInUp $duration-3 $delay-3 backwards,
-			wobbleX $duration-4 $delay-4 alternate ease-in-out infinite;
-	}
-
-	.type {
+	.type-desc {
 		/* font-family: monospace; */
 		color: #0000;
-		background: linear-gradient(-90deg, rgb(203 213 225) 5px, #0000 0) 10px 0,
-			linear-gradient(rgb(203 213 225) 0 0) 0 0;
+		background: linear-gradient(-90deg, #cbd5e1 5px, #0000 0) 10px 0,
+			linear-gradient(#e2e8f0 0 0) 0 0;
 		background-size: calc(var(--n) * 0.8ch) 200%;
 		-webkit-background-clip: padding-box, text;
 		background-clip: padding-box, text;
@@ -159,25 +354,122 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 			typing calc(var(--n) * 0.05s) $delay-5 steps(var(--n)) both;
 	}
 
+	.type-action {
+		color: #0000;
+		background: linear-gradient(-90deg, #94a3b8 5px, #0000 0) 10px 0, linear-gradient(black 0 0) 0 0;
+		background-size: calc(var(--n) * 0.7ch) 200%;
+		-webkit-background-clip: padding-box, text;
+		background-clip: padding-box, text;
+		background-repeat: no-repeat;
+		animation: blinking 0.5s $delay-7 infinite steps(1) backwards,
+			typing calc(var(--n) * 0.1s) $delay-7 steps(var(--n)) both;
+	}
+
+	// astronaut-wrap
+	.group {
+		.rotateInDownRight {
+			animation: rotateInDownRight $duration-6 $delay-6 backwards;
+		}
+
+		.fadeIn {
+			animation: fadeIn 1s calc($delay-7 + 0.5s) backwards;
+		}
+
+		&:not(:hover) .ping {
+			animation: ping-m 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+		}
+
+		&:hover .ping {
+			animation: ping-l 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+		}
+	}
+
+	$duration-idle: 1.6s;
+	$delay-idle: $duration-idle - 0.1s;
+
+	.astronaut-wrap {
+		&__init {
+			animation: zoomInUp $duration-3 $delay-3 backwards,
+				wobbleX $duration-4 $delay-4 alternate ease-in-out infinite;
+		}
+		&__ignite {
+			animation: wobbleX 0.5s alternate ease-in-out infinite;
+		}
+		&__launch {
+			animation: scale 2s ease-out forwards, goingX 2s cubic-bezier(0.36, 0.73, 0.8, 0.97) forwards;
+		}
+		&__idle {
+			animation: zoomInUp $duration-idle both,
+				wobbleX $duration-4 $delay-idle alternate ease-in-out infinite;
+		}
+	}
+
 	.astronaut {
-		animation: wobbleY 4s alternate ease-in-out infinite;
+		&__init {
+			animation: wobbleY 4s $delay-4 alternate ease-in-out infinite;
+		}
+		&__ignite {
+			animation: wobbleY 1s alternate ease-in-out infinite;
+		}
+		&__launch {
+			animation: goingY 2s cubic-bezier(0.73, 0.02, 0, 0.99) forwards;
+		}
+		&__idle {
+			animation: wobbleY 4s $delay-idle alternate ease-in-out infinite;
+		}
+	}
+
+	.link {
+		animation: floatingSocial 10s infinite ease-in-out alternate;
+
+		&--github {
+			animation-delay: 0s;
+		}
+		&--linkedin {
+			animation-delay: 0.5s;
+		}
+		&--twitter {
+			animation-delay: 1s;
+		}
+		&--youtube {
+			animation-delay: 1.5s;
+		}
+		&--instagram {
+			animation-delay: 2s;
+		}
+	}
+
+	@keyframes goingX {
+		100% {
+			transform: translateX(-140vw);
+		}
+	}
+	@keyframes goingY {
+		100% {
+			transform: translateY(-120lvh);
+		}
+	}
+	@keyframes scale {
+		80% {
+			transform: scale(4);
+		}
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
 	}
 
 	@keyframes move-twink {
 		from {
-			background-position: 0 0;
+			transform: translate(0);
 		}
 		to {
-			background-position: -10000px 5000px;
-		}
-	}
-
-	@keyframes move-cloud {
-		from {
-			background-position: 0 60px;
-		}
-		to {
-			background-position: 10000px 60px;
+			transform: translate3d(20%, 10%, 0);
 		}
 	}
 
@@ -273,6 +565,51 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 	@keyframes blinking {
 		50% {
 			background-position: 0 -100%, 0 0;
+		}
+	}
+
+	@keyframes rotateInDownRight {
+		from {
+			transform: rotate3d(0, 0, 1, 45deg);
+			opacity: 0;
+		}
+
+		to {
+			transform: translate3d(0, 0, 0);
+			opacity: 1;
+		}
+	}
+
+	@keyframes ping-l {
+		75%,
+		100% {
+			transform: scale3d(1.3, 1.5, 0);
+			opacity: 0;
+		}
+	}
+	@keyframes ping-m {
+		75%,
+		100% {
+			transform: scale(1.15);
+			opacity: 0;
+		}
+	}
+
+	@keyframes floatingSocial {
+		0% {
+			transform: translateY(0);
+		}
+		30% {
+			transform: translateY(-20%);
+		}
+		40% {
+			transform: translateY(-10%);
+		}
+		75% {
+			transform: translateY(-50%);
+		}
+		100% {
+			transform: translate3d(-30%);
 		}
 	}
 </style>

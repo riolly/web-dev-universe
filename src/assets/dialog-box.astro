@@ -1,0 +1,48 @@
+---
+export type Props = {
+	className?: string
+}
+
+const {className} = Astro.props
+---
+
+<svg
+	xmlns='http://www.w3.org/2000/svg'
+	xmlns:xlink='http://www.w3.org/1999/xlink'
+	viewBox='0 0 164 116'
+	class={className}
+>
+	<defs>
+		<linearGradient
+			id='dialog-linear-gradient'
+			x1='2.74'
+			y1='53.07'
+			x2='147.31'
+			y2='53.07'
+			gradientUnits='userSpaceOnUse'
+		>
+			<stop offset='0' stop-color='#fff'></stop>
+			<stop offset='1' stop-color='#eee'></stop>
+		</linearGradient>
+		<linearGradient
+			id='dialog-linear-gradient-2'
+			x1='2.74'
+			y1='53.07'
+			x2='147.31'
+			y2='53.07'
+			xlink:href='#dialog-linear-gradient'></linearGradient>
+	</defs>
+	<g style='isolation: isolate'>
+		<g id='OBJECTS'>
+			<g>
+				<path
+					d='M133.05,4.65l-118.21,10A13.18,13.18,0,0,0,3.21,31.24L14,70.89a13.17,13.17,0,0,0,12.71,9.72H97.55l18.11,20.92-2.37-20.92h5.85a13.18,13.18,0,0,0,12.77-10l15-49.67A13.18,13.18,0,0,0,133.05,4.65Z'
+					fill='url(#dialog-linear-gradient)'></path>
+				<path
+					d='M133.05,4.65l-118.21,10A13.18,13.18,0,0,0,3.21,31.24L14,70.89a13.17,13.17,0,0,0,12.71,9.72H97.55l18.11,20.92-2.37-20.92h5.85a13.18,13.18,0,0,0,12.77-10l15-49.67A13.18,13.18,0,0,0,133.05,4.65ZM146,20.76,131,70.43a12.21,12.21,0,0,1-11.85,9.24h-6.91l2.15,18.94L98,79.67H26.66a12.25,12.25,0,0,1-11.8-9L4.12,31A12.22,12.22,0,0,1,14.91,15.61l118.22-10c.35,0,.7,0,1,0A12.23,12.23,0,0,1,146,20.76Z'
+					fill='url(#dialog-linear-gradient-2)'
+					style='mix-blend-mode: screen'></path>
+			</g>
+		</g>
+	</g>
+</svg>
