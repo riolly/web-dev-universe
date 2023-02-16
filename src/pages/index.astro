@@ -5,6 +5,7 @@ import RocketAstronaut from 'assets/rocket-astronaut.astro'
 import PlanetLandscape from 'assets/landscape.astro'
 import DialogBox from 'assets/dialog-box.astro'
 import SocialLink from 'assets/social-link.astro'
+import StarsShine from 'assets/stars-shine.astro'
 ---
 
 <Layout
@@ -21,7 +22,7 @@ import SocialLink from 'assets/social-link.astro'
 		> 
 		</div> -->
 		<div class='relative h-[100lvh] w-full'>
-			<!-- <div class='stars-shine absolute h-full w-full bg-cover'></div> -->
+			<StarsShine className='w-full' />
 
 			<EarthSvg
 				className='h-[28rem] md:h-[36rem] lg:h-[40rem] xl:h-[48rem] 2xl:h-[52rem] -rotate-90 absolute top-0 left-0 -translate-x-1/2 2xl:ml-20 -translate-y-1/2'
@@ -324,9 +325,6 @@ import SocialLink from 'assets/social-link.astro'
 	// .cloud {
 	// 	animation: move-cloud 200s linear infinite;
 	// 	background-image: url(/images/cloud.png);
-	// }
-	// .stars-shine {
-	// 	background-image: url(/images/stars-shine.svg);
 	// }
 
 	.lightSpeed0 {
