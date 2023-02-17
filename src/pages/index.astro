@@ -13,6 +13,7 @@ const desc =
 ---
 
 <Layout title={title} description={desc}>
+	<div id='background' class='absolute h-fit w-full overflow-clip'>
 		<div
 			class='stars absolute right-0 bottom-[12.5%] h-0.5 w-0.5 origin-top-left rotate-180 rounded-full'
 		>
@@ -20,24 +21,23 @@ const desc =
 		<div class='stars absolute h-1 w-1 rounded-full'></div>
 		<div class='twink absolute -left-1/4 -top-1/4 h-[125%] w-[125%]'></div>
 
-		<div class='relative h-[100lvh] w-full'>
+		<div id='bg-section-intro' class='relative h-[100lvh]'>
 			<StarsShine class='min-w-[1536px]' />
 			<EarthSvg
 				class='h-[28rem] md:h-[36rem] lg:h-[40rem] xl:h-[48rem] 2xl:h-[52rem] -rotate-90 absolute top-0 left-0 -translate-x-1/2 2xl:ml-20 -translate-y-1/2'
 			/>
 			<div
-				id='gradient-br'
+				id='purple-gradient-br'
 				class='absolute bottom-0 right-0 h-1/3 w-full bg-gradient-to-br from-transparent via-transparent to-indigo-900/80 md:w-3/4 lg:w-1/2'
 			>
 			</div>
 			<div
-				id='gradient-tr'
+				id='purple-gradient-tr'
 				class='absolute bottom-0 right-0 h-1/3 w-full translate-y-full bg-gradient-to-tr from-transparent via-transparent to-indigo-900/80 md:w-3/4 lg:w-1/2 xl:h-1/4'
 			>
 			</div>
-
 			<div
-				id='content-bg'
+				id='blackhole'
 				class='absolute top-1/2 left-1/2 -ml-12 mt-4 h-fit w-[175%] -translate-y-1/2 -translate-x-1/2 overflow-clip md:-ml-40 md:w-[120%] lg:-ml-32 lg:w-[92%] xl:-ml-24 xl:w-[80%] 2xl:-ml-20 2xl:w-[60%]'
 			>
 				<svg
@@ -90,8 +90,10 @@ const desc =
 				</div>
 			</button>
 		</div>
-		<div class='h-screen'></div>
-		<div class='relative h-[100lvh] w-full'>
+		<div id='bg-section-blog' class='relative h-[100lvh]'>
+		</div>
+
+		<div id='bg-section-contact' class='relative h-[100lvh]'>
 			<div class='absolute bottom-0 w-full'>
 				<div
 					class='absolute bottom-0 h-1/3 w-full bg-gradient-to-b from-transparent to-slate-900/75'
@@ -133,7 +135,7 @@ const desc =
 			</p>
 		</section>
 
-		<section class='relative h-screen w-full' id='blog'>
+		<section id='blog' class='relative h-screen w-full'>
 			<div></div>
 		</section>
 
