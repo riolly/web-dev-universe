@@ -20,15 +20,10 @@ import StarsShine from 'assets/stars-shine.astro'
 		<div class='stars absolute h-1 w-1 rounded-full'></div>
 		<div class='twink absolute -left-1/4 -top-1/4 h-[125%] w-[125%]'></div>
 
-		<!-- <div
-			class='cloud absolute h-full w-full bg-repeat-x opacity-60 md:mt-20 md:[background-size:150%] lg:mt-0 xl:[background-size:125%] 2xl:[background-size:110%]'
-		> 
-		</div> -->
 		<div class='relative h-[100lvh] w-full'>
-			<StarsShine className='min-w-[1536px]' />
-
+			<StarsShine class='min-w-[1536px]' />
 			<EarthSvg
-				className='h-[28rem] md:h-[36rem] lg:h-[40rem] xl:h-[48rem] 2xl:h-[52rem] -rotate-90 absolute top-0 left-0 -translate-x-1/2 2xl:ml-20 -translate-y-1/2'
+				class='h-[28rem] md:h-[36rem] lg:h-[40rem] xl:h-[48rem] 2xl:h-[52rem] -rotate-90 absolute top-0 left-0 -translate-x-1/2 2xl:ml-20 -translate-y-1/2'
 			/>
 			<div
 				id='gradient-br'
@@ -69,16 +64,15 @@ import StarsShine from 'assets/stars-shine.astro'
 					</g>
 				</svg>
 			</div>
-
 			<button
 				class='astronaut-wrap astronaut-wrap__init group absolute -bottom-8 right-0 z-10 pl-24 pt-16 transition-transform hover:cursor-pointer md:mr-12 md:mb-8 lg:mr-8 xl:mr-16 2xl:mr-20'
 			>
 				<div class='astronaut astronaut__init'>
 					<div class='absolute -left-[5.5rem] -top-6 h-24 -rotate-6 md:-left-[6rem] md:h-[6.5rem]'>
 						<div class='fadeIn absolute h-full'>
-							<DialogBox className='ping h-full' />
+							<DialogBox class='ping h-full' />
 						</div>
-						<DialogBox className='absolute h-full rotateInDownRight origin-bottom-right' />
+						<DialogBox class='absolute h-full rotateInDownRight origin-bottom-right' />
 						<div
 							class='absolute top-1 left-4 w-24 -rotate-2 group-hover:top-4 md:top-1.5 md:left-5 md:group-hover:top-5'
 						>
@@ -92,7 +86,7 @@ import StarsShine from 'assets/stars-shine.astro'
 						</div>
 					</div>
 
-					<RocketAstronaut className='h-60 md:h-64 lg:72 xl:h-80 2xl:h-84 w-full' />
+					<RocketAstronaut class='h-60 md:h-64 lg:72 xl:h-80 2xl:h-84 w-full' />
 				</div>
 			</button>
 		</div>
@@ -103,7 +97,7 @@ import StarsShine from 'assets/stars-shine.astro'
 					class='absolute bottom-0 h-1/3 w-full bg-gradient-to-b from-transparent to-slate-900/75'
 				>
 				</div>
-				<PlanetLandscape className='w-[1000px] h-[450px] -ml-[95%] md:ml-0 md:w-full md:h-auto' />
+				<PlanetLandscape class='w-[1000px] h-[450px] -ml-[95%] md:ml-0 md:w-full md:h-auto' />
 			</div>
 		</div>
 	</div>
