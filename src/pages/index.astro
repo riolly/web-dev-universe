@@ -13,8 +13,11 @@ import StarsShine from 'assets/stars-shine.astro'
 	description='Explore web development universe with Alberto Riolly and take your dev skill to the moon.'
 >
 	<div class='absolute h-fit w-full overflow-clip'>
-		<div class='stars absolute h-0.5 w-0.5 rounded-full'></div>
-		<div class='stars-big absolute h-1 w-1 rounded-full'></div>
+		<div
+			class='stars absolute right-0 bottom-[12.5%] h-0.5 w-0.5 origin-top-left rotate-180 rounded-full'
+		>
+		</div>
+		<div class='stars absolute h-1 w-1 rounded-full'></div>
 		<div class='twink absolute -left-1/4 -top-1/4 h-[125%] w-[125%]'></div>
 
 		<!-- <div
@@ -93,6 +96,7 @@ import StarsShine from 'assets/stars-shine.astro'
 				</div>
 			</button>
 		</div>
+		<div class='h-screen'></div>
 		<div class='relative h-[100lvh] w-full'>
 			<div class='absolute bottom-0 w-full'>
 				<div
@@ -133,6 +137,10 @@ import StarsShine from 'assets/stars-shine.astro'
 					<span class='font-semibold italic'> there!</span>&nbsp;
 				</span>
 			</p>
+		</section>
+
+		<section class='relative h-screen w-full' id='blog'>
+			<div></div>
 		</section>
 
 		<section class='relative h-screen w-full' id='contact'>
@@ -305,21 +313,15 @@ import StarsShine from 'assets/stars-shine.astro'
 	$duration-7: 1s;
 
 	@function multiple-box-shadow($n) {
-		$value: '#{random(3840)}px #{random(2160*2)}px #FFF';
+		$value: '#{random(1920)}px #{random(1080*2.5)}px #FFF';
 		@for $i from 2 through $n {
-			$value: '#{$value} , #{random(3840)}px #{random(2160*2)}px #FFF';
+			$value: '#{$value} , #{random(1920)}px #{random(1080*2.5)}px #FFF';
 		}
 		@return unquote($value);
 	}
-
-	$stars: multiple-box-shadow(1000);
-	$stars-big: multiple-box-shadow(750);
-
+	$stars: multiple-box-shadow(100 * 3);
 	.stars {
 		box-shadow: $stars;
-	}
-	.stars-big {
-		box-shadow: $stars-big;
 	}
 
 	.twink {
