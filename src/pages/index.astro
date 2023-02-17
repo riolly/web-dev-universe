@@ -6,13 +6,13 @@ import PlanetLandscape from 'assets/landscape.astro'
 import DialogBox from 'assets/dialog-box.astro'
 import SocialLink from 'assets/social-link.astro'
 import StarsShine from 'assets/stars-shine.astro'
+
+const title = 'Welcome to Riolly Universe'
+const desc =
+	'Explore web development universe with Alberto Riolly and take your dev skill to the moon.'
 ---
 
-<Layout
-	title='Welcome to Riolly Universe'
-	description='Explore web development universe with Alberto Riolly and take your dev skill to the moon.'
->
-	<div class='absolute h-fit w-full overflow-clip'>
+<Layout title={title} description={desc}>
 		<div
 			class='stars absolute right-0 bottom-[12.5%] h-0.5 w-0.5 origin-top-left rotate-180 rounded-full'
 		>
