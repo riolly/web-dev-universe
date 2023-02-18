@@ -82,9 +82,10 @@ const desc =
 				</svg>
 			</div>
 			<button
-				class='astronaut-wrap astronaut-wrap__init group absolute -bottom-8 right-0 z-10 pl-24 pt-16 transition-transform hover:cursor-pointer md:mr-12 md:mb-8 lg:mr-8 xl:mr-16 2xl:mr-20'
+				id='astronaut-wrap'
+				class='init group absolute -bottom-8 right-0 z-10 pl-24 pt-16 transition-transform hover:cursor-pointer md:mr-12 md:mb-8 lg:mr-8 xl:mr-16 2xl:mr-20'
 			>
-				<div class='astronaut astronaut__init'>
+				<div id='astronaut' class='init'>
 					<div class='absolute -left-[5.5rem] -top-6 h-24 -rotate-6 md:-left-[6rem] md:h-[6.5rem]'>
 						<div class='fadeIn absolute h-full'>
 							<DialogBox class='ping h-full' />
@@ -96,7 +97,7 @@ const desc =
 							<p class='text-bold font-head text-2xl leading-5'>
 								<span
 									style='--n:22'
-									class={`type-action text-black before:text-3xl group-hover:invisible before:visible before:text-black before:group-hover:content-["Ready??"] before:group-focus:content-["Let's_GO!_"]`}
+									class={`typing_dialog text-black before:text-3xl group-hover:invisible before:visible before:text-black before:group-hover:content-["Ready??"] before:group-focus:content-["Let's_GO!_"]`}
 									>Right here, hope on!!</span
 								>
 							</p>
@@ -134,8 +135,10 @@ const desc =
 			<h1
 				class='-mt-20 text-5xl font-bold leading-[1.1] md:text-6xl md:leading-tight xl:text-7xl xl:leading-tight'
 			>
-				<span class='lightSpeed0'>Web keep <span class='lightSpeed1'>evolving..</span></span>
-				<span class='lightSpeed2 block italic'>
+				<span class='lightSpeed_h1web'
+					>Web keep <span class='lightSpeed_h1evolve'>evolving..</span></span
+				>
+				<span class='lightSpeed_h1fast block italic'>
 					..really
 					<span
 						class='align-bottom text-[3.5rem] text-transparent [-webkit-text-stroke:2px_white] md:text-[4rem] 2xl:text-[5rem]'
@@ -146,7 +149,7 @@ const desc =
 			</h1>
 
 			<p class='mt-4 text-lg leading-5 md:mt-6 md:text-xl md:leading-6 2xl:text-2xl'>
-				<span style='--n:142' class='type-desc'>
+				<span style='--n:142' class='typing_p'>
 					It will keep expanding like the <span class='font-semibold italic'>galaxy.</span>
 					<br />
 					Be part of change, become one of the <span class='font-semibold italic'>stars.</span>
@@ -162,7 +165,7 @@ const desc =
 		</section>
 
 		<section class='relative h-screen w-full' id='contact'>
-			<div class='link link--github absolute top-[16%] left-[20%]'>
+			<div class='link github absolute top-[16%] left-[20%]'>
 				<SocialLink
 					class='-rotate-3'
 					bgClass='w-24 md:w-32 lg:w-46'
@@ -200,7 +203,7 @@ const desc =
 			</div>
 
 			<div
-				class='link link--twitter absolute top-[44%] right-[28%] md:top-[48%] lg:right-[36%] xl:right-[40%] xl:top-[40%]'
+				class='link twitter absolute top-[44%] right-[28%] md:top-[48%] lg:right-[36%] xl:right-[40%] xl:top-[40%]'
 			>
 				<SocialLink
 					class='-rotate-6'
@@ -220,7 +223,7 @@ const desc =
 			</div>
 
 			<div
-				class='link link--youtube absolute top-[56%] left-[20%] md:top-[64%] lg:left-[28%] xl:left-[36%]'
+				class='link youtube absolute top-[56%] left-[20%] md:top-[64%] lg:left-[28%] xl:left-[36%]'
 			>
 				<SocialLink
 					class='rotate-2'
@@ -240,7 +243,7 @@ const desc =
 			</div>
 
 			<div
-				class='link link--instagram absolute top-[70%] right-[14%] md:top-[74%] md:right-[18%] lg:top-[70%] xl:right-[28%]'
+				class='link instagram absolute top-[70%] right-[14%] md:top-[74%] md:right-[18%] lg:top-[70%] xl:right-[28%]'
 			>
 				<SocialLink
 					class='-rotate-6'
@@ -265,21 +268,21 @@ const desc =
 <script>
 	const h1 = document.querySelector('h1') as HTMLHeadingElement
 	const sectionContact = document.querySelector('section#contact') as HTMLElement
-	const astronaut = document.querySelector('div.astronaut') as HTMLButtonElement
+	const astronautWrap = document.querySelector('button#astronaut-wrap') as HTMLButtonElement
+	const astronaut = document.querySelector('div#astronaut') as HTMLButtonElement
 	const githubLink = document.querySelector(
 		'a[href="https://github.com/riolly"]'
 	) as HTMLLinkElement
-	const astronautWrap = document.querySelector('button.astronaut-wrap') as HTMLButtonElement
 
 	astronautWrap.addEventListener('click', () => {
-		astronautWrap.classList.replace('astronaut-wrap__init', 'astronaut-wrap__ignite')
-		astronaut.classList.replace('astronaut__init', 'astronaut__ignite')
-		astronautWrap.classList.replace('astronaut-wrap__idle', 'astronaut-wrap__ignite')
-		astronaut.classList.replace('astronaut__idle', 'astronaut__ignite')
+		astronautWrap.classList.replace('init', 'ignite')
+		astronaut.classList.replace('init', 'ignite')
+		astronautWrap.classList.replace('idle', 'ignite')
+		astronaut.classList.replace('idle', 'ignite')
 
 		setTimeout(() => {
-			astronautWrap.classList.replace('astronaut-wrap__ignite', 'astronaut-wrap__launch')
-			astronaut.classList.replace('astronaut__ignite', 'astronaut__launch')
+			astronautWrap.classList.replace('ignite', 'launch')
+			astronaut.classList.replace('ignite', 'launch')
 		}, 1000)
 		setTimeout(() => {
 			sectionContact.scrollIntoView()
@@ -293,8 +296,8 @@ const desc =
 		(entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
-					astronautWrap.classList.replace('astronaut-wrap__launch', 'astronaut-wrap__idle')
-					astronaut.classList.replace('astronaut__launch', 'astronaut__idle')
+					astronautWrap.classList.replace('launch', 'idle')
+					astronaut.classList.replace('launch', 'idle')
 				}
 			})
 		},
@@ -339,42 +342,33 @@ const desc =
 		background-image: url(/images/twink.svg);
 	}
 
-	// Web keep..
-	$delay-0: 0.4s;
-	$duration-0: 0.7s;
-	// evolving..
-	$delay-1: $delay-0 + $duration-0 - 0.3s;
-	$duration-1: 1s;
-	// ...really fast
-	$delay-2: $delay-1 + $duration-1 - 0.4s;
-	$duration-2: 0.5s;
-	// astronaut show
-	$delay-3: $delay-2 + $duration-2 + 3s;
-	$duration-3: 5s;
-	// astronout wobble
-	$delay-4: $delay-3 + $duration-3 - 0.2s;
-	$duration-4: 3s;
-	// typing paragraph
-	$delay-5: $delay-2 + $duration-2 + 0.2s;
-	$duration-5: 7.1s;
-	// dialog box show
-	$delay-6: $delay-4 - 0.3s;
-	$duration-6: 0.7s;
-	// dialog box ping
-	$delay-7: $delay-6 + $duration-6 - 0.5s;
-	$duration-7: 1s;
+	$delay_h1web: 0.4s;
+	$durat_h1web: 0.7s;
+	$delay_h1evolve: $delay_h1web + $durat_h1web - 0.3s;
+	$durat_h1evolve: 1s;
+	$delay_h1fast: $delay_h1evolve + $durat_h1evolve - 0.4s;
+	$durat_h1fast: 0.5s;
+	$delay_pType: $delay_h1fast + $durat_h1fast + 0.2s;
+	$durat_pType: 7.1s; // 142(char)×0.05(unit)
+	$delay_astroInit: $delay_pType + $durat_pType - 4.5s;
+	$durat_astroInit: 5s;
+	$delay_astroWobble: $delay_astroInit + $durat_astroInit - 0.2s;
+	$durat_astroWobble: 3s;
+	$delay_dialogShow: $delay_astroWobble - 0.3s;
+	$durat_dialogShow: 0.7s;
+	$delay_dialogType: $delay_dialogShow + $durat_dialogShow - 0.5s;
 
-	.lightSpeed0 {
-		animation: lightSpeed $duration-0 $delay-0 ease-out backwards;
+	.lightSpeed_h1web {
+		animation: lightSpeed $durat_h1web $delay_h1web ease-out backwards;
 	}
-	.lightSpeed1 {
-		animation: lightSpeed $duration-1 $delay-1 ease-out backwards;
+	.lightSpeed_h1evolve {
+		animation: lightSpeed $durat_h1evolve $delay_h1evolve ease-out backwards;
 	}
-	.lightSpeed2 {
-		animation: lightSpeed $duration-2 $delay-2 ease-out backwards;
+	.lightSpeed_h1fast {
+		animation: lightSpeed $durat_h1fast $delay_h1fast ease-out backwards;
 	}
 
-	.type-desc {
+	.typing_p {
 		/* font-family: monospace; */
 		color: #0000;
 		background: linear-gradient(-90deg, #cbd5e1 5px, #0000 0) 10px 0,
@@ -383,91 +377,88 @@ const desc =
 		-webkit-background-clip: padding-box, text;
 		background-clip: padding-box, text;
 		background-repeat: no-repeat;
-		animation: blinking 0.5s $delay-5 infinite steps(1) backwards,
-			typing calc(var(--n) * 0.05s) $delay-5 steps(var(--n)) both;
+		animation: blinking 0.5s $delay_pType infinite steps(1) backwards,
+			typing calc(var(--n) * 0.05s) $delay_pType steps(var(--n)) both;
 	}
 
-	.type-action {
+	.typing_dialog {
 		color: #0000;
 		background: linear-gradient(-90deg, #94a3b8 5px, #0000 0) 10px 0, linear-gradient(black 0 0) 0 0;
 		background-size: calc(var(--n) * 0.7ch) 200%;
 		-webkit-background-clip: padding-box, text;
 		background-clip: padding-box, text;
 		background-repeat: no-repeat;
-		animation: blinking 0.5s $delay-7 infinite steps(1) backwards,
-			typing calc(var(--n) * 0.1s) $delay-7 steps(var(--n)) both;
+		animation: blinking 0.5s $delay_dialogType infinite steps(1) backwards,
+			typing calc(var(--n) * 0.1s) $delay_dialogType steps(var(--n)) both;
 	}
 
 	// astronaut-wrap
 	.group {
 		.rotateInDownRight {
-			animation: rotateInDownRight $duration-6 $delay-6 backwards;
+			animation: rotateInDownRight $durat_dialogShow $delay_dialogShow backwards;
 		}
-
 		.fadeIn {
-			animation: fadeIn 1s calc($delay-7 + 0.5s) backwards;
+			animation: fadeIn 1s calc($delay_dialogType + 0.5s) backwards;
 		}
-
 		&:not(:hover) .ping {
 			animation: ping-m 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 		}
-
 		&:hover .ping {
 			animation: ping-l 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 		}
 	}
 
-	$duration-idle: 1.6s;
-	$delay-idle: $duration-idle - 0.1s;
+	$durat_astroIdle: 1.6s;
+	$delay_astroIdle: $durat_astroIdle - 0.1s;
 
-	.astronaut-wrap {
-		&__init {
-			animation: zoomInUp $duration-3 $delay-3 backwards,
-				wobbleX $duration-4 $delay-4 alternate ease-in-out infinite;
+	#astronaut-wrap {
+		&.init {
+			animation: zoomInUp $durat_astroInit $delay_astroInit backwards,
+				wobbleX $durat_astroWobble $delay_astroWobble alternate ease-in-out infinite;
 		}
-		&__ignite {
+		&.ignite {
 			animation: wobbleX 0.5s alternate ease-in-out infinite;
 		}
-		&__launch {
+		&.launch {
 			animation: scale 2s ease-out forwards, goingX 2s cubic-bezier(0.36, 0.73, 0.8, 0.97) forwards;
 		}
-		&__idle {
-			animation: zoomInUp $duration-idle both,
-				wobbleX $duration-4 $delay-idle alternate ease-in-out infinite;
+		&.idle {
+			animation: zoomInUp $durat_astroIdle both,
+				wobbleX $durat_astroWobble $delay_astroIdle alternate ease-in-out infinite;
 		}
 	}
 
-	.astronaut {
-		&__init {
-			animation: wobbleY 4s $delay-4 alternate ease-in-out infinite;
+	#astronaut {
+		&.init {
+			animation: wobbleY 4s $delay_astroWobble alternate ease-in-out infinite;
 		}
-		&__ignite {
+		&.ignite {
 			animation: wobbleY 1s alternate ease-in-out infinite;
 		}
-		&__launch {
+		&.launch {
 			animation: goingY 2s cubic-bezier(0.73, 0.02, 0, 0.99) forwards;
 		}
-		&__idle {
-			animation: wobbleY 4s $delay-idle alternate ease-in-out infinite;
+		&.idle {
+			animation: wobbleY 4s $delay_astroIdle alternate ease-in-out infinite;
 		}
 	}
 
 	.link {
 		animation: floatingSocial 10s infinite ease-in-out alternate;
 
-		&--github {
+		&.github {
 			animation-delay: 0s;
 		}
-		&--linkedin {
+		&.linkedin {
 			animation-delay: 0.5s;
 		}
-		&--twitter {
+		&.twitter {
 			animation-delay: 1s;
 		}
-		&--youtube {
+		&.youtube {
 			animation-delay: 1.5s;
 		}
-		&--instagram {
+		&.instagram {
 			animation-delay: 2s;
 		}
 	}
