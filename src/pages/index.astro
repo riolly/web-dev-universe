@@ -14,11 +14,38 @@ const desc =
 
 <Layout title={title} description={desc}>
 	<div id='background' class='absolute h-fit w-full overflow-clip'>
-		<div
-			class='stars absolute right-0 bottom-[12.5%] h-0.5 w-0.5 origin-top-left rotate-180 rounded-full opacity-50'
-		>
+		<div id='stars-bg' class='absolute h-full w-full opacity-75'>
+			<div class='absolute top-0 h-1/3 w-full overflow-clip'>
+				<div class='inline-flex'>
+					<div class='stars h-[1080px] w-[1920px]'></div>
+					<div class='stars h-[1080px] w-[1920px]'></div>
+				</div>
+				<div class='inline-flex'>
+					<div class='stars h-[1080px] w-[1920px]'></div>
+					<div class='stars h-[1080px] w-[1920px]'></div>
+				</div>
+			</div>
+			<div class='absolute top-1/3 h-1/3 w-full overflow-clip'>
+				<div class='inline-flex'>
+					<div class='stars h-[1080px] w-[1920px]'></div>
+					<div class='stars h-[1080px] w-[1920px]'></div>
+				</div>
+				<div class='inline-flex'>
+					<div class='stars h-[1080px] w-[1920px]'></div>
+					<div class='stars h-[1080px] w-[1920px]'></div>
+				</div>
+			</div>
+			<div class='absolute top-2/3 h-1/3 w-full overflow-clip'>
+				<div class='inline-flex'>
+					<div class='stars h-[1080px] w-[1920px]'></div>
+					<div class='stars h-[1080px] w-[1920px]'></div>
+				</div>
+				<div class='inline-flex'>
+					<div class='stars h-[1080px] w-[1920px]'></div>
+					<div class='stars h-[1080px] w-[1920px]'></div>
+				</div>
+			</div>
 		</div>
-		<div class='stars absolute h-1 w-1 rounded-full opacity-75'></div>
 		<div class='twink absolute -left-1/4 -top-1/4 h-[125%] w-[125%]'></div>
 
 		<div id='bg-section-intro' class='relative h-[100lvh]'>
@@ -278,6 +305,40 @@ const desc =
 </script>
 
 <style lang='scss'>
+	@function multiple-box-shadow($n) {
+		$value: '#{random(1920)}px #{random(1080)}px #FFF';
+		@for $i from 2 through $n {
+			$value: '#{$value}, #{random(1920)}px #{random(1080)}px 2px rgba(255, 255, 255, calc(#{random(9)+1}/10))';
+		}
+		@return unquote($value);
+	}
+	$stars: multiple-box-shadow(100);
+	.stars {
+		&:after {
+			content: '';
+			width: 6px;
+			height: 6px;
+			position: absolute;
+			border-radius: 100%;
+			box-shadow: $stars;
+		}
+		&:before {
+			content: '';
+			width: 4px;
+			height: 4px;
+			transform: rotate(180deg);
+			transform-origin: center;
+			position: absolute;
+			border-radius: 100%;
+			box-shadow: $stars;
+		}
+	}
+
+	.twink {
+		animation: move-twink 16s linear infinite alternate;
+		background-image: url(/images/twink.svg);
+	}
+
 	// Web keep..
 	$delay-0: 0.4s;
 	$duration-0: 0.7s;
@@ -302,23 +363,6 @@ const desc =
 	// dialog box ping
 	$delay-7: $delay-6 + $duration-6 - 0.5s;
 	$duration-7: 1s;
-
-	@function multiple-box-shadow($n) {
-		$value: '#{random(1920)}px #{random(1080*2.5)}px #FFF';
-		@for $i from 2 through $n {
-			$value: '#{$value} , #{random(1920)}px #{random(1080*2.5)}px #FFF';
-		}
-		@return unquote($value);
-	}
-	$stars: multiple-box-shadow(100 * 3);
-	.stars {
-		box-shadow: $stars;
-	}
-
-	.twink {
-		animation: move-twink 12s linear infinite alternate;
-		background-image: url(/images/twink.svg);
-	}
 
 	.lightSpeed0 {
 		animation: lightSpeed $duration-0 $delay-0 ease-out backwards;
