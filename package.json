@@ -15,6 +15,7 @@
 		"@astrojs/tailwind": "^3.0.1",
 		"@fontsource/karla": "^4.5.11",
 		"@fontsource/oswald": "^4.5.12",
+		"@tailwindcss/line-clamp": "^0.4.2",
 		"astro": "^2.0.5",
 		"sharp": "^0.31.3",
 		"tailwindcss": "^3.0.24"
