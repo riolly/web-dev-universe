@@ -7,9 +7,26 @@ import DialogBox from 'assets/dialog-box.astro'
 import SocialLink from 'assets/social-link.astro'
 import StarsShine from 'assets/stars-shine.astro'
 
+import CSS from 'assets/CSS.svg'
+
 const title = 'Welcome to Riolly Universe'
 const desc =
 	'Explore web development universe with Alberto Riolly and take your dev skill to the moon.'
+
+const articles = [
+	{
+		title: 'Smoother & sharper shadows with layered box-shadows',
+		desc: 'With a simple CSS trick, we can get fine-tuned control over how shadows are rendered, and create richer and more realistic 3D effects',
+	},
+	{
+		title: 'Breaking to a new row with flexbox',
+		desc: 'You can break to a new flexbox row or column without setting the size of an item: add a collapsed flex item between two flex items',
+	},
+	{
+		title: 'CSS masonry with flexbox, :nth-child(), and order',
+		desc: 'Creating a masonry (or mosaic) layout with flexbox produces a grid with a seemingly shuffled and obscure order, but we can achieve a natural ordering by using :nth-child() and the order property',
+	},
+]
 ---
 
 <Layout title={title} description={desc}>
@@ -161,7 +178,28 @@ const desc =
 		</section>
 
 		<section id='blog' class='relative h-screen w-full'>
-			<div></div>
+			<div class='container mx-auto flex max-w-screen-md flex-col items-center px-4'>
+				<object class='my-8' data={CSS} type='image/svg+xml'></object>
+
+				<div class='space-y-3'>
+					{
+						articles.map((article) => (
+							<div class='flex flex-col rounded-lg border border-cyan-400 bg-gradient-to-r from-blue-900/60 via-blue-900/30 to-blue-900/60 pl-4 pr-2 pb-3 pt-1.5'>
+								<div class='relative h-fit'>
+									<h2 class='py-1 text-3xl backdrop-blur-md line-clamp-2'>{article.title}</h2>
+									<div class='absolute top-0 -left-4 h-full w-0 border-8 border-transparent border-l-cyan-400' />
+								</div>
+								<p class='mt-4 leading-5 line-clamp-3'>{article.desc}</p>
+							</div>
+						))
+					}
+				</div>
+
+				<a
+					class='mt-8 rounded border-8 border-cyan-300 border-y-transparent px-2 font-head text-xl text-white'
+					>More CSS articles</a
+				>
+			</div>
 		</section>
 
 		<section class='relative h-screen w-full' id='contact'>
@@ -268,6 +306,7 @@ const desc =
 <script>
 	const h1 = document.querySelector('h1') as HTMLHeadingElement
 	const sectionContact = document.querySelector('section#contact') as HTMLElement
+	const sectionBlog = document.querySelector('section#blog') as HTMLElement
 	const astronautWrap = document.querySelector('button#astronaut-wrap') as HTMLButtonElement
 	const astronaut = document.querySelector('div#astronaut') as HTMLButtonElement
 	const githubLink = document.querySelector(
@@ -285,11 +324,11 @@ const desc =
 			astronaut.classList.replace('ignite', 'launch')
 		}, 1000)
 		setTimeout(() => {
-			sectionContact.scrollIntoView()
+			sectionBlog.scrollIntoView()
 		}, 1750)
-		setTimeout(() => {
-			githubLink.focus()
-		}, 2500)
+		// setTimeout(() => {
+		// 	githubLink.focus()
+		// }, 2500)
 	})
 
 	const observer = new IntersectionObserver(
