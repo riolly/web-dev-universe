@@ -178,25 +178,25 @@ const articles = [
 		</section>
 
 		<section id='blog' class='relative h-screen w-full'>
-			<div class='container mx-auto flex max-w-screen-md flex-col items-center px-4'>
-				<object class='my-8' data={CSS} type='image/svg+xml'></object>
+			<div class='container mx-auto flex max-w-screen-md flex-col items-center px-4 md:px-12'>
+				<object class='my-8 md:my-12 lg:mt-20' data={CSS} type='image/svg+xml'></object>
 
-				<div class='space-y-3'>
+				<div class='space-y-3 md:space-y-4'>
 					{
 						articles.map((article) => (
-							<div class='flex flex-col rounded-lg border border-cyan-400 bg-gradient-to-r from-blue-900/60 via-blue-900/30 to-blue-900/60 pl-4 pr-2 pb-3 pt-1.5'>
+							<a class='group flex flex-col overflow-clip rounded-lg border border-cyan-400 bg-gradient-to-r from-blue-900/60 via-blue-900/30 to-blue-900/60 pl-4 pr-2 pb-3 pt-1.5 transition-transform hover:scale-105 hover:to-indigo-700/60'>
 								<div class='relative h-fit'>
 									<h2 class='py-1 text-3xl backdrop-blur-md line-clamp-2'>{article.title}</h2>
-									<div class='absolute top-0 -left-4 h-full w-0 border-8 border-transparent border-l-cyan-400' />
+									<div class='absolute top-0 -left-4 h-full w-0 border-8 border-transparent border-l-cyan-400 transition-transform group-hover:scale-150 md:group-hover:scale-[200%]' />
 								</div>
 								<p class='mt-4 leading-5 line-clamp-3'>{article.desc}</p>
-							</div>
+							</a>
 						))
 					}
 				</div>
 
 				<a
-					class='mt-8 rounded border-8 border-cyan-300 border-y-transparent px-2 font-head text-xl text-white'
+					class='mt-8 font-head text-xl text-white transition-all before:inline-block before:border-8 before:border-transparent before:border-l-cyan-300 before:transition-transform after:inline-block after:border-8 after:border-transparent after:border-r-cyan-300 after:transition-transform hover:cursor-pointer hover:tracking-widest hover:before:-translate-x-1 hover:before:scale-150 hover:after:translate-x-1 hover:after:scale-150'
 					>More CSS articles</a
 				>
 			</div>
