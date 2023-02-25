@@ -184,7 +184,7 @@ const articles = [
 				<div class='relative space-y-3 md:space-y-4'>
 					{
 						articles.map((article) => (
-							<a class='group flex scale-100 overflow-visible transition-transform before:absolute before:top-0 before:left-0 before:-z-10 before:h-full before:w-full before:rounded-lg before:border before:border-cyan-300 before:bg-slate-900 after:absolute after:top-0 after:left-0 after:-z-20 after:h-full after:w-full after:scale-100 after:bg-cyan-700 after:blur-sm hover:scale-105 hover:cursor-pointer hover:after:blur-md'>
+							<a class='group flex scale-100 overflow-visible transition-transform before:absolute before:top-0 before:left-0 before:-z-10 before:h-full before:w-full before:rounded-lg before:border before:border-cyan-300 before:bg-slate-900 after:absolute after:top-0 after:left-0 after:-z-20 after:h-full after:w-full after:scale-100 after:bg-cyan-700 after:blur-sm hover:scale-105 hover:cursor-pointer hover:after:blur-md active:scale-100'>
 								<div>
 									<div class='relative h-fit w-full overflow-x-clip'>
 										<h2 class='pr-4 pl-6 pt-3 text-3xl tracking-wide line-clamp-2'>
@@ -195,9 +195,9 @@ const articles = [
 									<p class='mt-4 mb-4 pl-6 pr-4 line-clamp-3'>{article.desc}</p>
 								</div>
 
-								<div class='relative w-48 flex-none overflow-hidden rounded-r border-r-2 border-b-2 border-cyan-300 bg-cyan-300 before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-slate-900 before:transition-transform before:duration-300 before:ease-out group-hover:before:-translate-x-[66px] group-hover:before:translate-y-2.5 group-hover:before:border-[18px] '>
-									<div class='text-body absolute -bottom-0 -right-24 h-6 w-fit rounded-br rounded-tl bg-slate-900 pr-2 text-sm text-cyan-100 transition-transform duration-300 ease-out group-hover:-translate-x-24'>
-										Read more
+								<div class='relative w-48 flex-none overflow-hidden rounded-r border-r-2 border-b-2 border-cyan-300 bg-cyan-300 before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-slate-900 before:transition-transform before:duration-300 before:ease-out group-hover:before:-translate-x-[63px] group-hover:before:translate-y-2.5 group-hover:before:border-[18px] '>
+									<div class='text-body absolute -bottom-0 -right-24 h-6 w-20 rounded-br rounded-tl bg-slate-900 pt-0.5 text-sm italic text-cyan-100 transition-transform duration-300 ease-out group-hover:-translate-x-24'>
+										read more
 									</div>
 								</div>
 							</a>
@@ -205,7 +205,7 @@ const articles = [
 					}
 				</div>
 				<a
-					class='mt-8 font-head text-xl text-white transition-all before:inline-block before:border-8 before:border-transparent before:border-l-cyan-300 before:transition-transform after:inline-block after:border-8 after:border-transparent after:border-r-cyan-300 after:transition-transform hover:cursor-pointer hover:tracking-widest hover:before:-translate-x-1 hover:before:scale-150 hover:after:translate-x-1 hover:after:scale-150'
+					class='hover:after:h-0s relative mt-8 px-6 font-head text-xl text-white transition-all after:absolute after:left-1/2 after:top-1/2 after:-z-10 after:h-full after:w-full after:-translate-x-1/2 after:-translate-y-1/2 after:border-8 after:border-transparent after:border-x-cyan-300 after:transition-transform after:duration-300 hover:cursor-pointer hover:tracking-widest hover:after:w-1/4 hover:after:-translate-y-[42.5%] hover:after:-rotate-90 active:after:scale-75 active:after:duration-100'
 					>More CSS articles</a
 				>
 			</div>
