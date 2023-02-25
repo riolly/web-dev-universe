@@ -31,7 +31,7 @@ const articles = [
 
 <Layout title={title} description={desc}>
 	<div id='background' class='absolute h-fit w-full overflow-clip'>
-		<div id='stars-bg' class='absolute h-full w-full opacity-75'>
+		<div id='stars-bg' class='absolute -z-20 h-full w-full opacity-75'>
 			<div class='absolute top-0 h-1/3 w-full overflow-clip'>
 				<div class='inline-flex'>
 					<div class='stars h-[1080px] w-[1920px]'></div>
@@ -63,7 +63,7 @@ const articles = [
 				</div>
 			</div>
 		</div>
-		<div class='twink absolute -left-1/4 -top-1/4 h-[125%] w-[125%]'></div>
+		<div class='twink absolute -left-1/4 -top-1/4 -z-20 h-[125%] w-[125%]'></div>
 
 		<div id='bg-section-intro' class='relative h-[100lvh]'>
 			<StarsShine class='min-w-[1536px]' />
@@ -178,23 +178,32 @@ const articles = [
 		</section>
 
 		<section id='blog' class='relative h-screen w-full'>
-			<div class='container mx-auto flex max-w-screen-md flex-col items-center px-4 md:px-12'>
+			<div class='mx-auto flex max-w-screen-md flex-col items-center px-4 md:px-0'>
 				<object class='my-8 md:my-12 lg:mt-20' data={CSS} type='image/svg+xml'></object>
 
-				<div class='space-y-3 md:space-y-4'>
+				<div class='relative space-y-3 md:space-y-4'>
 					{
 						articles.map((article) => (
-							<a class='group flex flex-col overflow-clip rounded-lg border border-cyan-400 bg-gradient-to-r from-blue-900/60 via-blue-900/30 to-blue-900/60 pl-4 pr-2 pb-3 pt-1.5 transition-transform hover:scale-105 hover:to-indigo-700/60'>
-								<div class='relative h-fit'>
-									<h2 class='py-1 text-3xl backdrop-blur-md line-clamp-2'>{article.title}</h2>
-									<div class='absolute top-0 -left-4 h-full w-0 border-8 border-transparent border-l-cyan-400 transition-transform group-hover:scale-150 md:group-hover:scale-[200%]' />
+							<a class='group flex scale-100 overflow-visible transition-transform before:absolute before:top-0 before:left-0 before:-z-10 before:h-full before:w-full before:rounded-lg before:border before:border-cyan-300 before:bg-slate-900 after:absolute after:top-0 after:left-0 after:-z-20 after:h-full after:w-full after:scale-100 after:bg-cyan-700 after:blur-sm hover:scale-105 hover:after:blur-md'>
+								<div>
+									<div class='relative h-fit w-full overflow-x-clip'>
+										<h2 class='pr-4 pl-6 pt-3 text-3xl tracking-wide line-clamp-2'>
+											{article.title}
+										</h2>
+										<div class='absolute top-2 -left-0 h-full w-0 border-[12px] border-transparent border-l-cyan-400 transition-transform' />
+									</div>
+									<p class='mt-4 mb-4 pl-6 pr-4 line-clamp-3'>{article.desc}</p>
 								</div>
-								<p class='mt-4 leading-5 line-clamp-3'>{article.desc}</p>
+
+								<div class='relative w-48 flex-none overflow-hidden rounded-r border-r-2 border-b-2 border-cyan-300 bg-cyan-300 before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-slate-900 before:transition-transform before:duration-300 before:ease-out group-hover:before:-translate-x-[66px] group-hover:before:translate-y-2.5 group-hover:before:border-[18px] '>
+									<div class='text-body absolute -bottom-0 -right-24 h-6 w-fit rounded-br rounded-tl bg-slate-900 pr-2 text-sm text-cyan-100 transition-transform duration-300 ease-out group-hover:-translate-x-24'>
+										Read more
+									</div>
+								</div>
 							</a>
 						))
 					}
 				</div>
-
 				<a
 					class='mt-8 font-head text-xl text-white transition-all before:inline-block before:border-8 before:border-transparent before:border-l-cyan-300 before:transition-transform after:inline-block after:border-8 after:border-transparent after:border-r-cyan-300 after:transition-transform hover:cursor-pointer hover:tracking-widest hover:before:-translate-x-1 hover:before:scale-150 hover:after:translate-x-1 hover:after:scale-150'
 					>More CSS articles</a
@@ -301,378 +310,380 @@ const articles = [
 			</div>
 		</section>
 	</main>
+
+	<script>
+		const h1 = document.querySelector('h1') as HTMLHeadingElement
+		const sectionContact = document.querySelector('section#contact') as HTMLElement
+		const sectionBlog = document.querySelector('section#blog') as HTMLElement
+		const astronautWrap = document.querySelector('button#astronaut-wrap') as HTMLButtonElement
+		const astronaut = document.querySelector('div#astronaut') as HTMLButtonElement
+		const githubLink = document.querySelector(
+			'a[href="https://github.com/riolly"]'
+		) as HTMLLinkElement
+
+		astronautWrap.addEventListener('click', () => {
+			astronautWrap.classList.replace('init', 'ignite')
+			astronaut.classList.replace('init', 'ignite')
+			astronautWrap.classList.replace('idle', 'ignite')
+			astronaut.classList.replace('idle', 'ignite')
+
+			setTimeout(() => {
+				astronautWrap.classList.replace('ignite', 'launch')
+				astronaut.classList.replace('ignite', 'launch')
+			}, 1000)
+			setTimeout(() => {
+				sectionBlog.scrollIntoView()
+			}, 1750)
+			// setTimeout(() => {
+			// 	githubLink.focus()
+			// }, 2500)
+		})
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						astronautWrap.classList.replace('launch', 'idle')
+						astronaut.classList.replace('launch', 'idle')
+					}
+				})
+			},
+			{rootMargin: '0px', threshold: 1}
+		)
+
+		observer.observe(h1)
+	</script>
+
+	<style lang='scss'>
+		@function multiple-box-shadow($n) {
+			$value: '#{random(1920)}px #{random(1080)}px #FFF';
+			@for $i from 2 through $n {
+				$value: '#{$value}, #{random(1920)}px #{random(1080)}px 2px rgba(255, 255, 255, calc(#{random(9)+1}/10))';
+			}
+			@return unquote($value);
+		}
+		$stars: multiple-box-shadow(100);
+		.stars {
+			&:after {
+				content: '';
+				width: 6px;
+				height: 6px;
+				position: absolute;
+				border-radius: 100%;
+				box-shadow: $stars;
+			}
+			&:before {
+				content: '';
+				width: 4px;
+				height: 4px;
+				transform: rotate(180deg);
+				transform-origin: center;
+				position: absolute;
+				border-radius: 100%;
+				box-shadow: $stars;
+			}
+		}
+
+		.twink {
+			animation: move-twink 16s linear infinite alternate;
+			background-image: url(/images/twink.svg);
+		}
+
+		$delay_h1web: 0.4s;
+		$durat_h1web: 0.7s;
+		$delay_h1evolve: $delay_h1web + $durat_h1web - 0.3s;
+		$durat_h1evolve: 1s;
+		$delay_h1fast: $delay_h1evolve + $durat_h1evolve - 0.4s;
+		$durat_h1fast: 0.5s;
+		$delay_pType: $delay_h1fast + $durat_h1fast + 0.2s;
+		$durat_pType: 7.1s; // 142(char)×0.05(unit)
+		$delay_astroInit: $delay_pType + $durat_pType - 4.5s;
+		$durat_astroInit: 5s;
+		$delay_astroWobble: $delay_astroInit + $durat_astroInit - 0.2s;
+		$durat_astroWobble: 3s;
+		$delay_dialogShow: $delay_astroWobble - 0.3s;
+		$durat_dialogShow: 0.7s;
+		$delay_dialogType: $delay_dialogShow + $durat_dialogShow - 0.5s;
+
+		.lightSpeed_h1web {
+			animation: lightSpeed $durat_h1web $delay_h1web ease-out backwards;
+		}
+		.lightSpeed_h1evolve {
+			animation: lightSpeed $durat_h1evolve $delay_h1evolve ease-out backwards;
+		}
+		.lightSpeed_h1fast {
+			animation: lightSpeed $durat_h1fast $delay_h1fast ease-out backwards;
+		}
+
+		.typing_p {
+			/* font-family: monospace; */
+			color: #0000;
+			background: linear-gradient(-90deg, #cbd5e1 5px, #0000 0) 10px 0,
+				linear-gradient(#e2e8f0 0 0) 0 0;
+			background-size: calc(var(--n) * 0.8ch) 200%;
+			-webkit-background-clip: padding-box, text;
+			background-clip: padding-box, text;
+			background-repeat: no-repeat;
+			animation: blinking 0.5s $delay_pType infinite steps(1) backwards,
+				typing calc(var(--n) * 0.05s) $delay_pType steps(var(--n)) both;
+		}
+
+		.typing_dialog {
+			color: #0000;
+			background: linear-gradient(-90deg, #94a3b8 5px, #0000 0) 10px 0,
+				linear-gradient(black 0 0) 0 0;
+			background-size: calc(var(--n) * 0.7ch) 200%;
+			-webkit-background-clip: padding-box, text;
+			background-clip: padding-box, text;
+			background-repeat: no-repeat;
+			animation: blinking 0.5s $delay_dialogType infinite steps(1) backwards,
+				typing calc(var(--n) * 0.1s) $delay_dialogType steps(var(--n)) both;
+		}
+
+		// astronaut-wrap
+		.group {
+			.rotateInDownRight {
+				animation: rotateInDownRight $durat_dialogShow $delay_dialogShow backwards;
+			}
+			.fadeIn {
+				animation: fadeIn 1s calc($delay_dialogType + 0.5s) backwards;
+			}
+			&:not(:hover) .ping {
+				animation: ping-m 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+			}
+			&:hover .ping {
+				animation: ping-l 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+			}
+		}
+
+		$durat_astroIdle: 1.6s;
+		$delay_astroIdle: $durat_astroIdle - 0.1s;
+
+		#astronaut-wrap {
+			&.init {
+				animation: zoomInUp $durat_astroInit $delay_astroInit backwards,
+					wobbleX $durat_astroWobble $delay_astroWobble alternate ease-in-out infinite;
+			}
+			&.ignite {
+				animation: wobbleX 0.5s alternate ease-in-out infinite;
+			}
+			&.launch {
+				animation: scale 2s ease-out forwards,
+					goingX 2s cubic-bezier(0.36, 0.73, 0.8, 0.97) forwards;
+			}
+			&.idle {
+				animation: zoomInUp $durat_astroIdle both,
+					wobbleX $durat_astroWobble $delay_astroIdle alternate ease-in-out infinite;
+			}
+		}
+
+		#astronaut {
+			&.init {
+				animation: wobbleY 4s $delay_astroWobble alternate ease-in-out infinite;
+			}
+			&.ignite {
+				animation: wobbleY 1s alternate ease-in-out infinite;
+			}
+			&.launch {
+				animation: goingY 2s cubic-bezier(0.73, 0.02, 0, 0.99) forwards;
+			}
+			&.idle {
+				animation: wobbleY 4s $delay_astroIdle alternate ease-in-out infinite;
+			}
+		}
+
+		.link {
+			animation: floatingSocial 10s infinite ease-in-out alternate;
+
+			&.github {
+				animation-delay: 0s;
+			}
+			&.linkedin {
+				animation-delay: 0.5s;
+			}
+			&.twitter {
+				animation-delay: 1s;
+			}
+			&.youtube {
+				animation-delay: 1.5s;
+			}
+			&.instagram {
+				animation-delay: 2s;
+			}
+		}
+
+		@keyframes goingX {
+			100% {
+				transform: translateX(-140vw);
+			}
+		}
+		@keyframes goingY {
+			100% {
+				transform: translateY(-120lvh);
+			}
+		}
+		@keyframes scale {
+			80% {
+				transform: scale(4);
+			}
+		}
+
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		@keyframes move-twink {
+			from {
+				transform: translate(0);
+			}
+			to {
+				transform: translate3d(20%, 10%, 0);
+			}
+		}
+
+		@keyframes wobbleY {
+			0% {
+				transform: translateY(0);
+			}
+			25% {
+				transform: translateY(-30px);
+			}
+			50% {
+				transform: translateY(-20px);
+			}
+			75% {
+				transform: translateY(-50px);
+			}
+			100% {
+				transform: translate3d(-30px);
+			}
+		}
+		@keyframes wobbleX {
+			0% {
+				transform: translateX(0);
+			}
+			14.5% {
+				transform: translateX(-5px);
+			}
+			28.57% {
+				transform: translateX(5px);
+			}
+			42.83% {
+				transform: translateX(-12px);
+			}
+			57.14% {
+				transform: translateX(12px);
+			}
+			71.42% {
+				transform: translateX(-8px);
+			}
+			85.72% {
+				transform: translateX(8px);
+			}
+			100% {
+				transform: translateX(0px);
+			}
+		}
+
+		@keyframes zoomInUp {
+			from {
+				opacity: 0;
+				transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 1000px, 0);
+				animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+			}
+
+			70% {
+				opacity: 1;
+				transform: scale3d(0.6, 0.6, 0.6) translate3d(300px, 300px, 0);
+				animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+			}
+
+			100% {
+				opacity: 1;
+				transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+				animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+			}
+		}
+
+		@keyframes lightSpeed {
+			from {
+				transform: translate3d(-100%, 0, 0) skewX(30deg);
+				opacity: 0;
+			}
+
+			60% {
+				transform: skewX(-20deg);
+				opacity: 1;
+			}
+
+			80% {
+				transform: skewX(5deg);
+			}
+
+			to {
+				transform: translate3d(0, 0, 0);
+			}
+		}
+
+		@keyframes typing {
+			from {
+				background-size: 0 200%;
+			}
+		}
+		@keyframes blinking {
+			50% {
+				background-position: 0 -100%, 0 0;
+			}
+		}
+
+		@keyframes rotateInDownRight {
+			from {
+				transform: rotate3d(0, 0, 1, 45deg);
+				opacity: 0;
+			}
+
+			to {
+				transform: translate3d(0, 0, 0);
+				opacity: 1;
+			}
+		}
+
+		@keyframes ping-l {
+			75%,
+			100% {
+				transform: scale3d(1.3, 1.5, 0);
+				opacity: 0;
+			}
+		}
+		@keyframes ping-m {
+			75%,
+			100% {
+				transform: scale(1.15);
+				opacity: 0;
+			}
+		}
+
+		@keyframes floatingSocial {
+			0% {
+				transform: translateY(0);
+			}
+			30% {
+				transform: translateY(-20%);
+			}
+			40% {
+				transform: translateY(-10%);
+			}
+			75% {
+				transform: translateY(-50%);
+			}
+			100% {
+				transform: translate3d(-30%);
+			}
+		}
+	</style>
 </Layout>
-
-<script>
-	const h1 = document.querySelector('h1') as HTMLHeadingElement
-	const sectionContact = document.querySelector('section#contact') as HTMLElement
-	const sectionBlog = document.querySelector('section#blog') as HTMLElement
-	const astronautWrap = document.querySelector('button#astronaut-wrap') as HTMLButtonElement
-	const astronaut = document.querySelector('div#astronaut') as HTMLButtonElement
-	const githubLink = document.querySelector(
-		'a[href="https://github.com/riolly"]'
-	) as HTMLLinkElement
-
-	astronautWrap.addEventListener('click', () => {
-		astronautWrap.classList.replace('init', 'ignite')
-		astronaut.classList.replace('init', 'ignite')
-		astronautWrap.classList.replace('idle', 'ignite')
-		astronaut.classList.replace('idle', 'ignite')
-
-		setTimeout(() => {
-			astronautWrap.classList.replace('ignite', 'launch')
-			astronaut.classList.replace('ignite', 'launch')
-		}, 1000)
-		setTimeout(() => {
-			sectionBlog.scrollIntoView()
-		}, 1750)
-		// setTimeout(() => {
-		// 	githubLink.focus()
-		// }, 2500)
-	})
-
-	const observer = new IntersectionObserver(
-		(entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					astronautWrap.classList.replace('launch', 'idle')
-					astronaut.classList.replace('launch', 'idle')
-				}
-			})
-		},
-		{rootMargin: '0px', threshold: 1}
-	)
-
-	observer.observe(h1)
-</script>
-
-<style lang='scss'>
-	@function multiple-box-shadow($n) {
-		$value: '#{random(1920)}px #{random(1080)}px #FFF';
-		@for $i from 2 through $n {
-			$value: '#{$value}, #{random(1920)}px #{random(1080)}px 2px rgba(255, 255, 255, calc(#{random(9)+1}/10))';
-		}
-		@return unquote($value);
-	}
-	$stars: multiple-box-shadow(100);
-	.stars {
-		&:after {
-			content: '';
-			width: 6px;
-			height: 6px;
-			position: absolute;
-			border-radius: 100%;
-			box-shadow: $stars;
-		}
-		&:before {
-			content: '';
-			width: 4px;
-			height: 4px;
-			transform: rotate(180deg);
-			transform-origin: center;
-			position: absolute;
-			border-radius: 100%;
-			box-shadow: $stars;
-		}
-	}
-
-	.twink {
-		animation: move-twink 16s linear infinite alternate;
-		background-image: url(/images/twink.svg);
-	}
-
-	$delay_h1web: 0.4s;
-	$durat_h1web: 0.7s;
-	$delay_h1evolve: $delay_h1web + $durat_h1web - 0.3s;
-	$durat_h1evolve: 1s;
-	$delay_h1fast: $delay_h1evolve + $durat_h1evolve - 0.4s;
-	$durat_h1fast: 0.5s;
-	$delay_pType: $delay_h1fast + $durat_h1fast + 0.2s;
-	$durat_pType: 7.1s; // 142(char)×0.05(unit)
-	$delay_astroInit: $delay_pType + $durat_pType - 4.5s;
-	$durat_astroInit: 5s;
-	$delay_astroWobble: $delay_astroInit + $durat_astroInit - 0.2s;
-	$durat_astroWobble: 3s;
-	$delay_dialogShow: $delay_astroWobble - 0.3s;
-	$durat_dialogShow: 0.7s;
-	$delay_dialogType: $delay_dialogShow + $durat_dialogShow - 0.5s;
-
-	.lightSpeed_h1web {
-		animation: lightSpeed $durat_h1web $delay_h1web ease-out backwards;
-	}
-	.lightSpeed_h1evolve {
-		animation: lightSpeed $durat_h1evolve $delay_h1evolve ease-out backwards;
-	}
-	.lightSpeed_h1fast {
-		animation: lightSpeed $durat_h1fast $delay_h1fast ease-out backwards;
-	}
-
-	.typing_p {
-		/* font-family: monospace; */
-		color: #0000;
-		background: linear-gradient(-90deg, #cbd5e1 5px, #0000 0) 10px 0,
-			linear-gradient(#e2e8f0 0 0) 0 0;
-		background-size: calc(var(--n) * 0.8ch) 200%;
-		-webkit-background-clip: padding-box, text;
-		background-clip: padding-box, text;
-		background-repeat: no-repeat;
-		animation: blinking 0.5s $delay_pType infinite steps(1) backwards,
-			typing calc(var(--n) * 0.05s) $delay_pType steps(var(--n)) both;
-	}
-
-	.typing_dialog {
-		color: #0000;
-		background: linear-gradient(-90deg, #94a3b8 5px, #0000 0) 10px 0, linear-gradient(black 0 0) 0 0;
-		background-size: calc(var(--n) * 0.7ch) 200%;
-		-webkit-background-clip: padding-box, text;
-		background-clip: padding-box, text;
-		background-repeat: no-repeat;
-		animation: blinking 0.5s $delay_dialogType infinite steps(1) backwards,
-			typing calc(var(--n) * 0.1s) $delay_dialogType steps(var(--n)) both;
-	}
-
-	// astronaut-wrap
-	.group {
-		.rotateInDownRight {
-			animation: rotateInDownRight $durat_dialogShow $delay_dialogShow backwards;
-		}
-		.fadeIn {
-			animation: fadeIn 1s calc($delay_dialogType + 0.5s) backwards;
-		}
-		&:not(:hover) .ping {
-			animation: ping-m 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-		}
-		&:hover .ping {
-			animation: ping-l 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-		}
-	}
-
-	$durat_astroIdle: 1.6s;
-	$delay_astroIdle: $durat_astroIdle - 0.1s;
-
-	#astronaut-wrap {
-		&.init {
-			animation: zoomInUp $durat_astroInit $delay_astroInit backwards,
-				wobbleX $durat_astroWobble $delay_astroWobble alternate ease-in-out infinite;
-		}
-		&.ignite {
-			animation: wobbleX 0.5s alternate ease-in-out infinite;
-		}
-		&.launch {
-			animation: scale 2s ease-out forwards, goingX 2s cubic-bezier(0.36, 0.73, 0.8, 0.97) forwards;
-		}
-		&.idle {
-			animation: zoomInUp $durat_astroIdle both,
-				wobbleX $durat_astroWobble $delay_astroIdle alternate ease-in-out infinite;
-		}
-	}
-
-	#astronaut {
-		&.init {
-			animation: wobbleY 4s $delay_astroWobble alternate ease-in-out infinite;
-		}
-		&.ignite {
-			animation: wobbleY 1s alternate ease-in-out infinite;
-		}
-		&.launch {
-			animation: goingY 2s cubic-bezier(0.73, 0.02, 0, 0.99) forwards;
-		}
-		&.idle {
-			animation: wobbleY 4s $delay_astroIdle alternate ease-in-out infinite;
-		}
-	}
-
-	.link {
-		animation: floatingSocial 10s infinite ease-in-out alternate;
-
-		&.github {
-			animation-delay: 0s;
-		}
-		&.linkedin {
-			animation-delay: 0.5s;
-		}
-		&.twitter {
-			animation-delay: 1s;
-		}
-		&.youtube {
-			animation-delay: 1.5s;
-		}
-		&.instagram {
-			animation-delay: 2s;
-		}
-	}
-
-	@keyframes goingX {
-		100% {
-			transform: translateX(-140vw);
-		}
-	}
-	@keyframes goingY {
-		100% {
-			transform: translateY(-120lvh);
-		}
-	}
-	@keyframes scale {
-		80% {
-			transform: scale(4);
-		}
-	}
-
-	@keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-
-	@keyframes move-twink {
-		from {
-			transform: translate(0);
-		}
-		to {
-			transform: translate3d(20%, 10%, 0);
-		}
-	}
-
-	@keyframes wobbleY {
-		0% {
-			transform: translateY(0);
-		}
-		25% {
-			transform: translateY(-30px);
-		}
-		50% {
-			transform: translateY(-20px);
-		}
-		75% {
-			transform: translateY(-50px);
-		}
-		100% {
-			transform: translate3d(-30px);
-		}
-	}
-	@keyframes wobbleX {
-		0% {
-			transform: translateX(0);
-		}
-		14.5% {
-			transform: translateX(-5px);
-		}
-		28.57% {
-			transform: translateX(5px);
-		}
-		42.83% {
-			transform: translateX(-12px);
-		}
-		57.14% {
-			transform: translateX(12px);
-		}
-		71.42% {
-			transform: translateX(-8px);
-		}
-		85.72% {
-			transform: translateX(8px);
-		}
-		100% {
-			transform: translateX(0px);
-		}
-	}
-
-	@keyframes zoomInUp {
-		from {
-			opacity: 0;
-			transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 1000px, 0);
-			animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-		}
-
-		70% {
-			opacity: 1;
-			transform: scale3d(0.6, 0.6, 0.6) translate3d(300px, 300px, 0);
-			animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
-		}
-
-		100% {
-			opacity: 1;
-			transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
-			animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
-		}
-	}
-
-	@keyframes lightSpeed {
-		from {
-			transform: translate3d(-100%, 0, 0) skewX(30deg);
-			opacity: 0;
-		}
-
-		60% {
-			transform: skewX(-20deg);
-			opacity: 1;
-		}
-
-		80% {
-			transform: skewX(5deg);
-		}
-
-		to {
-			transform: translate3d(0, 0, 0);
-		}
-	}
-
-	@keyframes typing {
-		from {
-			background-size: 0 200%;
-		}
-	}
-	@keyframes blinking {
-		50% {
-			background-position: 0 -100%, 0 0;
-		}
-	}
-
-	@keyframes rotateInDownRight {
-		from {
-			transform: rotate3d(0, 0, 1, 45deg);
-			opacity: 0;
-		}
-
-		to {
-			transform: translate3d(0, 0, 0);
-			opacity: 1;
-		}
-	}
-
-	@keyframes ping-l {
-		75%,
-		100% {
-			transform: scale3d(1.3, 1.5, 0);
-			opacity: 0;
-		}
-	}
-	@keyframes ping-m {
-		75%,
-		100% {
-			transform: scale(1.15);
-			opacity: 0;
-		}
-	}
-
-	@keyframes floatingSocial {
-		0% {
-			transform: translateY(0);
-		}
-		30% {
-			transform: translateY(-20%);
-		}
-		40% {
-			transform: translateY(-10%);
-		}
-		75% {
-			transform: translateY(-50%);
-		}
-		100% {
-			transform: translate3d(-30%);
-		}
-	}
-</style>
