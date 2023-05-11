@@ -6,13 +6,21 @@ import '@fontsource/karla'
 import {SITE} from '../config'
 import HeadCommon from 'components/HeadCommon.astro'
 import HeadSeo from 'components/HeadSeo.astro'
+
+const props = Astro.props
+
+export interface Props {
+	title: string
+	description: string
+	image?: string
+}
 ---
 
 <!DOCTYPE html>
 <html lang='en-us'>
 	<head>
 		<HeadCommon />
-		<HeadSeo type='website' />
+		<HeadSeo type='website' {...props} />
 		<title>{SITE.title}</title>
 	</head>
 	<body>

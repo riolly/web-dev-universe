@@ -4,15 +4,20 @@ import {SITE, OPEN_GRAPH, Frontmatter} from '../config'
 export interface Props {
 	frontmatter?: Frontmatter
 	type?: string
+	title?: string
+	description?: string
+	image?: string
 }
 
-const {frontmatter, type} = Astro.props as Props
+const {frontmatter, type, title, description, image} = Astro.props as Props
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
 
-const formattedContentTitle = frontmatter ? `${frontmatter.title} 🚀 ${SITE.title}` : SITE.title
+const formattedContentTitle = frontmatter
+	? `${frontmatter.title} 🚀 ${SITE.title}`
+	: title ?? SITE.title
 
-const imageSrc = frontmatter?.image?.src ?? OPEN_GRAPH.image.src
+const imageSrc = frontmatter?.image?.src ?? image ?? OPEN_GRAPH.image.src
 const imageUrl = new URL(imageSrc, Astro.url.origin)
 const imageAlt = frontmatter?.image?.alt ?? OPEN_GRAPH.image.alt
 
@@ -21,7 +26,7 @@ const ogType = type ?? 'article'
 
 <!-- Page Metadata -->
 <link rel='canonical' href={canonicalUrl} />
-<meta name='description' property='og:description' content={SITE.description} />
+<meta name='description' property='og:description' content={description ?? SITE.description} />
 
 <!-- OpenGraph Tags -->
 <meta property='og:title' content={formattedContentTitle} />
@@ -36,7 +41,7 @@ const ogType = type ?? 'article'
 <meta name='twitter:card' content='summary_large_image' />
 <meta name='twitter:site' content={OPEN_GRAPH.twitter} />
 <meta name='twitter:title' content={formattedContentTitle} />
-<meta name='twitter:description' content={SITE.description} />
+<meta name='twitter:description' content={description ?? SITE.description} />
 <meta name='twitter:image' content={imageUrl} />
 <meta name='twitter:image:alt' content={imageAlt} />
 
