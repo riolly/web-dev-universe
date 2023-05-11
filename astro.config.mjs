@@ -8,7 +8,7 @@ import image from '@astrojs/image'
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://riolly.vercel.app',
+	site: 'https://www.riolly.dev',
 	integrations: [
 		tailwind({config: {applyBaseStyles: false}}),
 		image({
