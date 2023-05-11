@@ -34,34 +34,37 @@ import Layout from 'layouts/Layout.astro'
 
 		<div id='content' class='mx-auto flex max-w-screen-lg flex-col gap-8 pb-12'>
 			<div id='profile' class='grid grid-cols-12 pt-8'>
-				<div class='col-span-3 h-32'>
-					<h3>Profile</h3>
+				<div class='col-span-3'>
+					<h3 class='text-xl'>Profile</h3>
 				</div>
-				<div class='col-span-9 h-32'>
-					<p>
+				<div class='col-span-9'>
+					<p class='indent-8'>
 						Self-learned front-end developer focused to create engaging and intuitive UI. With over
 						three years of experience using React and its ecosystem, including Next.js, I prioritize
 						the user experience by optimizing performance. I leverage TypeScript extensively to
 						ensure fast and reliable development, and build design systems with Tailwind CSS to make
 						products stand out & consistent. As a seasonal full-stack developer, I have extensive
 						experience building APIs, using ORM/SQL, and managing databases.
+					</p>
+					<p class='indent-8'>
 						<br />
 						I am looking for collaborative and supportive environment where we can build innovative product
 						grow together as a team.
+						a team through solving problem and build innovative product.
 					</p>
 				</div>
 			</div>
 
-			<div id='works' class='grid grid-cols-12 pt-8'>
+			<div id='works' class='grid grid-cols-12'>
 				<div class='col-span-3'>
-					<h3>Work Experiences</h3>
+					<h3 class='text-xl'>Work Experiences</h3>
 				</div>
 
 				<div class='col-span-9 flex flex-col gap-4'>
 					<div>
-						<p class='flex justify-between font-bold'>
-							<span>Full-stack Developer - Freelance</span>
-							<span>07/22 — now</span>
+						<p class='flex justify-between'>
+							<span class='text-lg font-bold'>Full-stack Developer - Freelance</span>
+							<span class='italic'>07/22 — now</span>
 						</p>
 						<ul class='list-disc font-body text-white'>
 							<li>
@@ -110,9 +113,9 @@ import Layout from 'layouts/Layout.astro'
 					</div>
 
 					<div>
-						<p class='flex justify-between font-bold'>
-							<span>Front-end Developer at Achiko AG</span>
-							<span>09/20 — 06/22</span>
+						<p class='flex justify-between'>
+							<span class='text-lg font-bold'>Front-end Developer at Achiko AG</span>
+							<span class='italic'>09/20 — 06/22</span>
 						</p>
 						<ul class='list-disc font-body text-white'>
 							<li>
@@ -165,19 +168,23 @@ import Layout from 'layouts/Layout.astro'
 			</div>
 
 			<div id='education' class='grid grid-cols-12'>
-				<div class='col-span-3 h-32'>
-					<h3>Education</h3>
+				<div class='col-span-3'>
+					<h3 class='text-xl'>Education</h3>
 				</div>
-				<div class='col-span-9 h-32 space-y-4'>
-					<div>
-						<p>Full-stack Javascript Bootcamp</p>
-						<p>Hacktiv8, Jakarta</p>
-						<p>Feb - Jun 2020</p>
+				<div class='col-span-9 space-y-4'>
+					<div class='flex justify-between'>
+						<div class='leading-loose'>
+							<p class='text-lg font-bold'>Full-stack Javascript Developer</p>
+							<p>Hacktiv8 Bootcamp, Jakarta</p>
+						</div>
+						<p class='italic'>February - June 2020</p>
 					</div>
-					<div>
-						<p>Bachelor of Engineering Physics</p>
-						<p>Sepuluh Nopember Institute of Technology (ITS), Surabaya</p>
-						<p>2013 - 2017</p>
+					<div class='flex justify-between'>
+						<div class='leading-loose'>
+							<p class='text-lg font-bold'>Bachelor of Engineering Physics</p>
+							<p>Sepuluh Nopember Institute of Technology (ITS), Surabaya</p>
+						</div>
+						<p class='italic'>2013 - 2017</p>
 					</div>
 				</div>
 			</div>
