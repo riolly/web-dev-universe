@@ -8,36 +8,38 @@ import Layout from 'layouts/Layout.astro'
 	description='Self-learned, always evolving, front-end/ full-stack developer focused to create engaging and intuitive software.'
 >
 	<div class='mx-auto max-w-screen-xl bg-gray-900 shadow-xl shadow-gray-600'>
-		<section id='header' class='space-y-4 bg-gray-700 pb-4 pt-8'>
+		<section id='header' class='space-y-4 border-r-[12px] border-gray-300 bg-gray-700 pb-4 pt-8'>
 			<h1 class='text-center font-head text-6xl'>Alberto R Cahyantara</h1>
 			<h2 class='text-center font-body text-2xl'>Front-end / Full-stack Developer</h2>
 		</section>
-		<div id='sub-header' class='grid grid-cols-2 gap-x-12 bg-gray-800 py-4'>
-			<section id='contacts'>
-				<div class='ml-auto w-fit'>
-					<address class='font-body not-italic text-white'>Jakarta, Indonesia</address>
-				</div>
-				<div class='ml-auto w-fit'>
-					<p>+62 851 7432 8051</p>
-				</div>
-				<div class='ml-auto w-fit'>
-					<p>alberto.cahyantara@gmail.com</p>
-				</div>
-			</section>
 
-			<section id='socials' class='font-body text-white'>
-				<div><a href='https://www.riolly.dev/'>riolly.dev</a></div>
-				<div><a href='https://github.com/riolly'>github.com/riolly</a></div>
-				<div><a href='https://linkedin.com/in/riolly'>linkedin.com/in/riolly</a></div>
+		<div
+			id='sub-header'
+			class='flex justify-center gap-4 border-r-4 border-gray-300 bg-gray-800 py-3'
+		>
+			<section id='contacts' class='w-72'>
+				<p class='flex flex-col items-end leading-tight'>
+					<span class='font-body not-italic text-gray-400'>Jakarta, Indonesia</span>
+					<span class='text-gray-400'>+62 851 7432 8051</span>
+					<span class='text-gray-400'>alberto.cahyantara@gmail.com</span>
+				</p>
+			</section>
+			<div class='flex self-center text-white'>&#9679;</div>
+			<section id='socials' class='w-72 font-body text-gray-400'>
+				<p class='flex flex-col leading-tight text-gray-400'>
+					<a href='https://www.riolly.dev/'>riolly.dev</a>
+					<a href='https://github.com/riolly'>github.com/riolly</a>
+					<a href='https://linkedin.com/in/riolly'>linkedin.com/in/riolly</a>
+				</p>
 			</section>
 		</div>
 
-		<div id='content' class='mx-auto flex max-w-screen-lg flex-col gap-8 pb-12'>
-			<div id='profile' class='grid grid-cols-12 pt-8'>
-				<div class='col-span-3'>
-					<h3 class='text-xl'>Profile</h3>
+		<div id='content' class='mx-auto flex max-w-screen-lg flex-col gap-8 py-12'>
+			<div id='profile' class='grid grid-cols-12 gap-8'>
+				<div class='col-span-3 border-t border-gray-400'>
+					<h3 class='border-gray-400-2 w-fit border-t px-2 pt-1 text-xl'>Profile</h3>
 				</div>
-				<div class='col-span-9'>
+				<div class='col-span-9 pt-2'>
 					<p class='indent-8'>
 						Self-learned front-end developer focused to create engaging and intuitive UI. With over
 						three years of experience using React and its ecosystem, including Next.js, I prioritize
@@ -54,12 +56,12 @@ import Layout from 'layouts/Layout.astro'
 				</div>
 			</div>
 
-			<div id='works' class='grid grid-cols-12'>
-				<div class='col-span-3'>
-					<h3 class='text-xl'>Work Experience</h3>
+			<div id='works' class='grid grid-cols-12 gap-8'>
+				<div class='col-span-3 border-t border-gray-400'>
+					<h3 class='border-gray-400-2 w-fit border-t px-2 pt-1 text-xl'>Work Experience</h3>
 				</div>
 
-				<div class='col-span-9 flex flex-col gap-4'>
+				<div class='col-span-9 flex flex-col gap-4 pt-2'>
 					<div>
 						<p class='flex justify-between'>
 							<span class='text-lg font-bold'>Full-stack Developer - Freelance</span>
@@ -166,11 +168,11 @@ import Layout from 'layouts/Layout.astro'
 				</div>
 			</div>
 
-			<div id='education' class='grid grid-cols-12'>
-				<div class='col-span-3'>
-					<h3 class='text-xl'>Education</h3>
+			<div id='education' class='grid grid-cols-12 gap-8'>
+				<div class='col-span-3 border-t border-gray-400'>
+					<h3 class='border-gray-400-2 w-fit border-t px-2 pt-1 text-xl'>Education</h3>
 				</div>
-				<div class='col-span-9 space-y-4'>
+				<div class='col-span-9 space-y-4 pt-2'>
 					<div class='flex justify-between'>
 						<div class='leading-loose'>
 							<p class='text-lg font-bold'>Full-stack Javascript Developer</p>
@@ -188,38 +190,40 @@ import Layout from 'layouts/Layout.astro'
 				</div>
 			</div>
 
-			<div id='skills' class='grid grid-cols-12'>
-				<div class='col-span-3'>
-					<h3 class='text-xl'>Skills</h3>
+			<div id='skills' class='grid grid-cols-12 gap-8'>
+				<div class='col-span-3 border-t border-gray-400'>
+					<h3 class='border-gray-400-2 w-fit border-t px-2 pt-1 text-xl'>Skills</h3>
 				</div>
-				<ul class='col-span-3 list-disc text-white'>
-					<li class='font-bold'>Typescript</li>
-					<li class='font-bold'>React</li>
-					<li>React Native / Expo</li>
-					<li>Next.js / Vercel</li>
-					<li>TailwindCSS / SASS</li>
-				</ul>
-				<ul class='col-span-3 list-disc text-white'>
-					<li>tRPC</li>
-					<li>TanStack query, table, router</li>
-					<li>Auth.js / OAuth</li>
-					<li>Zustand / Redux</li>
-					<li>ReactHookForm / Formik</li>
-				</ul>
-				<ul class='col-span-3 list-disc text-white'>
-					<li>Prisma / Sequelize</li>
-					<li>MySQL (PlanetScale)</li>
-					<li>Astro</li>
-					<li>SolidJs</li>
-					<li>Figma, and many more</li>
-				</ul>
+				<div class='col-span-9 grid grid-cols-3 pt-2'>
+					<ul class='list-disc text-white'>
+						<li class='font-bold'>Typescript</li>
+						<li class='font-bold'>React</li>
+						<li>React Native / Expo</li>
+						<li>Next.js / Vercel</li>
+						<li>TailwindCSS / SASS</li>
+					</ul>
+					<ul class='list-disc text-white'>
+						<li>tRPC</li>
+						<li>TanStack query, table, router</li>
+						<li>Auth.js / OAuth</li>
+						<li>Zustand / Redux</li>
+						<li>ReactHookForm / Formik</li>
+					</ul>
+					<ul class='list-disc text-white'>
+						<li>Prisma / Sequelize</li>
+						<li>MySQL (PlanetScale)</li>
+						<li>Astro</li>
+						<li>SolidJs</li>
+						<li>Figma, and many more</li>
+					</ul>
+				</div>
 			</div>
 
-			<div id='languages' class='grid grid-cols-12'>
-				<div class='col-span-3'>
-					<h3 class='text-xl'>Languages</h3>
+			<div id='languages' class='grid grid-cols-12 gap-8'>
+				<div class='col-span-3 border-t border-gray-400'>
+					<h3 class='border-gray-400-2 w-fit border-t px-2 pt-1 text-xl'>Languages</h3>
 				</div>
-				<div class='col-span-9 space-y-4'>
+				<div class='col-span-9 space-y-4 pt-2'>
 					<p>
 						<span><b>English</b> as international language</span>
 						<br />
@@ -238,27 +242,29 @@ import Layout from 'layouts/Layout.astro'
 				</div>
 			</div>
 
-			<div id='references' class='grid grid-cols-12'>
-				<div class='col-span-3'>
-					<h3 class='text-xl'>References</h3>
+			<div id='references' class='grid grid-cols-12 gap-8'>
+				<div class='col-span-3 border-t border-gray-400'>
+					<h3 class='border-gray-400-2 w-fit border-t px-2 pt-1 text-xl'>References</h3>
 				</div>
-				<div class='col-span-3'>
-					<p class='font-bold'>Yudhistira Eka Putra</p>
-					<p>Lyaeus GmbH</p>
-					<p class='text-gray-400'>yudhistira.eka.putra@gmail.com</p>
-					<p class='text-gray-400'>+62 811 8949 797</p>
-				</div>
-				<div class='col-span-3'>
-					<p class='font-bold'>Rahmat Gilang Maulana</p>
-					<p>Sirclo - sirclo.com</p>
-					<p class='text-gray-400'>gilang.maulana@gmail.com</p>
-					<p class='text-gray-400'>+62 851 5528 1158</p>
-				</div>
-				<div class='col-span-3'>
-					<p class='font-bold'>Fadilah Arifki</p>
-					<p>Pandatech - pandatech.io</p>
-					<p class='text-gray-400'>fadilah.arifki29@gmail.com</p>
-					<p class='text-gray-400'>+62 895 0582 2191</p>
+				<div class='col-span-9 grid grid-cols-3 pt-2'>
+					<div>
+						<p class='font-bold'>Yudhistira Eka Putra</p>
+						<p>Lyaeus GmbH</p>
+						<p class='text-gray-400'>yudhistira.eka.putra@gmail.com</p>
+						<p class='text-gray-400'>+62 811 8949 797</p>
+					</div>
+					<div>
+						<p class='font-bold'>Rahmat Gilang Maulana</p>
+						<p>Sirclo - sirclo.com</p>
+						<p class='text-gray-400'>gilang.maulana@gmail.com</p>
+						<p class='text-gray-400'>+62 851 5528 1158</p>
+					</div>
+					<div>
+						<p class='font-bold'>Fadilah Arifki</p>
+						<p>Pandatech - pandatech.io</p>
+						<p class='text-gray-400'>fadilah.arifki29@gmail.com</p>
+						<p class='text-gray-400'>+62 895 0582 2191</p>
+					</div>
 				</div>
 			</div>
 		</div>
