@@ -6,6 +6,10 @@ import PlanetLandscape from 'assets/landscape.astro'
 import DialogBox from 'assets/dialog-box.astro'
 import SocialLink from 'assets/social-link.astro'
 import StarsShine from 'assets/stars-shine.astro'
+
+const urlResume = import.meta.env.VERCEL_URL
+	? `https://${import.meta.env.VERCEL_URL}/resume`
+	: 'http://localhost:3000/resume'
 ---
 
 <Layout
@@ -40,7 +44,7 @@ import StarsShine from 'assets/stars-shine.astro'
 
 			<div
 				id='content-bg'
-				class='absolute top-1/2 left-1/2 -ml-12 mt-4 h-fit w-[175%] -translate-y-1/2 -translate-x-1/2 overflow-clip md:-ml-40 md:w-[120%] lg:-ml-32 lg:w-[92%] xl:-ml-24 xl:w-[80%] 2xl:-ml-20 2xl:w-[60%]'
+				class='absolute left-1/2 top-1/2 -ml-12 mt-4 h-fit w-[175%] -translate-x-1/2 -translate-y-1/2 overflow-clip md:-ml-40 md:w-[120%] lg:-ml-32 lg:w-[92%] xl:-ml-24 xl:w-[80%] 2xl:-ml-20 2xl:w-[60%]'
 			>
 				<svg
 					class='-mt-16 -rotate-[15deg]'
@@ -68,7 +72,7 @@ import StarsShine from 'assets/stars-shine.astro'
 			</div>
 
 			<button
-				class='astronaut-wrap astronaut-wrap__init group absolute -bottom-8 right-0 z-10 pl-24 pt-16 transition-transform hover:cursor-pointer md:mr-12 md:mb-8 lg:mr-8 xl:mr-16 2xl:mr-20'
+				class='astronaut-wrap astronaut-wrap__init group absolute -bottom-8 right-0 z-10 pl-24 pt-16 transition-transform hover:cursor-pointer md:mb-8 md:mr-12 lg:mr-8 xl:mr-16 2xl:mr-20'
 			>
 				<div class='astronaut astronaut__init'>
 					<div class='absolute -left-[5.5rem] -top-6 h-24 -rotate-6 md:-left-[6rem] md:h-[6.5rem]'>
@@ -77,7 +81,7 @@ import StarsShine from 'assets/stars-shine.astro'
 						</div>
 						<DialogBox className='absolute h-full rotateInDownRight origin-bottom-right' />
 						<div
-							class='absolute top-1 left-4 w-24 -rotate-2 group-hover:top-4 md:top-1.5 md:left-5 md:group-hover:top-5'
+							class='absolute left-4 top-1 w-24 -rotate-2 group-hover:top-4 md:left-5 md:top-1.5 md:group-hover:top-5'
 						>
 							<p class='text-bold font-head text-2xl leading-5'>
 								<span
@@ -136,10 +140,10 @@ import StarsShine from 'assets/stars-shine.astro'
 		</section>
 
 		<section class='relative h-screen w-full' id='contact'>
-			<div class='link link--github absolute top-[16%] left-[20%]'>
+			<div class='link link--github absolute left-[12%] top-[30%] lg:top-[22%] xl:left-[20%]'>
 				<SocialLink
 					class='-rotate-3'
-					bgClass='w-24 md:w-32 lg:w-46'
+					bgClass='w-24 md:w-32'
 					delay='0s'
 					href='https://github.com/riolly'
 					label='Github'
@@ -155,7 +159,20 @@ import StarsShine from 'assets/stars-shine.astro'
 				</SocialLink>
 			</div>
 
-			<div class='link link-linkedin absolute top-[26%] right-[10%] xl:right-[14%]'>
+			<div class='link link--github absolute left-[42%] top-[12%]'>
+				<SocialLink
+					class='rotate-0'
+					bgClass='w-24 md:w-32'
+					delay='0s'
+					href={urlResume}
+					label='Resume'
+					target='_blank'
+				>
+					<p class='font-head text-5xl md:text-6xl'>CV</p>
+				</SocialLink>
+			</div>
+
+			<div class='link link-linkedin absolute right-[10%] top-[26%] xl:right-[14%]'>
 				<SocialLink
 					class='rotate-6'
 					bgClass='w-20 md:w-28 lg:w-32'
@@ -174,7 +191,7 @@ import StarsShine from 'assets/stars-shine.astro'
 			</div>
 
 			<div
-				class='link link--twitter absolute top-[44%] right-[28%] md:top-[48%] lg:right-[36%] xl:right-[40%] xl:top-[40%]'
+				class='link link--twitter absolute right-[28%] top-[44%] md:top-[48%] lg:right-[36%] xl:right-[38%] xl:top-[40%]'
 			>
 				<SocialLink
 					class='-rotate-6'
@@ -194,7 +211,7 @@ import StarsShine from 'assets/stars-shine.astro'
 			</div>
 
 			<div
-				class='link link--youtube absolute top-[56%] left-[20%] md:top-[64%] lg:left-[28%] xl:left-[36%]'
+				class='link link--youtube absolute left-[20%] top-[56%] md:top-[64%] lg:left-[28%] xl:left-[36%]'
 			>
 				<SocialLink
 					class='rotate-2'
@@ -214,7 +231,7 @@ import StarsShine from 'assets/stars-shine.astro'
 			</div>
 
 			<div
-				class='link link--instagram absolute top-[70%] right-[14%] md:top-[74%] md:right-[18%] lg:top-[70%] xl:right-[28%]'
+				class='link link--instagram absolute right-[14%] top-[70%] md:right-[18%] md:top-[74%] lg:top-[70%] xl:right-[28%]'
 			>
 				<SocialLink
 					class='-rotate-6'
