@@ -9,25 +9,34 @@ import img from 'public/images/og-resume.jpg'
 	image={img}
 >
 	<div class='mx-auto max-w-screen-xl bg-gray-900 shadow-xl shadow-gray-600'>
-		<section id='header' class='space-y-4 border-r-[12px] border-gray-300 bg-gray-700 pb-4 pt-8'>
-			<h1 class='text-center font-head text-6xl'>Alberto R Cahyantara</h1>
-			<h2 class='text-center font-body text-2xl text-blue-100'>Front-end / Full-stack Developer</h2>
+		<section
+			id='header'
+			class='space-y-2 border-r-8 border-gray-300 bg-gray-700 px-2 pb-4 pt-8 md:space-y-4 md:border-r-[12px]'
+		>
+			<h1 class='text-center font-head text-5xl md:text-6xl'>Alberto R Cahyantara</h1>
+			<h2 class='text-center font-body text-xl text-blue-100 md:text-2xl'>
+				Front-end / Full-stack Developer
+			</h2>
 		</section>
 
 		<div
 			id='sub-header'
-			class='flex justify-center gap-4 border-r-4 border-gray-300 bg-gray-800 py-3'
+			class='flex justify-center gap-2 border-r-2 border-gray-300 bg-gray-800 px-4 pb-4 pt-3 md:gap-4 md:border-r-4'
 		>
 			<section id='contacts' class='w-72'>
-				<p class='flex flex-col items-end leading-tight text-gray-300'>
+				<p
+					class='flex flex-col items-end text-sm leading-4 text-gray-300 md:text-base md:leading-tight'
+				>
 					<span class='font-body not-italic'>Jakarta, Indonesia</span>
 					<span>+62 851 7432 8051 &nbsp;</span>
-					<span>alberto.cahyantara@gmail.com</span>
+					<span>alberto.cahyantara@gmail<span class='hidden md:inline'>.com</span></span>
 				</p>
 			</section>
-			<div class='flex self-center text-white'>&#9679;</div>
+			<div class='self-center text-xs text-white md:text-base'>&#9679;</div>
 			<section id='socials' class='w-72 font-body'>
-				<p class='flex flex-col leading-tight text-gray-300'>
+				<p
+					class='flex flex-col text-sm leading-4 text-gray-300 md:flex-col md:text-base md:leading-tight'
+				>
 					<a href='https://www.riolly.dev/'>riolly.dev</a>
 					<a href='https://github.com/riolly'>&nbsp; github.com/riolly</a>
 					<a href='https://linkedin.com/in/riolly'>linkedin.com/in/riolly</a>
@@ -35,12 +44,15 @@ import img from 'public/images/og-resume.jpg'
 			</section>
 		</div>
 
-		<div id='content' class='mx-auto flex max-w-screen-lg flex-col gap-8 px-12 py-12 xl:px-0'>
-			<div id='profile' class='grid grid-cols-12 gap-8'>
-				<div class='col-span-3 border-t border-gray-400'>
-					<h3 class='border-gray-400-2 w-fit border-t px-2 pt-1 text-xl'>Profile</h3>
+		<div
+			id='content'
+			class='mx-auto flex max-w-screen-lg flex-col gap-8 px-6 pb-12 pt-8 md:px-12 md:pt-10 lg:pt-12 xl:px-0'
+		>
+			<div id='profile' class='grid grid-cols-12 gap-0 md:gap-8'>
+				<div class='col-span-full border-t border-gray-400 md:col-span-3'>
+					<h3 class='border-gray-400-2 w-fit border-t pl-0 pr-2 pt-1 text-xl md:pl-2'>Profile</h3>
 				</div>
-				<div class='col-span-9 pt-2'>
+				<div class='col-span-full pt-4 md:col-span-9 md:pt-2'>
 					<p class='indent-8 text-blue-100'>
 						Self-learned front-end developer focused to create engaging and intuitive UI. With over
 						three years of experience using React and its ecosystem, including Next.js, I prioritize
@@ -57,18 +69,20 @@ import img from 'public/images/og-resume.jpg'
 				</div>
 			</div>
 
-			<div id='works' class='grid grid-cols-12 gap-8'>
-				<div class='col-span-3 border-t border-gray-400'>
-					<h3 class='border-gray-400-2 w-fit border-t px-2 pt-1 text-xl'>Work Experience</h3>
+			<div id='works' class='grid grid-cols-12 md:gap-8'>
+				<div class='col-span-full border-t border-gray-400 md:col-span-3'>
+					<h3 class='border-gray-400-2 w-fit border-t pl-0 pr-2 pt-1 text-xl md:pl-2'>
+						Work Experience
+					</h3>
 				</div>
 
-				<div class='col-span-9 flex flex-col gap-4 pt-2'>
+				<div class='col-span-full flex flex-col gap-4 pt-4 md:col-span-9 md:pt-2'>
 					<div>
-						<p class='flex justify-between'>
+						<p class='justify-between leading-4 md:flex'>
 							<span class='text-lg font-bold text-blue-100'>Full-stack Developer - Freelance</span>
-							<span class='whitespace-nowrap italic text-slate-400'>July 2022 — now</span>
+							<span class='whitespace-nowrap italic text-slate-400 md:mt-1.5'>July 2022 — now</span>
 						</p>
-						<ul class='list-disc text-gray-300'>
+						<ul class='ml-4 mt-2 list-disc text-gray-300 md:ml-0'>
 							<li>
 								Developed full-stack applications using Next.js, utilizing various rendering
 								techniques such as SSG, ISR, and SSR to improve performance and SEO depending on the
@@ -115,12 +129,13 @@ import img from 'public/images/og-resume.jpg'
 					</div>
 
 					<div>
-						<p class='flex justify-between'>
+						<p class='justify-between leading-4 md:flex'>
 							<span class='text-lg font-bold text-blue-100'>Front-end Developer at Achiko AG</span>
-							<span class='whitespace-nowrap italic text-slate-400'>September 2020 — June 2022</span
+							<span class='whitespace-nowrap italic text-slate-400 md:mt-1.5'
+								>September 2020 — June 2022</span
 							>
 						</p>
-						<ul class='list-disc text-gray-300'>
+						<ul class='ml-4 mt-2 list-disc text-gray-300 md:ml-0'>
 							<li>
 								Led & finished dashboard app revamp project within four months with a new design
 								system, resulting in increased user engagement and improved UX.
@@ -170,21 +185,25 @@ import img from 'public/images/og-resume.jpg'
 				</div>
 			</div>
 
-			<div id='education' class='grid grid-cols-12 gap-8'>
-				<div class='col-span-3 border-t border-gray-400'>
-					<h3 class='border-gray-400-2 w-fit border-t px-2 pt-1 text-xl'>Education</h3>
+			<div id='education' class='grid grid-cols-12 md:gap-8'>
+				<div class='col-span-full border-t border-gray-400 md:col-span-3'>
+					<h3 class='border-gray-400-2 w-fit border-t pl-0 pr-2 pt-1 text-xl md:pl-2'>Education</h3>
 				</div>
-				<div class='col-span-9 space-y-4 pt-2'>
-					<div class='flex justify-between'>
-						<div class='space-y-2 leading-loose'>
-							<p class='text-lg font-bold text-blue-100'>Full-stack Javascript Developer</p>
+				<div class='col-span-full space-y-4 pt-4 md:col-span-9 md:pt-2'>
+					<div class='justify-between md:flex'>
+						<div class='leading-loose lg:space-y-1'>
+							<p class='text-lg font-bold leading-tight text-blue-100'>
+								Full-stack Javascript Developer
+							</p>
 							<p class='leading-tight text-gray-300'>Hacktiv8 Bootcamp, Jakarta</p>
 						</div>
 						<p class='whitespace-nowrap italic text-slate-400'>February — June 2020</p>
 					</div>
-					<div class='flex justify-between'>
-						<div class='space-y-2 leading-loose'>
-							<p class='text-lg font-bold text-blue-100'>Bachelor of Engineering Physics</p>
+					<div class='justify-between md:flex'>
+						<div class='leading-loose lg:space-y-1'>
+							<p class='text-lg font-bold leading-tight text-blue-100'>
+								Bachelor of Engineering Physics
+							</p>
 							<p class='leading-tight text-gray-300'>
 								Sepuluh Nopember Institute of Technology (ITS), Surabaya
 							</p>
@@ -194,26 +213,26 @@ import img from 'public/images/og-resume.jpg'
 				</div>
 			</div>
 
-			<div id='skills' class='grid grid-cols-12 gap-8'>
-				<div class='col-span-3 border-t border-gray-400'>
-					<h3 class='border-gray-400-2 w-fit border-t px-2 pt-1 text-xl'>Skills</h3>
+			<div id='skills' class='grid grid-cols-12 md:gap-8'>
+				<div class='col-span-full border-t border-gray-400 md:col-span-3'>
+					<h3 class='border-gray-400-2 w-fit border-t pl-0 pr-2 pt-1 text-xl md:pl-2'>Skills</h3>
 				</div>
-				<div class='col-span-9 grid grid-cols-3 gap-6 pt-2'>
-					<ul class='list-disc text-gray-300'>
+				<div class='col-span-full grid grid-cols-3 gap-x-6 pl-4 pt-4 md:col-span-9 md:pl-0 md:pt-2'>
+					<ul class='col-span-full list-disc text-gray-300 md:col-span-1'>
 						<li class='font-bold'>Typescript</li>
 						<li class='font-bold'>React</li>
 						<li>React Native / Expo</li>
 						<li>Next.js / Vercel</li>
 						<li>TailwindCSS / SASS</li>
 					</ul>
-					<ul class='list-disc text-gray-300'>
+					<ul class='col-span-full list-disc text-gray-300 md:col-span-1'>
 						<li>tRPC</li>
 						<li>TanStack query, table, router</li>
 						<li>Auth.js / OAuth</li>
 						<li>Zustand / Redux</li>
 						<li>ReactHookForm / Formik</li>
 					</ul>
-					<ul class='list-disc text-gray-300'>
+					<ul class='col-span-full list-disc text-gray-300 md:col-span-1'>
 						<li>Prisma / Sequelize</li>
 						<li>MySQL (PlanetScale)</li>
 						<li>Astro</li>
@@ -223,11 +242,11 @@ import img from 'public/images/og-resume.jpg'
 				</div>
 			</div>
 
-			<div id='languages' class='grid grid-cols-12 gap-8'>
-				<div class='col-span-3 border-t border-gray-400'>
-					<h3 class='border-gray-400-2 w-fit border-t px-2 pt-1 text-xl'>Languages</h3>
+			<div id='languages' class='grid grid-cols-12 md:gap-8'>
+				<div class='col-span-full border-t border-gray-400 md:col-span-3'>
+					<h3 class='border-gray-400-2 w-fit border-t pl-0 pr-2 pt-1 text-xl md:pl-2'>Languages</h3>
 				</div>
-				<div class='col-span-9 space-y-4 pt-2'>
+				<div class='col-span-full space-y-4 pt-4 md:col-span-9 md:pt-2'>
 					<p>
 						<span class='text-blue-100'><b>English</b> as international language</span>
 						<br />
@@ -246,27 +265,29 @@ import img from 'public/images/og-resume.jpg'
 				</div>
 			</div>
 
-			<div id='references' class='grid grid-cols-12 gap-8'>
-				<div class='col-span-3 border-t border-gray-400'>
-					<h3 class='border-gray-400-2 w-fit border-t px-2 pt-1 text-xl'>References</h3>
+			<div id='references' class='grid grid-cols-12 md:gap-8'>
+				<div class='col-span-full border-t border-gray-400 md:col-span-3'>
+					<h3 class='border-gray-400-2 w-fit border-t pl-0 pr-2 pt-1 text-xl md:pl-2'>
+						References
+					</h3>
 				</div>
-				<div class='col-span-9 grid grid-cols-3 gap-4 pt-2'>
-					<div class='flex flex-col gap-1'>
+				<div class='col-span-full grid grid-cols-6 gap-4 pt-4 md:col-span-9 md:gap-6 md:pt-2'>
+					<div class='col-span-full flex flex-col gap-1 md:col-span-3 lg:col-span-2'>
 						<p class='font-bold leading-4 text-blue-100'>Yudhistira Eka Putra</p>
 						<p class='leading-4 text-gray-300'>Lyaeus GmbH</p>
-						<p class='mt-1.5 truncate leading-4 text-gray-400'>yudhistira.eka.putra@gmail.com</p>
+						<p class='truncate leading-4 text-gray-400 md:mt-1.5'>yudhistira.eka.putra@gmail.com</p>
 						<p class='leading-4 text-gray-400'>+62 811 8949 797</p>
 					</div>
-					<div class='flex flex-col gap-1'>
+					<div class='col-span-full flex flex-col gap-1 md:col-span-3 lg:col-span-2'>
 						<p class='font-bold leading-4 text-blue-100'>Rahmat Gilang Maulana</p>
 						<p class='leading-4 text-gray-300'>Sirclo - sirclo.com</p>
-						<p class='mt-1.5 truncate leading-4 text-gray-400'>gilang.maulana@gmail.com</p>
+						<p class='truncate leading-4 text-gray-400 md:mt-1.5'>gilang.maulana@gmail.com</p>
 						<p class='leading-4 text-gray-400'>+62 851 5528 1158</p>
 					</div>
-					<div class='flex flex-col gap-1'>
+					<div class='col-span-full flex flex-col gap-1 md:col-span-3 lg:col-span-2'>
 						<p class='font-bold leading-4 text-blue-100'>Fadilah Arifki</p>
 						<p class='leading-4 text-gray-300'>Pandatech - pandatech.io</p>
-						<p class='mt-1.5 truncate leading-4 text-gray-400'>fadilah.arifki29@gmail.com</p>
+						<p class='truncate leading-4 text-gray-400 md:mt-1.5'>fadilah.arifki29@gmail.com</p>
 						<p class='leading-4 text-gray-400'>+62 895 0582 2191</p>
 					</div>
 				</div>
