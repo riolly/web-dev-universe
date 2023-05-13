@@ -17,7 +17,8 @@
 		"@fontsource/oswald": "^4.5.12",
 		"astro": "^2.4.4",
 		"sharp": "^0.32.1",
-		"tailwindcss": "^3.3.2"
+		"tailwindcss": "^3.3.2",
+		"tailwind-scrollbar": "^3.0.1"
 	},
 	"devDependencies": {
 		"@typescript-eslint/parser": "^5.59.5",
