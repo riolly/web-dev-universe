@@ -7,9 +7,24 @@ import DialogBox from 'assets/dialog-box.astro'
 import SocialLink from 'assets/social-link.astro'
 import StarsShine from 'assets/stars-shine.astro'
 
-const urlResume = import.meta.env.VERCEL_URL
-	? `https://${import.meta.env.VERCEL_URL}/resume`
-	: 'http://localhost:3000/resume'
+const env = import.meta.env.VERCEL_ENV
+let urlResume = ''
+
+switch (env) {
+	case undefined:
+	case 'development':
+		urlResume = 'http://localhost:3000/resume'
+		break
+	case 'preview':
+		urlResume = `https://${import.meta.env.VERCEL_URL}/resume`
+		break
+	case 'production':
+		urlResume = Astro.site as unknown as string
+		break
+
+	default:
+		break
+}
 ---
 
 <Layout
