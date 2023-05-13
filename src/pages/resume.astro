@@ -35,7 +35,7 @@ import img from 'public/images/og-resume.jpg'
 			</section>
 		</div>
 
-		<div id='content' class='mx-auto flex max-w-screen-lg flex-col gap-8 py-12'>
+		<div id='content' class='mx-auto flex max-w-screen-lg flex-col gap-8 px-12 py-12 xl:px-0'>
 			<div id='profile' class='grid grid-cols-12 gap-8'>
 				<div class='col-span-3 border-t border-gray-400'>
 					<h3 class='border-gray-400-2 w-fit border-t px-2 pt-1 text-xl'>Profile</h3>
@@ -66,7 +66,7 @@ import img from 'public/images/og-resume.jpg'
 					<div>
 						<p class='flex justify-between'>
 							<span class='text-lg font-bold text-blue-100'>Full-stack Developer - Freelance</span>
-							<span class='italic text-slate-400'>July 2022 — now</span>
+							<span class='whitespace-nowrap italic text-slate-400'>July 2022 — now</span>
 						</p>
 						<ul class='list-disc text-gray-300'>
 							<li>
@@ -117,7 +117,8 @@ import img from 'public/images/og-resume.jpg'
 					<div>
 						<p class='flex justify-between'>
 							<span class='text-lg font-bold text-blue-100'>Front-end Developer at Achiko AG</span>
-							<span class='italic text-slate-400'>September 2020 — June 2022</span>
+							<span class='whitespace-nowrap italic text-slate-400'>September 2020 — June 2022</span
+							>
 						</p>
 						<ul class='list-disc text-gray-300'>
 							<li>
@@ -175,18 +176,20 @@ import img from 'public/images/og-resume.jpg'
 				</div>
 				<div class='col-span-9 space-y-4 pt-2'>
 					<div class='flex justify-between'>
-						<div class='leading-loose'>
+						<div class='space-y-2 leading-loose'>
 							<p class='text-lg font-bold text-blue-100'>Full-stack Javascript Developer</p>
-							<p class='text-gray-300'>Hacktiv8 Bootcamp, Jakarta</p>
+							<p class='leading-tight text-gray-300'>Hacktiv8 Bootcamp, Jakarta</p>
 						</div>
-						<p class='italic text-slate-400'>February — June 2020</p>
+						<p class='whitespace-nowrap italic text-slate-400'>February — June 2020</p>
 					</div>
 					<div class='flex justify-between'>
-						<div class='leading-loose'>
+						<div class='space-y-2 leading-loose'>
 							<p class='text-lg font-bold text-blue-100'>Bachelor of Engineering Physics</p>
-							<p class='text-gray-300'>Sepuluh Nopember Institute of Technology (ITS), Surabaya</p>
+							<p class='leading-tight text-gray-300'>
+								Sepuluh Nopember Institute of Technology (ITS), Surabaya
+							</p>
 						</div>
-						<p class='italic text-slate-400'>2013 — 2017</p>
+						<p class='whitespace-nowrap italic text-slate-400'>2013 — 2017</p>
 					</div>
 				</div>
 			</div>
@@ -195,7 +198,7 @@ import img from 'public/images/og-resume.jpg'
 				<div class='col-span-3 border-t border-gray-400'>
 					<h3 class='border-gray-400-2 w-fit border-t px-2 pt-1 text-xl'>Skills</h3>
 				</div>
-				<div class='col-span-9 grid grid-cols-3 pt-2'>
+				<div class='col-span-9 grid grid-cols-3 gap-6 pt-2'>
 					<ul class='list-disc text-gray-300'>
 						<li class='font-bold'>Typescript</li>
 						<li class='font-bold'>React</li>
@@ -247,24 +250,24 @@ import img from 'public/images/og-resume.jpg'
 				<div class='col-span-3 border-t border-gray-400'>
 					<h3 class='border-gray-400-2 w-fit border-t px-2 pt-1 text-xl'>References</h3>
 				</div>
-				<div class='col-span-9 grid grid-cols-3 pt-2'>
-					<div>
-						<p class='font-bold text-blue-100'>Yudhistira Eka Putra</p>
-						<p class='text-gray-300'>Lyaeus GmbH</p>
-						<p class='text-gray-400'>yudhistira.eka.putra@gmail.com</p>
-						<p class='text-gray-400'>+62 811 8949 797</p>
+				<div class='col-span-9 grid grid-cols-3 gap-4 pt-2'>
+					<div class='flex flex-col gap-1'>
+						<p class='font-bold leading-4 text-blue-100'>Yudhistira Eka Putra</p>
+						<p class='leading-4 text-gray-300'>Lyaeus GmbH</p>
+						<p class='mt-1.5 truncate leading-4 text-gray-400'>yudhistira.eka.putra@gmail.com</p>
+						<p class='leading-4 text-gray-400'>+62 811 8949 797</p>
 					</div>
-					<div>
-						<p class='font-bold text-blue-100'>Rahmat Gilang Maulana</p>
-						<p class='text-gray-300'>Sirclo - sirclo.com</p>
-						<p class='text-gray-400'>gilang.maulana@gmail.com</p>
-						<p class='text-gray-400'>+62 851 5528 1158</p>
+					<div class='flex flex-col gap-1'>
+						<p class='font-bold leading-4 text-blue-100'>Rahmat Gilang Maulana</p>
+						<p class='leading-4 text-gray-300'>Sirclo - sirclo.com</p>
+						<p class='mt-1.5 truncate leading-4 text-gray-400'>gilang.maulana@gmail.com</p>
+						<p class='leading-4 text-gray-400'>+62 851 5528 1158</p>
 					</div>
-					<div>
-						<p class='font-bold text-blue-100'>Fadilah Arifki</p>
-						<p class='text-gray-300'>Pandatech - pandatech.io</p>
-						<p class='text-gray-400'>fadilah.arifki29@gmail.com</p>
-						<p class='text-gray-400'>+62 895 0582 2191</p>
+					<div class='flex flex-col gap-1'>
+						<p class='font-bold leading-4 text-blue-100'>Fadilah Arifki</p>
+						<p class='leading-4 text-gray-300'>Pandatech - pandatech.io</p>
+						<p class='mt-1.5 truncate leading-4 text-gray-400'>fadilah.arifki29@gmail.com</p>
+						<p class='leading-4 text-gray-400'>+62 895 0582 2191</p>
 					</div>
 				</div>
 			</div>

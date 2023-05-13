@@ -15,7 +15,9 @@
 		@apply font-head text-white;
 	}
 
-	p,
+	p {
+		@apply font-body text-slate-50;
+	}
 	ul {
 		@apply font-body text-slate-50;
 	}
