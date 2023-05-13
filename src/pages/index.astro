@@ -19,7 +19,7 @@ switch (env) {
 		urlResume = `https://${import.meta.env.VERCEL_URL}/resume`
 		break
 	case 'production':
-		urlResume = Astro.site as unknown as string
+		urlResume = `${Astro.site}/resume`
 		break
 
 	default:
