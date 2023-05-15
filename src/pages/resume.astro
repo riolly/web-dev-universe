@@ -124,8 +124,11 @@ switch (env) {
 			class='mx-auto flex max-w-screen-lg flex-col gap-8 px-6 pb-12 pt-8 md:px-12 md:pt-10 lg:pt-12 xl:px-0'
 		>
 			<div id='profile' class='grid grid-cols-12 gap-0 md:gap-8'>
-				<div class='col-span-full border-t border-gray-400 md:col-span-3'>
-					<h3 class='w-fit border-t border-gray-400 pl-0 pr-2 pt-1 md:pl-2'>Profile</h3>
+				<div class='col-span-full flex gap-2 border-gray-400 md:col-span-3 md:border-t'>
+					<h3 class='w-fit border-gray-400 pl-0 pr-2 pt-1 md:border-t md:pl-2'>Profile</h3>
+					<div class='flex flex-1 items-center md:hidden'>
+						<div class='mt-2 h-px flex-1 bg-gray-400'></div>
+					</div>
 				</div>
 				<div class='col-span-full pt-4 md:col-span-9 md:pt-2'>
 					<p class='indent-8 text-blue-950 dark:text-blue-100'>
