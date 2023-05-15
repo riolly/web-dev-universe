@@ -1,0 +1,12 @@
+@tailwind base;
+
+@layer base {
+	p,
+	ul {
+		@apply lg:text-lg;
+	}
+
+	h3 {
+		@apply text-xl md:text-lg lg:text-xl;
+	}
+}
