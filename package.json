@@ -12,13 +12,15 @@
 	},
 	"dependencies": {
 		"@astrojs/image": "^0.16.7",
+		"@astrojs/solid-js": "^2.1.1",
 		"@astrojs/tailwind": "^3.1.2",
 		"@fontsource/karla": "^4.5.11",
 		"@fontsource/oswald": "^4.5.12",
 		"astro": "^2.4.4",
 		"sharp": "^0.32.1",
-		"tailwindcss": "^3.3.2",
-		"tailwind-scrollbar": "^3.0.1"
+		"solid-js": "^1.4.3",
+		"tailwind-scrollbar": "^3.0.1",
+		"tailwindcss": "^3.3.2"
 	},
 	"devDependencies": {
 		"@typescript-eslint/parser": "^5.59.5",
