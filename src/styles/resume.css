@@ -1,12 +1,18 @@
 @tailwind base;
 
 @layer base {
-	p,
-	ul {
-		@apply lg:text-lg;
+	h1,
+	h2,
+	h3,
+	h4 {
+		@apply font-head text-gray-900 dark:text-white;
+	}
+	h3 {
+		@apply text-2xl md:text-lg lg:text-xl;
 	}
 
-	h3 {
-		@apply text-xl md:text-lg lg:text-xl;
+	p,
+	ul {
+		@apply text-gray-900 dark:text-gray-200  lg:text-lg;
 	}
 }
