@@ -8,20 +8,6 @@
 		@apply scroll-smooth bg-slate-900 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-blue-300 scrollbar-thumb-rounded;
 	}
 
-	h1,
-	h2,
-	h3,
-	h4 {
-		@apply font-head text-white;
-	}
-
-	p {
-		@apply font-body text-slate-50;
-	}
-	ul {
-		@apply font-body text-slate-50;
-	}
-
 	.custom-scrollbar {
 		@apply scrollbar-thin scrollbar-track-blue-200/10 scrollbar-thumb-blue-800 scrollbar-thumb-rounded;
 	}
@@ -29,9 +15,4 @@
 	.custom-scrollbar::-webkit-scrollbar-thumb {
 		@apply rounded-full;
 	}
-
-	/* code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	} */
 }
