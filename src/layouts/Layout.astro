@@ -7,12 +7,13 @@ import {SITE} from '../config'
 import HeadCommon from 'components/HeadCommon.astro'
 import HeadSeo from 'components/HeadSeo.astro'
 
-const props = Astro.props
+const {siteTitle, ...props} = Astro.props
 
 export interface Props {
 	title: string
 	description: string
 	image?: string
+	siteTitle?: string
 }
 ---
 
@@ -21,7 +22,7 @@ export interface Props {
 	<head>
 		<HeadCommon />
 		<HeadSeo type='website' {...props} />
-		<title>{SITE.title}</title>
+		<title>{siteTitle ? `${siteTitle} | Riolly` : SITE.title}</title>
 
 		<script is:inline>
 			const html = document.documentElement
