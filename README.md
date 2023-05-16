@@ -1,9 +1,7 @@
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/riolly/web-dev-universe/readme/public/dark.svg">
-    <img src="https://raw.githubusercontent.com/riolly/web-dev-universe/readme/public/light.svg" width="130" alt="Logo for Riolly">
-  </picture>
-</p>
+<picture >
+  <source media="(prefers-color-scheme: dark)" id="logo" srcset="https://raw.githubusercontent.com/riolly/web-dev-universe/readme/public/dark.svg">
+  <img src="https://raw.githubusercontent.com/riolly/web-dev-universe/readme/public/light.svg" alt="Logo for Riolly">
+</picture>
 
 <h1 align="center">
 Alberto R Cahyantara's Website
@@ -12,3 +10,13 @@ Alberto R Cahyantara's Website
 <p align='center'>
 Explore the always evolving web development world with me 🧑‍🚀🚀
 </p>
+
+<style>
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 1000px;
+  }
+</style>
