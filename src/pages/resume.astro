@@ -9,7 +9,7 @@ let urlHome = ''
 switch (env) {
 	case undefined:
 	case 'development':
-		urlHome = 'http://localhost:3000'
+		urlHome = 'http://localhost:3000#contact'
 		break
 	case 'preview':
 		urlHome = `https://${import.meta.env.VERCEL_URL}`
