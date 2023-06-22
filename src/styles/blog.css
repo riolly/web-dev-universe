@@ -1,0 +1,22 @@
+@tailwind base;
+
+@layer base {
+	h1,
+	h2,
+	h3,
+	h4 {
+		@apply font-head tracking-wide text-gray-900 dark:text-white;
+	}
+	h2 {
+		@apply text-2xl md:text-lg lg:mt-8 lg:text-4xl;
+	}
+
+	p,
+	ul {
+		@apply indent-12 text-gray-900 dark:text-gray-200 lg:mt-4 lg:text-xl lg:leading-8;
+	}
+
+	a {
+		@apply italic text-blue-300 underline;
+	}
+}

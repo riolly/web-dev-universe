@@ -1,0 +1,97 @@
+---
+layout: '../../layouts/Blogs.astro'
+siteTitle: 'GraphQL Lessons Learned'
+title: 'GraphQL Lessons Learned: Unveiling its Unique Strengths and Exploring Better Alternatives'
+description: 'The changes that GraphQL brought to web development were significant, bridging the gap between front-end and back-end teams. But at the same time causing serious difficulties and costs for developers. After years of hype, GraphQL finally settles on its strength, while alternative solutions are built upon its lessons.'
+image:
+  alt: 'Meme about GraphQL vs REST API & tRPC'
+  url_landscape: '/images/blogs/graphql-lesson-learned_landscape.jpg' 
+	url_square: '/images/blogs/graphql-lesson-learned_square.jpg'
+tags: ['GraphQL', 'REST', 'tRPC', 'API', 'Back-end']
+pubDate: 2023-06-022
+---
+
+[GraphQL](https://graphql.org/) has undoubtedly made a lasting impact on web development. It is still one of the prominent technology that many companies have in their consideration before the start of a project. Its ability to solve communication challenges between teams is remarkable. However, it is essential to acknowledge that GraphQL is not without its flaws and costs. We gonna dives into what make GraphQL unique and the problem it's solve and explores alternative solutions that have emerged, leveraging the lessons learned from GraphQL's journey. So that at the end, we can have make better decision, which technology to chose based on our use case.
+
+_Have you really wonder by people so hype about graphQL back then?_
+
+## What you need is what you get
+
+Before the advent of GraphQL, developers faced a common issue with backend APIs: receiving excessive data in response to simple requests. Retrieving a user's information, for example, could entail receiving a bloated JSON payload containing hundreds of unnecessary details even though we only need the id and profile picture to render on a component. To retrieve specific subsets of data, developers had to coordinate with backend teams back and forth to create new APIs endpoint. Grow complexity within the team and slow down the development process. Before GraphQL, we had to do a lot of work to make the right APIs. We often just wouldn't do it.
+
+GraphQL emerged as a revolutionary solution to these challenges. Its primary goal was to make APIs customizable, so front-end developers will get what they want without keep bothering the back-end team and waiting forever. With GraphQL, developers could precisely define the data they needed on the client apps based on the graph schema. These flexible querying capabilities make developers able to make the right API for the components they were building without having to spin up another repo on another language and bridge all of these gaps.
+
+## Typed and stated
+
+Besides that, GraphQL offered the benefit of type safety when receiving data from the server. Even though require a code-generation step to convert GraphQL queries into type definitions, developers gained assurance in the correctness of their data types. Additionally, GraphQL facilitated the management of data states, including loading and error states. This combination of type safety and improved data state management elevated the development experience.
+
+Yes, those are the thing that makes developers and even companies so excited. Those killing features are unique to GraphQL and it's helpful. But let's get rid of the hype for a moment and be a little bit skeptical. Is there any trade-off that a team has to pay for all those good things?
+
+## Cost too big to see
+
+While GraphQL offers numerous benefits, it also introduces significant challenges and complexities. Maintaining the GraphQL schema, getting it right, and building the necessary tools and integrations require substantial effort. Many developers mistakenly believe that adding GraphQL to their tech stack will automatically improve it, particularly on the front end where much of the groundwork has already been laid by others. Building and maintaining a GraphQL setup like resolver, caching, and code-gen that scale, is extremely difficult. And the hard truth is GraphQL isn't a way to make APIs easier.
+
+Moreover, there is a growing trend of companies providing GraphQL APIs for third-party access. However, the reality is that using multiple GraphQL sources in the same project can lead to challenges and inconsistencies due to the lack of standardization across projects. Comparatively, traditional REST APIs are often more reliable and predictable when working with third-party services.
+
+While GraphQL offers unique benefits, it is essential to consider the complexities and potential drawbacks associated with maintaining and scaling GraphQL schemas. There is some library like [Apollo](https://www.apollographql.com/) & framework like [Redwood](https://redwoodjs.com/) that tries be tackled GraphQL caveats and they are great. But maybe you should consider using graphQL in the first place, before trying those solutions.
+
+What if the thing that makes GraphQL powerful and unique back then, is no longer unique anymore? What if there are solutions like GraphQL but without its overhead. Luckily, [Theo](https://t3.gg/), one of the most influential wizards in the web dev world makes a really helpful chart on when to use what.
+
+![trpc_graphql_rest.png](/images/blogs/trpc_graphql_rest.png)
+
+## Please welcome the new contender
+
+One library that for sure learns from GraphQL is [tRPC](https://trpc.io/). It offers many benefits similar to GraphQL, such as flexibility, strong typing, and a growing ecosystem of tools and libraries. By leveraging [TypeScript](https://www.typescriptlang.org/)'s type system, tRPC simplifies API development and maintenance without the need for a separate schema definition language. tRPC simplifies the process of building APIs because they are simply just functions. The ability to directly access backend functions from the front makes creating precise APIs tailored to the component needs as simple as copy-paste and modify.
+
+tRPC also uses web standard HTTP methods (GET, POST, PUT, DELETE) and REST-like conventions, making it more familiar to developers who have experience with RESTful APIs. Alongside tRPC we can add a library like [TanStack Query](https://tanstack.com/query/latest/) to further enhance the developer experience. It provides a powerful and flexible way to manage asynchronous data fetching, caching, and state management. All of this combined to make it equal to and even better than GraphQL. Just give it a try using [create-t3-app](https://create.t3.gg/) by [T3 community](https://github.com/t3-oss) and you will be blown away by how simple yet powerful it's.
+
+And if we look at the future direction of web development, the server component aims to bring this developer experience even further. [React Server Components](https://nextjs.org/docs/getting-started/react-essentials#server-components), for example, allows developers to build components that run on the server, and enables developers to directly load data from the backend on the component and return the correct HTML, simplifying all the data fetching process.
+
+Then when and why should use GraphQL? Are we done with GraphQL now? If you look at the chart. It's still have a big use case. For more explanation of the chart, go here.
+
+## Irreplaceable GraphQL strenght
+
+One thing that is irreplaceable from GraphQL is how it's bridging the gap between backend and frontend teams, providing them with a powerful method of communication and collaboration. The schema in GraphQL serves as a shared contract, enabling teams to define and agree upon the structure and types of data exchanged between them. This strict contract ensures that both sides can work independently, confident that as long as they adhere to the agreed schema, everything will seamlessly fit together. As a front-end, By having clear type definitions, fetching the right data, and managing various states, GraphQL tools provide an exceptional developer experience. This has led many front-end developers to view GraphQL as a panacea, allowing them to focus solely on the front end without having to delve into backend intricacies. While GraphQL may not replace SQL or be suited for direct database operations, its true strength lies in enabling effective collaboration and empowering teams to build powerful APIs based on a shared schema.
+
+## One more story & what coming next
+
+In the quest to make GraphQL more accessible, one library stands out: [Relay](https://relay.dev/). While there are various solutions to adopt GraphQL, Relay offers unparalleled performance through efficient query compilation and robust caching. Its performance gains remain unmatched, even to this day. However, leveraging Relay effectively requires strict adherence to its specifications and best practices, which can be challenging for many developers. Yet, once properly set up, Relay empowers developers to iterate with confidence and unlock performance levels that would be otherwise hard to achieve. Nonetheless, it's important to acknowledge that using Relay effectively demands a significant investment in setup and expertise.
+
+The react team, the team behind Relay, recognizes these challenges. But surprisingly, instead of making relay easier, they taking the best parts of relay and put in on react server component. One more twist as Dan tweets:
+
+As these stories of GraphQL unfold, it becomes increasingly clear that the exclusive reliance on GraphQL may no longer be necessary. The best features and benefits of GraphQL are gradually finding their way into other tools and frameworks we commonly use now. That is why, it may be wise to reevaluate the need for GraphQL when alternative solutions, such as tRPC and React Server Components, incorporate the essence of GraphQL's strengths while simplifying the integration.
+
+## Wouldn't be here without you
+
+Finally, we want to express my gratitude to GraphQL for the valuable lessons it has taught us and the opportunities it has provided. We wouldn't be here without GraphQL. Kudos to GraphQL and all the devs behind it! It's important to clarify that none of this is intended to portray GraphQL as inherently bad or discourage its usage. Rather, the hard truth is that GraphQL has successfully addressed many problems, and we have since adopted and applied its solutions extensively.
+
+Today, there are a few remaining challenges that GraphQL uniquely solves. However, if
+your organization faces the team split schema problem, GraphQL remains an excellent architectural solution to consider. It is crucial to approach the adoption of GraphQL from an organizational perspective rather than a purely technical one. The intention of this is to assist companies in avoiding unnecessary detours into the GraphQL rabbit hole for reasons that may not align with their specific needs. And also encourage us to try a better alternative when it's fit with our projects.
+
+This article is based on Theo's rant that you can watch here. We are big fans of him.
+
+Check out the GraphQL documentary below, how it starts, and how it become so popular as we all know it today.
+
+---
+
+```html
+<iframe
+	width="560"
+	height="315"
+	src="https://www.youtube.com/embed/qgdiLcD2RL8"
+	title="YouTube video player"
+	frameborder="0"
+	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+	allowfullscreen
+></iframe>
+
+<iframe
+	width="560"
+	height="315"
+	src="https://www.youtube.com/embed/783ccP__No8"
+	title="YouTube video player"
+	frameborder="0"
+	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+	allowfullscreen
+></iframe>
+```

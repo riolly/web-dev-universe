@@ -1,0 +1,42 @@
+---
+import type {MarkdownLayoutProps} from 'astro'
+import Layout from '../layouts/Layout.astro'
+
+import 'styles/blog.css'
+import {Image} from '@astrojs/image/components'
+
+type Props = MarkdownLayoutProps<{
+  title: string
+  siteTitle: string
+  description: string
+  image: {
+    alt: string
+    url_landscape: string
+    url_square: string
+  }
+  tags: string[]
+  pubDate: string
+}>
+
+const {
+  frontmatter: {title, image, description, siteTitle},
+} = Astro.props
+---
+
+<Layout title={title} description={description} image={image.url_landscape} siteTitle={siteTitle}>
+  <main class='mx-auto max-w-screen-lg'>
+    <Image
+      src={image.url_landscape}
+      alt={image.alt}
+      format='jpg'
+      width={1461}
+      height={767}
+      class='h-96'
+    />
+
+    <h1 class='mx-6 pb-8 pt-12 font-head text-5xl text-white'>{title}</h1>
+    <div class='mx-12'>
+      <slot />
+    </div>
+  </main>
+</Layout>
