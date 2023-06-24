@@ -34,7 +34,7 @@ const stars = Array(100)
 
 <Layout title={title} description={description} image={image.url_landscape} siteTitle={siteTitle}>
   <div class='relative overflow-clip'>
-    <svg class='absolute -z-20' width='100%' height='100%'>
+    <svg class='absolute -z-20 opacity-60' width='100%' height='100%'>
       <pattern id='stars' width='1920' height='1080' patternUnits='userSpaceOnUse'>
         {stars.map(([cx, cy, r]) => <circle fill='white' cx={cx} cy={cy} r={r} />)}
       </pattern>
