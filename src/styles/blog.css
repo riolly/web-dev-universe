@@ -7,6 +7,9 @@
 	h4 {
 		@apply font-head tracking-wide text-gray-900 dark:text-white;
 	}
+	h1 {
+		@apply text-3xl md:text-xl lg:mb-8 lg:text-5xl lg:leading-[3.5rem];
+	}
 	h2 {
 		@apply text-2xl md:text-lg lg:mt-8 lg:text-4xl;
 	}
