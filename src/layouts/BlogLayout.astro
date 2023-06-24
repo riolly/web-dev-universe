@@ -5,6 +5,7 @@ import {Image} from '@astrojs/image/components'
 import Layout from './MainLayout.astro'
 
 import 'styles/blog.css'
+import StarsBg from 'components/StarsBg.astro'
 
 type Props = MarkdownLayoutProps<{
   title: string
@@ -23,7 +24,7 @@ const {
   frontmatter: {title, image, description, siteTitle},
 } = Astro.props
 
-const stars = Array(100)
+const stars: [number, number, number][] = Array(100)
   .fill('')
   .map(() => [
     Math.round(Math.random() * 1920),
@@ -34,33 +35,7 @@ const stars = Array(100)
 
 <Layout title={title} description={description} image={image.url_landscape} siteTitle={siteTitle}>
   <div class='relative overflow-clip'>
-    <svg class='absolute -z-20 opacity-60' width='100%' height='100%'>
-      <pattern id='stars' width='1920' height='1080' patternUnits='userSpaceOnUse'>
-        {stars.map(([cx, cy, r]) => <circle fill='white' cx={cx} cy={cy} r={r} />)}
-      </pattern>
-      <rect fill='url(#stars)' width='100%' height='100%'></rect>
-    </svg>
-
-    <svg class='animate-cover-stars absolute -z-10' width='120%' height='110%'>
-      <defs>
-        <radialGradient id='radial-big'>
-          <stop offset='0.75' stop-color='#0f172a' stop-opacity='1'></stop>
-          <stop offset='1' stop-color='#0f172a' stop-opacity='0'></stop>
-        </radialGradient>
-      </defs>
-      <pattern
-        id='blink'
-        viewBox='0 0 100 100'
-        width='125'
-        height='125'
-        patternUnits='userSpaceOnUse'
-      >
-        <circle cx='36' cy='45' r='36' fill='url(#radial-big)'></circle>
-        <circle cx='78' cy='22' r='22' fill='url(#radial-big)'></circle>
-        <circle cx='36' cy='80' r='18' fill='url(#radial-big)'></circle>
-      </pattern>
-      <rect fill='url(#blink)' width='100%' height='100%'></rect>
-    </svg>
+    <StarsBg positions={stars} />
 
     <main class='mx-auto max-w-screen-lg bg-gray-900 shadow-2xl shadow-slate-700'>
       <Image
@@ -79,18 +54,3 @@ const stars = Array(100)
     </main>
   </div>
 </Layout>
-
-<style lang='scss'>
-  .animate-cover-stars {
-    animation: move-diagonal 20s linear infinite alternate;
-  }
-
-  @keyframes move-diagonal {
-    from {
-      transform: translate3d(-20%, -10%, 0);
-    }
-    to {
-      transform: translate3d(0, 0, 0);
-    }
-  }
-</style>

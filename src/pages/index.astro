@@ -7,6 +7,7 @@ import DialogBox from 'assets/dialog-box.astro'
 import SocialLink from 'assets/social-link.astro'
 import StarsShine from 'assets/stars-shine.astro'
 import 'styles/index.css'
+import StarsBg from 'components/StarsBg.astro'
 
 const env = import.meta.env.VERCEL_ENV
 let urlResume = ''
@@ -41,6 +42,14 @@ const articles = [
 		desc: 'Creating a masonry (or mosaic) layout with flexbox produces a grid with a seemingly shuffled and obscure order, but we can achieve a natural ordering by using :nth-child() and the order property',
 	},
 ]
+
+const stars: [number, number, number][] = Array(100)
+	.fill('')
+	.map(() => [
+		Math.round(Math.random() * 1920),
+		Math.round(Math.random() * 1080),
+		1 + Math.round(Math.random() * 4) / 2,
+	])
 ---
 
 <Layout
@@ -48,39 +57,7 @@ const articles = [
 	description='Explore web development universe with Alberto Riolly and take your dev skill to the moon.'
 >
 	<div class='absolute h-fit w-full overflow-clip'>
-		<div id='stars-bg' class='absolute -z-20 h-full w-full opacity-75'>
-			<div class='absolute top-0 h-1/3 w-full overflow-clip'>
-				<div class='inline-flex'>
-					<div class='stars h-[1080px] w-[1920px]'></div>
-					<div class='stars h-[1080px] w-[1920px]'></div>
-				</div>
-				<div class='inline-flex'>
-					<div class='stars h-[1080px] w-[1920px]'></div>
-					<div class='stars h-[1080px] w-[1920px]'></div>
-				</div>
-			</div>
-			<div class='absolute top-1/3 h-1/3 w-full overflow-clip'>
-				<div class='inline-flex'>
-					<div class='stars h-[1080px] w-[1920px]'></div>
-					<div class='stars h-[1080px] w-[1920px]'></div>
-				</div>
-				<div class='inline-flex'>
-					<div class='stars h-[1080px] w-[1920px]'></div>
-					<div class='stars h-[1080px] w-[1920px]'></div>
-				</div>
-			</div>
-			<div class='absolute top-2/3 h-1/3 w-full overflow-clip'>
-				<div class='inline-flex'>
-					<div class='stars h-[1080px] w-[1920px]'></div>
-					<div class='stars h-[1080px] w-[1920px]'></div>
-				</div>
-				<div class='inline-flex'>
-					<div class='stars h-[1080px] w-[1920px]'></div>
-					<div class='stars h-[1080px] w-[1920px]'></div>
-				</div>
-			</div>
-		</div>
-		<div class='twink absolute -left-1/4 -top-1/4 -z-10 h-[125%] w-[125%]'></div>
+		<StarsBg positions={stars} />
 
 		<div id='bg-section-intro' class='relative h-[100lvh] w-full'>
 			<StarsShine className='min-w-[1536px]' />
@@ -388,40 +365,6 @@ const articles = [
 </script>
 
 <style lang='scss'>
-	@function multiple-box-shadow($n) {
-		$value: '#{random(1920)}px #{random(1080)}px #FFF';
-		@for $i from 2 through $n {
-			$value: '#{$value}, #{random(1920)}px #{random(1080)}px 2px rgba(255, 255, 255, calc(#{random(9)+1}/10))';
-		}
-		@return unquote($value);
-	}
-	$stars: multiple-box-shadow(100);
-	.stars {
-		&:after {
-			content: '';
-			width: 6px;
-			height: 6px;
-			position: absolute;
-			border-radius: 100%;
-			box-shadow: $stars;
-		}
-		&:before {
-			content: '';
-			width: 4px;
-			height: 4px;
-			transform: rotate(180deg);
-			transform-origin: center;
-			position: absolute;
-			border-radius: 100%;
-			box-shadow: $stars;
-		}
-	}
-
-	.twink {
-		animation: move-twink 16s linear infinite alternate;
-		background-image: url(/images/twink.svg);
-	}
-
 	$delay_h1web: 0.4s;
 	$durat_h1web: 0.7s;
 	$delay_h1evolve: $delay_h1web + $durat_h1web - 0.3s;
