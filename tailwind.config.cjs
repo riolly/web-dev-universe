@@ -35,6 +35,9 @@ module.exports = {
 					900: '#134866',
 				},
 			},
+			boxShadow: {
+				bottom: '0px 15px 20px -15px #111;',
+			},
 		},
 	},
 	plugins: [require('tailwind-scrollbar')({nocompatible: true})],
