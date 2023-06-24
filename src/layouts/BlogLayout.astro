@@ -23,19 +23,11 @@ type Props = MarkdownLayoutProps<{
 const {
   frontmatter: {title, image, description, siteTitle},
 } = Astro.props
-
-const stars: [number, number, number][] = Array(100)
-  .fill('')
-  .map(() => [
-    Math.round(Math.random() * 1920),
-    Math.round(Math.random() * 1080),
-    1 + Math.round(Math.random() * 4) / 2,
-  ])
 ---
 
 <Layout title={title} description={description} image={image.url_landscape} siteTitle={siteTitle}>
   <div class='relative overflow-clip'>
-    <StarsBg positions={stars} />
+    <StarsBg />
 
     <main class='mx-auto max-w-screen-lg bg-gray-900 shadow-2xl shadow-slate-700'>
       <Image

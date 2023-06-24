@@ -1,14 +1,22 @@
 ---
-const {positions} = Astro.props
+const {counts = 120} = Astro.props
 
 export interface Props {
-  positions: [number, number, number][]
+  counts?: [number, number, number][]
 }
+
+const stars = Array(counts)
+  .fill(0)
+  .map(() => [
+    Math.round(Math.random() * 1920),
+    Math.round(Math.random() * 1080),
+    1 + Math.round(Math.random() * 4) / 2,
+  ])
 ---
 
 <svg class='absolute -z-20 opacity-60' width='100%' height='100%'>
   <pattern id='stars' width='1920' height='1080' patternUnits='userSpaceOnUse'>
-    {positions.map(([cx, cy, r]) => <circle fill='white' cx={cx} cy={cy} r={r} />)}
+    {stars.map(([cx, cy, r]) => <circle fill='white' cx={cx} cy={cy} r={r} />)}
   </pattern>
   <rect fill='url(#stars)' width='100%' height='100%'></rect>
 </svg>

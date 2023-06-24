@@ -42,14 +42,6 @@ const articles = [
 		desc: 'Creating a masonry (or mosaic) layout with flexbox produces a grid with a seemingly shuffled and obscure order, but we can achieve a natural ordering by using :nth-child() and the order property',
 	},
 ]
-
-const stars: [number, number, number][] = Array(100)
-	.fill('')
-	.map(() => [
-		Math.round(Math.random() * 1920),
-		Math.round(Math.random() * 1080),
-		1 + Math.round(Math.random() * 4) / 2,
-	])
 ---
 
 <Layout
@@ -57,7 +49,7 @@ const stars: [number, number, number][] = Array(100)
 	description='Explore web development universe with Alberto Riolly and take your dev skill to the moon.'
 >
 	<div class='absolute h-fit w-full overflow-clip'>
-		<StarsBg positions={stars} />
+		<StarsBg />
 
 		<div id='bg-section-intro' class='relative h-[100lvh] w-full'>
 			<StarsShine className='min-w-[1536px]' />
