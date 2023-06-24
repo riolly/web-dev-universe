@@ -1,9 +1,10 @@
 ---
 import type {MarkdownLayoutProps} from 'astro'
+import {Image} from '@astrojs/image/components'
+
 import Layout from '../layouts/Layout.astro'
 
 import 'styles/blog.css'
-import {Image} from '@astrojs/image/components'
 
 type Props = MarkdownLayoutProps<{
   title: string
@@ -21,24 +22,41 @@ type Props = MarkdownLayoutProps<{
 const {
   frontmatter: {title, image, description, siteTitle},
 } = Astro.props
+
+const stars = Array(100)
+  .fill('')
+  .map(() => [
+    Math.round(Math.random() * 1920),
+    Math.round(Math.random() * 1080),
+    1 + Math.round(Math.random() * 4) / 2,
+  ])
 ---
 
 <Layout title={title} description={description} image={image.url_landscape} siteTitle={siteTitle}>
-  <main class='mx-auto max-w-screen-lg bg-gray-900 shadow-2xl shadow-slate-700'>
-    <Image
-      src={image.url_landscape}
-      alt={image.alt}
-      format='jpg'
-      width={1200}
-      height={630}
-      class='h-96 shadow-bottom shadow-slate-950'
-    />
+  <div class='relative'>
+    <svg class='absolute -z-10' width='100%' height='100%'>
+      <pattern id='p' width='1920' height='1080' patternUnits='userSpaceOnUse'>
+        {stars.map(([cx, cy, r]) => <circle fill='white' cx={cx} cy={cy} r={r} />)}
+      </pattern>
+      <rect fill='url(#p)' width='100%' height='100%'></rect>
+    </svg>
 
-    <h1 class='text-center lg:mt-12 lg:px-16'>{title}</h1>
-    <div class='mx-auto max-w-screen-md'>
-      <div class=''>
+    <main class='mx-auto max-w-screen-lg bg-gray-900 shadow-2xl shadow-slate-700'>
+      <Image
+        src={image.url_landscape}
+        alt={image.alt}
+        format='jpg'
+        width={1200}
+        height={630}
+        class='h-96 shadow-bottom shadow-slate-950'
+      />
+
+      <h1 class='text-center lg:mt-12 lg:px-16'>{title}</h1>
+      <div class='mx-auto max-w-screen-md'>
         <slot />
       </div>
-    </div>
-  </main>
+    </main>
+  </div>
 </Layout>
+
+<style lang='scss'></style>
