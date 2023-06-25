@@ -1,14 +1,14 @@
 @tailwind base;
 
 @layer base {
-	h1,
-	h2,
-	h3,
-	h4 {
-		@apply font-head text-white;
-	}
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-head text-white;
+  }
 
-	p {
-		@apply font-body text-slate-50;
-	}
+  p {
+    @apply font-body text-slate-50;
+  }
 }

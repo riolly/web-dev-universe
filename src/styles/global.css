@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 @layer base {
-	html {
-		font-family: system-ui, sans-serif;
-		@apply scroll-smooth bg-slate-900 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-blue-300 scrollbar-thumb-rounded;
-	}
+  html {
+    font-family: system-ui, sans-serif;
+    @apply scroll-smooth bg-slate-900 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-blue-300 scrollbar-thumb-rounded;
+  }
 
-	.custom-scrollbar {
-		@apply scrollbar-thin scrollbar-track-blue-200/10 scrollbar-thumb-blue-800 scrollbar-thumb-rounded;
-	}
+  .custom-scrollbar {
+    @apply scrollbar-thin scrollbar-track-blue-200/10 scrollbar-thumb-blue-800 scrollbar-thumb-rounded;
+  }
 
-	.custom-scrollbar::-webkit-scrollbar-thumb {
-		@apply rounded-full;
-	}
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply rounded-full;
+  }
 }
