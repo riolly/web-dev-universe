@@ -158,10 +158,10 @@ const blogPosts = await getCollection('blog', ({data}) => data.isFeatured)
 			<div class='mx-auto flex max-w-screen-md flex-col items-center px-4 md:px-8 lg:px-0'>
 				<object class='my-8' data='/images/blog-stars.svg' type='image/svg+xml'></object>
 
-				<div class='relative space-y-6'>
+				<div class='relative space-y-6 px-6'>
 					{
 						blogPosts.map((article) => (
-							<a href=`/blog/${article.slug}` class='group flex scale-100 overflow-visible transition-transform before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:rounded-lg before:border before:border-accent-300 before:bg-gradient-to-r before:from-brand-900 before:to-brand-800 after:absolute after:left-0 after:top-0 after:-z-20 after:h-full after:w-full after:scale-100 after:bg-accent-700 after:blur-sm hover:scale-105 hover:cursor-pointer hover:after:blur-md active:scale-100'>
+							<a href=`/blog/${article.slug}` class='group flex scale-100 overflow-visible transition-transform before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:rounded-xl before:border before:border-accent-300 before:bg-gradient-to-r before:from-brand-900 before:to-brand-800 after:absolute after:left-0 after:top-0 after:-z-20 after:h-full after:w-full after:scale-100 after:bg-accent-700 after:blur-sm hover:scale-105 hover:cursor-pointer hover:after:blur-md active:scale-100'>
 								<div>
 									<div class='relative h-fit w-full overflow-x-clip'>
 										<h2 class='line-clamp-2 pl-6 pr-4 pt-3 text-2xl tracking-wide md:text-3xl'>
@@ -174,14 +174,15 @@ const blogPosts = await getCollection('blog', ({data}) => data.isFeatured)
 									</p>
 								</div>
 
-								<div class='relative w-36 flex-none overflow-hidden rounded-r border-2 border-l-0 border-accent-300 bg-gradient-to-r from-accent-300 to-accent-500 before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-brand-900 before:transition-transform before:duration-300 before:ease-out group-hover:before:-translate-x-[61px] group-hover:before:translate-y-2.5 group-hover:before:border-[18px] md:w-48 '>
+								<div class='relative w-36 flex-none overflow-hidden rounded-r-xl bg-accent-300 pl-0 p-[1px] before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-accent-300 before:transition-transform before:duration-300 before:ease-out group-hover:before:-translate-x-[61px] group-hover:before:translate-y-2.5 group-hover:before:border-[18px] md:w-48 '>
 									<Image
 										alt={article.data.image.alt}
 										src={article.data.image.url_square}
-										width={630}
-										height={630}
+										width={400}
+										height={400}
+										class="rounded-r-xl"
 									/>
-									<span class='text-body absolute -bottom-0 -right-24 h-[26px] w-20 rounded-br rounded-tl bg-brand-900 pt-0.5 text-sm italic text-accent-100 transition-transform duration-300 ease-out group-hover:-translate-x-24'>
+									<span class='text-body font-bold absolute -bottom-0 -right-24 h-[26px] w-20 rounded-br rounded-tl bg-accent-300 pt-0.5 text-sm italic text-brand-900 transition-transform duration-300 ease-out group-hover:-translate-x-24'>
 										read more
 									</span>
 								</div>
