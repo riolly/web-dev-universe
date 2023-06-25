@@ -1,48 +1,23 @@
 ---
-import type {MarkdownLayoutProps} from 'astro'
-import {Image} from '@astrojs/image/components'
-
 import Layout from './MainLayout.astro'
 
-import 'styles/blog.css'
 import StarsBg from 'components/StarsBg.astro'
 
-type Props = MarkdownLayoutProps<{
+export type Props = {
   title: string
   siteTitle: string
   description: string
-  image: {
-    alt: string
-    url_landscape: string
-    url_square: string
-  }
-  tags: string[]
-  pubDate: string
-}>
+  image: string
+}
 
-const {
-  frontmatter: {title, image, description, siteTitle},
-} = Astro.props
+const {title, image, description, siteTitle} = Astro.props
 ---
 
-<Layout title={title} description={description} image={image.url_landscape} siteTitle={siteTitle}>
+<Layout title={title} description={description} image={image} siteTitle={siteTitle}>
   <div class='relative overflow-clip'>
     <StarsBg />
-
     <main class='mx-auto max-w-screen-lg bg-gray-900 shadow-2xl shadow-slate-700'>
-      <Image
-        src={image.url_landscape}
-        alt={image.alt}
-        format='jpg'
-        width={1200}
-        height={630}
-        class='h-96 shadow-bottom shadow-slate-950'
-      />
-
-      <h1 class='text-center lg:mt-12 lg:px-16'>{title}</h1>
-      <div class='mx-auto max-w-screen-md'>
-        <slot />
-      </div>
+      <slot />
     </main>
   </div>
 </Layout>

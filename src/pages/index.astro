@@ -8,6 +8,9 @@ import SocialLink from 'assets/social-link.astro'
 import StarsShine from 'assets/stars-shine.astro'
 import 'styles/index.css'
 import StarsBg from 'components/StarsBg.astro'
+import {getCollection} from 'astro:content'
+
+import {Image} from '@astrojs/image/components'
 
 const env = import.meta.env.VERCEL_ENV
 let urlResume = ''
@@ -28,20 +31,7 @@ switch (env) {
 		break
 }
 
-const articles = [
-	{
-		title: 'Smoother & sharper shadows with layered box-shadows',
-		desc: 'With a simple CSS trick, we can get fine-tuned control over how shadows are rendered, and create richer and more realistic 3D effects',
-	},
-	{
-		title: 'Breaking to a new row with flexbox',
-		desc: 'You can break to a new flexbox row or column without setting the size of an item: add a collapsed flex item between two flex items',
-	},
-	{
-		title: 'CSS masonry with flexbox, :nth-child(), and order',
-		desc: 'Creating a masonry (or mosaic) layout with flexbox produces a grid with a seemingly shuffled and obscure order, but we can achieve a natural ordering by using :nth-child() and the order property',
-	},
-]
+const blogPosts = await getCollection('blog', ({data}) => data.isFeatured)
 ---
 
 <Layout
@@ -170,21 +160,27 @@ const articles = [
 
 				<div class='relative space-y-6'>
 					{
-						articles.map((article) => (
-							<a class='group flex scale-100 overflow-visible transition-transform before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:rounded-lg before:border before:border-accent-300 before:bg-gradient-to-r before:from-brand-900 before:to-brand-800 after:absolute after:left-0 after:top-0 after:-z-20 after:h-full after:w-full after:scale-100 after:bg-accent-700 after:blur-sm hover:scale-105 hover:cursor-pointer hover:after:blur-md active:scale-100'>
+						blogPosts.map((article) => (
+							<a href=`/blog/${article.slug}` class='group flex scale-100 overflow-visible transition-transform before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:rounded-lg before:border before:border-accent-300 before:bg-gradient-to-r before:from-brand-900 before:to-brand-800 after:absolute after:left-0 after:top-0 after:-z-20 after:h-full after:w-full after:scale-100 after:bg-accent-700 after:blur-sm hover:scale-105 hover:cursor-pointer hover:after:blur-md active:scale-100'>
 								<div>
 									<div class='relative h-fit w-full overflow-x-clip'>
 										<h2 class='line-clamp-2 pl-6 pr-4 pt-3 text-2xl tracking-wide md:text-3xl'>
-											{article.title}
+											{article.data.title}
 										</h2>
 										<div class='absolute -left-0 top-2 h-full w-0 border-[12px] border-transparent border-l-accent-300 transition-transform' />
 									</div>
-									<p class='mb-4 mt-4 line-clamp-4 pl-6 pr-4 leading-5 md:line-clamp-2 md:leading-normal'>
-										{article.desc}
+									<p class='mb-4 mt-4 line-clamp-4 pl-6 pr-4 leading-5 md:line-clamp-2 md:leading-normal lg:line-clamp-3'>
+										{article.data.description}
 									</p>
 								</div>
 
 								<div class='relative w-36 flex-none overflow-hidden rounded-r border-2 border-l-0 border-accent-300 bg-gradient-to-r from-accent-300 to-accent-500 before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-brand-900 before:transition-transform before:duration-300 before:ease-out group-hover:before:-translate-x-[61px] group-hover:before:translate-y-2.5 group-hover:before:border-[18px] md:w-48 '>
+									<Image
+										alt={article.data.image.alt}
+										src={article.data.image.url_square}
+										width={630}
+										height={630}
+									/>
 									<span class='text-body absolute -bottom-0 -right-24 h-[26px] w-20 rounded-br rounded-tl bg-brand-900 pt-0.5 text-sm italic text-accent-100 transition-transform duration-300 ease-out group-hover:-translate-x-24'>
 										read more
 									</span>
