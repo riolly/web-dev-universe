@@ -9,12 +9,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  rules: {
-    "no-unused-vars": [
-      "error",
-      { argsIgnorePattern: "^_", destructuredArrayIgnorePattern: "^_" },
-    ],
-  },
+  rules: {},
   overrides: [
     {
       files: ["*.js"],

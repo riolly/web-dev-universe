@@ -336,7 +336,9 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
 
 <script>
   const h1 = document.querySelector("h1") as HTMLHeadingElement;
-  // const sectionContact = document.querySelector("section#contact") as HTMLElement
+  // const sectionContact = document.querySelector(
+  //   "section#contact",
+  // ) as HTMLElement;
   const sectionBlog = document.querySelector("section#blog") as HTMLElement;
   const astronautWrap = document.querySelector(
     "button#astronaut-wrap",

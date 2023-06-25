@@ -19,15 +19,17 @@
     "typescript",
     "typescriptreact"
   ],
-  // "eslint.workingDirectories": ["cli", "upgrade", "www"],
-
-  "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "mdx.experimentalLanguageServer": true,
-  "prettier.documentSelectors": [
-    "**/*.{cjs,mjs,ts,tsx,astro,md,mdx,json,yaml,yml}"
-  ],
+  // "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
+  // "typescript.tsdk": "node_modules/typescript/lib",
+  // "mdx.experimentalLanguageServer": true,
+  // "prettier.documentSelectors": [
+  //   "**/*.{cjs,mjs,ts,tsx,astro,md,mdx,json,yaml,yml}"
+  // ],
+  // "[astro]": {
+  //   "editor.defaultFormatter": "astro-build.astro-vscode"
+  // }
+  "prettier.documentSelectors": ["**/*.astro"],
   "[astro]": {
-    "editor.defaultFormatter": "astro-build.astro-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
