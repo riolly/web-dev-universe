@@ -9,8 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier -w .",
-    "lint": "eslint . --ext .astro,.js,.ts.jsx,.tsx"
+    "format": "prettier -w **/*.{cjs,mjs,ts,tsx,astro,md,mdx,json,yaml,yml}",
+    "lint": "eslint . --ext .astro,.js,.ts,.jsx,.tsx"
   },
   "dependencies": {
     "@astrojs/image": "^0.17.1",
