@@ -1,0 +1,275 @@
+<svg width="480" height="200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g id="stars-blog">
+    <g id="stars-b">
+      <path id="star-b-line" d="M40.183 180.88 19.378 19.117l73.28 39.993-49.827 36.477 65.163 26.011-67.811 59.282Z"
+        stroke="#fff" />
+      <g id="star-b-01">
+        <ellipse id="circle" cx="42.831" cy="174.262" rx="17.723" ry="17.647" fill="#0F172A" />
+        <path id="shine"
+          d="M25.108 174.262c17.075-.645 17.075-.645 17.723-17.647.605 17.002.605 17.002 17.723 17.647-17.118.603-17.118.603-17.723 17.647-.648-17.044-.648-17.044-17.723-17.647Z"
+          fill="url(#paint0_radial_8_22)" />
+      </g>
+      <g id="star-b-02">
+        <ellipse id="circle_2" cx="107.815" cy="123.528" rx="13.292" ry="13.235" fill="#0F172A" />
+        <path id="shine_2"
+          d="M94.523 123.528c12.806-.484 12.806-.484 13.292-13.235.454 12.751.454 12.751 13.293 13.235-12.839.452-12.839.452-13.293 13.235-.486-12.783-.486-12.783-13.292-13.235Z"
+          fill="url(#paint1_radial_8_22)" />
+      </g>
+      <g id="star-b-03">
+        <ellipse id="circle_3" cx="42.831" cy="95.587" rx="10.338" ry="10.294" fill="#0F172A" />
+        <path id="shine_3"
+          d="M32.492 95.587c9.96-.377 9.96-.377 10.339-10.294.353 9.917.353 9.917 10.338 10.294-9.985.351-9.985.351-10.338 10.294-.378-9.943-.378-9.943-10.339-10.294Z"
+          fill="url(#paint2_radial_8_22)" />
+      </g>
+      <g id="star-b-04">
+        <ellipse id="circle_4" cx="91.569" cy="58.823" rx="13.292" ry="13.235" fill="#0F172A" />
+        <path id="shine_4"
+          d="M78.277 58.823c12.806-.484 12.806-.484 13.292-13.235.454 12.75.454 12.75 13.293 13.235-12.839.452-12.839.452-13.293 13.235-.486-12.783-.486-12.783-13.292-13.235Z"
+          fill="url(#paint3_radial_8_22)" />
+      </g>
+      <g id="star-b-05">
+        <ellipse id="circle_5" cx="20.677" cy="26.47" rx="17.723" ry="17.647" fill="#0F172A" />
+        <path id="shine_5"
+          d="M2.954 26.47c17.075-.645 17.075-.645 17.723-17.647.605 17.002.605 17.002 17.723 17.647-17.118.603-17.118.603-17.723 17.647-.648-17.044-.648-17.044-17.723-17.647Z"
+          fill="url(#paint4_radial_8_22)" />
+      </g>
+    </g>
+    <g id="stars-l">
+      <path id="star-l-line" d="m161.077 33.823-19.114 113.694 73.846 18.657" stroke="#fff" />
+      <g id="star-l-01">
+        <ellipse id="circle_6" cx="223.754" cy="166.174" rx="17.723" ry="17.647" fill="#0F172A" />
+        <path id="shine_6"
+          d="M206.031 166.174c17.075-.645 17.075-.645 17.723-17.647.605 17.002.605 17.002 17.723 17.647-17.118.603-17.118.603-17.723 17.647-.648-17.044-.648-17.044-17.723-17.647Z"
+          fill="url(#paint5_radial_8_22)" />
+      </g>
+      <g id="star-l-02">
+        <ellipse id="circle_7" cx="141.785" cy="151.468" rx="13.292" ry="13.235" fill="#0F172A" />
+        <path id="shine_7"
+          d="M128.492 151.468c12.807-.484 12.807-.484 13.293-13.235.453 12.751.453 12.751 13.292 13.235-12.839.452-12.839.452-13.292 13.235-.486-12.783-.486-12.783-13.293-13.235Z"
+          fill="url(#paint6_radial_8_22)" />
+      </g>
+      <g id="star-l-03">
+        <ellipse id="circle_8" cx="159.508" cy="33.823" rx="17.723" ry="17.647" fill="#0F172A" />
+        <path id="shine_8"
+          d="M141.785 33.823c17.075-.645 17.075-.645 17.723-17.647.605 17.002.605 17.002 17.723 17.647-17.118.603-17.118.603-17.723 17.647-.648-17.044-.648-17.044-17.723-17.647Z"
+          fill="url(#paint7_radial_8_22)" />
+      </g>
+    </g>
+    <g id="stars-o">
+      <path id="star-o-line" d="m342.825 89.294-57.162-43.706-40.315 62.32 53.123 46.502 44.354-65.116Z"
+        stroke="#fff" />
+      <g id="start-o-01">
+        <ellipse id="circle_9" cx="248.862" cy="109.557" rx="13.292" ry="13.235" fill="#0F172A" />
+        <path id="shine_9"
+          d="M235.569 109.557c12.806-.484 12.806-.484 13.293-13.235.453 12.751.453 12.751 13.292 13.235-12.839.452-12.839.452-13.292 13.235-.487-12.783-.487-12.783-13.293-13.235Z"
+          fill="url(#paint8_radial_8_22)" />
+      </g>
+      <g id="start-o-02">
+        <ellipse id="circle_10" cx="296.123" cy="151.468" rx="17.723" ry="17.647" fill="#0F172A" />
+        <path id="shine_10"
+          d="M278.4 151.468c17.075-.645 17.075-.645 17.723-17.646.605 17.001.605 17.001 17.723 17.646-17.118.603-17.118.603-17.723 17.647-.648-17.044-.648-17.044-17.723-17.647Z"
+          fill="url(#paint9_radial_8_22)" />
+      </g>
+      <g id="start-o-03">
+        <ellipse id="circle_11" cx="342.646" cy="88.969" rx="13.292" ry="13.235" fill="#0F172A" />
+        <path id="shine_11"
+          d="M329.354 88.97c12.806-.485 12.806-.485 13.292-13.236.454 12.751.454 12.751 13.292 13.235-12.838.452-12.838.452-13.292 13.235-.486-12.783-.486-12.783-13.292-13.235Z"
+          fill="url(#paint10_radial_8_22)" />
+      </g>
+      <g id="start-o-04">
+        <ellipse id="circle_12" cx="285.046" cy="45.588" rx="17.723" ry="17.647" fill="#0F172A" />
+        <path id="shine_12"
+          d="M267.323 45.588c17.075-.646 17.075-.646 17.723-17.647.605 17.001.605 17.001 17.723 17.647-17.118.602-17.118.602-17.723 17.646-.648-17.044-.648-17.044-17.723-17.646Z"
+          fill="url(#paint11_radial_8_22)" />
+      </g>
+    </g>
+    <g id="stars-g">
+      <path id="star-g-line" d="M431.044 64.07 373.84 33.822l3.001 132.351 79.707-44.436-52.48-22.51" stroke="#fff" />
+      <g id="star-g-05">
+        <ellipse id="circle_13" cx="406.154" cy="99.999" rx="10.338" ry="10.294" fill="#0F172A" />
+        <path id="shine_13"
+          d="M395.815 99.999c9.961-.377 9.961-.377 10.339-10.294.353 9.917.353 9.917 10.338 10.294-9.985.351-9.985.351-10.338 10.294-.378-9.943-.378-9.943-10.339-10.294Z"
+          fill="url(#paint12_radial_8_22)" />
+      </g>
+      <g id="star-g-04">
+        <ellipse id="circle_14" cx="456.369" cy="122.057" rx="13.292" ry="13.235" fill="#0F172A" />
+        <path id="shine_14"
+          d="M443.077 122.057c12.806-.484 12.806-.484 13.292-13.235.454 12.751.454 12.751 13.293 13.235-12.839.452-12.839.452-13.293 13.235-.486-12.783-.486-12.783-13.292-13.235Z"
+          fill="url(#paint13_radial_8_22)" />
+      </g>
+      <g id="star-g-03">
+        <ellipse id="circle_15" cx="376.615" cy="166.174" rx="17.723" ry="17.647" fill="#0F172A" />
+        <path id="shine_15"
+          d="M358.892 166.174c17.075-.645 17.075-.645 17.723-17.647.606 17.002.606 17.002 17.723 17.647-17.117.603-17.117.603-17.723 17.647-.648-17.044-.648-17.044-17.723-17.647Z"
+          fill="url(#paint14_radial_8_22)" />
+      </g>
+      <g id="star-g-02">
+        <ellipse id="circle_16" cx="374.4" cy="35.294" rx="17.723" ry="17.647" fill="#0F172A" />
+        <path id="shine_16"
+          d="M356.677 35.294c17.075-.646 17.075-.646 17.723-17.647.605 17.001.605 17.001 17.723 17.647-17.118.602-17.118.602-17.723 17.646-.648-17.044-.648-17.044-17.723-17.646Z"
+          fill="url(#paint15_radial_8_22)" />
+      </g>
+      <g id="star-g-01">
+        <ellipse id="circle_17" cx="435.692" cy="67.646" rx="13.292" ry="13.235" fill="#0F172A" />
+        <path id="shine_17"
+          d="M422.4 67.646c12.806-.484 12.806-.484 13.292-13.235.454 12.751.454 12.751 13.293 13.235-12.839.452-12.839.452-13.293 13.235-.486-12.783-.486-12.783-13.292-13.235Z"
+          fill="url(#paint16_radial_8_22)" />
+      </g>
+    </g>
+  </g>
+  <defs>
+    <radialGradient id="paint0_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 17.2792 -17.3538 0 42.83 174.262)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint1_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 12.9594 -13.0154 0 107.815 123.528)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint2_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 10.0795 -10.1231 0 42.83 95.587)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint3_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 12.9594 -13.0154 0 91.57 58.823)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint4_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 17.2792 -17.3538 0 20.677 26.47)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint5_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 17.2792 -17.3538 0 223.754 166.174)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint6_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 12.9594 -13.0154 0 141.785 151.468)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint7_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 17.2792 -17.3538 0 159.508 33.823)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint8_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 12.9594 -13.0154 0 248.862 109.557)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint9_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 17.2792 -17.3538 0 296.123 151.468)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint10_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 12.9594 -13.0154 0 342.646 88.97)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint11_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 17.2792 -17.3538 0 285.046 45.588)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint12_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 10.0795 -10.1231 0 406.154 99.999)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint13_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 12.9594 -13.0154 0 456.369 122.057)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint14_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 17.2792 -17.3538 0 376.615 166.174)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint15_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 17.2792 -17.3538 0 374.4 35.294)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+    <radialGradient id="paint16_radial_8_22" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(0 12.9594 -13.0154 0 435.692 67.646)">
+      <stop stop-color="#F97316" />
+      <stop offset="0.0001" stop-color="#FFE600" stop-opacity="0.957045" />
+      <stop offset="0.229167" stop-color="#FBFBFB" />
+      <stop offset="0.302083" stop-color="#FDE047" />
+      <stop offset="0.995721" stop-color="#FFEE57" stop-opacity="0" />
+      <stop offset="0.995821" stop-color="white" />
+    </radialGradient>
+  </defs>
+</svg>

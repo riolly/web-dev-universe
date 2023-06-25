@@ -1,0 +1,44 @@
+---
+import {getCollection} from 'astro:content'
+import {Image} from '@astrojs/image/components'
+import BlogLayout from 'layouts/BlogLayout.astro'
+
+import type {InferGetStaticParamsType, InferGetStaticPropsType} from 'astro'
+
+import 'styles/blog.css'
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog')
+  return blogEntries.map((entry) => ({
+    params: {slug: entry.slug},
+    props: {entry},
+  }))
+}
+
+const {entry} = Astro.props
+const {Content} = await entry.render()
+---
+
+<BlogLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  siteTitle={entry.data.siteTitle}
+  image={entry.data.image.url_landscape}
+>
+  <Image
+    src={entry.data.image.url_landscape}
+    alt={entry.data.image.alt}
+    format='jpg'
+    width={1200}
+    height={630}
+    class='h-96 shadow-bottom shadow-slate-950'
+  />
+
+  <h1 class='text-center lg:mt-12 lg:px-16'>{entry.data.title}</h1>
+  <div class='mx-auto max-w-screen-md'>
+    <Content />
+  </div>
+</BlogLayout>

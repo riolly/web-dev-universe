@@ -1,5 +1,5 @@
 ---
-import Layout from 'layouts/Layout.astro'
+import Layout from 'layouts/MainLayout.astro'
 import img from 'public/images/og-resume.jpg'
 import 'styles/resume.css'
 
@@ -9,7 +9,7 @@ let urlHome = ''
 switch (env) {
 	case undefined:
 	case 'development':
-		urlHome = 'http://localhost:3000'
+		urlHome = 'http://localhost:3000#contact'
 		break
 	case 'preview':
 		urlHome = `https://${import.meta.env.VERCEL_URL}`

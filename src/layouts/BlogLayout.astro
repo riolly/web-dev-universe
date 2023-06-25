@@ -1,0 +1,23 @@
+---
+import Layout from './MainLayout.astro'
+
+import StarsBg from 'components/StarsBg.astro'
+
+export type Props = {
+  title: string
+  siteTitle: string
+  description: string
+  image: string
+}
+
+const {title, image, description, siteTitle} = Astro.props
+---
+
+<Layout title={title} description={description} image={image} siteTitle={siteTitle}>
+  <div class='relative overflow-clip'>
+    <StarsBg />
+    <main class='mx-auto max-w-screen-lg bg-gray-900 shadow-2xl shadow-slate-700'>
+      <slot />
+    </main>
+  </div>
+</Layout>
