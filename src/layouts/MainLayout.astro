@@ -1,50 +1,53 @@
 ---
-import 'styles/global.css'
-import '@fontsource/oswald'
-import '@fontsource/karla'
+import "styles/global.css";
+import "@fontsource/oswald";
+import "@fontsource/karla";
 
-import {SITE} from '../config'
-import HeadCommon from 'components/HeadCommon.astro'
-import HeadSeo from 'components/HeadSeo.astro'
+import { SITE } from "../config";
+import HeadCommon from "components/HeadCommon.astro";
+import HeadSeo from "components/HeadSeo.astro";
 
-const {siteTitle, ...props} = Astro.props
+const { siteTitle, ...props } = Astro.props;
 
 export interface Props {
-	title: string
-	description: string
-	image?: string
-	siteTitle?: string
+  title: string;
+  description: string;
+  image?: string;
+  siteTitle?: string;
 }
 ---
 
 <!DOCTYPE html>
-<html lang='en-us'>
-	<head>
-		<HeadCommon />
-		<HeadSeo type='website' {...props} />
-		<title>{siteTitle ? `${siteTitle} | Riolly` : SITE.title}</title>
+<html lang="en-us">
+  <head>
+    <HeadCommon />
+    <HeadSeo type="website" {...props} />
+    <title>{siteTitle ? `${siteTitle} | Riolly` : SITE.title}</title>
 
-		<script is:inline>
-			const html = document.documentElement
-			const theme = (() => {
-				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-					return localStorage.getItem('theme')
-				}
-				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-					return 'dark'
-				}
-				return 'light'
-			})()
-			if (theme === 'light') {
-				html.classList.remove('dark')
-				html.classList.add('light')
-			} else {
-				html.classList.add('dark')
-				html.classList.remove('light')
-			}
-		</script>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <script is:inline>
+      const html = document.documentElement;
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+      if (theme === "light") {
+        html.classList.remove("dark");
+        html.classList.add("light");
+      } else {
+        html.classList.add("dark");
+        html.classList.remove("light");
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>

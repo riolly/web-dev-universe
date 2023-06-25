@@ -1,50 +1,57 @@
 ---
-import {SITE, OPEN_GRAPH, Frontmatter} from '../config'
+import { SITE, OPEN_GRAPH, Frontmatter } from "../config";
 
 export interface Props {
-	frontmatter?: Frontmatter
-	type?: string
-	title?: string
-	description?: string
-	image?: string
+  frontmatter?: Frontmatter;
+  type?: string;
+  title?: string;
+  description?: string;
+  image?: string;
 }
 
-const {frontmatter, type, title, description, image} = Astro.props as Omit<Props, 'image'> & {
-	image?: {src: string}
-}
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
+const { frontmatter, type, title, description, image } = Astro.props as Omit<
+  Props,
+  "image"
+> & {
+  image?: { src: string };
+};
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
 const formattedContentTitle = frontmatter
-	? `${frontmatter.title} 🚀 ${SITE.title}`
-	: title ?? SITE.title
+  ? `${frontmatter.title} 🚀 ${SITE.title}`
+  : title ?? SITE.title;
 
-const imageSrc = frontmatter?.image?.src ?? image?.src ?? OPEN_GRAPH.image.src
-const imageUrl = new URL(imageSrc, Astro.url.origin)
-const imageAlt = frontmatter?.image?.alt ?? OPEN_GRAPH.image.alt
+const imageSrc = frontmatter?.image?.src ?? image?.src ?? OPEN_GRAPH.image.src;
+const imageUrl = new URL(imageSrc, Astro.url.origin);
+const imageAlt = frontmatter?.image?.alt ?? OPEN_GRAPH.image.alt;
 
-const ogType = type ?? 'article'
+const ogType = type ?? "article";
 ---
 
 <!-- Page Metadata -->
-<link rel='canonical' href={canonicalUrl} />
-<meta name='description' property='og:description' content={description ?? SITE.description} />
+<link rel="canonical" href={canonicalUrl} />
+<meta
+  name="description"
+  property="og:description"
+  content={description ?? SITE.description}
+/>
 
 <!-- OpenGraph Tags -->
-<meta property='og:title' content={formattedContentTitle} />
-<meta property='og:type' content={ogType} />
-<meta property='og:url' content={canonicalUrl} />
-<meta property='og:locale' content={SITE.defaultLanguage} />
-<meta property='og:image' content={imageUrl} />
-<meta property='og:image:alt' content={imageAlt} />
-<meta property='og:site_name' content={SITE.title} />
+<meta property="og:title" content={formattedContentTitle} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:locale" content={SITE.defaultLanguage} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content={imageAlt} />
+<meta property="og:site_name" content={SITE.title} />
 
 <!-- Twitter Tags -->
-<meta name='twitter:card' content='summary_large_image' />
-<meta name='twitter:site' content={OPEN_GRAPH.twitter} />
-<meta name='twitter:title' content={formattedContentTitle} />
-<meta name='twitter:description' content={description ?? SITE.description} />
-<meta name='twitter:image' content={imageUrl} />
-<meta name='twitter:image:alt' content={imageAlt} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content={OPEN_GRAPH.twitter} />
+<meta name="twitter:title" content={formattedContentTitle} />
+<meta name="twitter:description" content={description ?? SITE.description} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content={imageAlt} />
 
 <!--
   TODO: Add json+ld data, maybe https://schema.org/APIReference makes sense?
