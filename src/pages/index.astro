@@ -1,16 +1,18 @@
 ---
+import {getCollection} from 'astro:content'
+import {Image} from '@astrojs/image/components'
+
 import Layout from 'layouts/MainLayout.astro'
+import StarsBg from 'components/StarsBg.astro'
+
 import EarthSvg from 'assets/earth.astro'
 import RocketAstronaut from 'assets/rocket-astronaut.astro'
 import PlanetLandscape from 'assets/landscape.astro'
 import DialogBox from 'assets/dialog-box.astro'
 import SocialLink from 'assets/social-link.astro'
 import StarsShine from 'assets/stars-shine.astro'
-import 'styles/index.css'
-import StarsBg from 'components/StarsBg.astro'
-import {getCollection} from 'astro:content'
 
-import {Image} from '@astrojs/image/components'
+import 'styles/index.css'
 
 const env = import.meta.env.VERCEL_ENV
 let urlResume = ''
