@@ -58,7 +58,24 @@ One thing that is irreplaceable from GraphQL is how it's bridging the gap betwee
 
 In the quest to make GraphQL more accessible, one library stands out: [Relay](https://relay.dev/). While there are various solutions to adopt GraphQL, Relay offers unparalleled performance through efficient query compilation and robust caching. Its performance gains remain unmatched, even to this day. However, leveraging Relay effectively requires strict adherence to its specifications and best practices, which can be challenging for many developers. Yet, once properly set up, Relay empowers developers to iterate with confidence and unlock performance levels that would be otherwise hard to achieve. Nonetheless, it's important to acknowledge that using Relay effectively demands a significant investment in setup and expertise.
 
-The react team, the team behind Relay, recognizes these challenges. But surprisingly, instead of making relay easier, they taking the best parts of relay and put in on react server component. One more twist as Dan tweets:
+The react team, the team behind Relay, recognizes these challenges. But surprisingly, instead of making Relay easier, they taking the best parts of relay and put in on RSC. One more twist as Dan tweets:
+
+<div class="flex justify-center">
+  <blockquote class="twitter-tweet">
+    <p lang="en" dir="ltr">
+      by the way, credit where it’s due — data-driven code splitting in RSC is
+      largely inspired by Relay (which has “data-driven dependencies”). RSC
+      takes everything we learned about loading code and data over the last ten
+      years and synthesizes that into an approach that’s 100% React.
+    </p>
+    &mdash; дэн (@dan_abramov) <a href="https://twitter.com/dan_abramov/status/1629604899909500928?ref_src=twsrc%5Etfw">February 25, 2023</a>
+  </blockquote>
+</div>
+<script
+  async
+  src="https://platform.twitter.com/widgets.js"
+  charset="utf-8"
+></script>
 
 As these stories of GraphQL unfold, it becomes increasingly clear that the exclusive reliance on GraphQL may no longer be necessary. The best features and benefits of GraphQL are gradually finding their way into other tools and frameworks we commonly use now. That is why, it may be wise to reevaluate the need for GraphQL when alternative solutions, such as tRPC and React Server Components, incorporate the essence of GraphQL's strengths while simplifying the integration.
 
