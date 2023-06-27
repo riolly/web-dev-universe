@@ -167,17 +167,17 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
                 href={`/blog/${article.slug}`}
                 class="group flex scale-100 overflow-visible transition-transform before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:rounded-xl before:border before:border-accent-300 before:bg-gradient-to-r before:from-brand-900 before:to-brand-800 after:absolute after:left-0 after:top-0 after:-z-20 after:h-full after:w-full after:scale-100 after:bg-accent-700 after:blur-sm hover:scale-105 hover:cursor-pointer hover:after:blur-md active:scale-100"
               >
-                <div>
+                <article>
                   <div class="relative h-fit w-full overflow-x-clip">
-                    <h2 class="line-clamp-2 pl-6 pr-4 pt-3 text-2xl tracking-wide md:text-3xl">
+                    <h3 class="line-clamp-2 pl-6 pr-4 pt-3 text-2xl tracking-wide md:text-3xl">
                       {article.data.title}
-                    </h2>
+                    </h3>
                     <div class="absolute -left-0 top-2 h-full w-0 border-[12px] border-transparent border-l-accent-300 transition-transform" />
                   </div>
                   <p class="mb-4 mt-4 line-clamp-4 px-6 leading-5 md:line-clamp-2 md:leading-normal lg:line-clamp-3">
                     {article.data.description}
                   </p>
-                </div>
+                </article>
 
                 <div class="relative w-36 flex-none overflow-hidden rounded-r-xl bg-accent-300 p-[1px] pl-0 before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-accent-300 before:transition-transform before:duration-300 before:ease-out group-hover:before:-translate-x-[61px] group-hover:before:translate-y-2.5 group-hover:before:border-[18px] md:w-48 ">
                   <Image
