@@ -182,7 +182,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
                 <div class="relative w-36 flex-none overflow-hidden rounded-r-xl bg-accent-300 p-[1px] pl-0 before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-accent-300 before:transition-transform before:duration-300 before:ease-out group-hover:before:-translate-x-[61px] group-hover:before:translate-y-2.5 group-hover:before:border-[18px] md:w-48 ">
                   <Image
                     alt={article.data.image.alt}
-                    src={article.data.image.url_square}
+                    src={article.data.image.url.square}
                     width={400}
                     height={400}
                     class="rounded-r-xl"

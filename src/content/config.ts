@@ -8,8 +8,11 @@ const blogCollection = defineCollection({
     description: z.string(),
     image: z.object({
       alt: z.string(),
-      url_landscape: z.string(),
-      url_square: z.string(),
+      url: z.object({
+        square: z.string(),
+        og: z.string(),
+        banner: z.string(),
+      }),
     }),
     tags: z.array(z.string()),
     pubDate: z.string(),

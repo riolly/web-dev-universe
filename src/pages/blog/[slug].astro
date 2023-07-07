@@ -25,16 +25,15 @@ const { Content } = await entry.render();
   title={entry.data.title}
   description={entry.data.description}
   siteTitle={entry.data.siteTitle}
-  image={entry.data.image.url_landscape}
+  image={entry.data.image.url.og}
 >
   <article>
     <Image
-      src={entry.data.image.url_landscape}
+      src={entry.data.image.url.banner}
       alt={entry.data.image.alt}
-      format="jpg"
       width={1200}
-      height={630}
-      class="h-96 shadow-bottom shadow-slate-950"
+      height={480}
+      class="shadow-bottom shadow-slate-950"
     />
 
     <h1 class="text-center lg:mt-12 lg:px-16">{entry.data.title}</h1>
