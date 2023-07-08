@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { Image } from "@astrojs/image/components";
+import { Picture } from "@astrojs/image/components";
 
 import Layout from "layouts/MainLayout.astro";
 import StarsBg from "components/StarsBg.astro";
@@ -182,11 +182,12 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
                 </article>
 
                 <div class="relative w-36 flex-none overflow-hidden rounded-r-xl bg-accent-300 p-[1px] pl-0 before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-accent-300 before:transition-transform before:duration-300 before:ease-out group-hover:before:-translate-x-[61px] group-hover:before:translate-y-2.5 group-hover:before:border-[18px] md:w-48 ">
-                  <Image
+                  <Picture
                     alt={article.data.image.alt}
                     src={article.data.image.url.square}
-                    width={400}
-                    height={400}
+                    widths={[160, 200, 240]}
+                    sizes="(min-width: 768px) 100vw, (min-width: 1024px) 100vw"
+                    aspectRatio="1:1"
                     class="rounded-r-xl"
                   />
                   <span class="text-body absolute -bottom-0 -right-24 h-[26px] w-20 rounded-br rounded-tl bg-accent-300 pt-0.5 text-sm font-bold italic text-brand-900 transition-transform duration-300 ease-out group-hover:-translate-x-24">
