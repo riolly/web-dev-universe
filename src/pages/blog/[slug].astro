@@ -27,14 +27,14 @@ const { Content } = await entry.render();
   siteTitle={entry.data.siteTitle}
   image={entry.data.image.url.og}
 >
-  <article>
-    <Image
-      src={entry.data.image.url.banner}
-      alt={entry.data.image.alt}
-      width={1200}
-      height={480}
-      class="shadow-bottom shadow-slate-950"
-    />
+  <Picture
+    src={entry.data.image.url.banner}
+    widths={[640, 960, 1200]}
+    aspectRatio="5:2"
+    sizes="(min-width: 768px) 100vw, (min-width: 1024px) 100vw"
+    alt={entry.data.image.alt}
+    class="shadow-bottom shadow-slate-950"
+  />
 
     <h1 class="text-center lg:mt-12 lg:px-16">{entry.data.title}</h1>
     <div class="mx-auto max-w-screen-md">
