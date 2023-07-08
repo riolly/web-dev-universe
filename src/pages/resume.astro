@@ -12,10 +12,10 @@ switch (env) {
     urlHome = "http://localhost:3000#contact";
     break;
   case "preview":
-    urlHome = `https://${import.meta.env.VERCEL_URL}`;
+    urlHome = `https://${import.meta.env.VERCEL_URL}#contact`;
     break;
   case "production":
-    urlHome = `${Astro.site}/resume`;
+    urlHome = `${Astro.site}#contact`;
     break;
 
   default:
