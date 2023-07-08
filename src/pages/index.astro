@@ -167,6 +167,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
             blogPosts.map((article) => (
               <a
                 href={`/blog/${article.slug}`}
+                rel="prefetch"
                 class="group flex scale-100 overflow-visible transition-transform before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:rounded-xl before:border before:border-accent-300 before:bg-gradient-to-r before:from-brand-900 before:to-brand-800 after:absolute after:left-0 after:top-0 after:-z-20 after:h-full after:w-full after:scale-100 after:bg-accent-700 after:blur-sm hover:scale-105 hover:cursor-pointer hover:after:blur-md active:scale-100"
               >
                 <article>
@@ -199,6 +200,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
           }
         </div>
         <a
+          rel="prefetch"
           class="relative mt-8 hidden px-6 font-head text-xl text-white transition-all after:absolute after:left-1/2 after:top-1/2 after:-z-10 after:h-0 after:w-full after:-translate-x-1/2 after:-translate-y-1/2 after:border-8 after:border-transparent after:border-x-accent-300 after:transition-transform after:duration-300 hover:cursor-pointer hover:tracking-widest hover:after:w-1/4 hover:after:-translate-y-[42.5%] hover:after:-rotate-90 active:after:scale-75 active:after:duration-100"
           >More articles</a
         >
@@ -233,6 +235,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
           bgClass="w-24 md:w-32"
           delay="0s"
           href={urlResume}
+          rel="prefetch"
           label="Resume"
         >
           <p class="font-head text-5xl md:text-6xl">CV</p>
