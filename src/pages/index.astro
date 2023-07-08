@@ -1,650 +1,676 @@
 ---
-import Layout from 'layouts/MainLayout.astro'
-import EarthSvg from 'assets/earth.astro'
-import RocketAstronaut from 'assets/rocket-astronaut.astro'
-import PlanetLandscape from 'assets/landscape.astro'
-import DialogBox from 'assets/dialog-box.astro'
-import SocialLink from 'assets/social-link.astro'
-import StarsShine from 'assets/stars-shine.astro'
-import 'styles/index.css'
-import StarsBg from 'components/StarsBg.astro'
-import {getCollection} from 'astro:content'
+import { getCollection } from "astro:content";
+import { Picture } from "@astrojs/image/components";
 
-import {Image} from '@astrojs/image/components'
+import Layout from "layouts/MainLayout.astro";
+import StarsBg from "components/StarsBg.astro";
 
-const env = import.meta.env.VERCEL_ENV
-let urlResume = ''
+import EarthSvg from "assets/earth.astro";
+import RocketAstronaut from "assets/rocket-astronaut.astro";
+import PlanetLandscape from "assets/landscape.astro";
+import DialogBox from "assets/dialog-box.astro";
+import SocialLink from "assets/social-link.astro";
+import StarsShine from "assets/stars-shine.astro";
 
-switch (env) {
-	case undefined:
-	case 'development':
-		urlResume = 'http://localhost:3000/resume'
-		break
-	case 'preview':
-		urlResume = `https://${import.meta.env.VERCEL_URL}/resume`
-		break
-	case 'production':
-		urlResume = `${Astro.site}/resume`
-		break
+import { getUrl } from "utils/getUrl";
 
-	default:
-		break
-}
+import "styles/index.css";
 
-const blogPosts = await getCollection('blog', ({data}) => data.isFeatured)
+const urlResume = getUrl("/resume");
+
+const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
 ---
 
 <Layout
-	title='Welcome to Riolly Universe'
-	description='Explore web development universe with Alberto Riolly and take your dev skill to the moon.'
+  title="Welcome to Riolly Universe"
+  description="Explore web development universe with Alberto Riolly and take your dev skill to the moon."
 >
-	<div class='absolute h-fit w-full overflow-clip'>
-		<StarsBg />
+  <div class="absolute h-fit w-full overflow-clip">
+    <StarsBg />
 
-		<div id='bg-section-intro' class='relative h-[100lvh] w-full'>
-			<StarsShine className='min-w-[1536px]' />
+    <div id="bg-section-intro" class="relative h-[100lvh] w-full">
+      <StarsShine className="min-w-[1536px]" />
 
-			<EarthSvg
-				class='absolute left-0 top-0 h-[28rem] -translate-x-1/2 -translate-y-1/2 -rotate-90 md:h-[36rem] lg:h-[40rem] xl:h-[48rem] 2xl:ml-20 2xl:h-[52rem]'
-			/>
-			<div
-				id='purple-gradient-br'
-				class='absolute bottom-0 right-0 h-1/3 w-full bg-gradient-to-br from-transparent via-transparent to-indigo-900/80 md:w-3/4 lg:w-1/2'
-			>
-			</div>
+      <EarthSvg
+        class="absolute left-0 top-0 h-[28rem] -translate-x-1/2 -translate-y-1/2 -rotate-90 md:h-[36rem] lg:h-[40rem] xl:h-[48rem] 2xl:ml-20 2xl:h-[52rem]"
+      />
+      <div
+        id="purple-gradient-br"
+        class="absolute bottom-0 right-0 h-1/3 w-full bg-gradient-to-br from-transparent via-transparent to-indigo-900/80 md:w-3/4 lg:w-1/2"
+      >
+      </div>
 
-			<div
-				id='blackhole'
-				class='absolute left-1/2 top-1/2 -ml-12 mt-4 h-fit w-[175%] -translate-x-1/2 -translate-y-1/2 overflow-clip md:-ml-40 md:w-[120%] lg:-ml-32 lg:w-[92%] xl:-ml-24 xl:w-[80%] 2xl:-ml-20 2xl:w-[60%]'
-			>
-				<svg class='-mt-16 -rotate-[15deg]' viewBox='0 0 800 800'>
-					<defs>
-						<radialGradient id='radial-gradient'>
-							<stop offset='50%' stop-color='#1e293b' stop-opacity='.8'></stop>
-							<stop offset='70%' stop-color='#334155' stop-opacity='.6'></stop>
-							<stop offset='100%' stop-color='#0f172a' stop-opacity='0'></stop>
-						</radialGradient>
-					</defs>
-					<g id='background'>
-						<ellipse
-							rx='400'
-							ry='250'
-							cx='400'
-							cy='400'
-							fill='url(#radial-gradient)'
-							style='mix-blend-mode:color-dodge'></ellipse>
-					</g>
-				</svg>
-			</div>
+      <div
+        id="blackhole"
+        class="absolute left-1/2 top-1/2 -ml-12 mt-4 h-fit w-[175%] -translate-x-1/2 -translate-y-1/2 overflow-clip md:-ml-40 md:w-[120%] lg:-ml-32 lg:w-[92%] xl:-ml-24 xl:w-[80%] 2xl:-ml-20 2xl:w-[60%]"
+      >
+        <svg class="-mt-16 -rotate-[15deg]" viewBox="0 0 800 800">
+          <defs>
+            <radialGradient id="radial-gradient">
+              <stop offset="50%" stop-color="#1e293b" stop-opacity=".8"></stop>
+              <stop offset="70%" stop-color="#334155" stop-opacity=".6"></stop>
+              <stop offset="100%" stop-color="#0f172a" stop-opacity="0"></stop>
+            </radialGradient>
+          </defs>
+          <g id="background">
+            <ellipse
+              rx="400"
+              ry="250"
+              cx="400"
+              cy="400"
+              fill="url(#radial-gradient)"
+              style="mix-blend-mode:color-dodge"></ellipse>
+          </g>
+        </svg>
+      </div>
 
-			<button
-				id='astronaut-wrap'
-				class='init group absolute -bottom-8 right-0 z-10 pl-24 pt-16 transition-transform hover:cursor-pointer md:mb-8 md:mr-12 lg:mr-8 xl:mr-16 2xl:mr-20'
-			>
-				<div id='astronaut' class='init'>
-					<div class='absolute -left-[5.5rem] -top-6 h-24 -rotate-6 md:-left-[6rem] md:h-[6.5rem]'>
-						<div class='fadeIn absolute h-full'>
-							<DialogBox class='ping h-full' />
-						</div>
-						<DialogBox class='rotateInDownRight absolute h-full origin-bottom-right' />
-						<div
-							class='absolute left-4 top-1 w-24 -rotate-2 group-hover:top-4 md:left-5 md:top-1.5 md:group-hover:top-5'
-						>
-							<p class='text-bold font-head text-2xl leading-5'>
-								<span
-									style='--n:22'
-									class={`typing_dialog text-black before:text-3xl group-hover:invisible before:visible before:text-black before:group-hover:content-["Ready??"] before:group-focus:content-["Let's_GO!_"]`}
-									>Right here, hope on!!</span
-								>
-							</p>
-						</div>
-					</div>
-					<RocketAstronaut class='lg:72 2xl:h-84 h-60 w-full md:h-64 xl:h-80' />
-				</div>
-			</button>
-		</div>
-		<div id='bg-section-blog' class='relative h-[100lvh]'>
-			<div
-				id='purple-gradient-tr'
-				class='absolute right-0 h-1/3 w-full bg-gradient-to-tr from-transparent via-transparent to-indigo-900/80 md:w-3/4 lg:w-1/2 xl:h-1/4'
-			>
-			</div>
-		</div>
-		<div id='bg-section-contact' class='relative h-[100lvh]'>
-			<div class='absolute bottom-0 w-full'>
-				<div
-					class='absolute bottom-0 h-1/3 w-full bg-gradient-to-b from-transparent to-slate-900/75'
-				>
-				</div>
-				<PlanetLandscape class='-ml-[95%] h-[450px] w-[1000px] md:ml-0 md:h-auto md:w-full' />
-			</div>
-		</div>
-	</div>
+      <button
+        id="astronaut-wrap"
+        class="init group absolute -bottom-8 right-0 z-10 pl-24 pt-16 transition-transform hover:cursor-pointer md:mb-8 md:mr-12 lg:mr-8 xl:mr-16 2xl:mr-20"
+      >
+        <div id="astronaut" class="init">
+          <div
+            class="absolute -left-[5.5rem] -top-6 h-24 -rotate-6 md:-left-[6rem] md:h-[6.5rem]"
+          >
+            <div class="fadeIn absolute h-full">
+              <DialogBox class="ping h-full" />
+            </div>
+            <DialogBox
+              class="rotateInDownRight absolute h-full origin-bottom-right"
+            />
+            <div
+              class="absolute left-4 top-1 w-24 -rotate-2 group-hover:top-4 md:left-5 md:top-1.5 md:group-hover:top-5"
+            >
+              <p class="text-bold font-head text-2xl leading-5">
+                <span
+                  style="--n:22"
+                  class={`typing_dialog text-black before:text-3xl group-hover:invisible before:visible before:text-black before:group-hover:content-["Ready??"] before:group-focus:content-["Let's_GO!_"]`}
+                  >Right here, hop on!!</span
+                >
+              </p>
+            </div>
+          </div>
+          <RocketAstronaut class="lg:72 2xl:h-84 h-60 w-full md:h-64 xl:h-80" />
+        </div>
+      </button>
+    </div>
+    <div id="bg-section-blog" class="relative h-[100lvh]">
+      <div
+        id="purple-gradient-tr"
+        class="absolute right-0 h-1/3 w-full bg-gradient-to-tr from-transparent via-transparent to-indigo-900/80 md:w-3/4 lg:w-1/2 xl:h-1/4"
+      >
+      </div>
+    </div>
+    <div id="bg-section-contact" class="relative h-[100lvh]">
+      <div class="absolute bottom-0 w-full">
+        <div
+          class="absolute bottom-0 h-1/3 w-full bg-gradient-to-b from-transparent to-slate-900/75"
+        >
+        </div>
+        <PlanetLandscape
+          class="-ml-[95%] h-[450px] w-[1000px] md:ml-0 md:h-auto md:w-full"
+        />
+      </div>
+    </div>
+  </div>
 
-	<main class='relative w-full overflow-x-clip'>
-		<section
-			id='intro'
-			class='mx-auto flex h-screen max-w-screen-md flex-col justify-center p-4 pr-2 md:px-8 md:pr-0 lg:px-0'
-		>
-			<h1
-				class='-mt-20 text-5xl font-bold leading-[1.1] md:text-6xl md:leading-tight xl:text-7xl xl:leading-tight'
-			>
-				<span class='lightSpeed_h1web'
-					>Web keep <span class='lightSpeed_h1evolve'>evolving..</span></span
-				>
-				<span class='lightSpeed_h1fast block italic'>
-					..really
-					<span
-						class='align-bottom text-[3.5rem] text-transparent [-webkit-text-stroke:2px_white] md:text-[4rem] 2xl:text-[5rem]'
-					>
-						fast!
-					</span>
-				</span>
-			</h1>
+  <main class="relative w-full overflow-x-clip">
+    <section
+      id="intro"
+      class="mx-auto flex h-screen max-w-screen-md flex-col justify-center p-4 pr-2 md:px-8 md:pr-0 lg:px-0"
+    >
+      <h1
+        class="-mt-20 text-5xl font-bold leading-[1.1] md:text-6xl md:leading-tight xl:text-7xl xl:leading-tight"
+      >
+        <span class="lightSpeed_h1web"
+          >Web keep <span class="lightSpeed_h1evolve">evolving..</span></span
+        >
+        <span class="lightSpeed_h1fast block italic">
+          ..really
+          <span
+            class="align-bottom text-[3.5rem] text-transparent [-webkit-text-stroke:2px_white] md:text-[4rem] 2xl:text-[5rem]"
+          >
+            fast!
+          </span>
+        </span>
+      </h1>
 
-			<p class='mt-4 text-lg leading-5 md:mt-6 md:text-xl md:leading-6 2xl:text-2xl'>
-				<span style='--n:142' class='typing_p'>
-					It will keep expanding like the <span class='font-semibold italic'>galaxy.</span>
-					<br />
-					Be part of change, become one of the <span class='font-semibold italic'>stars.</span>
-					<br />
-					Or you can stay with obsolete tech and <br class='md:hidden' /> die slowly
-					<span class='font-semibold italic'> there!</span>&nbsp;
-				</span>
-			</p>
-		</section>
+      <p
+        class="mt-4 text-lg leading-5 md:mt-6 md:text-xl md:leading-6 2xl:text-2xl"
+      >
+        <span style="--n:142" class="typing_p">
+          It will keep expanding like the <span class="font-semibold italic"
+            >galaxy.</span
+          >
+          <br />
+          Be part of change, become one of the <span
+            class="font-semibold italic">stars.</span
+          >
+          <br />
+          Or you can stay with obsolete tech and <br class="md:hidden" /> die slowly
+          <span class="font-semibold italic"> there!</span>&nbsp;
+        </span>
+      </p>
+    </section>
 
-		<section id='blog' class='relative h-screen w-full'>
-			<div class='mx-auto flex max-w-screen-md flex-col items-center px-4 md:px-8 lg:px-0'>
-				<object class='my-8' data='/images/blog-stars.svg' type='image/svg+xml'></object>
+    <section id="blog" class="relative h-screen w-full">
+      <div
+        class="mx-auto flex max-w-screen-md flex-col items-center px-4 md:px-8 lg:px-0"
+      >
+        <img
+          src="/images/blog-stars.svg"
+          class="-z-10 my-8 h-40 w-auto lg:h-auto"
+        />
 
-				<div class='relative space-y-6'>
-					{
-						blogPosts.map((article) => (
-							<a href=`/blog/${article.slug}` class='group flex scale-100 overflow-visible transition-transform before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:rounded-lg before:border before:border-accent-300 before:bg-gradient-to-r before:from-brand-900 before:to-brand-800 after:absolute after:left-0 after:top-0 after:-z-20 after:h-full after:w-full after:scale-100 after:bg-accent-700 after:blur-sm hover:scale-105 hover:cursor-pointer hover:after:blur-md active:scale-100'>
-								<div>
-									<div class='relative h-fit w-full overflow-x-clip'>
-										<h2 class='line-clamp-2 pl-6 pr-4 pt-3 text-2xl tracking-wide md:text-3xl'>
-											{article.data.title}
-										</h2>
-										<div class='absolute -left-0 top-2 h-full w-0 border-[12px] border-transparent border-l-accent-300 transition-transform' />
-									</div>
-									<p class='mb-4 mt-4 line-clamp-4 pl-6 pr-4 leading-5 md:line-clamp-2 md:leading-normal lg:line-clamp-3'>
-										{article.data.description}
-									</p>
-								</div>
+        <div class="relative space-y-6 px-6">
+          {
+            blogPosts.map((article) => (
+              <a
+                href={`/blog/${article.slug}`}
+                rel="prefetch"
+                class="group flex scale-100 overflow-visible transition-transform before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:rounded-xl before:border before:border-accent-300 before:bg-gradient-to-r before:from-brand-900 before:to-brand-800 after:absolute after:left-0 after:top-0 after:-z-20 after:h-full after:w-full after:scale-100 after:bg-accent-700 after:blur-sm hover:scale-105 hover:cursor-pointer hover:after:blur-md active:scale-100"
+              >
+                <article>
+                  <div class="relative h-fit w-full overflow-x-clip">
+                    <h3 class="line-clamp-3 pl-6 pr-3 pt-2 text-xl leading-[22px] tracking-wide md:line-clamp-2 md:pr-4 md:pt-3 md:text-3xl md:leading-10">
+                      {article.data.title}
+                    </h3>
+                    <div class="absolute -left-0 top-2 h-full w-0 border-[12px] border-transparent border-l-accent-300 transition-transform" />
+                  </div>
+                  <p class="mb-2 mt-3 line-clamp-3 px-3 text-xs leading-4 md:mb-4 md:mt-4 md:line-clamp-3 md:px-6 md:text-base md:leading-snug">
+                    {article.data.description}
+                  </p>
+                </article>
 
-								<div class='relative w-36 flex-none overflow-hidden rounded-r border-2 border-l-0 border-accent-300 bg-gradient-to-r from-accent-300 to-accent-500 before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-brand-900 before:transition-transform before:duration-300 before:ease-out group-hover:before:-translate-x-[61px] group-hover:before:translate-y-2.5 group-hover:before:border-[18px] md:w-48 '>
-									<Image
-										alt={article.data.image.alt}
-										src={article.data.image.url_square}
-										width={630}
-										height={630}
-									/>
-									<span class='text-body absolute -bottom-0 -right-24 h-[26px] w-20 rounded-br rounded-tl bg-brand-900 pt-0.5 text-sm italic text-accent-100 transition-transform duration-300 ease-out group-hover:-translate-x-24'>
-										read more
-									</span>
-								</div>
-							</a>
-						))
-					}
-				</div>
-				<a
-					class='relative mt-8 px-6 font-head text-xl text-white transition-all after:absolute after:left-1/2 after:top-1/2 after:-z-10 after:h-0 after:w-full after:-translate-x-1/2 after:-translate-y-1/2 after:border-8 after:border-transparent after:border-x-accent-300 after:transition-transform after:duration-300 hover:cursor-pointer hover:tracking-widest hover:after:w-1/4 hover:after:-translate-y-[42.5%] hover:after:-rotate-90 active:after:scale-75 active:after:duration-100'
-					>More articles</a
-				>
-			</div>
-		</section>
+                <div class="relative w-36 flex-none overflow-hidden rounded-r-xl bg-accent-300 p-[1px] pl-0 before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-accent-300 before:transition-transform before:duration-300 before:ease-out group-hover:before:-translate-x-[61px] group-hover:before:translate-y-2.5 group-hover:before:border-[18px] md:w-48 ">
+                  <Picture
+                    alt={article.data.image.alt}
+                    src={article.data.image.url.square}
+                    widths={[160, 200, 240]}
+                    sizes="(min-width: 768px) 100vw, (min-width: 1024px) 100vw"
+                    aspectRatio="1:1"
+                    class="rounded-r-xl"
+                  />
+                  <span class="text-body absolute -bottom-0 -right-24 h-[26px] w-20 rounded-br rounded-tl bg-accent-300 pt-0.5 text-sm font-bold italic text-brand-900 transition-transform duration-300 ease-out group-hover:-translate-x-24">
+                    read more
+                  </span>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+        <a
+          rel="prefetch"
+          class="relative mt-8 hidden px-6 font-head text-xl text-white transition-all after:absolute after:left-1/2 after:top-1/2 after:-z-10 after:h-0 after:w-full after:-translate-x-1/2 after:-translate-y-1/2 after:border-8 after:border-transparent after:border-x-accent-300 after:transition-transform after:duration-300 hover:cursor-pointer hover:tracking-widest hover:after:w-1/4 hover:after:-translate-y-[42.5%] hover:after:-rotate-90 active:after:scale-75 active:after:duration-100"
+          >More articles</a
+        >
+      </div>
+    </section>
 
-		<section class='relative h-screen w-full' id='contact'>
-			<div class='link github absolute left-[12%] top-[30%] lg:top-[22%] xl:left-[20%]'>
-				<SocialLink
-					class='-rotate-3'
-					bgClass='w-24 md:w-32'
-					delay='0s'
-					href='https://github.com/riolly'
-					label='Github'
-					target='_blank'
-				>
-					<svg class='w-full' viewBox='0 0 98 96'>
-						<path
-							fill='#fff'
-							fill-rule='evenodd'
-							d='M48.9 0a49.2 49.2 0 0 0-15.4 96c2.3.4 3.2-1.2 3.2-2.5v-9c-13.6 2.9-16.5-6-16.5-6-2.2-5.7-5.4-7.1-5.4-7.1-4.4-3 .3-3 .3-3 5 .3 7.5 5 7.5 5 4.4 7.5 11.5 5.4 14.3 4 .4-3 1.7-5.3 3-6.5-10.8-1.1-22.2-5.4-22.2-24.3 0-5.4 2-9.8 5-13.2-.5-1.2-2.2-6.3.5-13 0 0 4.1-1.3 13.4 5A47 47 0 0 1 49 23.8c4 0 8.3.6 12.2 1.6 9.3-6.3 13.4-5 13.4-5 2.7 6.7 1 11.8.5 13 3.1 3.4 5 7.8 5 13.2 0 19-11.4 23-22.3 24.3 1.7 1.5 3.3 4.5 3.3 9.1v13.5c0 1.3.8 2.9 3.2 2.4a49.2 49.2 0 0 0 33.4-46.7A49 49 0 0 0 49 0z'
-							clip-rule='evenodd'></path>
-					</svg>
-				</SocialLink>
-			</div>
+    <section class="relative h-screen w-full" id="contact">
+      <div
+        class="link github absolute left-[12%] top-[30%] lg:top-[22%] xl:left-[20%]"
+      >
+        <SocialLink
+          class="-rotate-3"
+          bgClass="w-24 md:w-32"
+          delay="0s"
+          href="https://github.com/riolly"
+          label="Github"
+          target="_blank"
+        >
+          <svg class="w-full" viewBox="0 0 98 96">
+            <path
+              fill="#fff"
+              fill-rule="evenodd"
+              d="M48.9 0a49.2 49.2 0 0 0-15.4 96c2.3.4 3.2-1.2 3.2-2.5v-9c-13.6 2.9-16.5-6-16.5-6-2.2-5.7-5.4-7.1-5.4-7.1-4.4-3 .3-3 .3-3 5 .3 7.5 5 7.5 5 4.4 7.5 11.5 5.4 14.3 4 .4-3 1.7-5.3 3-6.5-10.8-1.1-22.2-5.4-22.2-24.3 0-5.4 2-9.8 5-13.2-.5-1.2-2.2-6.3.5-13 0 0 4.1-1.3 13.4 5A47 47 0 0 1 49 23.8c4 0 8.3.6 12.2 1.6 9.3-6.3 13.4-5 13.4-5 2.7 6.7 1 11.8.5 13 3.1 3.4 5 7.8 5 13.2 0 19-11.4 23-22.3 24.3 1.7 1.5 3.3 4.5 3.3 9.1v13.5c0 1.3.8 2.9 3.2 2.4a49.2 49.2 0 0 0 33.4-46.7A49 49 0 0 0 49 0z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </SocialLink>
+      </div>
 
-			<div class='link github absolute left-[42%] top-[12%]'>
-				<SocialLink
-					class='rotate-0'
-					bgClass='w-24 md:w-32'
-					delay='0s'
-					href={urlResume}
-					label='Resume'
-				>
-					<p class='font-head text-5xl md:text-6xl'>CV</p>
-				</SocialLink>
-			</div>
+      <div class="link github absolute left-[42%] top-[12%]">
+        <SocialLink
+          class="rotate-0"
+          bgClass="w-24 md:w-32"
+          delay="0s"
+          href={urlResume}
+          rel="prefetch"
+          label="Resume"
+        >
+          <p class="font-head text-5xl md:text-6xl">CV</p>
+        </SocialLink>
+      </div>
 
-			<div class='link link-linkedin absolute right-[10%] top-[26%] xl:right-[14%]'>
-				<SocialLink
-					class='rotate-6'
-					bgClass='w-20 md:w-28 lg:w-32'
-					delay='0.1s'
-					href='https://linkedin.com/in/riolly'
-					label='LinkedIn'
-					target='_blank'
-				>
-					<svg class='w-full' viewBox='0 0 448 512'>
-						<path
-							fill='#fff'
-							d='M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z'
-						></path>
-					</svg>
-				</SocialLink>
-			</div>
+      <div
+        class="link link-linkedin absolute right-[10%] top-[26%] xl:right-[14%]"
+      >
+        <SocialLink
+          class="rotate-6"
+          bgClass="w-20 md:w-28 lg:w-32"
+          delay="0.1s"
+          href="https://linkedin.com/in/riolly"
+          label="LinkedIn"
+          target="_blank"
+        >
+          <svg class="w-full" viewBox="0 0 448 512">
+            <path
+              fill="#fff"
+              d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+            ></path>
+          </svg>
+        </SocialLink>
+      </div>
 
-			<div
-				class='link twitter absolute right-[28%] top-[44%] md:top-[48%] lg:right-[36%] xl:right-[38%] xl:top-[40%]'
-			>
-				<SocialLink
-					class='-rotate-6'
-					bgClass='w-[4.5rem] md:w-24 lg:w-28'
-					delay='0.2s'
-					label='Twitter'
-					href='https://twitter.com/bertoriolly'
-					target='_blank'
-				>
-					<svg class='w-full' viewBox='0 0 512 512'>
-						<path
-							fill='#fff'
-							d='M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z'
-						></path>
-					</svg>
-				</SocialLink>
-			</div>
+      <div
+        class="link twitter absolute right-[28%] top-[44%] md:top-[48%] lg:right-[36%] xl:right-[38%] xl:top-[40%]"
+      >
+        <SocialLink
+          class="-rotate-6"
+          bgClass="w-[4.5rem] md:w-24 lg:w-28"
+          delay="0.2s"
+          label="Twitter"
+          href="https://twitter.com/bertoriolly"
+          target="_blank"
+        >
+          <svg class="w-full" viewBox="0 0 512 512">
+            <path
+              fill="#fff"
+              d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+            ></path>
+          </svg>
+        </SocialLink>
+      </div>
 
-			<div
-				class='link youtube absolute left-[20%] top-[56%] md:top-[64%] lg:left-[28%] xl:left-[36%]'
-			>
-				<SocialLink
-					class='rotate-2'
-					bgClass='w-16 md:w-20 lg:w-24'
-					delay='0.3s'
-					href='https://youtube.com/@riolly'
-					label='Youtube'
-					target='_blank'
-				>
-					<svg class='w-full' viewBox='0 0 576 512'>
-						<path
-							fill='#fff'
-							d='M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z'
-						></path>
-					</svg>
-				</SocialLink>
-			</div>
+      <div
+        class="link youtube absolute left-[20%] top-[56%] md:top-[64%] lg:left-[28%] xl:left-[36%]"
+      >
+        <SocialLink
+          class="rotate-2"
+          bgClass="w-16 md:w-20 lg:w-24"
+          delay="0.3s"
+          href="https://youtube.com/@riolly"
+          label="Youtube"
+          target="_blank"
+        >
+          <svg class="w-full" viewBox="0 0 576 512">
+            <path
+              fill="#fff"
+              d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"
+            ></path>
+          </svg>
+        </SocialLink>
+      </div>
 
-			<div
-				class='link instagram absolute right-[14%] top-[70%] md:right-[18%] md:top-[74%] lg:top-[70%] xl:right-[28%]'
-			>
-				<SocialLink
-					class='-rotate-6'
-					bgClass='w-14 md:w-16 lg:w-20'
-					delay='0.4s'
-					href='https://instagram.com/bertoriolly'
-					label='Instagram'
-					target='_blank'
-				>
-					<svg class='w-full' viewBox='0 0 448 512'>
-						<path
-							fill='#fff'
-							d='M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z'
-						></path>
-					</svg>
-				</SocialLink>
-			</div>
-		</section>
-	</main>
+      <div
+        class="link instagram absolute right-[14%] top-[70%] md:right-[18%] md:top-[74%] lg:top-[70%] xl:right-[28%]"
+      >
+        <SocialLink
+          class="-rotate-6"
+          bgClass="w-14 md:w-16 lg:w-20"
+          delay="0.4s"
+          href="https://instagram.com/bertoriolly"
+          label="Instagram"
+          target="_blank"
+        >
+          <svg class="w-full" viewBox="0 0 448 512">
+            <path
+              fill="#fff"
+              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+            ></path>
+          </svg>
+        </SocialLink>
+      </div>
+    </section>
+  </main>
 </Layout>
 
 <script>
-	const h1 = document.querySelector('h1') as HTMLHeadingElement
-	const sectionContact = document.querySelector('section#contact') as HTMLElement
-	const sectionBlog = document.querySelector('section#blog') as HTMLElement
-	const astronautWrap = document.querySelector('button#astronaut-wrap') as HTMLButtonElement
-	const astronaut = document.querySelector('div#astronaut') as HTMLButtonElement
-	const githubLink = document.querySelector(
-		'a[href="https://github.com/riolly"]'
-	) as HTMLLinkElement
+  const h1 = document.querySelector("h1") as HTMLHeadingElement;
+  // const sectionContact = document.querySelector(
+  //   "section#contact",
+  // ) as HTMLElement;
+  const sectionBlog = document.querySelector("section#blog") as HTMLElement;
+  const astronautWrap = document.querySelector(
+    "button#astronaut-wrap",
+  ) as HTMLButtonElement;
+  const astronaut = document.querySelector(
+    "div#astronaut",
+  ) as HTMLButtonElement;
+  // const githubLink = document.querySelector(
+  //   'a[href="https://github.com/riolly"]'
+  // ) as HTMLLinkElement
 
-	astronautWrap.addEventListener('click', () => {
-		astronautWrap.classList.replace('init', 'ignite')
-		astronaut.classList.replace('init', 'ignite')
-		astronautWrap.classList.replace('idle', 'ignite')
-		astronaut.classList.replace('idle', 'ignite')
+  astronautWrap.addEventListener("click", () => {
+    astronautWrap.classList.replace("init", "ignite");
+    astronaut.classList.replace("init", "ignite");
+    astronautWrap.classList.replace("idle", "ignite");
+    astronaut.classList.replace("idle", "ignite");
 
-		setTimeout(() => {
-			astronautWrap.classList.replace('ignite', 'launch')
-			astronaut.classList.replace('ignite', 'launch')
-		}, 1000)
-		setTimeout(() => {
-			sectionBlog.scrollIntoView()
-		}, 1750)
-		// setTimeout(() => {
-		// 	githubLink.focus()
-		// }, 2500)
-	})
+    setTimeout(() => {
+      astronautWrap.classList.replace("ignite", "launch");
+      astronaut.classList.replace("ignite", "launch");
+    }, 1000);
+    setTimeout(() => {
+      sectionBlog.scrollIntoView();
+    }, 1750);
+    // setTimeout(() => {
+    // 	githubLink.focus()
+    // }, 2500)
+  });
 
-	const observer = new IntersectionObserver(
-		(entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					astronautWrap.classList.replace('launch', 'idle')
-					astronaut.classList.replace('launch', 'idle')
-				}
-			})
-		},
-		{rootMargin: '0px', threshold: 1}
-	)
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          astronautWrap.classList.replace("launch", "idle");
+          astronaut.classList.replace("launch", "idle");
+        }
+      });
+    },
+    { rootMargin: "0px", threshold: 1 },
+  );
 
-	observer.observe(h1)
+  observer.observe(h1);
 </script>
 
-<style lang='scss'>
-	$delay_h1web: 0.4s;
-	$durat_h1web: 0.7s;
-	$delay_h1evolve: $delay_h1web + $durat_h1web - 0.3s;
-	$durat_h1evolve: 1s;
-	$delay_h1fast: $delay_h1evolve + $durat_h1evolve - 0.4s;
-	$durat_h1fast: 0.5s;
-	$delay_pType: $delay_h1fast + $durat_h1fast + 0.2s;
-	$durat_pType: 7.1s; // 142(char)×0.05(unit)
-	$delay_astroInit: $delay_pType + $durat_pType - 4.5s;
-	$durat_astroInit: 5s;
-	$delay_astroWobble: $delay_astroInit + $durat_astroInit - 0.2s;
-	$durat_astroWobble: 3s;
-	$delay_dialogShow: $delay_astroWobble - 0.3s;
-	$durat_dialogShow: 0.7s;
-	$delay_dialogType: $delay_dialogShow + $durat_dialogShow - 0.5s;
+<style lang="scss">
+  $delay_h1web: 0.4s;
+  $durat_h1web: 0.7s;
+  $delay_h1evolve: $delay_h1web + $durat_h1web - 0.3s;
+  $durat_h1evolve: 1s;
+  $delay_h1fast: $delay_h1evolve + $durat_h1evolve - 0.4s;
+  $durat_h1fast: 0.5s;
+  $delay_pType: $delay_h1fast + $durat_h1fast + 0.2s;
+  $durat_pType: 7.1s; // 142(char)×0.05(unit)
+  $delay_astroInit: $delay_pType + $durat_pType - 4.5s;
+  $durat_astroInit: 5s;
+  $delay_astroWobble: $delay_astroInit + $durat_astroInit - 0.2s;
+  $durat_astroWobble: 3s;
+  $delay_dialogShow: $delay_astroWobble - 0.3s;
+  $durat_dialogShow: 0.7s;
+  $delay_dialogType: $delay_dialogShow + $durat_dialogShow - 0.5s;
 
-	.lightSpeed_h1web {
-		animation: lightSpeed $durat_h1web $delay_h1web ease-out backwards;
-	}
-	.lightSpeed_h1evolve {
-		animation: lightSpeed $durat_h1evolve $delay_h1evolve ease-out backwards;
-	}
-	.lightSpeed_h1fast {
-		animation: lightSpeed $durat_h1fast $delay_h1fast ease-out backwards;
-	}
+  .lightSpeed_h1web {
+    animation: lightSpeed $durat_h1web $delay_h1web ease-out backwards;
+  }
+  .lightSpeed_h1evolve {
+    animation: lightSpeed $durat_h1evolve $delay_h1evolve ease-out backwards;
+  }
+  .lightSpeed_h1fast {
+    animation: lightSpeed $durat_h1fast $delay_h1fast ease-out backwards;
+  }
 
-	.typing_p {
-		/* font-family: monospace; */
-		color: #0000;
-		background: linear-gradient(-90deg, #cbd5e1 5px, #0000 0) 10px 0,
-			linear-gradient(#e2e8f0 0 0) 0 0;
-		background-size: calc(var(--n) * 0.8ch) 200%;
-		-webkit-background-clip: padding-box, text;
-		background-clip: padding-box, text;
-		background-repeat: no-repeat;
-		animation: blinking 0.5s $delay_pType infinite steps(1) backwards,
-			typing calc(var(--n) * 0.05s) $delay_pType steps(var(--n)) both;
-	}
+  .typing_p {
+    /* font-family: monospace; */
+    color: #0000;
+    background: linear-gradient(-90deg, #cbd5e1 5px, #0000 0) 10px 0,
+      linear-gradient(#e2e8f0 0 0) 0 0;
+    background-size: calc(var(--n) * 0.8ch) 200%;
+    -webkit-background-clip: padding-box, text;
+    background-clip: padding-box, text;
+    background-repeat: no-repeat;
+    animation: blinking 0.5s $delay_pType infinite steps(1) backwards,
+      typing calc(var(--n) * 0.05s) $delay_pType steps(var(--n)) both;
+  }
 
-	.typing_dialog {
-		color: #0000;
-		background: linear-gradient(-90deg, #94a3b8 5px, #0000 0) 10px 0, linear-gradient(black 0 0) 0 0;
-		background-size: calc(var(--n) * 0.7ch) 200%;
-		-webkit-background-clip: padding-box, text;
-		background-clip: padding-box, text;
-		background-repeat: no-repeat;
-		animation: blinking 0.5s $delay_dialogType infinite steps(1) backwards,
-			typing calc(var(--n) * 0.1s) $delay_dialogType steps(var(--n)) both;
-	}
+  .typing_dialog {
+    color: #0000;
+    background: linear-gradient(-90deg, #94a3b8 5px, #0000 0) 10px 0,
+      linear-gradient(black 0 0) 0 0;
+    background-size: calc(var(--n) * 0.7ch) 200%;
+    -webkit-background-clip: padding-box, text;
+    background-clip: padding-box, text;
+    background-repeat: no-repeat;
+    animation: blinking 0.5s $delay_dialogType infinite steps(1) backwards,
+      typing calc(var(--n) * 0.1s) $delay_dialogType steps(var(--n)) both;
+  }
 
-	// astronaut-wrap
-	.group {
-		.rotateInDownRight {
-			animation: rotateInDownRight $durat_dialogShow $delay_dialogShow backwards;
-		}
-		.fadeIn {
-			animation: fadeIn 1s calc($delay_dialogType + 0.5s) backwards;
-		}
-		&:not(:hover) .ping {
-			animation: ping-m 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-		}
-		&:hover .ping {
-			animation: ping-l 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-		}
-	}
+  // astronaut-wrap
+  .group {
+    .rotateInDownRight {
+      animation: rotateInDownRight $durat_dialogShow $delay_dialogShow backwards;
+    }
+    .fadeIn {
+      animation: fadeIn 1s calc($delay_dialogType + 0.5s) backwards;
+    }
+    &:not(:hover) .ping {
+      animation: ping-m 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    &:hover .ping {
+      animation: ping-l 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+  }
 
-	$durat_astroIdle: 1.6s;
-	$delay_astroIdle: $durat_astroIdle - 0.1s;
+  $durat_astroIdle: 1.6s;
+  $delay_astroIdle: $durat_astroIdle - 0.1s;
 
-	#astronaut-wrap {
-		&.init {
-			animation: zoomInUp $durat_astroInit $delay_astroInit backwards,
-				wobbleX $durat_astroWobble $delay_astroWobble alternate ease-in-out infinite;
-		}
-		&.ignite {
-			animation: wobbleX 0.5s alternate ease-in-out infinite;
-		}
-		&.launch {
-			animation: scale 2s ease-out forwards, goingX 2s cubic-bezier(0.36, 0.73, 0.8, 0.97) forwards;
-		}
-		&.idle {
-			animation: zoomInUp $durat_astroIdle both,
-				wobbleX $durat_astroWobble $delay_astroIdle alternate ease-in-out infinite;
-		}
-	}
+  #astronaut-wrap {
+    &.init {
+      animation: zoomInUp $durat_astroInit $delay_astroInit backwards,
+        wobbleX $durat_astroWobble $delay_astroWobble alternate ease-in-out
+          infinite;
+    }
+    &.ignite {
+      animation: wobbleX 0.5s alternate ease-in-out infinite;
+    }
+    &.launch {
+      animation: scale 2s ease-out forwards,
+        goingX 2s cubic-bezier(0.36, 0.73, 0.8, 0.97) forwards;
+    }
+    &.idle {
+      animation: zoomInUp $durat_astroIdle both,
+        wobbleX $durat_astroWobble $delay_astroIdle alternate ease-in-out
+          infinite;
+    }
+  }
 
-	#astronaut {
-		&.init {
-			animation: wobbleY 4s $delay_astroWobble alternate ease-in-out infinite;
-		}
-		&.ignite {
-			animation: wobbleY 1s alternate ease-in-out infinite;
-		}
-		&.launch {
-			animation: goingY 2s cubic-bezier(0.73, 0.02, 0, 0.99) forwards;
-		}
-		&.idle {
-			animation: wobbleY 4s $delay_astroIdle alternate ease-in-out infinite;
-		}
-	}
+  #astronaut {
+    &.init {
+      animation: wobbleY 4s $delay_astroWobble alternate ease-in-out infinite;
+    }
+    &.ignite {
+      animation: wobbleY 1s alternate ease-in-out infinite;
+    }
+    &.launch {
+      animation: goingY 2s cubic-bezier(0.73, 0.02, 0, 0.99) forwards;
+    }
+    &.idle {
+      animation: wobbleY 4s $delay_astroIdle alternate ease-in-out infinite;
+    }
+  }
 
-	.link {
-		animation: floatingSocial 10s infinite ease-in-out alternate;
+  .link {
+    animation: floatingSocial 10s infinite ease-in-out alternate;
 
-		&.github {
-			animation-delay: 0s;
-		}
-		&.linkedin {
-			animation-delay: 0.5s;
-		}
-		&.twitter {
-			animation-delay: 1s;
-		}
-		&.youtube {
-			animation-delay: 1.5s;
-		}
-		&.instagram {
-			animation-delay: 2s;
-		}
-	}
+    &.github {
+      animation-delay: 0s;
+    }
+    &.linkedin {
+      animation-delay: 0.5s;
+    }
+    &.twitter {
+      animation-delay: 1s;
+    }
+    &.youtube {
+      animation-delay: 1.5s;
+    }
+    &.instagram {
+      animation-delay: 2s;
+    }
+  }
 
-	@keyframes goingX {
-		100% {
-			transform: translateX(-140vw);
-		}
-	}
-	@keyframes goingY {
-		100% {
-			transform: translateY(-120lvh);
-		}
-	}
-	@keyframes scale {
-		80% {
-			transform: scale(4);
-		}
-	}
+  @keyframes goingX {
+    100% {
+      transform: translateX(-140vw);
+    }
+  }
+  @keyframes goingY {
+    100% {
+      transform: translateY(-120lvh);
+    }
+  }
+  @keyframes scale {
+    80% {
+      transform: scale(4);
+    }
+  }
 
-	@keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
-	@keyframes move-twink {
-		from {
-			transform: translate(0);
-		}
-		to {
-			transform: translate3d(20%, 10%, 0);
-		}
-	}
+  @keyframes move-twink {
+    from {
+      transform: translate(0);
+    }
+    to {
+      transform: translate3d(20%, 10%, 0);
+    }
+  }
 
-	@keyframes wobbleY {
-		0% {
-			transform: translateY(0);
-		}
-		25% {
-			transform: translateY(-30px);
-		}
-		50% {
-			transform: translateY(-20px);
-		}
-		75% {
-			transform: translateY(-50px);
-		}
-		100% {
-			transform: translate3d(-30px);
-		}
-	}
-	@keyframes wobbleX {
-		0% {
-			transform: translateX(0);
-		}
-		14.5% {
-			transform: translateX(-5px);
-		}
-		28.57% {
-			transform: translateX(5px);
-		}
-		42.83% {
-			transform: translateX(-12px);
-		}
-		57.14% {
-			transform: translateX(12px);
-		}
-		71.42% {
-			transform: translateX(-8px);
-		}
-		85.72% {
-			transform: translateX(8px);
-		}
-		100% {
-			transform: translateX(0px);
-		}
-	}
+  @keyframes wobbleY {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-30px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    75% {
+      transform: translateY(-50px);
+    }
+    100% {
+      transform: translate3d(-30px);
+    }
+  }
+  @keyframes wobbleX {
+    0% {
+      transform: translateX(0);
+    }
+    14.5% {
+      transform: translateX(-5px);
+    }
+    28.57% {
+      transform: translateX(5px);
+    }
+    42.83% {
+      transform: translateX(-12px);
+    }
+    57.14% {
+      transform: translateX(12px);
+    }
+    71.42% {
+      transform: translateX(-8px);
+    }
+    85.72% {
+      transform: translateX(8px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
 
-	@keyframes zoomInUp {
-		from {
-			opacity: 0;
-			transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 1000px, 0);
-			animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-		}
+  @keyframes zoomInUp {
+    from {
+      opacity: 0;
+      transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 1000px, 0);
+      animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
 
-		70% {
-			opacity: 1;
-			transform: scale3d(0.6, 0.6, 0.6) translate3d(300px, 300px, 0);
-			animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
-		}
+    70% {
+      opacity: 1;
+      transform: scale3d(0.6, 0.6, 0.6) translate3d(300px, 300px, 0);
+      animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+    }
 
-		100% {
-			opacity: 1;
-			transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
-			animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
-		}
-	}
+    100% {
+      opacity: 1;
+      transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+      animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+    }
+  }
 
-	@keyframes lightSpeed {
-		from {
-			transform: translate3d(-100%, 0, 0) skewX(30deg);
-			opacity: 0;
-		}
+  @keyframes lightSpeed {
+    from {
+      transform: translate3d(-100%, 0, 0) skewX(30deg);
+      opacity: 0;
+    }
 
-		60% {
-			transform: skewX(-20deg);
-			opacity: 1;
-		}
+    60% {
+      transform: skewX(-20deg);
+      opacity: 1;
+    }
 
-		80% {
-			transform: skewX(5deg);
-		}
+    80% {
+      transform: skewX(5deg);
+    }
 
-		to {
-			transform: translate3d(0, 0, 0);
-		}
-	}
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
 
-	@keyframes typing {
-		from {
-			background-size: 0 200%;
-		}
-	}
-	@keyframes blinking {
-		50% {
-			background-position: 0 -100%, 0 0;
-		}
-	}
+  @keyframes typing {
+    from {
+      background-size: 0 200%;
+    }
+  }
+  @keyframes blinking {
+    50% {
+      background-position: 0 -100%, 0 0;
+    }
+  }
 
-	@keyframes rotateInDownRight {
-		from {
-			transform: rotate3d(0, 0, 1, 45deg);
-			opacity: 0;
-		}
+  @keyframes rotateInDownRight {
+    from {
+      transform: rotate3d(0, 0, 1, 45deg);
+      opacity: 0;
+    }
 
-		to {
-			transform: translate3d(0, 0, 0);
-			opacity: 1;
-		}
-	}
+    to {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
 
-	@keyframes ping-l {
-		75%,
-		100% {
-			transform: scale3d(1.3, 1.5, 0);
-			opacity: 0;
-		}
-	}
-	@keyframes ping-m {
-		75%,
-		100% {
-			transform: scale(1.15);
-			opacity: 0;
-		}
-	}
+  @keyframes ping-l {
+    75%,
+    100% {
+      transform: scale3d(1.3, 1.5, 0);
+      opacity: 0;
+    }
+  }
+  @keyframes ping-m {
+    75%,
+    100% {
+      transform: scale(1.15);
+      opacity: 0;
+    }
+  }
 
-	@keyframes floatingSocial {
-		0% {
-			transform: translateY(0);
-		}
-		30% {
-			transform: translateY(-20%);
-		}
-		40% {
-			transform: translateY(-10%);
-		}
-		75% {
-			transform: translateY(-50%);
-		}
-		100% {
-			transform: translate3d(-30%);
-		}
-	}
+  @keyframes floatingSocial {
+    0% {
+      transform: translateY(0);
+    }
+    30% {
+      transform: translateY(-20%);
+    }
+    40% {
+      transform: translateY(-10%);
+    }
+    75% {
+      transform: translateY(-50%);
+    }
+    100% {
+      transform: translate3d(-30%);
+    }
+  }
 </style>

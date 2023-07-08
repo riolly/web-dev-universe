@@ -1,27 +1,28 @@
 /** @type {import('prettier').Config} */
-module.exports = {
-	arrowParens: 'always',
-	printWidth: 100,
-	trailingComma: 'es5',
-	useTabs: true,
-	tabWidth: 2,
-	semi: false,
-	singleQuote: true,
-	bracketSpacing: false,
-	jsxSingleQuote: true,
-	plugins: [
-		require.resolve('prettier-plugin-astro'),
-		require.resolve('prettier-plugin-tailwindcss'), // MUST come last
-	],
-	pluginSearchDirs: false,
-	overrides: [
-		{
-			files: '*.astro',
-			options: {
-				parser: 'astro',
-			},
-		},
-	],
-	astroAllowShorthand: false,
-	tailwindConfig: './tailwind.config.cjs',
-}
+const config = {
+  arrowParens: "always",
+  printWidth: 80,
+  singleQuote: false,
+  jsxSingleQuote: false,
+  semi: true,
+  trailingComma: "all",
+  tabWidth: 2,
+  plugins: [
+    // require.resolve("@ianvs/prettier-plugin-sort-imports"),
+    require.resolve("prettier-plugin-astro"),
+    require.resolve("prettier-plugin-tailwindcss"), // MUST come last
+  ],
+  pluginSearchDirs: false,
+  overrides: [
+    {
+      files: "*.astro",
+      options: {
+        parser: "astro",
+      },
+    },
+  ],
+
+  astroAllowShorthand: false,
+};
+
+module.exports = config;
