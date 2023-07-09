@@ -5,6 +5,7 @@ module.exports = {
     browser: true,
   },
   extends: ["eslint:recommended", "plugin:astro/recommended"],
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
@@ -39,6 +40,12 @@ module.exports = {
         ],
         "@typescript-eslint/no-non-null-assertion": "off",
       },
+    },
+    {
+      files: ["*.tsx,", "*.jsx,"],
+      parser: "@typescript-eslint/parser",
+      plugins: ["solid"],
+      extends: ["plugin:solid/typescript"],
     },
     {
       // Define the configuration for `<script>` tag.
