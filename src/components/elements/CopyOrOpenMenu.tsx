@@ -66,7 +66,10 @@ export function CopyOrOpenPhone() {
           ),
         },
         {
-          onSelect: () => window.open("https://wa.me/+6285174328051"),
+          onSelect: () =>
+            window.open(
+              "https://api.whatsapp.com/send?phone=6285174328051&&text=Hello+Alberto+%F0%9F%91%8B",
+            ),
           child: (
             <>
               Chat on WA
