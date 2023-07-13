@@ -8,7 +8,6 @@ import IconCopySolid from "components/icons/copy-solid";
 
 import "./tada.css";
 
-// eslint-disable-next-line no-unused-vars
 type setterFn = (setOpen: Setter<boolean>) => void;
 
 type Props = {
