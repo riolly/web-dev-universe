@@ -2,7 +2,6 @@ import { DropdownMenu as Dropdown } from "@kobalte/core";
 
 import IconChevronDown from "components/icons/chevron-down";
 import IconCopy from "components/icons/copy";
-import IconWhatsapp from "components/icons/whatsapp";
 import { For, type JSX } from "solid-js";
 
 type Props = {
@@ -71,7 +70,11 @@ export function CopyOrOpenPhone() {
           child: (
             <>
               Chat on WA
-              <IconWhatsapp class="w-5 text-[#3bd774]" />
+              <img
+                src="/images/whatsapp.svg"
+                alt="whatsapp logo"
+                class="-mr-1 w-6"
+              />
             </>
           ),
         },
