@@ -6,6 +6,7 @@
       "public/*": ["../public/*"]
     },
     "strictNullChecks": true,
+    "skipLibCheck": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js"
   }

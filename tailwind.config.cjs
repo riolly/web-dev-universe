@@ -43,5 +43,7 @@ module.exports = {
   plugins: [
     require("tailwind-scrollbar")({ nocompatible: true }),
     require("@tailwindcss/typography"),
+    require("@kobalte/tailwindcss"),
+    require("tailwindcss-animate"),
   ],
 };

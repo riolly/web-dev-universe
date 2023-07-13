@@ -20,7 +20,10 @@
     "@astrojs/tailwind": "^4.0.0",
     "@fontsource/karla": "^4.5.11",
     "@fontsource/oswald": "^4.5.12",
+    "@kobalte/core": "^0.9.8",
+    "@kobalte/tailwindcss": "^0.6.5",
     "astro": "^2.7.0",
+    "clsx": "^1.2.1",
     "sharp": "^0.32.1",
     "solid-js": "^1.7.6",
     "tailwind-scrollbar": "^3.0.4",
@@ -33,9 +36,11 @@
     "eslint": "^8.43.0",
     "eslint-plugin-astro": "^0.27.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-solid": "^0.12.1",
     "prettier": "^2.8.8",
     "prettier-plugin-astro": "^0.10.0",
     "prettier-plugin-tailwindcss": "^0.3.0",
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "tailwindcss-animate": "^1.0.6"
   }
 }
