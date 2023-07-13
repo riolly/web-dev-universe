@@ -16,14 +16,14 @@ export default function CopyOrOpenMenu({ title, options }: Props) {
   return (
     <Dropdown.Root>
       <Dropdown.Trigger class="flex items-center space-x-1 font-body text-sm leading-[1.1rem] text-slate-800 ui-expanded:underline dark:text-slate-300/75 md:text-base md:leading-tight lg:text-lg lg:leading-6">
-        <Dropdown.Icon class="transition-transform ui-expanded:rotate-180 ">
+        <Dropdown.Icon class="transition-transform ui-expanded:rotate-180">
           <IconChevronDown class="w-3 md:w-4" />
         </Dropdown.Icon>
         <span>{title}</span>
       </Dropdown.Trigger>
 
       <Dropdown.Portal>
-        <Dropdown.Content class="-mt-1.5 space-y-1 rounded-md border-2 border-solid border-white bg-slate-200 p-2 pt-1 text-slate-700 shadow-md shadow-gray-500">
+        <Dropdown.Content class="-mt-1.5 space-y-1 rounded-md border-2 border-solid border-white bg-slate-200 p-2 pt-1 text-slate-700 shadow-md shadow-gray-500 ui-expanded:animate-in ui-expanded:fade-in-0 ui-expanded:zoom-in-50 ui-expanded:slide-in-from-top-12 ui-closed:animate-out ui-closed:fade-out-0 ui-closed:zoom-out-50 ui-closed:slide-out-to-top-12">
           <Dropdown.Arrow />
 
           <For each={options} fallback={<div>Loading...</div>}>
