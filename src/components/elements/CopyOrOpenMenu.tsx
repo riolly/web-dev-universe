@@ -100,7 +100,10 @@ export function CopyOrOpenEmail() {
           ),
         },
         {
-          onSelect: () => window.open("mailto:alberto.cahyantara@gmail"),
+          onSelect: () =>
+            window.location.replace(
+              "mailto:alberto.cahyantara@gmail.com?subject=Job%20Opportunity&body=Dear%20Alberto%20Cahyantara%2C%0D%0AI%20came%20across%20your%20profile%20during%20my%20search%20for%20talented%20front-end%20developers%2C%20and%20I%20believe%20you%20would%20be%20a%20great%20fit%20for%20our%20company.%20We%20have%20an%20exciting%20job%20opportunity%20as%20a%20%5BFront-end%20Developer%5D%20at%20%5BCompany%20Name%5D.%0D%0APosition%3A%20%5BFront-end%20Developer%5D%0DCompany%3A%20%5BCompany%20Name%5D%0DLocation%3A%20%5BLocation%5D%0DEmployment%20Type%3A%20%5BFull-time%2FPart-time%2FContract%5D%0DSalary%3A%20Competitive%2C%20based%20on%20experience%0D%0AIf%20you%20are%20interested%20in%20this%20opportunity%2C%20please%20reply%20to%20this%20email%20with.%20We%20would%20love%20to%20discuss%20further%20details%20and%20schedule%20an%20interview%20with%20you.%0D%0ALooking%20forward%20to%20hearing%20from%20you!%0D%0ABest%20regards%2C%0D%0A%5BYour%20Name%5D%0D%5BYour%20Title%2FPosition%5D%0D%5BCompany%20Name%5D%0D%5BContact%20Information%5D",
+            ),
           child: (
             <>
               Send email
