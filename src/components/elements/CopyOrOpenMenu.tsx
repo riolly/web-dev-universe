@@ -15,7 +15,7 @@ type Props = {
 export default function CopyOrOpenMenu({ title, options }: Props) {
   return (
     <Dropdown.Root>
-      <Dropdown.Trigger class="flex items-center space-x-1 font-body text-sm leading-[1.1rem] text-slate-800 ui-expanded:underline dark:text-slate-300/75 md:space-x-2 md:text-base md:leading-tight lg:text-lg lg:leading-6">
+      <Dropdown.Trigger class="flex items-center space-x-1 font-body text-sm leading-[1.1rem] text-slate-800 ui-expanded:underline dark:text-slate-300/75 md:text-base md:leading-tight lg:text-lg lg:leading-6">
         <Dropdown.Icon class="transition-transform ui-expanded:rotate-180 ">
           <IconChevronDown class="w-3 md:w-4" />
         </Dropdown.Icon>
