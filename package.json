@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier -w **/*.{cjs,mjs,ts,tsx,astro,md,mdx,json,yaml,yml}",
-    "lint": "eslint . --ext .astro,.js,.ts,.jsx,.tsx"
+    "lint": "eslint . --ext .astro,.js,.ts,.jsx,.tsx",
+    "inspect": "unlighthouse --config-file unlighthouse.config.ts"
   },
   "dependencies": {
     "@astrojs/image": "^0.17.1",
@@ -41,6 +42,7 @@
     "prettier-plugin-astro": "^0.10.0",
     "prettier-plugin-tailwindcss": "^0.3.0",
     "sass": "^1.63.6",
-    "tailwindcss-animate": "^1.0.6"
+    "tailwindcss-animate": "^1.0.6",
+    "unlighthouse": "^0.9.0"
   }
 }
