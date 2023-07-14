@@ -96,11 +96,15 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
             <div
               class="absolute left-4 top-1 w-24 -rotate-2 group-hover:translate-y-3 md:left-5 md:top-1.5 md:group-hover:translate-y-4"
             >
-              <span
-                style="--n:28"
-                class={`typing_dialog text-bold font-head text-black before:text-3xl group-focus:after:opacity-0 group-hover:after:opacity-0 after:leading-5 after:text-2xl after:content-["Right_here,_hop_on!!"] before:visible before:text-black before:group-hover:content-["Ready??"] before:group-focus:content-["Let's_GO!_"]`}
+              <p
+                class={`text-bold font-head before:text-3xl text-black before:visible before:group-hover:content-["Ready??"] before:group-focus:content-["Let's_GO!_"]`}
               >
-              </span>
+                <span
+                  style="--n:28"
+                  class={`typing_dialog group-focus:after:opacity-0 group-hover:after:invisible after:leading-5 after:text-2xl after:content-["Right_here,_hop_on!!"] `}
+                >
+                </span>
+              </p>
             </div>
           </div>
           <RocketAstronaut class="lg:72 2xl:h-84 h-60 w-full md:h-64 xl:h-80" />
