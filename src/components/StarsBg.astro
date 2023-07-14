@@ -1,5 +1,5 @@
 ---
-const { counts = 120 } = Astro.props;
+const { counts = 400 } = Astro.props;
 
 export interface Props {
   counts?: number;
@@ -10,7 +10,7 @@ const stars = Array(counts)
   .map(() => [
     Math.round(Math.random() * 1920),
     Math.round(Math.random() * 1080),
-    1 + Math.round(Math.random() * 4) / 2,
+    0.25 + Math.round(Math.random() * 2) / 2,
   ]);
 ---
 

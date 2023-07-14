@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import { Picture } from "@astrojs/image/components";
 
 import Layout from "layouts/MainLayout.astro";
-import StarsBg from "components/StarsBg.astro";
+// import StarsBg from "components/StarsBg.astro";
 
 import EarthSvg from "assets/earth.astro";
 import RocketAstronaut from "assets/rocket-astronaut.astro";
@@ -41,7 +41,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
   description="Explore web development universe with Alberto Riolly and take your dev skill to the moon."
 >
   <div class="absolute h-fit w-full overflow-clip">
-    <StarsBg />
+    <!-- <StarsBg /> -->
 
     <div id="bg-section-intro" class="relative h-[100lvh] w-full">
       <StarsShine className="min-w-[1536px]" />
