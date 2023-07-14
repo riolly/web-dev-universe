@@ -22,43 +22,42 @@ import "styles/resume.css";
     <a
       href="/"
       rel="prefetch"
-      class="flex w-fit gap-3 rounded-full border bg-blue-200/75 p-2 hover:bg-blue-200/75 dark:border-blue-200/20 dark:bg-blue-200/50 dark:hover:border-blue-200/50 md:bg-blue-200/50 md:dark:bg-blue-200/25 xl:border-blue-200/20 xl:bg-blue-200/25"
+        aria-label="Go to home page"
+        title="Go to home page"
+        class="flex w-fit cursor-pointer gap-3 rounded-full border bg-blue-200/75 p-2 text-white hover:bg-blue-200/75 dark:border-blue-200/20 dark:bg-blue-200/50 dark:hover:border-blue-200/50 md:bg-blue-200/50 md:dark:bg-blue-200/25 xl:border-blue-200/20 xl:bg-blue-200/25"
     >
-      <label class="cursor-pointer text-white">
         <svg
           viewBox="0 0 576 512"
           class="h-6 w-6 fill-current stroke-current stroke-2 transition-colors duration-300"
-          aria-label="Go to home"
         >
           <path
             fill="currentColor"
             d="M303.5 5.7c-9-7.6-22.1-7.6-31.1 0l-264 224c-10.1 8.6-11.3 23.7-2.8 33.8s23.7 11.3 33.8 2.8L64 245.5V432c0 44.2 35.8 80 80 80H432c44.2 0 80-35.8 80-80V245.5l24.5 20.8c10.1 8.6 25.3 7.3 33.8-2.8s7.3-25.3-2.8-33.8l-264-224zM112 432V204.8L288 55.5 464 204.8V432c0 17.7-14.3 32-32 32H384V312c0-22.1-17.9-40-40-40H232c-22.1 0-40 17.9-40 40V464H144c-17.7 0-32-14.3-32-32zm128 32V320h96V464H240z"
           ></path>
         </svg>
-      </label>
     </a>
     <a
       href="/resume_alberto_front-end_full-stack.pdf"
-      class="flex w-fit gap-3 rounded-full border bg-blue-200/75 p-2 hover:bg-blue-200/75 dark:hidden dark:border-blue-200/20 dark:bg-blue-200/50 dark:hover:border-blue-200/50 md:bg-blue-200/50 md:dark:bg-blue-200/25 xl:border-blue-200/20 xl:bg-blue-200/25"
+        aria-label="Download resume as PDF"
+        title="Download resume as PDF"
+        class="flex w-fit cursor-pointer gap-3 rounded-full border bg-blue-200/75 p-2 text-white hover:bg-blue-200/75 dark:hidden dark:border-blue-200/20 dark:bg-blue-200/50 dark:hover:border-blue-200/50 md:bg-blue-200/50 md:dark:bg-blue-200/25 xl:border-blue-200/20 xl:bg-blue-200/25"
     >
-      <label class="cursor-pointer text-white">
         <svg
           class="h-6 w-6 fill-current stroke-current stroke-2 transition-colors duration-300"
           viewBox="0 0 384 512"
-          aria-label="Download resume"
         >
           <path
             fill="currentColor"
             d="M320 480H64c-17.7 0-32-14.3-32-32V64c0-17.7 14.3-32 32-32H192V144c0 26.5 21.5 48 48 48H352V448c0 17.7-14.3 32-32 32zM240 160c-8.8 0-16-7.2-16-16V32.5c2.8 .7 5.4 2.1 7.4 4.2L347.3 152.6c2.1 2.1 3.5 4.6 4.2 7.4H240zM64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V163.9c0-12.7-5.1-24.9-14.1-33.9L254.1 14.1c-9-9-21.2-14.1-33.9-14.1H64zM208 240c0-8.8-7.2-16-16-16s-16 7.2-16 16V361.4l-52.7-52.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6l80 80c6.2 6.2 16.4 6.2 22.6 0l80-80c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L208 361.4V240z"
           ></path>
         </svg>
-      </label>
     </a>
     <a
       href="/resume_alberto_front-end_full-stack_dark.pdf"
-      class="hidden w-fit gap-3 rounded-full border bg-blue-200/75 p-2 hover:bg-blue-200/75 dark:flex dark:border-blue-200/20 dark:bg-blue-200/50 dark:hover:border-blue-200/50 md:bg-blue-200/50 md:dark:bg-blue-200/25 xl:border-blue-200/20 xl:bg-blue-200/25"
+        aria-label="Download resume as PDF (dark)"
+        title="Download resume as PDF (dark)"
+        class="hidden w-fit cursor-pointer gap-3 rounded-full border bg-blue-200/75 p-2 text-white hover:bg-blue-200/75 dark:flex dark:border-blue-200/20 dark:bg-blue-200/50 dark:hover:border-blue-200/50 md:bg-blue-200/50 md:dark:bg-blue-200/25 xl:border-blue-200/20 xl:bg-blue-200/25"
     >
-      <label class="cursor-pointer text-white">
         <svg
           class="h-6 w-6 fill-current stroke-current stroke-2 transition-colors duration-300"
           viewBox="0 0 384 512"
@@ -69,7 +68,6 @@ import "styles/resume.css";
             d="M320 480H64c-17.7 0-32-14.3-32-32V64c0-17.7 14.3-32 32-32H192V144c0 26.5 21.5 48 48 48H352V448c0 17.7-14.3 32-32 32zM240 160c-8.8 0-16-7.2-16-16V32.5c2.8 .7 5.4 2.1 7.4 4.2L347.3 152.6c2.1 2.1 3.5 4.6 4.2 7.4H240zM64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V163.9c0-12.7-5.1-24.9-14.1-33.9L254.1 14.1c-9-9-21.2-14.1-33.9-14.1H64zM208 240c0-8.8-7.2-16-16-16s-16 7.2-16 16V361.4l-52.7-52.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6l80 80c6.2 6.2 16.4 6.2 22.6 0l80-80c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L208 361.4V240z"
           ></path>
         </svg>
-      </label>
     </a>
     <button
       class="flex w-fit gap-3 rounded-full border bg-blue-200/75 p-2 hover:bg-blue-200/75 dark:border-blue-200/20 dark:bg-blue-200/50 dark:hover:border-blue-200/50 md:bg-blue-200/50 md:dark:bg-blue-200/25 xl:border-blue-200/20 xl:bg-blue-200/25"
