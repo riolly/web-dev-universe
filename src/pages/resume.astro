@@ -1,10 +1,12 @@
 ---
+import Layout from "layouts/MainLayout.astro";
+import StarsBg from "components/StarsBg.astro";
 import {
   CopyOrOpenEmail,
   CopyOrOpenPhone,
 } from "components/elements/CopyOrOpenMenu";
 import ArrowUpRightFromSquare from "components/icons/arrow-up-right-from-square.astro";
-import Layout from "layouts/MainLayout.astro";
+
 import img from "public/images/og-resume.jpg";
 import "styles/resume.css";
 ---
@@ -15,6 +17,8 @@ import "styles/resume.css";
   image={img}
   siteTitle="Resume"
 >
+  <div class="absolute h-fit w-full overflow-clip">
+    <StarsBg />
   <div
     id="menu-button"
     class="fixed bottom-4 right-4 flex flex-col items-end gap-2 md:left-4 md:top-4 md:h-10 md:flex-row"
@@ -495,6 +499,7 @@ import "styles/resume.css";
         </div>
       </div>
     </div>
+  </div>
   </div>
 </Layout>
 
