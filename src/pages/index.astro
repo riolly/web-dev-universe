@@ -96,13 +96,11 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
             <div
               class="absolute left-4 top-1 w-24 -rotate-2 group-hover:translate-y-3 md:left-5 md:top-1.5 md:group-hover:translate-y-4"
             >
-              <p class="text-bold font-head text-2xl leading-5">
-                <span
-                  style="--n:22"
-                  class={`typing_dialog text-black before:text-3xl group-hover:opacity-0 before:visible before:text-black before:group-hover:content-["Ready??"] before:group-focus:content-["Let's_GO!_"]`}
-                  >Right here, hop on!!</span
-                >
-              </p>
+              <span
+                style="--n:22"
+                class={`typing_dialog text-bold font-head text-black before:text-3xl group-focus:after:opacity-0 group-hover:after:opacity-0 after:leading-5 after:text-2xl after:content-["Right_here,_hop_on!!"] before:visible before:text-black before:group-hover:content-["Ready??"] before:group-focus:content-["Let's_GO!_"]`}
+              >
+              </span>
             </div>
           </div>
           <RocketAstronaut class="lg:72 2xl:h-84 h-60 w-full md:h-64 xl:h-80" />
@@ -179,10 +177,11 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
 
         <div class="relative space-y-6 px-6">
           {
-            blogPosts.map((article) => (
+            blogPosts.map((article, idx) => (
               <a
                 href={`/blog/${article.slug}`}
                 rel="prefetch"
+                id={`blog-${idx}`}
                 class="group flex scale-100 overflow-visible transition-transform before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:rounded-xl before:border before:border-accent-300 before:bg-gradient-to-r before:from-brand-900 before:to-brand-800 after:absolute after:left-0 after:top-0 after:-z-20 after:h-full after:w-full after:scale-100 after:bg-accent-700 after:blur-sm hover:scale-105 hover:cursor-pointer hover:after:blur-md active:scale-100"
               >
                 <article>
@@ -342,9 +341,6 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
 
 <script>
   const h1 = document.querySelector("h1") as HTMLHeadingElement;
-  // const sectionContact = document.querySelector(
-  //   "section#contact",
-  // ) as HTMLElement;
   const sectionBlog = document.querySelector("section#blog") as HTMLElement;
   const astronautWrap = document.querySelector(
     "button#astronaut-wrap",
@@ -352,9 +348,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
   const astronaut = document.querySelector(
     "div#astronaut",
   ) as HTMLButtonElement;
-  // const githubLink = document.querySelector(
-  //   'a[href="https://github.com/riolly"]'
-  // ) as HTMLLinkElement
+  const firstBlog = document.querySelector("a#blog-0") as HTMLAnchorElement;
 
   astronautWrap.addEventListener("click", () => {
     astronautWrap.classList.replace("init", "ignite");
@@ -368,10 +362,8 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
     }, 1000);
     setTimeout(() => {
       sectionBlog.scrollIntoView();
+      firstBlog.focus();
     }, 1750);
-    // setTimeout(() => {
-    // 	githubLink.focus()
-    // }, 2500)
   });
 
   const observer = new IntersectionObserver(
@@ -425,8 +417,8 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
     -webkit-background-clip: padding-box, text;
     background-clip: padding-box, text;
     background-repeat: no-repeat;
-    animation: blinking 0.5s $delay_pType infinite steps(1) backwards,
-      typing calc(var(--n) * 0.05s) $delay_pType steps(var(--n)) both;
+    // animation: blinking 0.5s $delay_pType infinite steps(1) backwards,
+    //   typing calc(var(--n) * 0.05s) $delay_pType steps(var(--n)) both;
   }
 
   .typing_dialog {
@@ -437,8 +429,8 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
     -webkit-background-clip: padding-box, text;
     background-clip: padding-box, text;
     background-repeat: no-repeat;
-    animation: blinking 0.5s $delay_dialogType infinite steps(1) backwards,
-      typing calc(var(--n) * 0.1s) $delay_dialogType steps(var(--n)) both;
+    // animation: blinking 0.5s $delay_dialogType infinite steps(1) backwards,
+    //   typing calc(var(--n) * 0.1s) $delay_dialogType steps(var(--n)) both;
   }
 
   // astronaut-wrap
