@@ -14,6 +14,7 @@ const blogCollection = defineCollection({
       }),
     }),
     isFeatured: z.boolean(),
+    description: z.string(),
   }),
 });
 
