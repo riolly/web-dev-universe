@@ -7,25 +7,6 @@ import ArrowUpRightFromSquare from "components/icons/arrow-up-right-from-square.
 import Layout from "layouts/MainLayout.astro";
 import img from "public/images/og-resume.jpg";
 import "styles/resume.css";
-
-const env = import.meta.env.VERCEL_ENV;
-let urlHome = "";
-
-switch (env) {
-  case undefined:
-  case "development":
-    urlHome = "http://localhost:3000#contact";
-    break;
-  case "preview":
-    urlHome = `https://${import.meta.env.VERCEL_URL}#contact`;
-    break;
-  case "production":
-    urlHome = `${Astro.site}#contact`;
-    break;
-
-  default:
-    break;
-}
 ---
 
 <Layout
@@ -39,7 +20,7 @@ switch (env) {
     class="fixed bottom-4 right-4 flex flex-col items-end gap-2 md:left-4 md:top-4 md:h-10 md:flex-row"
   >
     <a
-      href={urlHome}
+      href="/"
       rel="prefetch"
       class="flex w-fit gap-3 rounded-full border bg-blue-200/75 p-2 hover:bg-blue-200/75 dark:border-blue-200/20 dark:bg-blue-200/50 dark:hover:border-blue-200/50 md:bg-blue-200/50 md:dark:bg-blue-200/25 xl:border-blue-200/20 xl:bg-blue-200/25"
     >
