@@ -14,31 +14,12 @@ import StarsShine from "assets/stars-shine.astro";
 
 import "styles/index.css";
 
-const env = import.meta.env.VERCEL_ENV;
-let urlResume = "";
-
-switch (env) {
-  case undefined:
-  case "development":
-    urlResume = "http://localhost:3000/resume";
-    break;
-  case "preview":
-    urlResume = `https://${import.meta.env.VERCEL_URL}/resume`;
-    break;
-  case "production":
-    urlResume = `${Astro.site}/resume`;
-    break;
-
-  default:
-    break;
-}
-
 const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
 ---
 
 <Layout
-  title="Welcome to Riolly Universe"
-  description="Explore web development universe with Alberto Riolly and take your dev skill to the moon."
+  title="Explore the Web Development Universe with Riolly"
+  description="Unlock the true potential of web development with Riolly. From infrastructure to database management, from back-end solutions to front-end techniques, the cutting-edge tech stack that designed to elevate the user experience. Stay ahead of the curve and embark on a transformative journey into the ever-evolving world of web development with Riolly."
 >
   <div class="absolute h-fit w-full overflow-clip">
     <StarsBg />
@@ -81,6 +62,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
 
       <button
         id="astronaut-wrap"
+        aria-label="Explore articles"
         class="init group absolute -bottom-8 right-0 z-10 pl-24 pt-16 transition-transform hover:cursor-pointer md:mb-8 md:mr-12 lg:mr-8 xl:mr-16 2xl:mr-20"
       >
         <div id="astronaut" class="init">
@@ -94,14 +76,16 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
               class="rotateInDownRight absolute h-full origin-bottom-right"
             />
             <div
-              class="absolute left-4 top-1 w-24 -rotate-2 group-hover:top-4 md:left-5 md:top-1.5 md:group-hover:top-5"
+              class="absolute left-4 top-1 w-24 -rotate-2 group-hover:translate-y-3 md:left-5 md:top-1.5 md:group-hover:translate-y-4"
             >
-              <p class="text-bold font-head text-2xl leading-5">
+              <p
+                class={`text-bold font-head before:text-3xl text-black before:visible before:group-hover:content-["Ready??"] before:group-focus:content-["Let's_GO!_"]`}
+              >
                 <span
-                  style="--n:22"
-                  class={`typing_dialog text-black before:text-3xl group-hover:invisible before:visible before:text-black before:group-hover:content-["Ready??"] before:group-focus:content-["Let's_GO!_"]`}
-                  >Right here, hop on!!</span
+                  style="--n:28"
+                  class={`typing_dialog group-focus:after:opacity-0 group-hover:after:invisible after:leading-5 after:text-2xl after:content-["Right_here,_hop_on!!"] `}
                 >
+                </span>
               </p>
             </div>
           </div>
@@ -153,7 +137,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
       <p
         class="mt-4 text-lg leading-5 md:mt-6 md:text-xl md:leading-6 2xl:text-2xl"
       >
-        <span style="--n:142" class="typing_p">
+        <span style="--n:130" class="typing_p">
           It will keep expanding like the <span class="font-semibold italic"
             >galaxy.</span
           >
@@ -172,17 +156,21 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
       <div
         class="mx-auto flex max-w-screen-md flex-col items-center px-4 md:px-8 lg:px-0"
       >
-        <img
-          src="/images/blog-stars.svg"
-          class="-z-10 my-8 h-40 w-auto lg:h-auto"
-        />
+        <h2>
+          <img
+            src="/images/blog-stars.svg"
+            class="-z-10 my-8 h-40 w-auto lg:h-auto"
+            alt="blog post"
+          />
+        </h2>
 
         <div class="relative space-y-6 px-6">
           {
-            blogPosts.map((article) => (
+            blogPosts.map((article, idx) => (
               <a
                 href={`/blog/${article.slug}`}
                 rel="prefetch"
+                id={`blog-${idx}`}
                 class="group flex scale-100 overflow-visible transition-transform before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:rounded-xl before:border before:border-accent-300 before:bg-gradient-to-r before:from-brand-900 before:to-brand-800 after:absolute after:left-0 after:top-0 after:-z-20 after:h-full after:w-full after:scale-100 after:bg-accent-700 after:blur-sm hover:scale-105 hover:cursor-pointer hover:after:blur-md active:scale-100"
               >
                 <article>
@@ -197,7 +185,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
                   </p>
                 </article>
 
-                <div class="relative w-36 flex-none overflow-hidden rounded-r-xl bg-accent-300 p-[1px] pl-0 before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-accent-300 before:transition-transform before:duration-300 before:ease-out group-hover:before:-translate-x-[61px] group-hover:before:translate-y-2.5 group-hover:before:border-[18px] md:w-48 ">
+                <div class="relative w-36 flex-none overflow-hidden rounded-r-xl bg-accent-300 p-[1px] pl-0 before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-accent-300 before:transition-all before:duration-300 before:ease-out group-hover:before:-translate-x-16 group-hover:before:opacity-0 md:w-48 ">
                   <Picture
                     alt={article.data.image.alt}
                     src={article.data.image.url.square}
@@ -206,7 +194,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
                     aspectRatio="1:1"
                     class="rounded-r-xl"
                   />
-                  <span class="text-body absolute -bottom-0 -right-24 h-[26px] w-20 rounded-br rounded-tl bg-accent-300 pt-0.5 text-sm font-bold italic text-brand-900 transition-transform duration-300 ease-out group-hover:-translate-x-24">
+                  <span class="text-body absolute -bottom-0 -right-24 h-[26px] rounded-br rounded-tl-xl bg-accent-300 px-3 pt-0.5 text-sm font-bold italic text-brand-900 opacity-0 transition-all duration-300 ease-out group-hover:-translate-x-24 group-hover:opacity-100">
                     read more
                   </span>
                 </div>
@@ -214,11 +202,11 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
             ))
           }
         </div>
-        <a
+        <!-- <a
           rel="prefetch"
-          class="relative mt-8 hidden px-6 font-head text-xl text-white transition-all after:absolute after:left-1/2 after:top-1/2 after:-z-10 after:h-0 after:w-full after:-translate-x-1/2 after:-translate-y-1/2 after:border-8 after:border-transparent after:border-x-accent-300 after:transition-transform after:duration-300 hover:cursor-pointer hover:tracking-widest hover:after:w-1/4 hover:after:-translate-y-[42.5%] hover:after:-rotate-90 active:after:scale-75 active:after:duration-100"
+          class="relative mt-8 px-6 font-head text-xl text-white transition-all after:absolute after:left-1/2 after:top-1/2 after:-z-10 after:h-0 after:w-full after:-translate-x-1/2 after:-translate-y-1/2 after:border-8 after:border-transparent after:border-x-accent-300 after:transition-transform after:duration-300 hover:cursor-pointer hover:tracking-widest hover:after:w-1/4 hover:after:-translate-y-[42.5%] hover:after:-rotate-90 active:after:scale-75 active:after:duration-100"
           >More articles</a
-        >
+        > -->
       </div>
     </section>
 
@@ -249,7 +237,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
           class="rotate-0"
           bgClass="w-24 md:w-32"
           delay="0s"
-          href={urlResume}
+          href="/resume"
           rel="prefetch"
           label="Resume"
         >
@@ -342,9 +330,6 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
 
 <script>
   const h1 = document.querySelector("h1") as HTMLHeadingElement;
-  // const sectionContact = document.querySelector(
-  //   "section#contact",
-  // ) as HTMLElement;
   const sectionBlog = document.querySelector("section#blog") as HTMLElement;
   const astronautWrap = document.querySelector(
     "button#astronaut-wrap",
@@ -352,9 +337,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
   const astronaut = document.querySelector(
     "div#astronaut",
   ) as HTMLButtonElement;
-  // const githubLink = document.querySelector(
-  //   'a[href="https://github.com/riolly"]'
-  // ) as HTMLLinkElement
+  const firstBlog = document.querySelector("a#blog-0") as HTMLAnchorElement;
 
   astronautWrap.addEventListener("click", () => {
     astronautWrap.classList.replace("init", "ignite");
@@ -368,10 +351,8 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
     }, 1000);
     setTimeout(() => {
       sectionBlog.scrollIntoView();
+      firstBlog.focus();
     }, 1750);
-    // setTimeout(() => {
-    // 	githubLink.focus()
-    // }, 2500)
   });
 
   const observer = new IntersectionObserver(
@@ -425,7 +406,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
     -webkit-background-clip: padding-box, text;
     background-clip: padding-box, text;
     background-repeat: no-repeat;
-    animation: blinking 0.5s $delay_pType infinite steps(1) backwards,
+    animation: blinking 0.05s $delay_pType var(--n) steps(1) backwards,
       typing calc(var(--n) * 0.05s) $delay_pType steps(var(--n)) both;
   }
 
@@ -437,7 +418,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
     -webkit-background-clip: padding-box, text;
     background-clip: padding-box, text;
     background-repeat: no-repeat;
-    animation: blinking 0.5s $delay_dialogType infinite steps(1) backwards,
+    animation: blinking 0.1s $delay_dialogType var(--n) steps(1) backwards,
       typing calc(var(--n) * 0.1s) $delay_dialogType steps(var(--n)) both;
   }
 

@@ -4,6 +4,8 @@ import image from "@astrojs/image";
 import prefetch from "@astrojs/prefetch";
 import mdx from "@astrojs/mdx";
 import solidJs from "@astrojs/solid-js";
+import sitemap from "@astrojs/sitemap";
+import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,5 +22,7 @@ export default defineConfig({
     prefetch(),
     mdx(),
     solidJs(),
+    sitemap(),
+    robotsTxt(),
   ],
 });

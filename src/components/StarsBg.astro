@@ -1,5 +1,5 @@
 ---
-const { counts = 120 } = Astro.props;
+const { counts = 400 } = Astro.props;
 
 export interface Props {
   counts?: number;
@@ -10,13 +10,18 @@ const stars = Array(counts)
   .map(() => [
     Math.round(Math.random() * 1920),
     Math.round(Math.random() * 1080),
-    1 + Math.round(Math.random() * 4) / 2,
+    (0.25 + Math.random() * 1.75).toFixed(1),
+    (0.1 + Math.random() * 0.9).toFixed(1),
   ]);
 ---
 
-<svg class="absolute -z-20 opacity-60" width="100%" height="100%">
+<svg class="absolute -z-20 opacity-75" width="100%" height="100%">
   <pattern id="stars" width="1920" height="1080" patternUnits="userSpaceOnUse">
-    {stars.map(([cx, cy, r]) => <circle fill="white" cx={cx} cy={cy} r={r} />)}
+    {
+      stars.map(([cx, cy, r, opacity]) => (
+        <circle fill="white" cx={cx} cy={cy} r={r} opacity={opacity} />
+      ))
+    }
   </pattern>
   <rect fill="url(#stars)" width="100%" height="100%"></rect>
 </svg>
@@ -31,8 +36,8 @@ const stars = Array(counts)
   <pattern
     id="blink"
     viewBox="0 0 100 100"
-    width="125"
-    height="125"
+    width="60"
+    height="60"
     patternUnits="userSpaceOnUse"
   >
     <circle cx="36" cy="45" r="36" fill="url(#radial-big)"></circle>
@@ -44,12 +49,12 @@ const stars = Array(counts)
 
 <style lang="scss">
   .animate-cover-stars {
-    animation: move-diagonal 20s linear infinite alternate;
+    animation: move-diagonal 10s linear infinite alternate;
   }
 
   @keyframes move-diagonal {
     from {
-      transform: translate3d(-20%, -10%, 0);
+      transform: translate3d(-10%, -5%, 0);
     }
     to {
       transform: translate3d(0, 0, 0);

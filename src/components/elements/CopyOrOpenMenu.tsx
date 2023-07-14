@@ -23,7 +23,7 @@ export default function CopyOrOpenMenu({ title, options }: Props) {
   const [open, setOpen] = createSignal(false);
 
   return (
-    <Dropdown.Root open={open()} onOpenChange={setOpen}>
+    <Dropdown.Root open={open()} onOpenChange={setOpen} modal={false}>
       <Dropdown.Trigger class="flex items-center space-x-1 font-body text-sm leading-[1.1rem] text-slate-800 ui-expanded:underline dark:text-slate-300/75 md:text-base md:leading-tight lg:text-lg lg:leading-6">
         <Dropdown.Icon class="transition-transform ui-expanded:rotate-180">
           <IconChevronDown class="w-3 md:w-4" />

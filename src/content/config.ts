@@ -1,11 +1,10 @@
 import { z, defineCollection } from "astro:content";
+import { rssSchema } from "@astrojs/rss";
 
 const blogCollection = defineCollection({
   type: "content",
-  schema: z.object({
-    title: z.string(),
+  schema: rssSchema.extend({
     siteTitle: z.string(),
-    description: z.string(),
     image: z.object({
       alt: z.string(),
       url: z.object({
@@ -14,8 +13,6 @@ const blogCollection = defineCollection({
         banner: z.string(),
       }),
     }),
-    tags: z.array(z.string()),
-    pubDate: z.string(),
     isFeatured: z.boolean(),
   }),
 });
