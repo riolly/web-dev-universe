@@ -25,4 +25,7 @@ export default defineConfig({
     sitemap(),
     robotsTxt(),
   ],
+  experimental: {
+    assets: true,
+  },
 });
