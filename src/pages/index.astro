@@ -14,25 +14,6 @@ import StarsShine from "assets/stars-shine.astro";
 
 import "styles/index.css";
 
-const env = import.meta.env.VERCEL_ENV;
-let urlResume = "";
-
-switch (env) {
-  case undefined:
-  case "development":
-    urlResume = "http://localhost:3000/resume";
-    break;
-  case "preview":
-    urlResume = `https://${import.meta.env.VERCEL_URL}/resume`;
-    break;
-  case "production":
-    urlResume = `${Astro.site}/resume`;
-    break;
-
-  default:
-    break;
-}
-
 const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
 ---
 
@@ -252,7 +233,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
           class="rotate-0"
           bgClass="w-24 md:w-32"
           delay="0s"
-          href={urlResume}
+          href="/resume"
           rel="prefetch"
           label="Resume"
         >
