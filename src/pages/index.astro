@@ -197,7 +197,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
                   </p>
                 </article>
 
-                <div class="relative w-36 flex-none overflow-hidden rounded-r-xl bg-accent-300 p-[1px] pl-0 before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-accent-300 before:transition-transform before:duration-300 before:ease-out group-hover:before:-translate-x-[61px] group-hover:before:translate-y-2.5 group-hover:before:border-[18px] md:w-48 ">
+                <div class="relative w-36 flex-none overflow-hidden rounded-r-xl bg-accent-300 p-[1px] pl-0 before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-accent-300 before:transition-all before:duration-300 before:ease-out group-hover:before:-translate-x-16 group-hover:before:opacity-0 md:w-48 ">
                   <Picture
                     alt={article.data.image.alt}
                     src={article.data.image.url.square}
@@ -206,7 +206,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
                     aspectRatio="1:1"
                     class="rounded-r-xl"
                   />
-                  <span class="text-body absolute -bottom-0 -right-24 h-[26px] w-20 rounded-br rounded-tl bg-accent-300 pt-0.5 text-sm font-bold italic text-brand-900 transition-transform duration-300 ease-out group-hover:-translate-x-24">
+                  <span class="text-body absolute -bottom-0 -right-24 h-[26px] rounded-br rounded-tl-xl bg-accent-300 px-3 pt-0.5 text-sm font-bold italic text-brand-900 opacity-0 transition-all duration-300 ease-out group-hover:-translate-x-24 group-hover:opacity-100">
                     read more
                   </span>
                 </div>
