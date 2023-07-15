@@ -11,8 +11,7 @@
     "astro": "astro",
     "format": "prettier -w **/*.{cjs,mjs,ts,tsx,astro,md,mdx,json,yaml,yml}",
     "lint": "eslint . --ext .astro,.js,.ts,.jsx,.tsx",
-    "inspect": "unlighthouse --config-file unlighthouse.config.ts",
-    "inspect:desktop": "unlighthouse --config-file unlighthouse.config.ts --desktop"
+    "inspect": "unlighthouse --config-file unlighthouse.config.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.7",

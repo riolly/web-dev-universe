@@ -3,7 +3,10 @@
 import { defineConfig } from "unlighthouse";
 
 export default defineConfig({
-  site: "riolly.dev",
+  site: "localhost:3000",
+  scanner: {
+    device: "mobile",
+  },
   debug: true,
-  cache: true,
+  cache: false,
 });
