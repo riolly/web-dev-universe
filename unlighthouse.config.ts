@@ -5,4 +5,5 @@ import { defineConfig } from "unlighthouse";
 export default defineConfig({
   site: "riolly.dev",
   debug: true,
+  cache: true,
 });
