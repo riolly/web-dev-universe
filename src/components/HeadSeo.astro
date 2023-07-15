@@ -15,7 +15,7 @@ const meta = {
     src: new URL(
       frontmatter?.image.og.src ?? image?.src ?? OPEN_GRAPH.image.src,
       process.env.VERCEL_ENV === "preview"
-        ? process.env.VERCEL_URL
+        ? import.meta.env.VERCEL_URL
         : Astro.url.origin,
     ),
     alt: frontmatter?.image.alt ?? image?.alt ?? OPEN_GRAPH.image.alt,
