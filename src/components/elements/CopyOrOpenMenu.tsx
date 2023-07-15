@@ -19,7 +19,7 @@ type Props = {
   }[];
 };
 
-export default function CopyOrOpenMenu({ title, options }: Props) {
+export default function CopyOrOpenMenu(props: Props) {
   const [open, setOpen] = createSignal(false);
 
   return (
@@ -28,14 +28,14 @@ export default function CopyOrOpenMenu({ title, options }: Props) {
         <Dropdown.Icon class="transition-transform ui-expanded:rotate-180">
           <IconChevronDown class="w-3 md:w-4" />
         </Dropdown.Icon>
-        <span>{title}</span>
+        <span>{props.title}</span>
       </Dropdown.Trigger>
 
       <Dropdown.Portal>
         <Dropdown.Content class="-mt-1.5 space-y-1 rounded-md border-2 border-solid border-white bg-slate-200 p-2 pt-1 text-slate-700 shadow-md shadow-gray-500 ui-expanded:animate-in ui-expanded:fade-in-0 ui-expanded:zoom-in-50 ui-expanded:slide-in-from-top-12 ui-closed:animate-out ui-closed:fade-out-0 ui-closed:zoom-out-50 ui-closed:slide-out-to-top-12">
           <Dropdown.Arrow />
 
-          <For each={options} fallback={<div>Loading...</div>}>
+          <For each={props.options} fallback={<div>Loading...</div>}>
             {(option, index) => (
               <>
                 <Dropdown.Item
@@ -45,7 +45,7 @@ export default function CopyOrOpenMenu({ title, options }: Props) {
                 >
                   {option.child}
                 </Dropdown.Item>
-                {index() !== options.length - 1 && (
+                {index() !== props.options.length - 1 && (
                   <Dropdown.Separator class="border-top border-slate-300" />
                 )}
               </>
