@@ -3,16 +3,19 @@ import "styles/global.css";
 import "@fontsource/oswald";
 import "@fontsource/karla";
 
-import { SITE } from "../config";
+import { SITE, SeoProps } from "../config";
 import HeadCommon from "components/HeadCommon.astro";
 import HeadSeo from "components/HeadSeo.astro";
 
 const { siteTitle, ...props } = Astro.props;
+const title =
+  props.frontmatter || siteTitle || props.title
+    ? `${props.frontmatter?.siteTitle ?? siteTitle ?? props.title} | ${
+        SITE.titleSuffix
+      }`
+    : SITE.title;
 
-export interface Props {
-  title: string;
-  description: string;
-  image?: string;
+export interface Props extends SeoProps {
   siteTitle?: string;
 }
 ---
@@ -22,7 +25,7 @@ export interface Props {
   <head>
     <HeadCommon />
     <HeadSeo type="website" {...props} />
-    <title>{siteTitle ? `${siteTitle} | Riolly` : SITE.title}</title>
+    <title>{title}</title>
 
     <script is:inline>
       const html = document.documentElement;
