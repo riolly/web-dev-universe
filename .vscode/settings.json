@@ -1,18 +1,17 @@
 {
   "svg.preview.background": "dark-transparent",
-  "files.associations": {
-    "*.mdx": "markdown"
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   },
 
-  // "editor.codeActionsOnSave": {
-  //   "source.fixAll.eslint": true
-  // },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.rulers": [100],
   "editor.tabSize": 2,
 
   "eslint.validate": [
+    "markdown",
+    "mdx",
     "javascript",
     "javascriptreact",
     "astro",
@@ -21,14 +20,10 @@
   ],
   // "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
   // "typescript.tsdk": "node_modules/typescript/lib",
-  // "mdx.experimentalLanguageServer": true,
+  "mdx.experimentalLanguageServer": true,
   "prettier.documentSelectors": [
     "**/*.{cjs,mjs,ts,tsx,astro,md,mdx,json,yaml,yml}"
   ],
-  // "[astro]": {
-  //   "editor.defaultFormatter": "astro-build.astro-vscode"
-  // }
-  // "prettier.documentSelectors": ["**/*.astro"],
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

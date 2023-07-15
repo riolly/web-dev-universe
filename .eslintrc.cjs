@@ -50,6 +50,13 @@ module.exports = {
       extends: ["plugin:solid/typescript"],
     },
     {
+      files: ["*.md", "*.mdx"],
+      extends: ["plugin:mdx/recommended"],
+      rules: {
+        "@typescript-eslint/no-unused-vars": "off",
+      },
+    },
+    {
       // Define the configuration for `<script>` tag.
       // Script in `<script>` is assigned a virtual file name with the `.js` extension.
       files: ["**/*.astro/*.js", "*.astro/*.js"],
