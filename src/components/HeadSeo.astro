@@ -5,7 +5,6 @@ import type { SeoProps } from "../config";
 export interface Props extends SeoProps {}
 
 const { frontmatter, title, description, type, image } = Astro.props;
-
 const meta = {
   canonicalUrl: new URL(Astro.url.pathname, Astro.site),
   title: frontmatter?.title ?? title ?? SITE.title,
@@ -15,7 +14,9 @@ const meta = {
   image: {
     src: new URL(
       frontmatter?.image.og.src ?? image?.src ?? OPEN_GRAPH.image.src,
-      Astro.url.origin,
+      process.env.VERCEL_ENV === "preview"
+        ? process.env.VERCEL_URL
+        : Astro.url.origin,
     ),
     alt: frontmatter?.image.alt ?? image?.alt ?? OPEN_GRAPH.image.alt,
   },
