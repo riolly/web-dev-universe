@@ -417,8 +417,8 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
     -webkit-background-clip: padding-box, text;
     background-clip: padding-box, text;
     background-repeat: no-repeat;
-    animation: blinking 0.1s $delay_dialogType var(--n) steps(1) backwards,
-      typing calc(var(--n) * 0.1s) $delay_dialogType steps(var(--n)) both;
+    animation: blinking 0.05s $delay_dialogType var(--n) steps(1) backwards,
+      typing calc(var(--n) * 0.05s) $delay_dialogType steps(var(--n)) both;
   }
 
   // astronaut-wrap
