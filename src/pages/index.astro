@@ -137,7 +137,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
       <p
         class="mt-4 text-lg leading-5 md:mt-6 md:text-xl md:leading-6 2xl:text-2xl"
       >
-        <span style="--n:130" class="typing_p">
+        <span style="--n:132" class="typing_p">
           It will keep expanding like the <span class="font-semibold italic"
             >galaxy.</span
           >
@@ -417,8 +417,8 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
     -webkit-background-clip: padding-box, text;
     background-clip: padding-box, text;
     background-repeat: no-repeat;
-    animation: blinking 0.1s $delay_dialogType var(--n) steps(1) backwards,
-      typing calc(var(--n) * 0.1s) $delay_dialogType steps(var(--n)) both;
+    animation: blinking 0.05s $delay_dialogType var(--n) steps(1) backwards,
+      typing calc(var(--n) * 0.05s) $delay_dialogType steps(var(--n)) both;
   }
 
   // astronaut-wrap
