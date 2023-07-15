@@ -9,12 +9,15 @@ import ArrowUpRightFromSquare from "components/icons/arrow-up-right-from-square.
 
 import og from "assets/images/og-resume.jpg";
 import "styles/resume.css";
+import { getImage } from "astro:assets";
+
+const ogResume = await getImage({ src: og, format: "jpg" });
 ---
 
 <Layout
   title="Alberto Riolly Cahyantara's Resume"
   description="Self-learned, always evolving, front-end/ full-stack developer focused to create engaging and intuitive software."
-  image={og.src}
+  image={ogResume.src}
   siteTitle="Resume"
 >
   <div class="absolute h-fit w-full overflow-clip">
