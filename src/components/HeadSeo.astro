@@ -4,9 +4,8 @@ import { SITE, OPEN_GRAPH } from "../config";
 import type { SeoProps } from "../config";
 export interface Props extends SeoProps {}
 
-console.log(import.meta.env);
 const env = import.meta.env.VERCEL_ENV;
-const vercelUrl = import.meta.env.VERCEL_URL;
+const vercelUrl = `https://{import.meta.env.VERCEL_URL}`;
 
 const { frontmatter, title, description, type, image } = Astro.props;
 const meta = {
