@@ -4,3 +4,4 @@ node_modules
 .changeset
 .unlighthouse
 .astro
+pnpm-lock.yaml
