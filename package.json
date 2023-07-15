@@ -11,10 +11,10 @@
     "astro": "astro",
     "format": "prettier -w **/*.{cjs,mjs,ts,tsx,astro,md,mdx,json,yaml,yml}",
     "lint": "eslint . --ext .astro,.js,.ts,.jsx,.tsx",
-    "inspect": "unlighthouse --config-file unlighthouse.config.ts"
+    "inspect": "unlighthouse --config-file unlighthouse.config.ts",
+    "inspect:desktop": "unlighthouse --config-file unlighthouse.config.ts --desktop"
   },
   "dependencies": {
-    "@astrojs/image": "^0.17.1",
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/prefetch": "^0.2.3",
     "@astrojs/rss": "^2.4.3",

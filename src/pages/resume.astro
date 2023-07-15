@@ -1,20 +1,20 @@
 ---
 import Layout from "layouts/MainLayout.astro";
-import StarsBg from "components/StarsBg.astro";
+import StarsBg from "components/ornaments/bg-stars.astro";
 import {
   CopyOrOpenEmail,
   CopyOrOpenPhone,
 } from "components/elements/CopyOrOpenMenu";
 import ArrowUpRightFromSquare from "components/icons/arrow-up-right-from-square.astro";
 
-import img from "public/images/og-resume.jpg";
+import og from "assets/images/og-resume.jpg";
 import "styles/resume.css";
 ---
 
 <Layout
   title="Alberto Riolly Cahyantara's Resume"
   description="Self-learned, always evolving, front-end/ full-stack developer focused to create engaging and intuitive software."
-  image={img}
+  image={og.src}
   siteTitle="Resume"
 >
   <div class="absolute h-fit w-full overflow-clip">
@@ -112,7 +112,7 @@ import "styles/resume.css";
     >
       <section
         id="header"
-        class="space-y-2 border-r-[12px] border-white bg-gray-300 px-2 pb-4 pt-8 dark:border-gray-200 dark:bg-gray-600 md:space-y-4 md:border-r-8"
+        class="space-y-2 border-r-[12px] border-white bg-gray-300 px-2 pb-2 pt-8 dark:border-gray-200 dark:bg-gray-600 md:space-y-4 md:border-r-8 lg:pb-4"
       >
         <h1
           class="space text-center font-head text-5xl dark:text-white md:text-6xl lg:tracking-wide"
@@ -120,19 +120,19 @@ import "styles/resume.css";
           Alberto R Cahyantara
         </h1>
         <h2
-          class="text-center font-body text-xl text-blue-950 dark:text-gray-100 md:text-2xl"
+          class="text-center font-body text-2xl text-blue-950 dark:text-gray-100 md:text-3xl"
         >
-          Front-end / Full-stack Developer
+          Front-end / Full-stack<br class="md:hidden" /> Developer
         </h2>
       </section>
 
       <div
         id="sub-header"
-        class="flex justify-center gap-2 border-r-4 border-white bg-gray-400/75 px-4 pb-3 pt-2 dark:border-gray-200 dark:bg-gray-800 md:gap-4 md:border-r-2 md:pb-4 md:pt-3"
+        class="flex justify-center gap-2 border-r-4 border-white bg-gray-400/75 px-4 py-3 dark:border-gray-200 dark:bg-gray-800 md:gap-4 md:border-r-2 md:pb-4 md:pt-3"
       >
         <section id="contacts" class="w-72">
           <div
-            class="flex flex-col items-end text-sm leading-[1.1rem] text-slate-800 dark:text-slate-300/75 md:text-base md:leading-tight lg:text-lg lg:leading-6"
+            class="flex flex-col items-end gap-3 text-sm leading-[1.1rem] text-slate-800 dark:text-slate-300/75 md:gap-2 md:text-base md:leading-tight lg:text-lg lg:leading-6"
           >
             <span class="font-body not-italic">Jakarta, Indonesia</span>
 
@@ -141,13 +141,13 @@ import "styles/resume.css";
           </div>
         </section>
         <div
-          class="self-center text-xs text-white dark:text-gray-900 md:text-base dark:md:text-2xl"
+          class="self-center text-sm text-white dark:text-gray-900 md:text-base dark:md:text-2xl"
         >
           &#9679;
         </div>
         <section id="socials" class="w-72 font-body">
           <p
-            class="flex flex-col text-sm leading-[1.1rem] text-slate-800 dark:text-slate-300/75 md:flex-col md:text-base md:leading-tight lg:text-lg lg:leading-6"
+            class="flex flex-col gap-3 text-sm leading-[1.1rem] text-slate-800 dark:text-slate-300/75 md:flex-col md:gap-2 md:text-base md:leading-tight lg:text-lg lg:leading-6"
           >
             <a href="https://www.riolly.dev/" class="flex gap-1">
               <span>riolly.dev</span>
@@ -219,7 +219,7 @@ import "styles/resume.css";
                   >Full-stack Developer - Freelance</span
                 >
                 <span
-                  class="whitespace-nowrap italic text-slate-500 dark:text-slate-400 md:mt-1.5"
+                  class="whitespace-nowrap italic text-slate-600 dark:text-slate-400 md:mt-1.5"
                   >July 2022 — now</span
                 >
               </p>
@@ -284,7 +284,7 @@ import "styles/resume.css";
                   >Front-end Developer at Achiko AG</span
                 >
                 <span
-                  class="whitespace-nowrap italic text-slate-500 dark:text-slate-400 md:mt-1.5"
+                  class="whitespace-nowrap italic text-slate-600 dark:text-slate-400 md:mt-1.5"
                   >September 2020 — June 2022</span
                 >
               </p>
@@ -366,7 +366,7 @@ import "styles/resume.css";
                 </p>
               </div>
               <p
-                class="whitespace-nowrap italic text-slate-500 dark:text-slate-400"
+                class="whitespace-nowrap italic text-slate-600 dark:text-slate-400"
               >
                 February — June 2020
               </p>
@@ -383,7 +383,7 @@ import "styles/resume.css";
                 </p>
               </div>
               <p
-                class="whitespace-nowrap italic text-slate-500 dark:text-slate-400"
+                class="whitespace-nowrap italic text-slate-600 dark:text-slate-400"
               >
                 2013 — 2017
               </p>

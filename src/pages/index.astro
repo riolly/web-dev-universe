@@ -1,17 +1,17 @@
 ---
 import { getCollection } from "astro:content";
-import { Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 
 import Layout from "layouts/MainLayout.astro";
-import StarsBg from "components/StarsBg.astro";
+import StarsBg from "components/ornaments/bg-stars.astro";
+import EarthSvg from "components/ornaments/earth.astro";
+import RocketAstronaut from "components/ornaments/rocket-astronaut.astro";
+import PlanetLandscape from "components/ornaments/landscape.astro";
+import DialogBox from "components/ornaments/dialog-box.astro";
+import SocialLink from "components/ornaments/social-link.astro";
+import StarsShine from "components/ornaments/stars-shine.astro";
 
-import EarthSvg from "assets/earth.astro";
-import RocketAstronaut from "assets/rocket-astronaut.astro";
-import PlanetLandscape from "assets/landscape.astro";
-import DialogBox from "assets/dialog-box.astro";
-import SocialLink from "assets/social-link.astro";
-import StarsShine from "assets/stars-shine.astro";
-
+import blogStars from "assets/images/blog-stars.svg";
 import "styles/index.css";
 
 const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
@@ -156,19 +156,21 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
       <div
         class="mx-auto flex max-w-screen-md flex-col items-center px-4 md:px-8 lg:px-0"
       >
-        <h2>
+        <h2 class="-z-10">
           <img
-            src="/images/blog-stars.svg"
-            class="-z-10 my-8 h-40 w-auto lg:h-auto"
+            src={blogStars.src}
             alt="blog post"
+            width={blogStars.width}
+            height={blogStars.height}
+            class="my-8 h-32 w-auto lg:h-auto"
           />
         </h2>
 
         <div class="relative space-y-6 px-6">
           {
-            blogPosts.map((article, idx) => (
+            blogPosts.map(({ slug, data }, idx) => (
               <a
-                href={`/blog/${article.slug}`}
+                href={`/blog/${slug}`}
                 rel="prefetch"
                 id={`blog-${idx}`}
                 class="group flex scale-100 overflow-visible transition-transform before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:rounded-xl before:border before:border-accent-300 before:bg-gradient-to-r before:from-brand-900 before:to-brand-800 after:absolute after:left-0 after:top-0 after:-z-20 after:h-full after:w-full after:scale-100 after:bg-accent-700 after:blur-sm hover:scale-105 hover:cursor-pointer hover:after:blur-md active:scale-100"
@@ -176,22 +178,19 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
                 <article>
                   <div class="relative h-fit w-full overflow-x-clip">
                     <h3 class="line-clamp-3 pl-6 pr-3 pt-2 text-xl leading-[22px] tracking-wide md:line-clamp-2 md:pr-4 md:pt-3 md:text-3xl md:leading-10">
-                      {article.data.title}
+                      {data.title}
                     </h3>
                     <div class="absolute -left-0 top-2 h-full w-0 border-[12px] border-transparent border-l-accent-300 transition-transform" />
                   </div>
                   <p class="mb-2 mt-3 line-clamp-3 px-3 text-xs leading-4 md:mb-4 md:mt-4 md:line-clamp-3 md:px-6 md:text-base md:leading-snug">
-                    {article.data.description}
+                    {data.description}
                   </p>
                 </article>
 
                 <div class="relative w-36 flex-none overflow-hidden rounded-r-xl bg-accent-300 p-[1px] pl-0 before:absolute before:-bottom-2 before:right-0 before:h-8 before:rotate-45 before:border-[10px] before:border-transparent before:border-l-accent-300 before:transition-all before:duration-300 before:ease-out group-hover:before:-translate-x-16 group-hover:before:opacity-0 md:w-48 ">
-                  <Picture
-                    alt={article.data.image.alt}
-                    src={article.data.image.url.square}
-                    widths={[160, 200, 240]}
-                    sizes="(min-width: 768px) 100vw, (min-width: 1024px) 100vw"
-                    aspectRatio="1:1"
+                  <Image
+                    src={data.image.square}
+                    alt={data.image.alt}
                     class="rounded-r-xl"
                   />
                   <span class="text-body absolute -bottom-0 -right-24 h-[26px] rounded-br rounded-tl-xl bg-accent-300 px-3 pt-0.5 text-sm font-bold italic text-brand-900 opacity-0 transition-all duration-300 ease-out group-hover:-translate-x-24 group-hover:opacity-100">

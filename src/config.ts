@@ -6,7 +6,7 @@ export const SITE = {
 
 export const OPEN_GRAPH = {
   image: {
-    src: "images/og-image.png",
+    src: "assets/images/og-image.png",
     alt: "Web Dev Universe | Explore the always evolving web development world with Riolly",
   },
   twitter: "bertoriolly",

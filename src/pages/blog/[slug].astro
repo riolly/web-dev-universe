@@ -1,10 +1,9 @@
 ---
 import { getCollection } from "astro:content";
-import { Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import BlogLayout from "layouts/BlogLayout.astro";
 
 import type { InferGetStaticPropsType } from "astro";
-
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 export async function getStaticPaths() {
@@ -15,22 +14,26 @@ export async function getStaticPaths() {
   }));
 }
 
-const { entry } = Astro.props;
+const {
+  entry,
+  entry: {
+    data,
+    data: { image },
+  },
+} = Astro.props;
 const { Content } = await entry.render();
 ---
 
 <BlogLayout
-  title={entry.data.title}
-  description={entry.data.description}
-  siteTitle={entry.data.siteTitle}
-  image={entry.data.image.url.og}
+  title={data.title}
+  description={data.description}
+  siteTitle={data.siteTitle}
+  image={image.og.src}
 >
-  <Picture
-    src={entry.data.image.url.banner}
-    widths={[640, 960, 1200]}
-    aspectRatio="5:2"
-    sizes="(min-width: 768px) 100vw, (min-width: 1024px) 100vw"
-    alt={entry.data.image.alt}
+  <Image
+    src={image.banner}
+    alt={image.alt}
+    loading="eager"
     class="mb-[45vw] origin-top scale-[2] shadow-bottom shadow-slate-950 sm:mb-8 sm:scale-100"
   />
 
