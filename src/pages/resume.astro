@@ -1,4 +1,6 @@
 ---
+import { getImage } from "astro:assets";
+import ogImage from "assets/images/og-resume.jpg";
 import Layout from "layouts/MainLayout.astro";
 import StarsBg from "components/ornaments/bg-stars.astro";
 import {
@@ -7,18 +9,16 @@ import {
 } from "components/elements/CopyOrOpenMenu";
 import ArrowUpRightFromSquare from "components/icons/arrow-up-right-from-square.astro";
 
-import og from "assets/images/og-resume.jpg";
 import "styles/resume.css";
-import { getImage } from "astro:assets";
 
-const ogResume = await getImage({ src: og, format: "jpg" });
+const ogOptimized = await getImage({ src: ogImage, format: "jpg" });
+const ogObject = { ...ogOptimized, alt: "Hire Alberto Riolly Cahyantara now" };
 ---
 
 <Layout
-  title="Alberto Riolly Cahyantara's Resume"
+  title="Alberto R Cahyantara's Resume"
   description="Self-learned, always evolving, front-end/ full-stack developer focused to create engaging and intuitive software."
-  image={ogResume.src}
-  siteTitle="Resume"
+  image={ogObject}
 >
   <div class="absolute h-fit w-full overflow-clip">
     <StarsBg />

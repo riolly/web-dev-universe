@@ -1,24 +1,15 @@
 ---
-import Layout from "./MainLayout.astro";
+import type { SeoProps } from "config";
+type Fronmatter = Required<Pick<SeoProps, "frontmatter">>;
+export interface Props extends Fronmatter {}
 
+import Layout from "./MainLayout.astro";
 import StarsBg from "components/ornaments/bg-stars.astro";
 
-export type Props = {
-  title: string;
-  siteTitle: string;
-  description: string;
-  image: string;
-};
-
-const { title, image, description, siteTitle } = Astro.props;
+const { frontmatter } = Astro.props;
 ---
 
-<Layout
-  title={title}
-  description={description}
-  image={image}
-  siteTitle={siteTitle}
->
+<Layout frontmatter={frontmatter}>
   <main class="relative overflow-clip">
     <StarsBg />
     <article

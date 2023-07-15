@@ -1,26 +1,29 @@
+import type { CollectionEntry } from "astro:content";
+import type { GetImageResult } from "astro";
+
 export const SITE = {
-  title: "Web Dev Universe | Riolly",
-  description: "Explore the always evolving web development world with Riolly",
+  titleSuffix: "Web Dev Universe with Riolly",
+  title: "Explore the Web Development Universe with Riolly",
+  description:
+    "Unlock the true potential of web development with Riolly. From infrastructure to database management, from back-end solutions to front-end techniques, the cutting-edge tech stack that designed to elevate the user experience. Stay ahead of the curve and embark on a transformative journey into the ever-evolving world of web development with Riolly.",
   defaultLanguage: "en_US",
 };
 
 export const OPEN_GRAPH = {
   image: {
-    src: "assets/images/og-image.png",
-    alt: "Web Dev Universe | Explore the always evolving web development world with Riolly",
+    src: "og-image.png",
+    alt: "Web Dev Universe with Riolly",
   },
   twitter: "bertoriolly",
 };
 
-// This is the type of the frontmatter you put in the docs markdown files.
-export type Frontmatter = {
-  title: string;
-  description: string;
-  layout: string;
-  image?: { src: string; alt: string };
-  ogLocale?: string;
-  lang?: KnownLanguageCode;
-  isMdx?: boolean;
+type FrontmatterBlog = CollectionEntry<"blog">["data"];
+export type SeoProps = {
+  frontmatter?: FrontmatterBlog;
+  title?: string;
+  description?: string;
+  image?: GetImageResult & { alt: string };
+  type?: "website" | "article";
 };
 
 export const KNOWN_LANGUAGES = {
