@@ -1,10 +1,13 @@
-import { For, createSignal, type JSX, Setter, Show } from "solid-js";
+import { createSignal, For, Setter, Show } from "solid-js";
+
 import { DropdownMenu as Dropdown } from "@kobalte/core";
 import clsx from "clsx";
 
 import IconChevronDown from "components/icons/chevron-down";
 import IconCopy from "components/icons/copy";
 import IconCopySolid from "components/icons/copy-solid";
+
+import type { JSX } from "solid-js";
 
 import "./tada.css";
 

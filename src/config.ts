@@ -1,5 +1,5 @@
-import type { CollectionEntry } from "astro:content";
 import type { GetImageResult } from "astro";
+import type { CollectionEntry } from "astro:content";
 
 export const SITE = {
   titleSuffix: "Web Dev Universe with Riolly",

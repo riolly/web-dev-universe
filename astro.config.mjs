@@ -1,9 +1,9 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import prefetch from "@astrojs/prefetch";
 import mdx from "@astrojs/mdx";
-import solidJs from "@astrojs/solid-js";
+import prefetch from "@astrojs/prefetch";
 import sitemap from "@astrojs/sitemap";
+import solidJs from "@astrojs/solid-js";
+import tailwind from "@astrojs/tailwind";
 import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
