@@ -14,7 +14,6 @@
     "inspect": "unlighthouse --config-file unlighthouse.config.ts"
   },
   "dependencies": {
-    "@astrojs/image": "^0.17.1",
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/prefetch": "^0.2.3",
     "@astrojs/rss": "^2.4.3",

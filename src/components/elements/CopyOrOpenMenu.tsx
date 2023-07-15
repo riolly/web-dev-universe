@@ -113,7 +113,7 @@ export function CopyOrOpenPhone() {
             <div class="flex justify-between">
               Chat on WA
               <img
-                src="/images/whatsapp.svg"
+                src="src/assets/images/whatsapp.svg"
                 alt="whatsapp logo"
                 class="-mr-1 w-6"
               />
@@ -143,7 +143,11 @@ export function CopyOrOpenEmail() {
           child: (
             <div class="flex justify-between">
               Send email
-              <img src="/images/gmail.svg" alt="gmail logo" class="w-5" />
+              <img
+                src="src/assets/images/gmail.svg"
+                alt="gmail logo"
+                class="w-5"
+              />
             </div>
           ),
         },
