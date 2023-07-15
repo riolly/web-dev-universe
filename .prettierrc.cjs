@@ -1,4 +1,8 @@
-/** @type {import('prettier').Config} */
+/** @typedef  {import("@ianvs/prettier-plugin-sort-imports").PluginConfig} SortImportsConfig*/
+/** @typedef  {import("prettier").Config} PrettierConfig*/
+/** @typedef  {{ tailwindConfig: string }} TailwindConfig*/
+
+/** @type { PrettierConfig | SortImportsConfig | TailwindConfig } */
 const config = {
   arrowParens: "always",
   printWidth: 80,
@@ -8,9 +12,9 @@ const config = {
   trailingComma: "all",
   tabWidth: 2,
   plugins: [
-    // require.resolve("@ianvs/prettier-plugin-sort-imports"),
-    require.resolve("prettier-plugin-astro"),
-    require.resolve("prettier-plugin-tailwindcss"), // MUST come last
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-astro",
+    "prettier-plugin-tailwindcss", // MUST come last
   ],
   pluginSearchDirs: false,
   overrides: [
@@ -23,6 +27,30 @@ const config = {
   ],
 
   astroAllowShorthand: false,
+  importOrder: [
+    "<BUILT_IN_MODULES>",
+    "",
+    "^(astro$)|^(astro:(.*)$)|^(astro/(.*)$)",
+    "^(@astrojs/(.*)$)|^(astro(.*)$)",
+    "^((.*)-astro-(.*)$)|^((.*)-astro$)",
+    "^(solid-js$)",
+    "",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^layouts/(.*)$",
+    "^components/(.*)$",
+    "^content/(.*)$",
+    "^assets/(.*)$",
+    "^./(.*)$",
+    "^../(.*)$",
+    "",
+    "<TYPES>",
+    "<TYPES>^[.]",
+    "",
+    "^(?!.*[.]css$)[./].*$",
+    "^(.*).css$",
+    "^[.]",
+  ],
 };
 
 module.exports = config;
