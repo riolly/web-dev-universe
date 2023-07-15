@@ -1,9 +1,11 @@
 ---
-import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
 import BlogLayout from "layouts/BlogLayout.astro";
 
 import type { InferGetStaticPropsType } from "astro";
+
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 export async function getStaticPaths() {

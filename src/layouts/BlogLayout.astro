@@ -1,10 +1,11 @@
 ---
+import Layout from "layouts/MainLayout.astro";
+import StarsBg from "components/ornaments/bg-stars.astro";
+
 import type { SeoProps } from "config";
+
 type Fronmatter = Required<Pick<SeoProps, "frontmatter">>;
 export interface Props extends Fronmatter {}
-
-import Layout from "./MainLayout.astro";
-import StarsBg from "components/ornaments/bg-stars.astro";
 
 const { frontmatter } = Astro.props;
 ---

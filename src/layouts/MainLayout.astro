@@ -3,9 +3,9 @@ import "styles/global.css";
 import "@fontsource/oswald";
 import "@fontsource/karla";
 
-import { SITE, SeoProps } from "../config";
 import HeadCommon from "components/HeadCommon.astro";
 import HeadSeo from "components/HeadSeo.astro";
+import { SeoProps, SITE } from "../config";
 
 const { siteTitle, ...props } = Astro.props;
 const title =

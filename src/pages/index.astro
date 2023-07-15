@@ -1,17 +1,17 @@
 ---
-import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 
 import Layout from "layouts/MainLayout.astro";
 import StarsBg from "components/ornaments/bg-stars.astro";
-import EarthSvg from "components/ornaments/earth.astro";
-import RocketAstronaut from "components/ornaments/rocket-astronaut.astro";
-import PlanetLandscape from "components/ornaments/landscape.astro";
 import DialogBox from "components/ornaments/dialog-box.astro";
+import EarthSvg from "components/ornaments/earth.astro";
+import PlanetLandscape from "components/ornaments/landscape.astro";
+import RocketAstronaut from "components/ornaments/rocket-astronaut.astro";
 import SocialLink from "components/ornaments/social-link.astro";
 import StarsShine from "components/ornaments/stars-shine.astro";
-
 import blogStars from "assets/images/blog-stars.svg";
+
 import "styles/index.css";
 
 const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);

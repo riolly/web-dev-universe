@@ -1,4 +1,17 @@
 {
-  "recommendations": ["astro-build.astro-vscode"],
+  "recommendations": [
+    // essential
+    "astro-build.astro-vscode",
+    "unifiedjs.vscode-mdx",
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+
+    // nice to have
+    "jock.svg",
+    "yoavbls.pretty-ts-errors",
+    "eamodio.gitlens",
+    "solidjs-community.solid-snippets"
+  ],
   "unwantedRecommendations": []
 }
