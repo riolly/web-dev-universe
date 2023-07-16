@@ -57,15 +57,11 @@ export interface Props {
       const src = img.getAttribute("src")!;
       const newImage = new Image();
       newImage.src = src;
-      console.log(src, newImage.complete, "<<<<<< init");
 
+      // not working on local dev server
       if (newImage.complete) {
-        console.log("<<<<<< complete");
-
         img.setAttribute("data-load", "cache");
       } else {
-        console.log("<<<<<< no complete");
-
         img.addEventListener("load", () => {
           img.setAttribute("data-load", "finish");
         });
