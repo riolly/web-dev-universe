@@ -21,45 +21,57 @@ export interface Props {
 }
 ---
 
-<div class={twMerge("relative block overflow-hidden", className)}>
-  <div
-    style={css}
-    class={twMerge(
-    // TODO: breathing animation
-      "absolute inset-0 h-full w-full scale-150 transform blur-xl",
-      classPlaceholder,
-    )}
-  >
+<image-placeholder data-alt={image.alt}>
+  <div class={twMerge("relative block overflow-hidden", className)}>
+    <div
+      style={css}
+      class={twMerge(
+      // TODO: breathing animation
+        "absolute inset-0 h-full w-full scale-150 transform blur-xl",
+        classPlaceholder,
+      )}
+    >
+    </div>
+    <Image
+      id="image"
+      src={image}
+      alt={image.alt}
+      loading="eager"
+      class={twMerge(
+        "relative opacity-0 data-[load=cache]:opacity-100 data-[load=finish]:opacity-100 data-[load=finish]:animate-in data-[load=finish]:fade-in-0 data-[load=finish]:zoom-in-110 data-[load=finish]:duration-300",
+        classImage,
+      )}
+    />
   </div>
-  <Image
-    id="image"
-    src={image}
-    alt={image.alt}
-    loading="eager"
-    class={twMerge(
-      "relative opacity-0 data-[load=cache]:opacity-100 data-[load=finish]:opacity-100 data-[load=finish]:animate-in data-[load=finish]:fade-in-0 data-[load=finish]:zoom-in-110 data-[load=finish]:duration-300",
-      classImage,
-    )}
-  />
-</div>
+</image-placeholder>
 
 <script>
-  // TODO: don't show placeholder on cache load
-  // FIX: sometime it's doesn't work
-  const image = document.querySelector("img#image") as HTMLImageElement;
-  const src = image.getAttribute("src")!;
-  const newImage = new Image();
-  newImage.src = src;
+  class ImagePlaceholder extends HTMLElement {
+    constructor() {
+      super();
 
-  console.log(src, newImage.complete, "<<<<<< init");
+      const img = this.querySelector(
+        `img[alt="${this.dataset.alt}"]`,
+      ) as HTMLImageElement;
 
-  if (newImage.complete) {
-    console.log("<<<<<< complete");
-    image.setAttribute("data-load", "cache");
-  } else {
-    console.log("<<<<<< no complete");
-    image.addEventListener("load", () => {
-      image.setAttribute("data-load", "finish");
-    });
+      const src = img.getAttribute("src")!;
+      const newImage = new Image();
+      newImage.src = src;
+      console.log(src, newImage.complete, "<<<<<< init");
+
+      if (newImage.complete) {
+        console.log("<<<<<< complete");
+
+        img.setAttribute("data-load", "cache");
+      } else {
+        console.log("<<<<<< no complete");
+
+        img.addEventListener("load", () => {
+          img.setAttribute("data-load", "finish");
+        });
+      }
+    }
   }
+
+  customElements.define("image-placeholder", ImagePlaceholder);
 </script>
