@@ -27,8 +27,10 @@
     "astro": "^2.7.0",
     "astro-robots-txt": "^0.5.0",
     "clsx": "^1.2.1",
+    "plaiceholder": "^3.0.0",
     "sharp": "^0.32.1",
     "solid-js": "^1.7.6",
+    "tailwind-merge": "^1.14.0",
     "tailwind-scrollbar": "^3.0.4",
     "tailwindcss": "^3.3.2"
   },

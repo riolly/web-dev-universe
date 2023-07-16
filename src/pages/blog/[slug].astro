@@ -1,8 +1,8 @@
 ---
-import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
 import BlogLayout from "layouts/BlogLayout.astro";
+import ImageWithPlaceholder from "components/ImageWithPlaceholder.astro";
 
 import type { InferGetStaticPropsType } from "astro";
 
@@ -15,7 +15,6 @@ export async function getStaticPaths() {
     props: { entry },
   }));
 }
-
 const {
   entry: { data, render },
 } = Astro.props;
@@ -23,11 +22,10 @@ const { Content } = await render();
 ---
 
 <BlogLayout frontmatter={data}>
-  <Image
-    src={data.image.banner}
-    alt={data.image.alt}
-    loading="eager"
-    class="mb-[45vw] origin-top scale-[2] shadow-bottom shadow-slate-950 sm:mb-8 sm:scale-100"
+  <ImageWithPlaceholder
+    class="mb-[45vw] aspect-[5/2] origin-top scale-[2] shadow-bottom shadow-slate-950 sm:mb-8 sm:scale-100"
+    classPlaceholder="h-3/4 w-3/4 md:h-full md:w-full blur-md md:blur-xl"
+    image={{ ...data.image.banner, alt: data.image.alt }}
   />
 
   <h1 class="px-4 text-center md:px-8 lg:px-16">{data.title}</h1>

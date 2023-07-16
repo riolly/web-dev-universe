@@ -1,4 +1,4 @@
-import type { GetImageResult } from "astro";
+import type { GetImageResult, ImageMetadata } from "astro";
 import type { CollectionEntry } from "astro:content";
 
 export const SITE = {
@@ -18,6 +18,7 @@ export const OPEN_GRAPH = {
 };
 
 type FrontmatterBlog = CollectionEntry<"blog">["data"];
+export type ImageProps = ImageMetadata & { alt: string };
 export type SeoProps = {
   frontmatter?: FrontmatterBlog;
   title?: string;

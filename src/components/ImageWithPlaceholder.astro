@@ -1,0 +1,92 @@
+---
+import { Image } from "astro:assets";
+
+import { getPlaiceholder } from "plaiceholder";
+import { twMerge } from "tailwind-merge";
+
+import type { ImageProps } from "../config";
+
+const { image, class: className, classImage, classPlaceholder } = Astro.props;
+const imgSrc = new URL(image.src, Astro.url.origin);
+const buffer = await fetch(imgSrc).then(async (res) =>
+  Buffer.from(await res.arrayBuffer()),
+);
+const { css } = await getPlaiceholder(buffer, { size: 10 });
+
+export interface Props {
+  image: ImageProps;
+  class?: string;
+  classPlaceholder?: string;
+  classImage?: string;
+}
+---
+
+<image-placeholder data-alt={image.alt}>
+  <div class={twMerge("relative block overflow-hidden", className)}>
+    <div
+      style={css}
+      class={twMerge(
+        "absolute animate-breathe inset-0 h-full w-full scale-150 transform blur-xl",
+        classPlaceholder,
+      )}
+    >
+    </div>
+    <Image
+      id="image"
+      src={image}
+      alt={image.alt}
+      loading="eager"
+      class={twMerge(
+        "relative opacity-0 data-[load=cache]:opacity-100 data-[load=finish]:opacity-100 data-[load=finish]:animate-in data-[load=finish]:fade-in-0 data-[load=finish]:zoom-in-110 data-[load=finish]:duration-300",
+        classImage,
+      )}
+    />
+  </div>
+</image-placeholder>
+
+<script>
+  class ImagePlaceholder extends HTMLElement {
+    constructor() {
+      super();
+
+      const img = this.querySelector(
+        `img[alt="${this.dataset.alt}"]`,
+      ) as HTMLImageElement;
+
+      const src = img.getAttribute("src")!;
+      const newImage = new Image();
+      newImage.src = src;
+
+      // not working on local dev server
+      if (newImage.complete) {
+        img.setAttribute("data-load", "cache");
+      } else {
+        img.addEventListener("load", () => {
+          img.setAttribute("data-load", "finish");
+        });
+      }
+    }
+  }
+
+  customElements.define("image-placeholder", ImagePlaceholder);
+</script>
+
+<style>
+  .animate-breathe {
+    animation: breathe 2s infinite;
+  }
+  @keyframes breathe {
+    0% {
+      transform: scale(1.5);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.6);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0.8;
+    }
+  }
+</style>
