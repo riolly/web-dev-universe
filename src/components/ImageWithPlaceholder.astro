@@ -26,8 +26,7 @@ export interface Props {
     <div
       style={css}
       class={twMerge(
-      // TODO: breathing animation
-        "absolute inset-0 h-full w-full scale-150 transform blur-xl",
+        "absolute animate-breathe inset-0 h-full w-full scale-150 transform blur-xl",
         classPlaceholder,
       )}
     >
@@ -71,3 +70,23 @@ export interface Props {
 
   customElements.define("image-placeholder", ImagePlaceholder);
 </script>
+
+<style>
+  .animate-breathe {
+    animation: breathe 2s infinite;
+  }
+  @keyframes breathe {
+    0% {
+      transform: scale(1.5);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.6);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0.8;
+    }
+  }
+</style>
