@@ -24,6 +24,7 @@ const { Content } = await render();
 <BlogLayout frontmatter={data}>
   <ImageWithPlaceholder
     class="mb-[45vw] aspect-[5/2] origin-top scale-[2] shadow-bottom shadow-slate-950 sm:mb-8 sm:scale-100"
+    classPlaceholder="h-3/4 w-3/4 md:h-full md:w-full blur-md md:blur-xl"
     image={{ ...data.image.banner, alt: data.image.alt }}
   />
 
