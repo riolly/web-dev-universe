@@ -6,7 +6,7 @@ import { twMerge } from "tailwind-merge";
 
 import type { ImageProps } from "../config";
 
-const { image, class: className } = Astro.props;
+const { image, class: className, classImage, classPlaceholder } = Astro.props;
 const imgSrc = new URL(image.src, Astro.url.origin);
 const buffer = await fetch(imgSrc).then(async (res) =>
   Buffer.from(await res.arrayBuffer()),
@@ -16,19 +16,27 @@ const { css } = await getPlaiceholder(buffer, { size: 10 });
 export interface Props {
   image: ImageProps;
   class?: string;
+  classPlaceholder?: string;
+  classImage?: string;
 }
 ---
 
 <div class={twMerge("relative block overflow-hidden", className)}>
   <div
     style={css}
-    class="absolute inset-0 h-full w-full scale-150 transform blur-xl"
+    class={twMerge(
+      "absolute inset-0 h-full w-full scale-150 transform blur-xl",
+      classPlaceholder,
+    )}
   >
   </div>
   <Image
     src={image}
     alt={image.alt}
     loading="eager"
-    class="relative animate-in fade-in-0 zoom-in-110 duration-700"
+    class={twMerge(
+      "relative animate-in fade-in-0 zoom-in-110 duration-700",
+      classImage,
+    )}
   />
 </div>
