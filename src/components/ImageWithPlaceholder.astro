@@ -25,18 +25,29 @@ export interface Props {
   <div
     style={css}
     class={twMerge(
+    // TODO: breathing animation
       "absolute inset-0 h-full w-full scale-150 transform blur-xl",
       classPlaceholder,
     )}
   >
   </div>
   <Image
+    id="image"
     src={image}
     alt={image.alt}
     loading="eager"
     class={twMerge(
-      "relative animate-in fade-in-0 zoom-in-110 duration-700",
+      "relative opacity-0 data-[loaded=true]:opacity-100 data-[loaded=true]:animate-in data-[loaded=true]:fade-in-0 data-[loaded=true]:zoom-in-110 data-[loaded=true]:duration-300",
       classImage,
     )}
   />
 </div>
+
+<script>
+  // TODO: don't show placeholder on cache load
+  // FIX: sometime it's doesn't work
+  const image = document.querySelector("img#image") as HTMLImageElement;
+  image.addEventListener("load", () => {
+    image.setAttribute("data-loaded", "true");
+  });
+</script>
