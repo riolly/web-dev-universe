@@ -37,7 +37,8 @@ export interface Props {
       alt={image.alt}
       loading="eager"
       class={twMerge(
-        "relative opacity-0 data-[load=cache]:opacity-100 data-[load=finish]:opacity-100 data-[load=finish]:animate-in data-[load=finish]:fade-in-0 data-[load=finish]:zoom-in-110 data-[load=finish]:duration-300",
+      // TODO: mobile still show placeholder on cache, can we invert the default?
+        "relative data-[load=no-cache]:opacity-0 opacity-100 data-[load=finish]:opacity-100 data-[load=finish]:animate-in data-[load=finish]:fade-in-0 data-[load=finish]:zoom-in-110 data-[load=finish]:duration-300",
         classImage,
       )}
     />
