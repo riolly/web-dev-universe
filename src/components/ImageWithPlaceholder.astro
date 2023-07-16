@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+
+import clsx from "clsx";
+import { getPlaiceholder } from "plaiceholder";
+
+import type { ImageProps } from "../config";
+
+const { image, class: className } = Astro.props;
+const imgSrc = new URL(image.src, Astro.url.origin);
+const buffer = await fetch(imgSrc).then(async (res) =>
+  Buffer.from(await res.arrayBuffer()),
+);
+const { css } = await getPlaiceholder(buffer, { size: 10 });
+
+export interface Props {
+  image: ImageProps;
+  class?: string;
+}
+---
+
+<div class={clsx(className, "relative block  overflow-hidden")}>
+  <div
+    style={css}
+    class="absolute inset-0 h-full w-full scale-150 transform blur-xl"
+  >
+  </div>
+  <Image
+    src={image}
+    alt={image.alt}
+    loading="eager"
+    class="relative animate-in fade-in-0 zoom-in-110 duration-700"
+  />
+</div>

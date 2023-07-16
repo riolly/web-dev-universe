@@ -1,10 +1,8 @@
 ---
-import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
-import { getPlaiceholder } from "plaiceholder";
-
 import BlogLayout from "layouts/BlogLayout.astro";
+import ImageWithPlaceholder from "components/ImageWithPlaceholder.astro";
 
 import type { InferGetStaticPropsType } from "astro";
 
@@ -21,30 +19,13 @@ const {
   entry: { data, render },
 } = Astro.props;
 const { Content } = await render();
-
-const imgSrc = new URL(data.image.banner.src, Astro.url.origin);
-const buffer = await fetch(imgSrc).then(async (res) =>
-  Buffer.from(await res.arrayBuffer()),
-);
-const { css } = await getPlaiceholder(buffer, { size: 10 });
 ---
 
 <BlogLayout frontmatter={data}>
-  <div
-    class="relative mb-[45vw] block aspect-[5/2] origin-top scale-[2] overflow-hidden shadow-bottom shadow-slate-950 sm:mb-8 sm:scale-100"
-  >
-    <div
-      style={css}
-      class="absolute inset-0 h-full w-full scale-150 transform blur-xl"
-    >
-    </div>
-    <Image
-      src={data.image.banner}
-      alt={data.image.alt}
-      loading="eager"
-      class="relative animate-in fade-in-0 zoom-in-110 duration-700"
-    />
-  </div>
+  <ImageWithPlaceholder
+    class="mb-[45vw] aspect-[5/2] origin-top scale-[2] shadow-bottom shadow-slate-950 sm:mb-8 sm:scale-100"
+    image={{ ...data.image.banner, alt: data.image.alt }}
+  />
 
   <h1 class="px-4 text-center md:px-8 lg:px-16">{data.title}</h1>
   <div class="mx-auto max-w-screen-md px-6 md:px-16 lg:px-0">
