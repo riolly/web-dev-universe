@@ -25,7 +25,7 @@ export interface Props extends SeoProps {
 ---
 
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" class="scroll-smooth">
   <head>
     <HeadCommon />
     <HeadSeo type="website" {...props} />
@@ -54,9 +54,9 @@ export interface Props extends SeoProps {
       }
     </script>
   </head>
-  <body class="relative h-fit w-fit overflow-x-clip">
+  <body class="relative h-fit w-fit bg-slate-900 scrollbar-thin">
     <div
-      class="absolute -z-40 h-full min-h-screen w-full min-w-[100vw] overflow-clip"
+      class="absolute -z-40 h-full min-h-screen w-full min-w-[100lvw] overflow-clip"
     >
       <StarsBg />
     </div>
