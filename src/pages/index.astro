@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
 import Layout from "layouts/MainLayout.astro";
-import StarsBg from "components/ornaments/bg-stars.astro";
 import DialogBox from "components/ornaments/dialog-box.astro";
 import EarthSvg from "components/ornaments/earth.astro";
 import PlanetLandscape from "components/ornaments/landscape.astro";
@@ -19,8 +18,6 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
 
 <Layout>
   <div class="absolute h-fit w-full overflow-clip">
-    <StarsBg />
-
     <div id="bg-section-intro" class="relative h-[100lvh] w-full">
       <StarsShine className="min-w-[1536px]" />
 
@@ -110,7 +107,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
     </div>
   </div>
 
-  <main class="relative w-full overflow-x-clip">
+  <div class="relative w-screen">
     <section
       id="intro"
       class="mx-auto flex h-screen max-w-screen-md flex-col justify-center p-4 pr-2 md:px-8 md:pr-0 lg:px-0"
@@ -321,7 +318,7 @@ const blogPosts = await getCollection("blog", ({ data }) => data.isFeatured);
         </SocialLink>
       </div>
     </section>
-  </main>
+  </div>
 </Layout>
 
 <script>

@@ -3,11 +3,14 @@ import "styles/global.css";
 import "@fontsource/oswald";
 import "@fontsource/karla";
 
+import { twMerge } from "tailwind-merge";
+
 import HeadCommon from "components/HeadCommon.astro";
 import HeadSeo from "components/HeadSeo.astro";
+import StarsBg from "components/ornaments/bg-stars.astro";
 import { SeoProps, SITE } from "../config";
 
-const { siteTitle, ...props } = Astro.props;
+const { siteTitle, class: className, ...props } = Astro.props;
 const title =
   props.frontmatter || siteTitle || props.title
     ? `${props.frontmatter?.siteTitle ?? siteTitle ?? props.title} | ${
@@ -17,6 +20,7 @@ const title =
 
 export interface Props extends SeoProps {
   siteTitle?: string;
+  class?: string;
 }
 ---
 
@@ -50,7 +54,15 @@ export interface Props extends SeoProps {
       }
     </script>
   </head>
-  <body>
-    <slot />
+  <body class="relative h-fit w-fit overflow-x-clip">
+    <div
+      class="absolute -z-40 h-full min-h-screen w-full min-w-[100vw] overflow-clip"
+    >
+      <StarsBg />
+    </div>
+
+    <main class={twMerge("w-screen", className)}>
+      <slot />
+    </main>
   </body>
 </html>
