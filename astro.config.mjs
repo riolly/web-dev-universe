@@ -6,8 +6,6 @@ import solidJs from "@astrojs/solid-js";
 import tailwind from "@astrojs/tailwind";
 import robotsTxt from "astro-robots-txt";
 
-import swup from "@swup/astro";
-
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.riolly.dev",
@@ -22,7 +20,6 @@ export default defineConfig({
     solidJs(),
     sitemap(),
     robotsTxt(),
-    swup({ theme: "fade", smoothScrolling: true }),
   ],
   experimental: {
     assets: true,
