@@ -6,6 +6,8 @@ import clsx from "clsx";
 import IconChevronDown from "components/icons/chevron-down";
 import IconCopy from "components/icons/copy";
 import IconCopySolid from "components/icons/copy-solid";
+import IconGmail from "assets/images/gmail.svg";
+import IconWhatsapp from "assets/images/whatsapp.svg";
 
 import type { JSX } from "solid-js";
 
@@ -116,7 +118,7 @@ export function CopyOrOpenPhone() {
             <div class="flex justify-between">
               Chat on WA
               <img
-                src="src/assets/images/whatsapp.svg"
+                src={IconWhatsapp.src}
                 alt="whatsapp logo"
                 class="-mr-1 w-6"
               />
@@ -146,11 +148,7 @@ export function CopyOrOpenEmail() {
           child: (
             <div class="flex justify-between">
               Send email
-              <img
-                src="src/assets/images/gmail.svg"
-                alt="gmail logo"
-                class="w-5"
-              />
+              <img src={IconGmail.src} alt="gmail logo" class="w-5" />
             </div>
           ),
         },
