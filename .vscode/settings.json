@@ -1,7 +1,7 @@
 {
   "svg.preview.background": "dark-transparent",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
 
   "editor.defaultFormatter": "esbenp.prettier-vscode",
